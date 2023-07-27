@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatabaseTestController;
 
+// Authentication
+use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +19,12 @@ use App\Http\Controllers\DatabaseTestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('guest.landing');
+})->name('landing');
+
+
+Route::get('/login', [LoginController::class, 'index'])->name('login'); 
+Route::get('/register', [RegisterController::class, 'index'])->name('register'); 
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
 
