@@ -17,19 +17,21 @@ class LoginController extends Controller
     {
         //
         try {
-            //code...
-            $authCheck = Auth::Check();
-            if ($authCheck) {
-                // User is authenticated, redirect to the home route
-                return redirect()->route('clientHome');
+            // Save the intended URL in the session if the user is not authenticated
+            if (!Auth::check()) {
+                session(['intended_url' => request()->url()]);
+                // User is not authenticated, display the login view
+                return view('auth.login');
             }
-            // User is not authenticated, display the login view
-            return view('auth.login');
+
+            // User is authenticated, redirect to the intended URL or a default route
+            return redirect()->intended(route('clientHome'));
 
         } catch (\Throwable $th) {
-            //throw $th;
+            // An exception occurred, handle it
             dd("No Internet Connection.");
         }
+
     }
 
     /**
