@@ -1,44 +1,36 @@
 @extends('layouts.master')
+
 @section('content')
-<!--begin::Main-->
-<div class="d-flex flex-column flex-root">
-    <!--begin::Authentication - Sign-up -->
-    <div class="d-flex flex-column flex-lg-row flex-column-fluid">
-        <div style="height: 100vh; overflow-y: auto; overflow-x: hidden;">
+    <!--begin::Main-->
+    <div class="d-flex flex-column flex-root" style="height: 100vh;">
+        <!--begin::Authentication - Sign-in -->
+        <div class="d-flex flex-column flex-lg-row flex-column-fluid" style="height: 100%;">
             <!--begin::Aside - Mobile First (order 2 in mobile, order 1 in larger screens)-->
             <div class="d-lg-none d-flex flex-column flex-lg-row-auto w-xl-1000px positon-xl-relative order-lg-2"
-                style="background-image: url('{{ asset('assets/media/illustrations/taguig-bc.png') }}'); background-size: 100% 100%;">
+                style="background-image: url('{{ asset('assets/media/taguigbranding/tbdblt.jpg') }}'); background-size: 0% 0%;">
                 <!--begin::Wrapper-->
-                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-1000px scroll-y">
-                    <!--begin::Content-->
-                    <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-                        <!-- Your content goes here -->
-                    </div>
-                    <!--end::Content-->
-                </div>
                 <!--end::Wrapper-->
             </div>
             <!--end::Aside-->
-
             <!--begin::Body - Mobile First (order 1 in mobile, order 2 in larger screens)-->
-            <div class="d-flex flex-column flex-lg-row-fluid py-10 order-lg-1">
+            <div class="d-flex flex-column flex-lg-row-auto py-10" style="overflow-y: auto; overflow-x: hidden;">
                 <!--begin::Content-->
-                <div class="d-flex flex-center flex-column flex-column-fluid">
+                <div class="d-flex flex-column flex-center flex-column-fluid mx-auto">
                     <!--begin::Wrapper-->
-                    <div class="w-lg-550px p-10 p-lg-15 mx-auto">
+                    <div class="w-lg-550px p-10 p-lg-15" style="max-width: 100%;">
                         <!--begin::Form-->
                         <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
                             <!--begin::Heading-->
                             <div class="mb-10 text-center">
                                 <!--begin::Logo-->
-                                <img alt="Logo" src="{{asset('assets/media/logos/OSCA.png')}}" class="h-150px" />
+                                <img alt="Logo" src="{{ asset('assets/media/logos/OSCA.png') }}" class="h-150px" />
                                 <!--end::Logo-->
                                 <!--begin::Title-->
                                 <h1 class="text-dark mb-3">Create an Account</h1>
                                 <!--end::Title-->
                                 <!--begin::Link-->
                                 <div class="text-gray-400 fw-bold fs-4">Already have an account?
-                                    <a href="{{route('login')}}" class="link-primary fw-bolder">Sign in here</a>
+                                    <a href="{{ route('login') }}" class="link-primary fw-bolder">Sign in here</a>
                                 </div>
                                 <!--end::Link-->
                             </div>
@@ -71,8 +63,8 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6">Email</label>
-                                <input class="form-control form-control-lg form-control-solid" type="email"
-                                    placeholder="" name="email" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="email" placeholder=""
+                                    name="email" autocomplete="off" />
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
@@ -95,14 +87,10 @@
                                     </div>
                                     <!--end::Input wrapper-->
                                     <!--begin::Meter-->
-                                    <div class="d-flex align-items-center mb-3"
-                                        data-kt-password-meter-control="highlight">
-                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                        </div>
-                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                        </div>
-                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                        </div>
+                                    <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
                                         <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
                                     </div>
                                     <!--end::Meter-->
@@ -126,8 +114,10 @@
                                 <label class="form-check form-check-custom form-check-solid form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="toc" value="1" />
                                     <span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-                                        <a href="#" class="text-muted text-hover-primary px-2" data-bs-toggle="modal"
-                                            data-bs-target="#termsModal">Terms and Conditions</a>
+                                        <a href="#" class="ms-1 link-primary" data-bs-toggle="modal"
+                                            data-bs-target="#termsModal">Terms and conditions</a>
+                                        .</span>
+
                                 </label>
                             </div>
                             <!--end::Input group-->
@@ -142,71 +132,72 @@
                             <!--end::Actions-->
                         </form>
                         <!--end::Form-->
-                        <!-- Modal -->
-                        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!-- Add your terms and conditions content here -->
-                                        <!-- For example: -->
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod dolor
-                                            eget justo
-                                            consectetur, a bibendum turpis commodo. Maecenas euismod, odio ac laoreet
-                                            euismod, sem
-                                            velit blandit lectus, nec congue mi nisl a felis.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
+                        <!--begin::Footer-->
+                        <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
+                            <!--begin::Links-->
+                            <div class="d-flex flex-center fw-bold fs-6">
+                                <a href="{{ route('landing') }}" class="text-muted text-hover-primary px-2"
+                                    target="_blank">Go Back Home</a>
                             </div>
+                            <!--end::Links-->
                         </div>
-                        <!-- End Modal -->
+                        <!--end::Footer-->
                     </div>
                     <!--end::Wrapper-->
                 </div>
                 <!--end::Content-->
-                <!--begin::Footer-->
-                <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
-                    <!--begin::Links-->
-                    <div class="d-flex flex-center fw-bold fs-6">
-                        <a href="{{ route('landing') }}" class="text-muted text-hover-primary px-2" target="_blank">Go
-                            Back Home</a>
-                    </div>
-                    <!--end::Links-->
-                </div>
-                <!--end::Footer-->
             </div>
             <!--end::Body-->
-        </div>
-
-        <!--begin::Aside - Larger Screens (order 1 in larger screens)-->
-        <div class="d-none d-lg-flex flex-column flex-lg-row-auto w-xl-1000px positon-xl-relative order-lg-1"
-            style="background-image: url('{{ asset('assets/media/illustrations/taguig-bc.png') }}'); background-size: 100% 100%;">
-            <!--begin::Wrapper-->
-            <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-1000px scroll-y">
-                <!--begin::Content-->
-                <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-                    <!-- Your content goes here -->
-                </div>
-                <!--end::Content-->
+            <!--begin::Aside - Larger Screens (order 1 in larger screens)-->
+            <div class="d-none d-lg-flex flex-column flex-lg-row-fluid w-xl-1000px positon-xl-relative order-lg-1"
+                style="background-image: url('{{ asset('assets/media/taguigbranding/tbdblt.jpg') }}');  background-size: 100% 100%;">
+                <!--begin::Wrapper-->
+                <!--end::Wrapper-->
             </div>
-            <!--end::Wrapper-->
+            <!--end::Aside-->
         </div>
-        <!--end::Aside-->
+        <!--end::Authentication - Sign-in-->
     </div>
-    <!--end::Authentication - Sign-up-->
-</div>
-<!--end::Main-->
+    <!--end::Main-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add your terms and conditions content here -->
+                    <p>
+                        By clicking "Create Account", you are willing to give authorize City Government of Taguig to collect
+                        and process the data and account or transaction information or records relating to your information
+                        to the database system of City Government of Taguig as Information controller, by whatever means in
+                        accordance with Republic Act 10173, otherwise known as the "Data Privacy Act of 2012" of the
+                        Republic of the Philippines, including its Implementing Rules and Regulations as well as all other
+                        guidelines to issuance by the National Privacy Commission.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="handleAgree()">Agree</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+
 @push('scripts')
-<!-- Push the JS assets to the 'scripts' stack -->
-<script src="{{asset('assets/js/custom/authentication/sign-up/general.js')}}"></script>
+    <!-- Push the JS assets to the 'scripts' stack -->
+    <script src="{{ asset('assets/js/custom/authentication/sign-up/general.js') }}"></script>
+    <script>
+        function handleAgree() {
+            // Get the checkbox element
+            const checkbox = document.querySelector('input[name="toc"]');
+            // Check the checkbox
+            checkbox.checked = true;
+        }
+    </script>
 @endpush

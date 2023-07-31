@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -17,7 +18,13 @@ class LoginController extends Controller
         //
         try {
             //code...
-            return view('auth.login'); 
+            $authCheck = Auth::Check();
+            if ($authCheck) {
+                // User is authenticated, redirect to the home route
+                return redirect()->route('clientHome');
+            }
+            // User is not authenticated, display the login view
+            return view('auth.login');
 
         } catch (\Throwable $th) {
             //throw $th;
@@ -89,5 +96,32 @@ class LoginController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postLogin(Request $request)
+    {
+        try {
+            //code...
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                // Authentication successful
+                // dd("Authentication successful");
+                return response()->json(['success' => true]);
+            } else {
+                // Authentication failed
+                // dd("Authentication failed");
+                return response()->json(['success' => false]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }
