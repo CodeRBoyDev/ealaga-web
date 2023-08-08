@@ -545,6 +545,7 @@ class ComposerStaticInitfb9b0b4b8f69d5c14ad53dd85e378ed0
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Dashboard\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/DashboardController.php',
         'App\\Http\\Controllers\\DatabaseTestController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatabaseTestController.php',
+        'App\\Http\\Controllers\\UserManagement\\UserListController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserManagement/UserListController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

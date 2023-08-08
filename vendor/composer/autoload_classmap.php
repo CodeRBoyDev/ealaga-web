@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Dashboard\\DashboardController' => $baseDir . '/app/Http/Controllers/Dashboard/DashboardController.php',
     'App\\Http\\Controllers\\DatabaseTestController' => $baseDir . '/app/Http/Controllers/DatabaseTestController.php',
+    'App\\Http\\Controllers\\UserManagement\\UserListController' => $baseDir . '/app/Http/Controllers/UserManagement/UserListController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

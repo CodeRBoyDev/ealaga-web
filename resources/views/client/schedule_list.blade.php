@@ -3,6 +3,7 @@
 
        <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
        <link href="/client/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
    	<!--begin::Body-->
        <div class="body_background header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
 		<!--begin::Main-->
@@ -137,40 +138,37 @@
                                         <!--begin::Form-->
                                         <form id="kt_modal_new_card_form" class="form" action="#">
                                            
-										<div class="ticket-container">
-                                            <div class="ticket" id="ticket">
-                                                <div class="left">
-                                                  <div class="image" style="background-image:url('/client/media/taguigbranding/qr.png')">
-                                                    <div class="ticket-number">
-                                                      <p>
-                                                        ticket no.20030220
-                                                      </p>
-                                                    </div>
-                                                  </div>
-                                                  <div class="ticket-info">
-                                                    <p class="date">
-                                                      <span>MONDAY</span>
-                                                      <span class="day">AUGUST 15</span>
-                                                      <span>2023</span>
-                                                    </p>
-                                                    <div class="show-name">
-                                                      <h1>CENTER FOR THE ELDERLY</h1>
-                                                      <p>Services: Yoga, Gym, Ballroom</p>
-                                                    </div>
-                                                    <div class="time">
-                                                      <p>8:00 PM - 11:00 PM</p>
-                                                    </div>
-                                                    <p class="location"><span>13, 1639 Ipil-Ipil Street North Signal Village, Taguig City.</span>
-                                                    </p>
-                                                  </div>
-                                                </div>
-                                            </div>
+										<div class="ticket-container" id="ticket-container">
+											<div class="ticket">
+												<div class="left">
+													<div class="image" style="background-image:url('/client/media/taguigbranding/qr.png')">
+														<div class="ticket-number">
+															<p>id: 12330</p>
+														</div>
+													</div>
+												</div>
+												<div class="right">
+													<p class="date">
+														<span>MONDAY</span>
+														<span>|</span>
+														<span class="day">AUGUST 15, 2023</span>
+													</p>
+													<div class="show-name">
+														<h1>CENTER FOR THE ELDERLY</h1>
+														<p>Services: Yoga, Gym, Ballroom</p>
+													</div>
+													<div class="time">
+														<p>8:00 PM - 11:00 PM</p>
+													</div>
+													<div class="location">
+														<p>13, 1639 Ipil-Ipil Street North Signal Village, Taguig City.</p>
+													</div>
+												</div>
+											</div>
 										</div>
-
-                                         
                                             <!--begin::Actions-->
                                             <div class="text-center pt-15">
-                                                <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+                                                <button id="downloadimage" class="btn btn-light me-3">Download</button>
                                                 <button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
                                                     <span class="indicator-label">Submit</span>
                                                     <span class="indicator-progress">Please wait...
@@ -292,6 +290,7 @@
 @push('scripts')
 <script src="/client/js/schedule_list.js"></script>
 <script src="/client/plugins/custom/datatables/datatables.bundle.js"></script>
+<script src="{{ asset('client/js/ticket.js') }}"></script>
 @endpush
 
 

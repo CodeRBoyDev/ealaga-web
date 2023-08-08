@@ -31,7 +31,7 @@
             },
             "time": "2022-12-07T17:46:57+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "BaconQrCode\\": "src/"
@@ -139,7 +139,7 @@
             },
             "time": "2023-03-01T18:44:03+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "DASPRiD\\Enum\\": "src/"
@@ -5524,7 +5524,7 @@
                     }
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "SimpleSoftwareIO\\QrCode\\": "src"
