@@ -62,7 +62,10 @@ $(document).ready(function () {
                 <!--end::Details-->
                 <!--begin::Actions-->
                 <div class="d-flex align-items-center py-2">
-                  <button class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">View e-Ticket</button>
+                  <button class="btn btn-sm btn-light btn-active-light-primary" 
+                  id="client_schedule_view" data-client_schedule_view="${schedule.schedule_id}"
+                  >
+                  View e-Ticket</button>
                 </div>
                 <!--end::Actions-->
               </div>
@@ -83,6 +86,24 @@ $(document).ready(function () {
   }
 
   loadScheduleList();
+
+
+
+  $(document).on("click", "#client_schedule_view", function (event) {
+    event.preventDefault();
+    var id = $(this).data("client_schedule_view");
+
+    $("#client_schedule_view_modal").modal("show");
+    console.log(id);
+  });
+
+
+
+
+
+
+
+
 
   $("#back_homepage").click(function (event) {
     event.preventDefault(); // Prevent the default link behavior (e.g., navigating to "#")
