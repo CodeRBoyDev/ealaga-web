@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\Visitor\LandingController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 
 // Authentication
 use App\Http\Controllers\DatabaseTestController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('guest.landing');
-})->name('landing');
+// Route::get('/', function () {
+//     return view('guest.landing');
+// })->name('landing');
+
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+
+Route::get('/ticket', function () {
+    return view('client.ticket');
+})->name('ticket');
 
 // Client
 

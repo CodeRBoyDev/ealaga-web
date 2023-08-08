@@ -350,8 +350,8 @@ class ComposerStaticInitfb9b0b4b8f69d5c14ad53dd85e378ed0
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -523,7 +523,13 @@ class ComposerStaticInitfb9b0b4b8f69d5c14ad53dd85e378ed0
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Authentication\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Authentication/LoginController.php',
+        'App\\Http\\Controllers\\Authentication\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Authentication/RegisterController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Dashboard\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/DashboardController.php',
+        'App\\Http\\Controllers\\DatabaseTestController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatabaseTestController.php',
+        'App\\Http\\Controllers\\UserManagement\\UserListController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserManagement/UserListController.php',
+        'App\\Http\\Controllers\\Visitor\\LandingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Visitor/LandingController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -534,6 +540,7 @@ class ComposerStaticInitfb9b0b4b8f69d5c14ad53dd85e378ed0
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Announcement' => __DIR__ . '/../..' . '/app/Models/Announcement.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

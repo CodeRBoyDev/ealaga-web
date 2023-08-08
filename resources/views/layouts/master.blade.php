@@ -14,12 +14,13 @@
     <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 
-    @stack('styles')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        @stack('adminStyles')
 </head>
 
 <!--end::Head-->
 
-<body id="kt_body" class="bg-body">
+<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="bg-white position-relative">
     @if(request()->route()->getName() != 'login' && request()->route()->getName() != 'register')
     @include('layouts.header')
     @endif 
@@ -39,7 +40,10 @@
     <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
     <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
     <!--end::Global Javascript Bundle-->
-    <!--begin::Page Custom Javascript(used by this page)-->
+    <!--begin::Page Vendors Javascript(used by this page)-->
+	<script src="{{asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js')}}"></script>
+	<script src="{{asset('assets/plugins/custom/typedjs/typedjs.bundle.js')}}"></script>
+	<!--end::Page Vendors Javascript-->
     @stack('scripts')
     <!--end::Page Custom Javascript-->
 

@@ -1,9 +1,15 @@
  <!--begin::Header Section-->
  <div class="mb-0" id="home">
      <!--begin::Wrapper-->
-     <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg"
-         style="background-image: url(assets/media/svg/illustrations/landing.svg)">
+     <div class="bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom"
+         style="background-image: url(assets/media/svg/illustrations/footer-trim.png), url(assets/media/svg/illustrations/sunray.jpg); background-size: 100% auto, cover;
+         background-position: 0% 100%, center;">
          <!--begin::Header-->
+         <div class="cloud-container">
+            <div class="cloud cloud1" style="background-image: url(assets/media/svg/illustrations/cloud1.png)"></div>
+            <div class="cloud cloud2" style="background-image: url(assets/media/svg/illustrations/cloud2.png)"></div>
+            <div class="cloud cloud3" style="background-image: url(assets/media/svg/illustrations/cloud3.png)"></div>
+         </div>
          <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
              data-kt-sticky-offset="{default: '200px', lg: '300px'}">
              <!--begin::Container-->
@@ -32,22 +38,17 @@
                          <!--end::Mobile menu toggle-->
                          <!--begin::Logo image-->
                          <a href="../../demo9/dist/landing.html">
-                             <img alt="Logo" src="assets/media/logos/logo-landing.svg"
-                                 class="logo-default h-25px h-lg-30px" />
-                             <img alt="Logo" src="assets/media/logos/logo-landing-dark.svg"
-                                 class="logo-sticky h-20px h-lg-25px" />
+                             <img alt="Logo" src="assets/media/logos/logotaguig.png"
+                                 class="logo-default h-25px h-lg-50px" />
+                             <img alt="Logo" src="assets/media/logos/logotaguig.png"
+                                 class="logo-sticky h-20px h-lg-50px" />
                          </a>
                          <!--end::Logo image-->
                      </div>
                      <!--end::Logo-->
                      <!--begin::Menu wrapper-->
                      <div class="d-lg-block" id="kt_header_nav_wrapper">
-                         <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu"
-                             data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
-                             data-kt-drawer-width="200px" data-kt-drawer-direction="start"
-                             data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true"
-                             data-kt-swapper-mode="prepend"
-                             data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
+                        <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="200px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
                              <!--begin::Menu-->
                              <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-bold"
                                  id="kt_landing_menu">
@@ -62,27 +63,34 @@
                                  <!--begin::Menu item-->
                                  <div class="menu-item">
                                      <!--begin::Menu link-->
-                                     <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                         data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">How it Works</a>
+                                     <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how"
+                                         data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">How to use</a>
                                      <!--end::Menu link-->
                                  </div>
                                  <!--end::Menu item-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item">
                                      <!--begin::Menu link-->
-                                     <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#achievements"
-                                         data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Services</a>
+                                     <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#announcement"
+                                         data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Announcement</a>
                                      <!--end::Menu link-->
                                  </div>
                                  <!--end::Menu item-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item">
-                                     <!--begin::Menu link-->
-                                     <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#team"
-                                         data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">About</a>
-                                     <!--end::Menu link-->
-                                 </div>
-                                 <!--end::Menu item-->
+                                    <!--begin::Menu link-->
+                                    <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#team" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Team</a>
+                                    <!--end::Menu link-->
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item">
+                                    <!--begin::Menu link-->
+                                    <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#services" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Services</a>
+                                    <!--end::Menu link-->
+                                </div>
+                                <!--end::Menu item-->
+                                <!--end::Menu item-->
                              </div>
                              <!--end::Menu-->
                          </div>
@@ -91,7 +99,7 @@
                      <!--begin::Toolbar-->
                      @if (!Auth::check())
                          <div class="flex-equal text-end ms-1">
-                             <a href="{{ route('login') }}" class="btn btn-success">Sign In</a>
+                             <a href="{{ route('login') }}" class="btn btn-warning">Sign In</a>
                          </div>
                      @else
                           <div class="flex-equal text-end ms-1">
@@ -110,21 +118,24 @@
              <!--begin::Heading-->
              <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
                  <!--begin::Title-->
-                 <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-3x mb-15">Build An Outstanding Solutions
-                     <br />with
-                     <span
+                 <h1 class="text-blue lh-base fw-bolder fs-2x fs-lg-3x mb-15">EXPERIENCE THE ENTERTAINMENT AND RELAXATION
+                     <br />AT THE
+                     {{-- <span
                          style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-                         <span id="kt_landing_hero_text">The Best Theme Ever</span>
+                         <span id="kt_landing_hero_text">Center for The Elderly</span>
+                     </span> --}}
+                     <span style="color: red;">
+                         <span id="kt_landing_hero_text">CENTER FOR THE ELDERLY</span>
                      </span>
                  </h1>
                  <!--end::Title-->
                  <!--begin::Action-->
-                 <a href="../../demo9/dist/index.html" class="btn btn-primary">Try Metronic</a>
+                 {{-- <a href="../../demo9/dist/index.html" class="btn btn-primary">Try Metronic</a> --}}
                  <!--end::Action-->
              </div>
              <!--end::Heading-->
              <!--begin::Clients-->
-             <div class="d-flex flex-center flex-wrap position-relative px-5">
+             {{-- <div class="d-flex flex-center flex-wrap position-relative px-5">
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
                      <img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
@@ -166,7 +177,7 @@
                      <img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
-             </div>
+             </div> --}}
              <!--end::Clients-->
          </div>
          <!--end::Landing hero-->
