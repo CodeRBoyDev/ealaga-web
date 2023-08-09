@@ -6,10 +6,8 @@ use App\Http\Controllers\Authentication\RegisterController;
 
 // Comorbidity Management
 use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
-
 // Dashboard
 use App\Http\Controllers\Dashboard\DashboardController;
-
 // User Management
 use App\Http\Controllers\DatabaseTestController;
 use App\Http\Controllers\UserManagement\UserListController;
