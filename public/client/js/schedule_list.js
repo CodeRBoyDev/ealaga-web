@@ -5,6 +5,61 @@ $(document).ready(function () {
     },
   });
 
+  let currentPage = 1;
+  const entriesPerPage = 8;
+  let totalEntries = 0;
+
+  
+  function updatePagination() {
+    const totalPages = Math.ceil(totalEntries / entriesPerPage);
+    let paginationHTML = `
+      <div class="fs-6 fw-bold text-gray-700">Showing ${(currentPage - 1) * entriesPerPage + 1} to ${
+      Math.min(currentPage * entriesPerPage, totalEntries)
+    } of ${totalEntries} entries</div>
+      <ul class="pagination">
+     <li class="page-item previous ${currentPage === 1 ? 'disabled' : ''}">
+          <a href="#" class="page-link">
+            <i class="previous"></i>
+          </a>
+        </li>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+      paginationHTML += `
+        <li class="page-item ${i === currentPage ? 'active' : ''}">
+          <a href="#" class="page-link">${i}</a>
+        </li>
+      `;
+    }
+
+    paginationHTML += `
+    <li class="page-item next ${currentPage === totalPages ? 'disabled' : ''}">
+    <a href="#" class="page-link">
+      <i class="next"></i>
+    </a>
+  </li>
+      </ul>
+    `;
+    
+    $("#pagination_card_div").html(paginationHTML);
+    
+    $(".page-item").on("click", function () {
+      if ($(this).hasClass("previous") && currentPage > 1) {
+        currentPage--;
+      } else if ($(this).hasClass("next") && currentPage < totalPages) {
+        currentPage++;
+      } else if (!$(this).hasClass("previous") && !$(this).hasClass("next")) {
+        const clickedPage = parseInt($(this).text());
+        if (!isNaN(clickedPage)) {
+          currentPage = clickedPage;
+        }
+      }
+
+      loadScheduleList();
+    });
+  }
+
+
   function loadScheduleList() {
     $.ajax({
       url: "/client/schedule/list",
@@ -13,9 +68,17 @@ $(document).ready(function () {
         console.log(data)
         // Initialize an empty variable to store the generated HTML code
         let card_data = "";
+        let pagination_card_div = "";
 
+        totalEntries = data.schedule?.length;
+
+        // Filter the schedule data based on pagination
+        const startIndex = (currentPage - 1) * entriesPerPage;
+        const endIndex = startIndex + entriesPerPage;
+        const displayedSchedule = data.schedule?.slice(startIndex, endIndex);
+        
         // Loop through each leave in the data.schedule array
-        $.each(data?.schedule, function (i, schedule) {
+        $.each(displayedSchedule, function (i, schedule) {
           // Get the schedule date from the schedule object
           const scheduleDate = schedule?.schedule_date;
         
@@ -74,11 +137,11 @@ $(document).ready(function () {
             `;
         });
         
+       
         // Append the generated HTML code to the div
         $("#card_row_div").html(card_data);
-        
 
-
+        updatePagination();
 
       }
 
@@ -87,18 +150,103 @@ $(document).ready(function () {
 
   loadScheduleList();
 
-
-
   $(document).on("click", "#client_schedule_view", function (event) {
     event.preventDefault();
     var id = $(this).data("client_schedule_view");
 
-    $("#client_schedule_view_modal").modal("show");
-    console.log(id);
+    $.ajax({
+      url: `/client/schedule/list/${id}`,
+      type: "GET",
+      beforeSend: function () {
+        Swal.fire({
+          text: "Loading.....",
+          showCancelButton: false,
+          showConfirmButton: false,
+          allowOutsideClick: false, // Disable clicking outside the modal to close it
+        });
+      },
+      success: function (data) {
+        
+        console.log(data);
+        Swal.close();
+        $("#client_schedule_view_modal").modal("show");
+        const ticket_schedule_div =
+        `
+        <div class="ticket-container" id="ticket-container">
+        <div class="ticket">
+          <div class="left">
+            <div class="image" style="background-image:url('/${data.schedule?.qr_code}')">
+              <div class="ticket-number">
+                <p>schedule id: ${data.schedule?.schedule_id}</p>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <p class="date">
+              <span>MONDAY</span>
+              <span>|</span>
+              <span class="day">${moment(data.schedule?.schedule_date).format('MMMM DD, YYYY')}</span>
+            </p>
+            <div class="show-name">
+              <h1>CENTER FOR THE ELDERLY</h1>
+              <p>Services: ${data.schedule?.services}</p>
+            </div>
+            <div class="time">
+            <p>
+            ${
+              data.schedule?.schedule_time === 0 ? '8:00 AM - 11:59 AM' : '1:00 PM - 5:00 PM'
+            }
+            </p>
+              
+            </div>
+            <div class="location">
+              <p>13, 1639 Ipil-Ipil Street North Signal Village, Taguig City.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--begin::Actions-->
+      <div class="text-center pt-15">
+        <button type="reset" id="downloadimage" class="btn btn-light me-3">Download</button>
+        <button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
+          <span class="indicator-label">Cancel</span>
+          <span class="indicator-progress">Please wait...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+      <!--end::Actions-->
+        `;
+            // Append the generated HTML code to the div
+            $("#ticket_schedule_div").html(ticket_schedule_div);
+            
+      },
+    });
+
+
+
   });
 
 
 
+
+
+  $(document).on("click", "#downloadimage", function (event) {
+    const ticketDiv = document.getElementById('ticket-container');
+    
+    // Check if the ticketDiv element is valid
+    if (ticketDiv) {
+        html2canvas(ticketDiv, { scale: 2, logging: true }).then(function (canvas) {
+            const imageData = canvas.toDataURL('image/jpeg', 0.9);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = imageData;
+            downloadLink.download = 'ticket.jpg';
+            downloadLink.click();
+            console.log('SUCCESS');
+        });
+    } else {
+        console.log("Invalid element: 'ticket-container' not found.");
+    }
+});
 
 
 

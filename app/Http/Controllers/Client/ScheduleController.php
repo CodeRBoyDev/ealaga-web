@@ -8,16 +8,27 @@ use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailNotification;
 
 class ScheduleController extends Controller
 {
+
+    public function getCurrentDateAsiaManila()
+    {
+        // Set the timezone to Asia/Manila
+        $currentDate = Carbon::now('Asia/Manila');
+        return $currentDate;
+    }
+
+
     public function ClientSchedule()
     {
         //
         try {
            
             // Get the current date and time
-            $currentDate = Carbon::now();
+            $currentDate = Carbon::now('Asia/Manila');
 
             $services = DB::table('services')->get();
 
@@ -55,6 +66,7 @@ class ScheduleController extends Controller
                 'schedule_date' => $data['schedule_date'] ?? null,
                 'status' => 0,
                 'schedule_time' => $data['schedule_time'] ?? null,
+                'createdAt' => $this->getCurrentDateAsiaManila(),
             ]);
 
             foreach ($service_id_array as $service_id) {
@@ -125,6 +137,7 @@ class ScheduleController extends Controller
         //
         try {
            
+            $currentDate = Carbon::now('Asia/Manila');
             // $services = DB::table('services')->get();
         
             // $data = $request->all();
@@ -133,11 +146,26 @@ class ScheduleController extends Controller
             ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
             // ->where('schedule.user_id', $userId)
         // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
+            ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
             ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
             ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
             ->groupBy('schedule.id')
             ->get();
         
+
+
+                                $userEmail = "rickydonadillo02@gmail.com";
+                                $subject = 'Leaves Reminder';
+                                $userData = [
+                                'receiver_name' => "test",
+                                'body' => "test",
+                                'sender_name' => "test",
+                                'sender_position' => "Test",
+                                ];
+
+                                Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
+
+
 
             if (request()->ajax()) {
                 return response()->json(['schedule' => $schedule]);
@@ -150,9 +178,76 @@ class ScheduleController extends Controller
 
 
        } catch (\Exception $e) {
+           return "error: " . $e->getMessage();
+       }
+    }
+
+
+    public function ClientScheduleHistory(Request $request)
+    {
+        //
+        try {
+           
+            // $services = DB::table('services')->get();
+        
+            $currentDate = Carbon::now('Asia/Manila');
+
+            // $data = $request->all();
+            $schedule = DB::table('schedule')
+            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+            // ->where('schedule.user_id', $userId)
+        // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
+            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
+            ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
+            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
+            ->groupBy('schedule.id')
+            ->get();
+        
+
+            if (request()->ajax()) {
+                return response()->json(['schedule' => $schedule]);
+
+            } else {
+                return view('client.schedule_history', compact('schedule'));
+            }
+
+
+
+
+       } catch (\Exception $e) {
            return "Unable to connect to the database: " . $e->getMessage();
        }
     }
 
+    public function ClientScheduleView(Request $request, $id)
+    {
+        //
+        try {
+           
+            // $services = DB::table('services')->get();
+        
+            $currentDate = Carbon::now('Asia/Manila');
+
+            // $data = $request->all();
+            $schedule = DB::table('schedule')
+            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+            // ->where('schedule.user_id', $userId)
+        // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
+            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.qr_code, schedule.schedule_time, schedule.status')
+          
+            // ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
+            ->where('schedule.id', $id)
+            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'schedule.qr_code')
+            ->groupBy('schedule.id')
+            ->first();
+        
+                return response()->json(['schedule' => $schedule]);
+      
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
 
 }

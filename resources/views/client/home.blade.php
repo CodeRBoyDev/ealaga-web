@@ -58,7 +58,7 @@
 										</div>
 										<div class="col-6">
 											<div class="card card-stretch">
-												<a href="#r" class="btn custom_card btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-danger bg-body flex-column justfiy-content-center align-items-center text-center w-100 p-10">
+												<a id="history_schedule_link" href="#" class="btn custom_card btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-danger bg-body flex-column justfiy-content-center align-items-center text-center w-100 p-10">
 													<!--begin::Svg Icon | path: icons/duotune/technology/teh004.svg-->
 													<img alt="Logo" src="/client/media/custom_icon/clock.png" class="h-50px" />
 													<!-- <span class="svg-icon svg-icon-3x mb-5">
@@ -74,7 +74,7 @@
 										</div>
 										<div class="col-6">
 											<div class="card card-stretch">
-												<a href="#r" class="btn custom_card btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-danger bg-body flex-column justfiy-content-center align-items-center text-center w-100 p-10">
+												<a id="volunteer_link" href="#" class="btn custom_card btn-flex btn-text-gray-800 btn-icon-gray-400 btn-active-color-danger bg-body flex-column justfiy-content-center align-items-center text-center w-100 p-10">
 													<!--begin::Svg Icon | path: icons/duotune/technology/teh004.svg-->
 													<img alt="Logo" src="/client/media/custom_icon/charity.png" class="h-50px" />
 													<!-- <span class="svg-icon svg-icon-3x mb-5">

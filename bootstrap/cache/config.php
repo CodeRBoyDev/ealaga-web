@@ -503,11 +503,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailpit',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.hostinger.com',
+        'port' => '465',
+        'encryption' => 'ssl',
+        'username' => 'noreply@taguig.info',
+        'password' => '@Po11o168',
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -549,7 +549,7 @@
     ),
     'from' => 
     array (
-      'address' => 'hello@example.com',
+      'address' => 'noreply@taguig.info',
       'name' => 'Laravel',
     ),
     'markdown' => 

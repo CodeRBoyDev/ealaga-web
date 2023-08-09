@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::YigxFwM4uY0qIdXh',
+            '_route' => 'generated::VIXIGtMnwo0uW8KD',
           ),
           1 => NULL,
           2 => 
@@ -271,6 +271,46 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/client/schedule/history' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientScheduleHistory',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/client/volunteer' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientVolunteerList',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/logout' => 
       array (
         0 => 
@@ -317,7 +357,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9lMtXkT9zwISHmSe',
+            '_route' => 'generated::G9wqq7ZdSs3pbf9j',
           ),
           1 => NULL,
           2 => 
@@ -334,9 +374,43 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
+      0 => '{^(?|/client/schedule/list/([^/]++)(*:37))/?$}sDu',
     ),
     3 => 
     array (
+      37 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientScheduleView',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => NULL,
+          1 => NULL,
+          2 => NULL,
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => 0,
+        ),
+      ),
     ),
     4 => NULL,
   ),
@@ -488,7 +562,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::YigxFwM4uY0qIdXh' => 
+    'generated::VIXIGtMnwo0uW8KD' => 
     array (
       'methods' => 
       array (
@@ -505,13 +579,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:297:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000001abee7650000000055a9a179";}";s:4:"hash";s:44:"qM5pd02sVp/IhMv7w7Gxd52kxSv4gHzBp1e2SL7ew6U=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000021e626ad000000001ef4d1c2";}";s:4:"hash";s:44:"AcQ537JoIay/SjsctOpt+Ple9vftQQutDPUPLRKnVlk=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::YigxFwM4uY0qIdXh',
+        'as' => 'generated::VIXIGtMnwo0uW8KD',
       ),
       'fallback' => false,
       'defaults' => 
@@ -543,7 +617,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:270:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'guest.landing\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000001abee76b0000000055a9a179";}";s:4:"hash";s:44:"uj0K/BCn2hHXk2Vinm3aOKuFbQ9hQ3yDnFAQZqWqYWg=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000021e626a3000000001ef4d1c2";}";s:4:"hash";s:44:"SzTHwhQRf6ZXHJS6uHNz1U03Oc3lH4w2kCL5x/V9Lbs=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -786,6 +860,117 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'ClientScheduleView' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'client/schedule/list/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleView',
+        'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleView',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientScheduleView',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientScheduleHistory' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'client/schedule/history',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleHistory',
+        'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleHistory',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientScheduleHistory',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientVolunteerList' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'client/volunteer',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerList',
+        'controller' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerList',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientVolunteerList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'postLogin' => 
     array (
       'methods' => 
@@ -896,7 +1081,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9lMtXkT9zwISHmSe' => 
+    'generated::G9wqq7ZdSs3pbf9j' => 
     array (
       'methods' => 
       array (
@@ -917,7 +1102,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::9lMtXkT9zwISHmSe',
+        'as' => 'generated::G9wqq7ZdSs3pbf9j',
       ),
       'fallback' => false,
       'defaults' => 

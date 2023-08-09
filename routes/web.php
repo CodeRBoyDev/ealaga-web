@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 //CLIENT
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ScheduleController;
+use App\Http\Controllers\Client\VolunteerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,10 @@ Route::get('/client/schedule', [ScheduleController::class, 'ClientSchedule'])->n
 Route::post('/client/schedule/add', [ScheduleController::class, 'ClientScheduleAdd'])->name('ClientScheduleAdd');
 Route::get('/client/schedule/slot', [ScheduleController::class, 'ClientScheduleSlot'])->name('ClientScheduleSlot');
 Route::get('/client/schedule/list', [ScheduleController::class, 'ClientScheduleList'])->name('ClientScheduleList');
+Route::get('/client/schedule/list/{id}', [ScheduleController::class, 'ClientScheduleView'])->name('ClientScheduleView');
+Route::get('/client/schedule/history', [ScheduleController::class, 'ClientScheduleHistory'])->name('ClientScheduleHistory');
+
+Route::get('/client/volunteer', [VolunteerController::class, 'ClientVolunteerList'])->name('ClientVolunteerList');
 
 // Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');

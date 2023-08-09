@@ -28,129 +28,40 @@
 							<!--begin::Card-->
                             <div class="card mb-5 mb-xl-10">
 								<!--begin::Card header-->
-								<div class="card-header border-0 pt-6">
-									<!--begin::Card title-->
+								<div class="card-header">
+									<!--begin::Title-->
 									<div class="card-title">
-										<!--begin::Search-->
-										<div class="d-flex align-items-center position-relative my-1">
-											<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-											<a id="back_homepage" class="map-icon">
-												<span class="symbol symbol-50px me-6">
-												  <span class="symbol-label bg-light-danger">
-													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
-													<span class="svg-icon svg-icon-1 svg-icon-danger">
-													  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														  <rect x="0" y="0" width="24" height="24"/>
-														  <path d="M12.6572352,10 L12.6572352,5.67013288 C12.6572352,5.25591932 12.3214488,4.92013288 11.9072352,4.92013288 C11.7235496,4.92013288 11.5462507,4.98754181 11.4089624,5.10957589 L4.25173515,11.4715556 C3.94214808,11.7467441 3.91426253,12.2207984 4.18945104,12.5303855 C4.19921056,12.541365 4.20929054,12.5520553 4.21967795,12.5624427 L11.3769052,19.7196699 C11.6697984,20.0125631 12.1446721,20.0125631 12.4375653,19.7196699 C12.5782176,19.5790176 12.6572352,19.3882522 12.6572352,19.1893398 L12.6572352,15 C14.0044226,14.9188289 16.8348635,14.9157978 21.1485581,14.9909069 L21.1485586,14.9908794 C21.424644,14.9956866 21.6523523,14.7757721 21.6571595,14.4996868 C21.65721,14.4967857 21.6572352,14.4938842 21.6572352,14.4909827 L21.6572888,10.5050185 C21.6572888,10.2288465 21.4334072,10.0049649 21.1572352,10.0049649 C21.1556184,10.0049649 21.1540016,10.0049728 21.1523849,10.0049884 C16.0216074,10.0547574 13.1898909,10.0530946 12.6572352,10 Z" fill="#000000" fill-rule="nonzero"/>
-														</g>
-													  </svg>
-													</span>
-													<!--end::Svg Icon-->
-												  </span>
-												</span>
-											  </a>
-											  
-
-											<h2>My Schedule</h2>
-										</div>
-										<!--end::Search-->
+                                        <div class="d-flex flex-column">
+                                            <!--begin::Name-->
+                                            <div class="d-flex align-items-center mb-3 pt-3">
+                                                
+    
+                                                <a id="back_homepage" class="map-icon">
+                                                    <span class="symbol symbol-50px me-6">
+                                                      <span class="symbol-label bg-light-danger">
+                                                        <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+                                                        <span class="svg-icon svg-icon-1 svg-icon-danger">
+                                                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                              <rect x="0" y="0" width="24" height="24"/>
+                                                              <path d="M12.6572352,10 L12.6572352,5.67013288 C12.6572352,5.25591932 12.3214488,4.92013288 11.9072352,4.92013288 C11.7235496,4.92013288 11.5462507,4.98754181 11.4089624,5.10957589 L4.25173515,11.4715556 C3.94214808,11.7467441 3.91426253,12.2207984 4.18945104,12.5303855 C4.19921056,12.541365 4.20929054,12.5520553 4.21967795,12.5624427 L11.3769052,19.7196699 C11.6697984,20.0125631 12.1446721,20.0125631 12.4375653,19.7196699 C12.5782176,19.5790176 12.6572352,19.3882522 12.6572352,19.1893398 L12.6572352,15 C14.0044226,14.9188289 16.8348635,14.9157978 21.1485581,14.9909069 L21.1485586,14.9908794 C21.424644,14.9956866 21.6523523,14.7757721 21.6571595,14.4996868 C21.65721,14.4967857 21.6572352,14.4938842 21.6572352,14.4909827 L21.6572888,10.5050185 C21.6572888,10.2288465 21.4334072,10.0049649 21.1572352,10.0049649 C21.1556184,10.0049649 21.1540016,10.0049728 21.1523849,10.0049884 C16.0216074,10.0547574 13.1898909,10.0530946 12.6572352,10 Z" fill="#000000" fill-rule="nonzero"/>
+                                                            </g>
+                                                          </svg>
+                                                        </span>
+                                                        <!--end::Svg Icon-->
+                                                      </span>
+                                                    </span>
+                                                  </a>
+                                                  
+    
+                                                <h2>My History</h2>
+                                            
+                                            </div>
+                                            <!--end::Name-->
+                                        
+                                        </div>
 									</div>
-									<!--begin::Card title-->
-									<!--begin::Card toolbar-->
-									<div class="card-toolbar">
-										<!--begin::Toolbar-->
-										<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-											<!--begin::Filter-->
-											<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-											<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-													<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
-												</svg>
-											</span>
-											<!--end::Svg Icon-->Filter</button>
-											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter">
-												<!--begin::Header-->
-												<div class="px-7 py-5">
-													<div class="fs-4 text-dark fw-bolder">Filter Options</div>
-												</div>
-												<!--end::Header-->
-												<!--begin::Separator-->
-												<div class="separator border-gray-200"></div>
-												<!--end::Separator-->
-												<!--begin::Content-->
-												<div class="px-7 py-5">
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fs-5 fw-bold mb-3">Month:</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
-															<option></option>
-															<option value="aug">August</option>
-															<option value="sep">September</option>
-															<option value="oct">October</option>
-															<option value="nov">November</option>
-															<option value="dec">December</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fs-5 fw-bold mb-3">Payment Type:</label>
-														<!--end::Label-->
-														<!--begin::Options-->
-														<div class="d-flex flex-column flex-wrap fw-bold" data-kt-customer-table-filter="payment_type">
-															<!--begin::Option-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-																<input class="form-check-input" type="radio" name="payment_type" value="all" checked="checked" />
-																<span class="form-check-label text-gray-600">All</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-																<input class="form-check-input" type="radio" name="payment_type" value="visa" />
-																<span class="form-check-label text-gray-600">Visa</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
-																<input class="form-check-input" type="radio" name="payment_type" value="mastercard" />
-																<span class="form-check-label text-gray-600">Mastercard</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="radio" name="payment_type" value="american_express" />
-																<span class="form-check-label text-gray-600">American Express</span>
-															</label>
-															<!--end::Option-->
-														</div>
-														<!--end::Options-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end">
-														<button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
-														<button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">Apply</button>
-													</div>
-													<!--end::Actions-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Menu 1-->
-											<!--end::Filter-->
-										
-										</div>
-										<!--end::Toolbar-->
-									
-									</div>
-									<!--end::Card toolbar-->
+									<!--end::Title-->
 								</div>
 								<!--end::Card header-->
 								<!--begin::Card body-->
@@ -161,8 +72,30 @@
 									</div>
 									<!--end::Addresses-->
 									 <!--begin::Pagination-->
-							<div id="pagination_card_div" class="d-flex flex-stack flex-wrap pt-10">
-								
+							<div class="d-flex flex-stack flex-wrap pt-10">
+								<div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
+								<!--begin::Pages-->
+								<ul class="pagination">
+									<li class="page-item previous">
+										<a href="#" class="page-link">
+											<i class="previous"></i>
+										</a>
+									</li>
+									<li class="page-item active">
+										<a href="#" class="page-link">1</a>
+									</li>
+									<li class="page-item">
+										<a href="#" class="page-link">2</a>
+									</li>
+									<li class="page-item">
+										<a href="#" class="page-link">3</a>
+									</li>
+									<li class="page-item next">
+										<a href="#" class="page-link">
+											<i class="next"></i>
+										</a>
+									</li>
+								</ul>
 								<!--end::Pages-->
 							</div>
 							<!--end::Pagination-->
@@ -204,10 +137,47 @@
                                         <!--begin::Form-->
                                         <form id="kt_modal_new_card_form" class="form" action="#">
                                            
-											<div id="ticket_schedule_div">
-											
-											</div>
+										<div class="ticket-container">
+                                            <div class="ticket" id="ticket">
+                                                <div class="left">
+                                                  <div class="image" style="background-image:url('/client/media/taguigbranding/qr.png')">
+                                                    <div class="ticket-number">
+                                                      <p>
+                                                        ticket no.20030220
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                  <div class="ticket-info">
+                                                    <p class="date">
+                                                      <span>MONDAY</span>
+                                                      <span class="day">AUGUST 15</span>
+                                                      <span>2023</span>
+                                                    </p>
+                                                    <div class="show-name">
+                                                      <h1>CENTER FOR THE ELDERLY</h1>
+                                                      <p>Services: Yoga, Gym, Ballroom</p>
+                                                    </div>
+                                                    <div class="time">
+                                                      <p>8:00 PM - 11:00 PM</p>
+                                                    </div>
+                                                    <p class="location"><span>13, 1639 Ipil-Ipil Street North Signal Village, Taguig City.</span>
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                            </div>
+										</div>
 
+                                         
+                                            <!--begin::Actions-->
+                                            <div class="text-center pt-15">
+                                                <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+                                                <button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
+                                                    <span class="indicator-label">Submit</span>
+                                                    <span class="indicator-progress">Please wait...
+                                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                </button>
+                                            </div>
+                                            <!--end::Actions-->
                                         </form>
                                         <!--end::Form-->
                                     </div>
@@ -320,8 +290,8 @@
 @endsection
 
 @push('scripts')
-<script src="/client/js/schedule_list.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+<script src="/client/js/schedule_history.js"></script>
+<script src="/client/plugins/custom/datatables/datatables.bundle.js"></script>
 @endpush
 
 

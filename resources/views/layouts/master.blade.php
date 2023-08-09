@@ -40,6 +40,8 @@
             &&  request()->route()->getName() != 'ClientHome'
             &&  request()->route()->getName() != 'ClientSchedule'
             &&  request()->route()->getName() != 'ClientScheduleList'
+            &&  request()->route()->getName() != 'ClientScheduleHistory'
+            &&  request()->route()->getName() != 'ClientVolunteerList'
             )
         @include('layouts.header')
     @endif
