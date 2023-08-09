@@ -37431,6 +37431,10 @@ a:hover {
     color: #a1a5b7
 }
 
+.menu-title-dark-500 .menu-item .menu-link {
+    color: #181c32
+}
+
 .menu-title-gray-500 .menu-item .menu-link .menu-title {
     color: #a1a5b7
 }
@@ -41795,11 +41799,12 @@ a:hover {
 }
 
 .btn.btn-color-primary .svg-icon svg:hover [fill]:not(.permanent):not(g) {
-    transition: fill .3s ease
+    transition: fill 0.3s ease;
+    fill: #009ef7;
 }
 
 .btn.btn-color-primary.dropdown-toggle:after {
-    color: var(--yellow)
+    color: #009ef7;
 }
 
 .btn-check:active+.btn.btn-active-color-primary,
@@ -41810,7 +41815,7 @@ a:hover {
 .btn.btn-active-color-primary:focus:not(.btn-active),
 .btn.btn-active-color-primary:hover:not(.btn-active),
 .show>.btn.btn-active-color-primary {
-    color: var(--yellow)
+    color: #009ef7;
 }
 
 .btn-check:active+.btn.btn-active-color-primary i,
@@ -41821,7 +41826,7 @@ a:hover {
 .btn.btn-active-color-primary:focus:not(.btn-active) i,
 .btn.btn-active-color-primary:hover:not(.btn-active) i,
 .show>.btn.btn-active-color-primary i {
-    color: var(--yellow)
+    color: #009ef7;
 }
 
 .btn-check:active+.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g),
@@ -41833,7 +41838,7 @@ a:hover {
 .btn.btn-active-color-primary:hover:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
 .show>.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g) {
     transition: fill .3s ease;
-    fill: var(--yellow)
+    fill: #009ef7;
 }
 
 .btn-check:active+.btn.btn-active-color-primary .svg-icon svg:hover [fill]:not(.permanent):not(g),
@@ -41844,7 +41849,7 @@ a:hover {
 .btn.btn-active-color-primary:focus:not(.btn-active) .svg-icon svg:hover [fill]:not(.permanent):not(g),
 .btn.btn-active-color-primary:hover:not(.btn-active) .svg-icon svg:hover [fill]:not(.permanent):not(g),
 .show>.btn.btn-active-color-primary .svg-icon svg:hover [fill]:not(.permanent):not(g) {
-    transition: var(--yellow)
+    transition: fill 0.3s ease;
 }
 
 .btn-check:active+.btn.btn-active-color-primary.dropdown-toggle:after,
@@ -41855,7 +41860,7 @@ a:hover {
 .btn.btn-active-color-primary:focus:not(.btn-active).dropdown-toggle:after,
 .btn.btn-active-color-primary:hover:not(.btn-active).dropdown-toggle:after,
 .show>.btn.btn-active-color-primary.dropdown-toggle:after {
-    color: var(--yellow)
+    color: #009ef7;
 }
 
 .btn.btn-icon-primary i {
@@ -55034,6 +55039,7 @@ body {
 	width: 100%;
 	height: 100%;
     overflow: hidden;
+    z-index: 0;
   }
 
 .cloud {
@@ -55042,7 +55048,7 @@ body {
 	background-size: cover;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
-    opacity: 0.8;
+    opacity: 1;
   }
   
   .cloud1 {
@@ -55067,6 +55073,11 @@ body {
   }
 
   @media (max-width: 991px) {
+    
+    .cloud {
+        top: 10%;
+      }
+
     .cloud1 {
         width: 650px;
         height: 300px;
@@ -55083,6 +55094,8 @@ body {
 }
 
 @media (max-width: 768px) {
+
+
     .cloud1 {
         width: 550px;
         height: 250px;

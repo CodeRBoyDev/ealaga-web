@@ -19,7 +19,7 @@
                      <!--begin::Logo-->
                      <div class="d-flex align-items-center flex-equal">
                          <!--begin::Mobile menu toggle-->
-                         <button class="btn btn-icon btn-active-color-primary me-3 d-flex d-lg-none"
+                         <button class="btn btn-icon btn-active-color-primary me-3 d-flex d-lg-none z-index-1"
                              id="kt_landing_menu_toggle">
                              <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                              <span class="svg-icon svg-icon-2hx">
@@ -47,10 +47,10 @@
                      </div>
                      <!--end::Logo-->
                      <!--begin::Menu wrapper-->
-                     <div class="d-lg-block" id="kt_header_nav_wrapper">
+                     <div class="d-lg-block z-index-1" id="kt_header_nav_wrapper">
                         <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="200px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
                              <!--begin::Menu-->
-                             <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-500 menu-state-title-primary nav nav-flush fs-5 fw-bold"
+                             <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-dark-500 menu-state-title-primary nav nav-flush fs-5 fw-bold"
                                  id="kt_landing_menu">
                                  <!--begin::Menu item-->
                                  <div class="menu-item">
@@ -98,7 +98,7 @@
                      <!--end::Menu wrapper-->
                      <!--begin::Toolbar-->
                      @if (!Auth::check())
-                         <div class="flex-equal text-end ms-1">
+                         <div class="flex-equal text-end ms-1 z-index-1">
                              <a href="{{ route('login') }}" class="btn btn-warning">Sign In</a>
                          </div>
                      @else
@@ -116,7 +116,7 @@
          <!--begin::Landing hero-->
          <div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
              <!--begin::Heading-->
-             <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
+             <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20" style="z-index: 1">
                  <!--begin::Title-->
                  <h1 class="text-blue lh-base fw-bolder fs-2x fs-lg-3x mb-15">EXPERIENCE THE ENTERTAINMENT AND RELAXATION
                      <br />AT THE

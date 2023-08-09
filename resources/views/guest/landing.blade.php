@@ -37,7 +37,7 @@
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. If a user is new to eAlaga, they can register using their email address. An email confirmation is sent to activate the account.
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. If a user is new, register using email address. An email confirmation is sent to activate the account.
 									<br />
 								<br />b. If a user is an existing user, they can log in using their registered email and password.</div>
 								<!--end::Description-->
@@ -63,7 +63,7 @@
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Show a list of available services offered by eAlaga.
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Show a list of available healthcare services offered by the Center for the Elderly.
 									<br />
 								<br />b. Pick a service from the options available (e.g. recreational activities, dialysis, multipurpose hall, etc.).</div>
 								<!--end::Description-->
@@ -89,7 +89,7 @@
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Provide options for the user to select a date and time for the service.
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Provide options for the user to select their preferred date and time for the service.
 									<br />
 								<br />b. Show available slots for the selected date and time and Allow the user to pick a slot that works best for them.</div>
 								<!--end::Description-->
@@ -117,7 +117,7 @@
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Confirm the details of the user's selected service, date, and time, and slot.
 									<br />
-								<br />b. Generate a proof of confirmation in the form of QR codes and text.</div>
+								<br />b. Generate a proof of confirmation in the form of QR codes that contains necessary details.</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -129,7 +129,7 @@
 					<div class="card">
 						<div class="tns tns-default mb-10">
 							{{-- <h3 class="fs-2hx text-blue mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">Announcement</h3> --}}
-							<h3 class="text-center fs-2hx text-dark fw-bolder mt-10" id="announcement" >Announcement</h3>
+							<h3 id="announcement" class="text-center fs-2hx text-dark fw-bolder mt-10">Announcement</h3>
 							<!--begin::Slider-->
 							<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
 								<!--begin::Item-->
@@ -191,11 +191,11 @@
 			<!--begin::Team Section-->
 			<div class="py-20 py-lg-20">
 				<!--begin::Container-->
-				<div class="container">
+				<div class="container" id="team">
 					<!--begin::Heading-->
 					<div class="text-center mb-12">
 						<!--begin::Title-->
-						<h3 class="fs-2hx text-dark mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">Meet Our Great Team</h3>
+						<h3 class="fs-2hx text-dark mb-5" data-kt-scroll-offset="{default: 100, lg: 150}">Meet Our Great Team</h3>
 						<!--end::Title-->
 						<!--begin::Sub-title-->
 						<div class="fs-5 text-muted fw-bold ff-futura">The Center for Elderly's team is a group of dedicated individuals who provide care and support to the elderly community, aiming to improve their well-being and quality of life.</div>
@@ -298,7 +298,7 @@
 			</div>
 			<!--end::Team Section-->
 			<!--begin::Projects Section-->
-			<div class="mb-lg-n15 position-relative z-index-2">
+			<div class="mb-lg-n15 position-relative z-index-2" id="services">
 				<!--begin::Container-->
 				<div class="container">
 					<!--begin::Card-->
@@ -308,7 +308,7 @@
 							<!--begin::Heading-->
 							<div class="text-center mb-5 mb-lg-10">
 								<!--begin::Title-->
-								<h3 class="fs-2hx text-dark mb-5" id="services" data-kt-scroll-offset="{default: 100, lg: 150}">Our Services</h3>
+								<h3 class="fs-2hx text-dark mb-5" data-kt-scroll-offset="{default: 100, lg: 150}">Our Services</h3>
 								<!--end::Title-->
 							</div>
 							<!--end::Heading-->
@@ -1394,11 +1394,11 @@
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
 								<a href="../../demo9/dist/landing.html">
-									<img alt="Logo" src="assets/media/logos/logo-landing.svg" class="h-15px h-md-20px" />
+									<img alt="Logo" src="assets/media/logos/logotaguig.png" class="h-15px h-md-20px" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2021 Keenthemes Inc.</span>
+								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2023 eAlaga.</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
