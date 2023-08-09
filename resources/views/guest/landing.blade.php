@@ -24,7 +24,7 @@
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/elder_cp.png" class="mh-125px mb-9" alt="" />
+								<img src="client/media/illustrations/elder_cp.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -50,7 +50,7 @@
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/elder_activity.png" class="mh-125px mb-9" alt="" />
+								<img src="client/media/illustrations/elder_activity.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -76,7 +76,7 @@
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/elder_calendar.png" class="mh-125px mb-9" alt="" />
+								<img src="client/media/illustrations/elder_calendar.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -102,7 +102,7 @@
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/elder_check.png" class="mh-125px mb-9" alt="" />
+								<img src="client/media/illustrations/elder_check.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -209,7 +209,7 @@
 						  <!--begin::Story-->
 						  <div class="text-center mb-10 mb-md-0">
 							<!--begin::Photo-->
-							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/mayor.png')"></div>
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('client/media/avatars/mayor.png')"></div>
 							<!--end::Photo-->
 							<!--begin::Person-->
 							<div class="mb-0">
@@ -231,7 +231,7 @@
 						  <!--begin::Story-->
 						  <div class="text-center mb-10 mb-md-0">
 							<!--begin::Photo-->
-							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/vmayor.png')"></div>
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('client/media/avatars/vmayor.png')"></div>
 							<!--end::Photo-->
 							<!--begin::Person-->
 							<div class="mb-0">
@@ -253,7 +253,7 @@
 						  <!--begin::Story-->
 						  <div class="text-center mb-10 mb-md-0">
 							<!--begin::Photo-->
-							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/hosca.png')"></div>
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('client/media/avatars/hosca.png')"></div>
 							<!--end::Photo-->
 							<!--begin::Person-->
 							<div class="mb-0">
@@ -275,7 +275,7 @@
 						  <!--begin::Story-->
 						  <div class="text-center mb-10 mb-md-0">
 							<!--begin::Photo-->
-							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/hcenter.png')"></div>
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('client/media/avatars/hcenter.png')"></div>
 							<!--end::Photo-->
 							<!--begin::Person-->
 							<div class="mb-0">
@@ -344,9 +344,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/1.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="client/media/center/therapy_pool/1.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/1.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/therapy_pool/1.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -356,9 +356,9 @@
 											</a>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/3.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/therapy_pool/3.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/3.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/therapy_pool/3.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -376,9 +376,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/5.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/therapy_pool/5.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/5.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/therapy_pool/5.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -392,9 +392,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/4.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/therapy_pool/4.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/4.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/therapy_pool/4.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -408,9 +408,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/2.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/therapy_pool/2.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/2.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/therapy_pool/2.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -433,9 +433,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/massage/1.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="client/media/center/massage/1.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/1.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/massage/1.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -445,9 +445,9 @@
 											</a>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/4.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/massage/4.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/4.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/massage/4.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -465,9 +465,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/2.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/massage/2.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/2.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/massage/2.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -481,9 +481,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/3.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/massage/3.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/3.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/massage/3.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -497,9 +497,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/5.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/massage/5.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/5.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/massage/5.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -521,9 +521,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/2.jpg">
+											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="client/media/center/sauna/2.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/center/sauna/2.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('client/media/center/sauna/2.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -537,9 +537,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/1.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="client/media/center/sauna/1.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/sauna/1.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/sauna/1.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -549,9 +549,9 @@
 											</a>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/3.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/sauna/3.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/sauna/3.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/sauna/3.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -577,9 +577,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/4.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/gym_yoga_ballroom/4.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/4.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/gym_yoga_ballroom/4.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -593,9 +593,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/1.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/gym_yoga_ballroom/1.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/1.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/gym_yoga_ballroom/1.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -609,9 +609,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/2.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/gym_yoga_ballroom/2.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/2.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/gym_yoga_ballroom/2.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -625,9 +625,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/3.jpg">
+											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="client/media/center/gym_yoga_ballroom/3.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/3.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('client/media/center/gym_yoga_ballroom/3.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -653,9 +653,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/1.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/mph/1.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/1.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/mph/1.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -669,9 +669,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/2.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/mph/2.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/2.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/mph/2.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -685,9 +685,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/3.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/mph/3.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/3.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/mph/3.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -702,9 +702,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/mph/4.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="client/media/center/mph/4.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/4.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/mph/4.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -714,9 +714,9 @@
 											</a>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/5.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/center/mph/5.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/5.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/center/mph/5.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -743,9 +743,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-16.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/stock/600x600/img-16.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-16.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/stock/600x600/img-16.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -759,9 +759,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-12.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/stock/600x600/img-12.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-12.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/stock/600x600/img-12.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -775,9 +775,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-15.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="client/media/stock/600x400/img-15.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-15.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('client/media/stock/600x600/img-15.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -791,9 +791,9 @@
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-23.jpg">
+											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="client/media/stock/600x600/img-23.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-23.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('client/media/stock/600x600/img-23.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -1227,7 +1227,7 @@
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-circle symbol-50px me-10">
-											<img src="assets/media/avatars/150-2.jpg" class="" alt="" />
+											<img src="client/media/avatars/150-2.jpg" class="" alt="" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Name-->
@@ -1345,31 +1345,31 @@
 										<!--end::Subtitle-->
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
+											<img src="client/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
 										</a>
 										<!--end::Link-->
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
+											<img src="client/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
 										</a>
 										<!--end::Link-->
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/twitter.svg" class="h-20px me-2" alt="" />
+											<img src="client/media/svg/brand-logos/twitter.svg" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
 										</a>
 										<!--end::Link-->
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2" alt="" />
+											<img src="client/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
 										</a>
 										<!--end::Link-->
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
+											<img src="client/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
 										</a>
 										<!--end::Link-->
@@ -1394,7 +1394,7 @@
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
 								<a href="../../demo9/dist/landing.html">
-									<img alt="Logo" src="assets/media/logos/logotaguig.png" class="h-15px h-md-20px" />
+									<img alt="Logo" src="client/media/logos/logotaguig.png" class="h-15px h-md-20px" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
@@ -1440,6 +1440,6 @@
 @endsection
 
 @push('scripts')
-<!-- Push the JS assets to the 'scripts' stack -->
-<script src="{{asset('assets/js/custom/authentication/sign-in/general.js')}}"></script>
+<!-- Push the JS client to the 'scripts' stack -->
+<script src="{{asset('client/js/custom/authentication/sign-in/general.js')}}"></script>
 @endpush

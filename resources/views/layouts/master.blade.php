@@ -50,7 +50,7 @@
 
 <!--end::Head-->
 
-<body id="kt_body">
+<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="bg-white position-relative">
     @if (request()->route()->getName() != 'login' &&
             request()->route()->getName() != 'register' &&
             request()->route()->getName() != 'dashboard' &&
