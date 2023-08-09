@@ -5812,14 +5812,14 @@ fieldset:disabled .btn {
     z-index: 2;
     color: #009ef7;
     text-decoration: none;
-    background-color: #f1faff;
+    background-color: #1A4798;
     border-color: transparent
 }
 
 .page-link:focus {
     z-index: 3;
     color: #009ef7;
-    background-color: #f1faff;
+    background-color: #1A4798;
     outline: 0;
     box-shadow: none
 }
@@ -11151,7 +11151,7 @@ fieldset:disabled .btn {
 }
 
 .ps-14 {
-    padding-left: 3.5rem !important
+    padding-left: 4.5rem !important
 }
 
 .ps-15 {
@@ -31611,7 +31611,7 @@ fieldset:disabled .btn {
 }
 
 :root {
-    --bs-light-primary: #F1FAFF;
+    --bs-light-primary: #1A4798;
     --bs-active-primary: #0095E8;
     --bs-light-success: #E8FFF3;
     --bs-active-success: #47BE7D;
@@ -31705,7 +31705,7 @@ fieldset:disabled .btn {
 }
 
 .bg-light-primary {
-    background-color: #f1faff !important
+    background-color: #1A4798 !important
 }
 
 .bg-light-primary.hoverable:hover {
@@ -31725,7 +31725,7 @@ fieldset:disabled .btn {
 }
 
 .bg-hover-light-primary:hover {
-    background-color: #f1faff !important
+    background-color: #1A4798 !important
 }
 
 .bg-state-light-primary {
@@ -31734,7 +31734,7 @@ fieldset:disabled .btn {
 
 .bg-state-light-primary.active,
 .bg-state-light-primary:hover {
-    background-color: #f1faff !important
+    background-color: #1A4798 !important
 }
 
 .bg-hover-primary {
@@ -32965,7 +32965,7 @@ fieldset:disabled .btn {
 }
 
 .text-light-primary {
-    color: #f1faff !important
+    color: #1A4798 !important
 }
 
 .text-hover-primary {
@@ -34813,7 +34813,7 @@ a:hover {
 
 .pagination.pagination-outline .page-item.active .page-link,
 .pagination.pagination-outline .page-item:hover .page-link {
-    border-color: #f1faff
+    border-color: #1A4798
 }
 
 .page-item {
@@ -38222,7 +38222,7 @@ a:hover {
 .menu-show-bg-light-primary .menu-item.here>.menu-link,
 .menu-show-bg-light-primary .menu-item.show>.menu-link {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -38267,7 +38267,7 @@ a:hover {
 .menu-hover-bg-light-primary .menu-item .menu-link:hover:not(.disabled):not(.active),
 .menu-hover-bg-light-primary .menu-item.hover>.menu-link:not(.disabled):not(.active) {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -38311,7 +38311,7 @@ a:hover {
 
 .menu-active-bg-light-primary .menu-item .menu-link.active {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -38350,7 +38350,7 @@ a:hover {
 .menu-state-bg-light-primary .menu-item.here>.menu-link,
 .menu-state-bg-light-primary .menu-item.show>.menu-link {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -38395,7 +38395,7 @@ a:hover {
 .menu-state-bg-light-primary .menu-item .menu-link:hover:not(.disabled):not(.active),
 .menu-state-bg-light-primary .menu-item.hover>.menu-link:not(.disabled):not(.active) {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -38439,7 +38439,7 @@ a:hover {
 
 .menu-state-bg-light-primary .menu-item .menu-link.active {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff;
+    background-color: #1A4798;
     color: #009ef7
 }
 
@@ -39692,7 +39692,7 @@ a:hover {
 .btn.btn-primary {
     color: #fff;
     border-color: #009ef7;
-    background-color: #009ef7
+    background-color: #1A4798
 }
 
 .btn.btn-primary i {
@@ -39772,8 +39772,8 @@ a:hover {
 
 .btn.btn-light-primary {
     color: #009ef7;
-    border-color: #f1faff;
-    background-color: #f1faff
+    border-color: #1A4798;
+    background-color: #1A4798
 }
 
 .btn.btn-light-primary i {
@@ -39923,8 +39923,8 @@ a:hover {
 .btn.btn-active-light-primary:hover:not(.btn-active),
 .show>.btn.btn-active-light-primary {
     color: #009ef7;
-    border-color: #f1faff;
-    background-color: #f1faff !important
+    border-color: #1A4798;
+    background-color: #1A4798 !important
 }
 
 .btn-check:active+.btn.btn-active-light-primary i,
@@ -40983,8 +40983,8 @@ a:hover {
 
 .btn.btn-danger {
     color: #fff;
-    border-color: #f1416c;
-    background-color: #f1416c
+    border-color: #ED1C24;
+    background-color: #ED1C24
 }
 
 .btn.btn-danger i {
@@ -45211,7 +45211,7 @@ a:hover {
 .show>.btn.btn-outline.btn-outline-dashed.btn-outline-default {
     color: #009ef7;
     border-color: #009ef7;
-    background-color: #f1faff !important
+    background-color: #1A4798 !important
 }
 
 .btn-check:active+.btn.btn-outline.btn-outline-dashed.btn-outline-default i,
@@ -52845,7 +52845,7 @@ code:not([class*=language-]) {
 
 .badge-light-primary {
     color: #009ef7;
-    background-color: #f1faff
+    background-color: #1A4798
 }
 
 .badge-secondary {
@@ -53418,7 +53418,7 @@ label.rating-label:hover~.rating-label>.svg-icon svg:hover [fill]:not(.permanent
     width: 40px;
     height: 40px;
     border-radius: .475rem;
-    background-color: #f1faff;
+    background-color: #1A4798;
     margin-right: 1.5rem
 }
 
@@ -53480,7 +53480,7 @@ label.rating-label:hover~.rating-label>.svg-icon svg:hover [fill]:not(.permanent
 .stepper.stepper-pills .stepper-item.completed .stepper-icon,
 .stepper.stepper-pills .stepper-item.current:last-child .stepper-icon {
     transition: color .2s ease, background-color .2s ease;
-    background-color: #f1faff
+    background-color: #1A4798
 }
 
 .stepper.stepper-pills .stepper-item.completed .stepper-icon .stepper-check,

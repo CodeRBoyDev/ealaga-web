@@ -24,8 +24,15 @@ class LoginController extends Controller
                 return view('auth.login');
             }
 
-            // User is authenticated, redirect to the intended URL or a default route
-            return redirect()->intended(route('clientHome'));
+            // Check if the authenticated user has the role "admin"
+            $user = Auth::user();
+            if ($user->role === 0 || $user->role === 1) {
+                // If the user is an admin, redirect to the admin dashboard or any other admin route
+                return redirect()->route('dashboard');
+            } else {
+                // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
+                return redirect()->route('clientHome');
+            }
 
         } catch (\Throwable $th) {
             // An exception occurred, handle it
@@ -103,22 +110,66 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         try {
-            //code...
+            // code...
             $credentials = $request->only('email', 'password');
-            if (Auth::attempt($credentials)) {
-                // Authentication successful
-                // dd("Authentication successful");
-                return response()->json(['success' => true]);
-            } else {
-                // Authentication failed
-                // dd("Authentication failed");
-                return response()->json(['success' => false]);
-            }
-        } catch (\Throwable $th) {
-            //throw $th;
-            dd($th);
 
+            // Check if the provided input is in email format
+            $isEmailFormat = filter_var($credentials['email'], FILTER_VALIDATE_EMAIL);
+
+            // Attempt to log in using email or username
+            if ($isEmailFormat) {
+                if (Auth::attempt($credentials)) {
+                    // Authentication successful
+                    if (Auth::user()->role !== 2) {
+                        // If the user is an admin, redirect to the admin dashboard or any other admin route
+                        return response()->json(['success' => true, 'data' => 'dashboard']);
+
+                    } else {
+                        // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
+                        return response()->json(['success' => true, 'data' => 'clientHome']);
+                    }
+                } else {
+                    // Authentication failed
+                    return response()->json(['success' => false]);
+                }
+
+            } else {
+                if (Auth::attempt(['username' => $credentials['email'], 'password' => $credentials['password']])) {
+                    // Authentication successful using username
+                    if (Auth::user()->role !== 2) {
+                        // If the user is an admin, redirect to the admin dashboard or any other admin route
+                        return response()->json(['success' => true, 'data' => 'dashboard']);
+
+                    } else {
+                        // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
+                        return response()->json(['success' => true, 'data' => 'clientHome']);
+                    }
+
+                }
+            }
+
+            // $credentials = $request->only('email', 'password');
+
+            // if (Auth::attempt($credentials)) {
+            //     // Authentication successful
+            //     if (Auth::user()->role !== 2) {
+            //         // If the user is an admin, redirect to the admin dashboard or any other admin route
+            //         return response()->json(['success' => true, 'data' => 'dashboard']);
+
+            //     } else {
+            //         // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
+            //         return response()->json(['success' => true, 'data' => 'clientHome']);
+            //     }
+            // } else {
+            //     // Authentication failed
+            //     return response()->json(['success' => false]);
+            // }
+        } catch (\Throwable $th) {
+            // Handle any exceptions that might occur
+            // dd($th);
+            return response()->json(['success' => false, 'message' => $th->getmessage()]);
         }
+
     }
 
     public function logout()
