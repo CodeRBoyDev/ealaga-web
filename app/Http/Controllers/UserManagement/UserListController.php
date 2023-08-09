@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\UserManagement;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserListController extends Controller
 {
@@ -34,7 +38,13 @@ class UserListController extends Controller
     {
         //
     }
-
+    // Function to get the current date in Asia/Manila timezone using Carbon
+    public function getCurrentDateAsiaManila()
+    {
+        // Set the timezone to Asia/Manila
+        $currentDate = Carbon::now('Asia/Manila');
+        return $currentDate;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -44,6 +54,130 @@ class UserListController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+            //code...
+            // Validate the incoming request data
+
+            $request->validate([
+                'first_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'user_email' => 'nullable|email|unique:users,email',
+                'contact_number' => 'nullable|string|unique:users,contact_number|max:11|min:11', // Assuming contact_number is optional with a minimum length of 11 characters
+                'birthday' => 'nullable|date', // Assuming birthday is optional and should be a date
+                'brgyId' => 'required|string|max:255',
+                'username' => 'required|unique:users,username|max:255', // Assuming username is optional and unique (if provided)
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming avatar is an image file
+            ], [
+                'brgyId.required' => 'Please select a barangay.', // Custom error message for 'brgyId' field
+                'contact_number.max' => 'The contact number may not be greater than :max digits.', // Custom error message for 'contact_number' max length
+                'contact_number.min' => 'The contact number must be at least :min digits.', // Custom error message for 'contact_number' min length
+                'birthday.date' => 'The birthday must be a valid date.', // Custom error message for 'birthday' date format
+                'username.unique' => 'The username has already been taken.', // Custom error message for 'username' uniqueness
+
+            ]);
+
+            $currentDate = $this->getCurrentDateAsiaManila();
+            // Prepare the data to be inserted into the users table
+
+            // Hash the password before saving it in the database
+            // Lowercase the last_name before creating the password
+            $last_name = strtolower($request->input('last_name'));
+
+            // Hash the password before saving it in the database
+            $password = $last_name . '2023';
+            $hashedPassword = Hash::make($password);
+
+            $userData = [
+                'firstname' => $request->input('first_name'),
+                'middlename' => $request->input('middle_name'),
+                'lastname' => $request->input('last_name'),
+                'suffix' => $request->input('suffix'),
+                'email' => $request->input('user_email'),
+                'username' => $request->input('username'),
+                'birthday' => $request->input('birthday'),
+                'contact_number' => $request->input('contact_number'),
+                'role' => $request->input('user_role'),
+                'access_level' => $request->input('access_level'),
+                'barangay' => $request->input('brgyId'),
+                'unitNo' => $request->input('unitNo'),
+                'houseNo' => $request->input('houseNo'),
+                'street' => $request->input('street'),
+                'village' => $request->input('village'),
+                'created_at' => $currentDate,
+                'password' => $hashedPassword,
+                'status' => 1,
+                'email_verified' => 1,
+            ];
+
+            // Save the user to the database using DB::table('users')->insert()
+            $userId = DB::table('users')->insertGetId($userData);
+
+            // Generate the QR code data (you can include any relevant user data here)
+            $qrCodeData = [
+                'id' => $userId,
+                'firstname' => $request->input('first_name'),
+                'middlename' => $request->input('middle_name'),
+                'lastname' => $request->input('last_name'),
+                'suffix' => $request->input('suffix'),
+                'email' => $request->input('user_email'),
+                'role' => $request->input('user_role'),
+                'access_level' => $request->input('user_role'),
+                'barangay' => $request->input('brgyId'),
+                'unitNo' => $request->input('unitNo'),
+                'houseNo' => $request->input('houseNo'),
+                'street' => $request->input('street'),
+                'village' => $request->input('village'),
+                'created_at' => $currentDate,
+                'password' => $hashedPassword,
+            ];
+            // Generate the QR code as an SVG image
+            $qrCode = QrCode::size(200)->generate(json_encode($qrCodeData));
+
+            // Create the directory if it doesn't exist
+            $qrCodeDirectory = storage_path('app/public/userqrCode/');
+            File::makeDirectory($qrCodeDirectory, $mode = 0777, true, true);
+
+            // Save the QR code image to the storage/app/public/qrcode directory
+            $qrCodePath = $qrCodeDirectory . $userId . '.svg';
+            file_put_contents($qrCodePath, $qrCode);
+
+            // Update the user record with the QR code path in the database
+            DB::table('users')->where('id', $userId)->update(['qr_code' => "storage/userqrCode/" . $userId . '.svg']);
+
+            // Handle the avatar file upload (if applicable)
+            if ($request->hasFile('avatar')) {
+                // Store the uploaded avatar in the storage/app/public/avatars directory
+                $avatarPath = $request->file('avatar')->store('avatars', 'public');
+                // Update the user record with the avatar path
+                DB::table('users')->where('id', $userId)->update(['img_path' => "storage/" . $avatarPath]);
+                // Return a success response or redirect to a success page
+            }
+
+            // Handle the valid ID file uploads (if applicable)
+            if ($request->hasFile('valid_id')) {
+                $validIds = $request->file('valid_id');
+                $validIdPaths = [];
+                foreach ($validIds as $validId) {
+                    // Store the uploaded valid ID in the storage/app/public/valid_ids directory
+                    $validIdPath = $validId->store('validId', 'public');
+                    $validIdPaths[] = "storage/" . $validIdPath;
+                }
+
+                // Convert the array of file paths to a JSON string before updating the user record
+                $jsonValidIdPaths = json_encode($validIdPaths);
+
+                // Update the user record with the serialized valid ID paths in the users table
+                DB::table('users')->where('id', $userId)->update(['valid_id' => $jsonValidIdPaths]);
+            }
+
+            // Return response
+            return response()->json(['success' => true, 'message' => 'User created successfully']);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json(['success' => false, 'message' => $th->getmessage()]);
+
+        }
     }
 
     /**
@@ -75,9 +209,107 @@ class UserListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $userId)
     {
-        //
+        try {
+            // Validate the incoming request data
+            $request->validate([
+                'first_name' => 'required|string|max:255',
+                'middle_name' => 'string|max:255', // Assuming middle_name is optional
+                'last_name' => 'required|string|max:255',
+                'user_email' => 'nullable|email|unique:users,email,' . $userId,
+                'contact_number' => 'nullable|string|unique:users,contact_number,' . $userId . '|max:11|min:11', // Assuming contact_number is optional with a minimum length of 11 characters
+                'birthday' => 'nullable|date', // Assuming birthday is optional and should be a date
+                'barangay' => 'required|string|max:255',
+                'username' => 'required|unique:users,username,' . $userId . '|max:255', // Assuming username is optional and unique (if provided)
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming avatar is an image file
+            ], [
+                'brgyId.required' => 'Please select a barangay.', // Custom error message for 'brgyId' field
+                'contact_number.max' => 'The contact number may not be greater than :max digits.', // Custom error message for 'contact_number' max length
+                'contact_number.min' => 'The contact number must be at least :min digits.', // Custom error message for 'contact_number' min length
+                'birthday.date' => 'The birthday must be a valid date.', // Custom error message for 'birthday' date format
+                'username.unique' => 'The username has already been taken.', // Custom error message for 'username' uniqueness
+            ]);
+
+            // Get the user data from the database
+            $userData = DB::table('users')->where('id', $userId)->first();
+            $currentDate = $this->getCurrentDateAsiaManila();
+
+            if (!$userData) {
+                // Return a not found response or redirect to an error page
+                return response()->json(['success' => false, 'message' => 'User not found']);
+            }
+
+            // Prepare the data to be updated in the users table
+
+            // Update the user data based on the changes from the request
+            $userDataToUpdate = [
+                'firstname' => $request->input('first_name'),
+                'middlename' => $request->input('middle_name'),
+                'lastname' => $request->input('last_name'),
+                'suffix' => $request->input('suffix'),
+                'email' => $request->input('user_email'),
+                'username' => $request->input('username'),
+                'birthday' => $request->input('birthday'),
+                'contact_number' => $request->input('contact_number'),
+                'role' => $request->input('user_role'),
+                'barangay' => $request->input('barangay'),
+                'unitNo' => $request->input('unitNo'),
+                'houseNo' => $request->input('houseNo'),
+                'street' => $request->input('street'),
+                'village' => $request->input('village'),
+                'status' => $request->input('status'),
+                'updated_at' => $currentDate,
+            ];
+
+            // Handle the avatar file upload (if applicable)
+            if ($request->hasFile('avatar')) {
+                // Store the uploaded avatar in the storage/app/public/avatars directory
+                $avatarPath = $request->file('avatar')->store('avatars', 'public');
+                // Update the user record with the new avatar path
+                $userDataToUpdate['img_path'] = "storage/" . $avatarPath;
+            }
+
+            // Update the user record in the database
+            DB::table('users')->where('id', $userId)->update($userDataToUpdate);
+
+            // Generate the QR code as an SVG image
+            $qrCode = QrCode::size(200)->generate(json_encode($userDataToUpdate));
+
+            // Create the directory if it doesn't exist
+            $qrCodeDirectory = storage_path('app/public/userqrCode/');
+            File::makeDirectory($qrCodeDirectory, $mode = 0777, true, true);
+
+            // Save the QR code image to the storage/app/public/qrcode directory
+            $qrCodePath = $qrCodeDirectory . $userId . '.svg';
+            file_put_contents($qrCodePath, $qrCode);
+
+            // Update the user record with the QR code path in the database
+            DB::table('users')->where('id', $userId)->update(['qr_code' => "storage/userqrCode/" . $userId . '.svg']);
+
+            // Handle the valid ID file uploads (if applicable)
+            if ($request->hasFile('edit_valid_id')) {
+                $validIds = $request->file('edit_valid_id');
+                $validIdPaths = [];
+                foreach ($validIds as $validId) {
+                    // Store the uploaded valid ID in the storage/app/public/valid_ids directory
+                    $validIdPath = $validId->store('validId', 'public');
+                    $validIdPaths[] = "storage/" . $validIdPath;
+                }
+
+                // Convert the array of file paths to a JSON string before updating the user record
+                $jsonValidIdPaths = json_encode($validIdPaths);
+
+                // Update the user record with the serialized valid ID paths in the users table
+                DB::table('users')->where('id', $userId)->update(['valid_id' => $jsonValidIdPaths]);
+            }
+
+            // Return response
+            return response()->json(['success' => true, 'message' => 'User updated successfully']);
+        } catch (\Throwable $th) {
+            // Return an error response
+            return response()->json(['success' => false, 'message' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -94,11 +326,13 @@ class UserListController extends Controller
     public function getUsers()
     {
         try {
-            $userList = DB::table('users')->get();
+            $userList = DB::table('users')
+                ->orderBy('created_at', 'asc')
+                ->get();
             return response()->json(['success' => true, 'data' => $userList]);
         } catch (\Throwable $th) {
             return response()->json(['success' => false, 'message' => 'An error occurred while fetching user list.']);
         }
-
     }
+
 }

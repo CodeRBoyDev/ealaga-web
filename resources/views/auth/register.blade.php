@@ -7,7 +7,7 @@
         <div class="d-flex flex-column flex-lg-row flex-column-fluid" style="height: 100%;">
             <!--begin::Aside - Mobile First (order 2 in mobile, order 1 in larger screens)-->
             <div class="d-lg-none d-flex flex-column flex-lg-row-auto w-xl-1000px positon-xl-relative order-lg-2"
-                style="background-image: url('{{ asset('assets/media/taguigbranding/tbdblt.jpg') }}'); background-size: 0% 0%;">
+                style="background-image: url('{{ asset('client/media/taguigbranding/tbdblt.jpg') }}'); background-size: 0% 0%;">
                 <!--begin::Wrapper-->
                 <!--end::Wrapper-->
             </div>
@@ -23,7 +23,7 @@
                             <!--begin::Heading-->
                             <div class="mb-10 text-center">
                                 <!--begin::Logo-->
-                                <img alt="Logo" src="{{ asset('assets/media/logos/OSCA.png') }}" class="h-150px" />
+                                <img alt="Logo" src="{{ asset('client/media/logos/OSCA.png') }}" class="h-150px" />
                                 <!--end::Logo-->
                                 <!--begin::Title-->
                                 <h1 class="text-dark mb-3">Create an Account</h1>
@@ -150,7 +150,7 @@
             <!--end::Body-->
             <!--begin::Aside - Larger Screens (order 1 in larger screens)-->
             <div class="d-none d-lg-flex flex-column flex-lg-row-fluid w-xl-1000px positon-xl-relative order-lg-1"
-                style="background-image: url('{{ asset('assets/media/taguigbranding/tbdblt.jpg') }}');  background-size: 100% 100%;">
+                style="background-image: url('{{ asset('client/media/taguigbranding/tbdblt.jpg') }}');  background-size: 100% 100%;">
                 <!--begin::Wrapper-->
                 <!--end::Wrapper-->
             </div>
@@ -190,8 +190,8 @@
 
 
 @push('scripts')
-    <!-- Push the JS assets to the 'scripts' stack -->
-    <script src="{{ asset('assets/js/custom/authentication/sign-up/general.js') }}"></script>
+    <!-- Push the JS client to the 'scripts' stack -->
+    <script src="{{ asset('client/js/custom/authentication/sign-up/general.js') }}"></script>
     <script>
         function handleAgree() {
             // Get the checkbox element

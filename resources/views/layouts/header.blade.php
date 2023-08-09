@@ -2,7 +2,7 @@
  <div class="mb-0" id="home">
      <!--begin::Wrapper-->
      <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg"
-         style="background-image: url(assets/media/svg/illustrations/landing.svg)">
+         style="background-image: url(client/media/svg/illustrations/landing.svg)">
          <!--begin::Header-->
          <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
              data-kt-sticky-offset="{default: '200px', lg: '300px'}">
@@ -32,9 +32,9 @@
                          <!--end::Mobile menu toggle-->
                          <!--begin::Logo image-->
                          <a href="../../demo9/dist/landing.html">
-                             <img alt="Logo" src="assets/media/logos/logo-landing.svg"
+                             <img alt="Logo" src="client/media/logos/logo-landing.svg"
                                  class="logo-default h-25px h-lg-30px" />
-                             <img alt="Logo" src="assets/media/logos/logo-landing-dark.svg"
+                             <img alt="Logo" src="client/media/logos/logo-landing-dark.svg"
                                  class="logo-sticky h-20px h-lg-25px" />
                          </a>
                          <!--end::Logo image-->
@@ -94,7 +94,7 @@
                              <a href="{{ route('login') }}" class="btn btn-success">Sign In</a>
                          </div>
                      @else
-                          <div class="flex-equal text-end ms-1">
+                         <div class="flex-equal text-end ms-1">
                              <a href="{{ route('logout') }}" class="btn btn-success">Sign Out</a>
                          </div>
                      @endif
@@ -127,43 +127,43 @@
              <div class="d-flex flex-center flex-wrap position-relative px-5">
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
-                     <img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Vodafone">
-                     <img src="assets/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="KPMG International">
-                     <img src="assets/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Nasa">
-                     <img src="assets/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Aspnetzero">
-                     <img src="assets/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px"
+                     <img src="client/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px"
                          alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="AON - Empower Results">
-                     <img src="assets/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Hewlett-Packard">
-                     <img src="assets/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
                  <!--begin::Client-->
                  <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Truman">
-                     <img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
+                     <img src="client/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
                  </div>
                  <!--end::Client-->
              </div>
@@ -185,10 +185,10 @@
  <!--end::Header Section-->
 
  <!--begin::Page Vendors Javascript(used by this page)-->
- <script src="assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
- <script src="assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
+ <script src="client/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
+ <script src="client/plugins/custom/typedjs/typedjs.bundle.js"></script>
  <!--end::Page Vendors Javascript-->
  <!--begin::Page Custom Javascript(used by this page)-->
- <script src="assets/js/custom/landing.js"></script>
- <script src="assets/js/custom/pages/company/pricing.js"></script>
+ <script src="client/js/custom/landing.js"></script>
+ <script src="client/js/custom/pages/company/pricing.js"></script>
  <!--end::Page Custom Javascript-->

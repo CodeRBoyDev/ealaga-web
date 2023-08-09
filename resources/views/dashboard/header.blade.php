@@ -75,7 +75,7 @@
                        <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                            <!--begin::Item-->
                            <li class="breadcrumb-item text-muted">
-                               <a href="../../demo8/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                               <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">Home</a>
                            </li>
                            <!--end::Item-->
                            <!--begin::Item-->
@@ -84,7 +84,15 @@
                            </li>
                            <!--end::Item-->
                            <!--begin::Item-->
-                           <li class="breadcrumb-item text-dark">Default</li>
+                           @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Analytics</li>
+                           @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">View User</li>
+                           @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Comorbidty Management</li>
+                           @else
+                               <li class="breadcrumb-item text-dark">User Management</li>
+                           @endif
                            <!--end::Item-->
                        </ul>
                        <!--end::Breadcrumb-->
