@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
 
-    @if (request()->route()->getName() === 'dashboard')
+    @if (request()->route()->getName() === 'dashboard' ||
+            request()->route()->getName() === 'userList' ||
+            request()->route()->getName() === 'userView' ||
+            request()->route()->getName() === 'comorbidityList')
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -19,36 +22,41 @@
         <!--begin::Global Stylesheets Bundle(used by all pages)-->
         <link href="{{ asset('admin/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
         <!--end::Global Stylesheets Bundle-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        @stack('adminStyles')
     @elseif(request()->route()->getName() === 'login' &&
-            request()->route()->getName() === 'register' &&
-            request()->route()->getName() === 'dashboard' 
-            &&  request()->route()->getName() === 'ClientHome'
-            &&  request()->route()->getName() === 'ClientSchedule'
-            &&  request()->route()->getName() === 'ClientScheduleList'
-            &&  request()->route()->getName() === 'ClientScheduleHistory'
-            &&  request()->route()->getName() === 'ClientVolunteerList'
-                )
-                   <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-                   <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        request()->route()->getName() === 'register' &&
+        request()->route()->getName() === 'dashboard' 
+        &&  request()->route()->getName() === 'ClientHome'
+        &&  request()->route()->getName() === 'ClientSchedule'
+        &&  request()->route()->getName() === 'ClientScheduleList'
+        &&  request()->route()->getName() === 'ClientScheduleHistory'
+        &&  request()->route()->getName() === 'ClientVolunteerList'
+            )
+               <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+               <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     @else
         <!--begin::Global Stylesheets Bundle(used by all pages)-->
-        <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         <!--end::Global Stylesheets Bundle-->
+        @stack('styles')
     @endif
 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-        @stack('adminStyles')
 </head>
 
 <!--end::Head-->
 
-<body id="kt_body" class="bg-body">
+<body id="kt_body">
     @if (request()->route()->getName() != 'login' &&
             request()->route()->getName() != 'register' &&
-            request()->route()->getName() != 'dashboard' 
+            request()->route()->getName() != 'dashboard' &&
+            request()->route()->getName() != 'userList' &&
+            request()->route()->getName() != 'userView' &&
+            request()->route()->getName() != 'comorbidityList'         
             &&  request()->route()->getName() != 'ClientHome'
             &&  request()->route()->getName() != 'ClientSchedule'
             &&  request()->route()->getName() != 'ClientScheduleList'
@@ -57,15 +65,20 @@
             )
         @include('layouts.header')
     @endif
-
     <!-- Your other content goes here -->
 
+    <div id="sample">
+
+    </div>
     <!--begin::Main-->
     <div>
         @yield('content')
     </div>
     <!--end::Main-->
-    @if (request()->route()->getName() != 'dashboard')
+    @if (request()->route()->getName() != 'dashboard' &&
+            request()->route()->getName() != 'userList' &&
+            request()->route()->getName() != 'userView' &&
+            request()->route()->getName() != 'comorbidityList')
         <script>
             var hostUrl = "client/";
         </script>
@@ -94,18 +107,6 @@
         <!--end::Javascript-->
     @endif
 
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
-    <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Page Vendors Javascript(used by this page)-->
-	<script src="{{asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js')}}"></script>
-	<script src="{{asset('assets/plugins/custom/typedjs/typedjs.bundle.js')}}"></script>
-	<!--end::Page Vendors Javascript-->
-    @stack('scripts')
-    <!--end::Page Custom Javascript-->
-
-    <!--end::Javascript-->
 </body>
 <!--end::Body-->
 

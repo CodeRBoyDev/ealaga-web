@@ -59,13 +59,18 @@ $(document).ready(function () {
     });
   }
 
+  $("#loader_div").hide();
 
   function loadScheduleList() {
     $.ajax({
       url: "/client/schedule/list",
       type: "GET",
+      beforeSend: function () {
+        $("#loader_div").show();
+      },
       success: function (data) {
         console.log(data)
+        $("#loader_div").hide();
         // Initialize an empty variable to store the generated HTML code
         let card_data = "";
         let pagination_card_div = "";

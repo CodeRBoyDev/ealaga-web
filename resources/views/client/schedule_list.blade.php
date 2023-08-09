@@ -2,6 +2,7 @@
 @section('content')
 
        <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
+	   <link href="{{ asset('/client/css/loader.css') }}" rel="stylesheet" type="text/css" />
        <link href="/client/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
    	<!--begin::Body-->
        <div class="body_background header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
@@ -156,6 +157,9 @@
 								<!--begin::Card body-->
 								<div class="card-body">
 									<!--begin::Addresses-->
+									<div id="loader_div" style="text-align: center;">
+										<span class="loader"></span>
+									</div>
 									<div id="card_row_div" class="row gx-9 gy-6">
 										
 									</div>
