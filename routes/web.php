@@ -1,6 +1,6 @@
 <?php
 
-// Authentication
+use App\Http\Controllers\Visitor\LandingController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 
@@ -14,6 +14,11 @@ use App\Http\Controllers\UserManagement\UserListController;
 use App\Http\Controllers\UserManagement\UserViewController;
 use Illuminate\Support\Facades\Route;
 
+//CLIENT
+use App\Http\Controllers\Client\ClientHomeController;
+use App\Http\Controllers\Client\ScheduleController;
+use App\Http\Controllers\Client\VolunteerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,15 +30,29 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('guest.landing');
-})->name('landing');
+// Route::get('/', function () {
+//     return view('guest.landing');
+// })->name('landing');
+
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+
+Route::get('/ticket', function () {
+    return view('client.ticket');
+})->name('ticket');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 // Client
 
-Route::get('/client-home', function () {
-    return view('client.home');
-})->name('clientHome');
+Route::get('/client/home', [ClientHomeController::class, 'ClientHome'])->name('ClientHome');
+Route::get('/client/schedule', [ScheduleController::class, 'ClientSchedule'])->name('ClientSchedule');
+Route::post('/client/schedule/add', [ScheduleController::class, 'ClientScheduleAdd'])->name('ClientScheduleAdd');
+Route::get('/client/schedule/slot', [ScheduleController::class, 'ClientScheduleSlot'])->name('ClientScheduleSlot');
+Route::get('/client/schedule/list', [ScheduleController::class, 'ClientScheduleList'])->name('ClientScheduleList');
+Route::get('/client/schedule/list/{id}', [ScheduleController::class, 'ClientScheduleView'])->name('ClientScheduleView');
+Route::get('/client/schedule/history', [ScheduleController::class, 'ClientScheduleHistory'])->name('ClientScheduleHistory');
+
+Route::get('/client/volunteer', [VolunteerController::class, 'ClientVolunteerList'])->name('ClientVolunteerList');
 
 // Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');
