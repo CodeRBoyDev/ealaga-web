@@ -20,10 +20,21 @@
         <link href="{{ asset('admin/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         <!--end::Global Stylesheets Bundle-->
+    @elseif(request()->route()->getName() === 'login' &&
+            request()->route()->getName() === 'register' &&
+            request()->route()->getName() === 'dashboard' 
+            &&  request()->route()->getName() === 'ClientHome'
+            &&  request()->route()->getName() === 'ClientSchedule'
+            &&  request()->route()->getName() === 'ClientScheduleList'
+            &&  request()->route()->getName() === 'ClientScheduleHistory'
+            &&  request()->route()->getName() === 'ClientVolunteerList'
+                )
+                   <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+                   <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     @else
         <!--begin::Global Stylesheets Bundle(used by all pages)-->
-        <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         <!--end::Global Stylesheets Bundle-->
     @endif
 
