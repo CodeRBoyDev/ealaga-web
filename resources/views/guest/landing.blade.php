@@ -9,89 +9,115 @@
 					<!--begin::Heading-->
 					<div class="text-center mb-17">
 						<!--begin::Title-->
-						<h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">How it Works</h3>
+						<h3 class="fs-2hx text-dark mb-5" id="how">How to use</h3>
 						<!--end::Title-->
 						<!--begin::Text-->
-						<div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
-						<br />for different amazing and great useful admin</div>
+						{{-- <div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
+						<br />for different amazing and great useful admin</div> --}}
 						<!--end::Text-->
 					</div>
 					<!--end::Heading-->
 					<!--begin::Row-->
 					<div class="row w-100 gy-10 mb-md-20">
 						<!--begin::Col-->
-						<div class="col-md-4 px-5">
+						<div class="col-md-6 col-lg-3">
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sigma-1/2.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/elder_cp.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
 									<!--begin::Badge-->
-									<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">1</span>
+									<span class="badge badge-circle badge-light-warning fw-bolder p-5 me-3 fs-3 ff-futura">1</span>
 									<!--end::Badge-->
 									<!--begin::Title-->
-									<div class="fs-5 fs-lg-3 fw-bolder text-dark">Jane Miller</div>
+									<div class="fs-5 fs-lg-3 fw-bolder text-dark ff-futura">Register and log in</div>
 									<!--end::Title-->
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. If a user is new, register using email address. An email confirmation is sent to activate the account.
+									<br />
+								<br />b. If a user is an existing user, they can log in using their registered email and password.</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
 						</div>
 						<!--end::Col-->
 						<!--begin::Col-->
-						<div class="col-md-4 px-5">
+						<div class="col-md-6 col-lg-3">
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sigma-1/8.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/elder_activity.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
 									<!--begin::Badge-->
-									<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">2</span>
+									<span class="badge badge-circle badge-light-warning fw-bolder p-5 me-3 fs-3 ff-futura">2</span>
 									<!--end::Badge-->
 									<!--begin::Title-->
-									<div class="fs-5 fs-lg-3 fw-bolder text-dark">Setup Your App</div>
+									<div class="fs-5 fs-lg-3 fw-bolder text-dark ff-futura">Choose Healthcare Service</div>
 									<!--end::Title-->
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Show a list of available healthcare services offered by the Center for the Elderly.
+									<br />
+								<br />b. Pick a service from the options available (e.g. recreational activities, dialysis, multipurpose hall, etc.).</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
 						</div>
 						<!--end::Col-->
 						<!--begin::Col-->
-						<div class="col-md-4 px-5">
+						<div class="col-md-6 col-lg-3">
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sigma-1/12.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/elder_calendar.png" class="mh-125px mb-9" alt="" />
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
 									<!--begin::Badge-->
-									<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">3</span>
+									<span class="badge badge-circle badge-light-warning fw-bolder p-5 me-3 fs-3 ff-futura">3</span>
 									<!--end::Badge-->
 									<!--begin::Title-->
-									<div class="fs-5 fs-lg-3 fw-bolder text-dark">Enjoy Nautica App</div>
+									<div class="fs-5 fs-lg-3 fw-bolder text-dark ff-futura">Set a Schedule</div>
 									<!--end::Title-->
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Provide options for the user to select their preferred date and time for the service.
+									<br />
+								<br />b. Show available slots for the selected date and time and Allow the user to pick a slot that works best for them.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-6 col-lg-3">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="assets/media/illustrations/elder_check.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									<!--begin::Badge-->
+									<span class="badge badge-circle badge-light-warning fw-bolder p-5 me-3 fs-3 ff-futura">4</span>
+									<!--end::Badge-->
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bolder text-dark ff-futura">Confirm Schedule</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Confirm the details of the user's selected service, date, and time, and slot.
+									<br />
+								<br />b. Generate a proof of confirmation in the form of QR codes that contains necessary details.</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -100,53 +126,44 @@
 					</div>
 					<!--end::Row-->
 					<!--begin::Product slider-->
-					<div class="tns tns-default">
-						<!--begin::Slider-->
-						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo1.png" class="card-rounded shadow mw-100" alt="" />
+					<div class="card">
+						<div class="tns tns-default mb-10">
+							{{-- <h3 class="fs-2hx text-blue mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">Announcement</h3> --}}
+							<h3 id="announcement" class="text-center fs-2hx text-dark fw-bolder mt-10">Announcement</h3>
+							<!--begin::Slider-->
+							<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
+								<!--begin::Item-->
+								@foreach ($announcements as $item)
+								<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10 {{ $item->id == 1 ? 'active' : '' }}">
+									<img src="{{$item->image}}" class="card-rounded shadow mw-100" alt="" />
+								</div>
+								@endforeach
+								<!--end::Item-->
 							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo2.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo4.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo5.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
+							<!--end::Slider-->
+							<!--begin::Slider button-->
+							<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
+								<!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
+								<span class="svg-icon svg-icon-3x">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black" />
+									</svg>
+								</span>
+								<!--end::Svg Icon-->
+							</button>
+							<!--end::Slider button-->
+							<!--begin::Slider button-->
+							<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
+								<!--begin::Svg Icon | path: icons/duotune/arrows/arr071.svg-->
+								<span class="svg-icon svg-icon-3x">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black" />
+									</svg>
+								</span>
+								<!--end::Svg Icon-->
+							</button>
+							<!--end::Slider button-->
 						</div>
-						<!--end::Slider-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Slider button-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr071.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Slider button-->
 					</div>
 					<!--end::Product slider-->
 				</div>
@@ -162,128 +179,6 @@
 					</svg>
 				</div>
 				<!--end::Curve top-->
-				<!--begin::Wrapper-->
-				<div class="pb-15 pt-18 landing-dark-bg">
-					<!--begin::Container-->
-					<div class="container">
-						<!--begin::Heading-->
-						<div class="text-center mt-15 mb-18" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
-							<!--begin::Title-->
-							<h3 class="fs-2hx text-white fw-bolder mb-5">We Make Things Better</h3>
-							<!--end::Title-->
-							<!--begin::Description-->
-							<div class="fs-5 text-gray-700 fw-bold">Save thousands to millions of bucks by using single tool
-							<br />for different amazing and great useful admin</div>
-							<!--end::Description-->
-						</div>
-						<!--end::Heading-->
-						<!--begin::Statistics-->
-						<div class="d-flex flex-center">
-							<!--begin::Items-->
-							<div class="d-flex flex-wrap flex-center justify-content-lg-between mb-15 mx-auto w-xl-900px">
-								<!--begin::Item-->
-								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('assets/media/svg/misc/octagon.svg')">
-									<!--begin::Symbol-->
-									<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-									<span class="svg-icon svg-icon-2tx svg-icon-white mb-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-											<rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
-											<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
-											<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
-											<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
-										</svg>
-									</span>
-									<!--end::Svg Icon-->
-									<!--end::Symbol-->
-									<!--begin::Info-->
-									<div class="mb-0">
-										<!--begin::Value-->
-										<div class="fs-lg-2hx fs-2x fw-bolder text-white d-flex flex-center">
-											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="700" data-kt-countup-suffix="+">0</div>
-										</div>
-										<!--end::Value-->
-										<!--begin::Label-->
-										<span class="text-gray-600 fw-bold fs-5 lh-0">Known Companies</span>
-										<!--end::Label-->
-									</div>
-									<!--end::Info-->
-								</div>
-								<!--end::Item-->
-								<!--begin::Item-->
-								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('assets/media/svg/misc/octagon.svg')">
-									<!--begin::Symbol-->
-									<!--begin::Svg Icon | path: icons/duotune/graphs/gra008.svg-->
-									<span class="svg-icon svg-icon-2tx svg-icon-white mb-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-											<path d="M13 10.9128V3.01281C13 2.41281 13.5 1.91281 14.1 2.01281C16.1 2.21281 17.9 3.11284 19.3 4.61284C20.7 6.01284 21.6 7.91285 21.9 9.81285C22 10.4129 21.5 10.9128 20.9 10.9128H13Z" fill="black" />
-											<path opacity="0.3" d="M13 12.9128V20.8129C13 21.4129 13.5 21.9129 14.1 21.8129C16.1 21.6129 17.9 20.7128 19.3 19.2128C20.7 17.8128 21.6 15.9128 21.9 14.0128C22 13.4128 21.5 12.9128 20.9 12.9128H13Z" fill="black" />
-											<path opacity="0.3" d="M11 19.8129C11 20.4129 10.5 20.9129 9.89999 20.8129C5.49999 20.2129 2 16.5128 2 11.9128C2 7.31283 5.39999 3.51281 9.89999 3.01281C10.5 2.91281 11 3.41281 11 4.01281V19.8129Z" fill="black" />
-										</svg>
-									</span>
-									<!--end::Svg Icon-->
-									<!--end::Symbol-->
-									<!--begin::Info-->
-									<div class="mb-0">
-										<!--begin::Value-->
-										<div class="fs-lg-2hx fs-2x fw-bolder text-white d-flex flex-center">
-											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="80" data-kt-countup-suffix="K+">0</div>
-										</div>
-										<!--end::Value-->
-										<!--begin::Label-->
-										<span class="text-gray-600 fw-bold fs-5 lh-0">Statistic Reports</span>
-										<!--end::Label-->
-									</div>
-									<!--end::Info-->
-								</div>
-								<!--end::Item-->
-								<!--begin::Item-->
-								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('assets/media/svg/misc/octagon.svg')">
-									<!--begin::Symbol-->
-									<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
-									<span class="svg-icon svg-icon-2tx svg-icon-white mb-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-											<path d="M21 10H13V11C13 11.6 12.6 12 12 12C11.4 12 11 11.6 11 11V10H3C2.4 10 2 10.4 2 11V13H22V11C22 10.4 21.6 10 21 10Z" fill="black" />
-											<path opacity="0.3" d="M12 12C11.4 12 11 11.6 11 11V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V11C13 11.6 12.6 12 12 12Z" fill="black" />
-											<path opacity="0.3" d="M18.1 21H5.9C5.4 21 4.9 20.6 4.8 20.1L3 13H21L19.2 20.1C19.1 20.6 18.6 21 18.1 21ZM13 18V15C13 14.4 12.6 14 12 14C11.4 14 11 14.4 11 15V18C11 18.6 11.4 19 12 19C12.6 19 13 18.6 13 18ZM17 18V15C17 14.4 16.6 14 16 14C15.4 14 15 14.4 15 15V18C15 18.6 15.4 19 16 19C16.6 19 17 18.6 17 18ZM9 18V15C9 14.4 8.6 14 8 14C7.4 14 7 14.4 7 15V18C7 18.6 7.4 19 8 19C8.6 19 9 18.6 9 18Z" fill="black" />
-										</svg>
-									</span>
-									<!--end::Svg Icon-->
-									<!--end::Symbol-->
-									<!--begin::Info-->
-									<div class="mb-0">
-										<!--begin::Value-->
-										<div class="fs-lg-2hx fs-2x fw-bolder text-white d-flex flex-center">
-											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="35" data-kt-countup-suffix="M+">0</div>
-										</div>
-										<!--end::Value-->
-										<!--begin::Label-->
-										<span class="text-gray-600 fw-bold fs-5 lh-0">Secure Payments</span>
-										<!--end::Label-->
-									</div>
-									<!--end::Info-->
-								</div>
-								<!--end::Item-->
-							</div>
-							<!--end::Items-->
-						</div>
-						<!--end::Statistics-->
-						<!--begin::Testimonial-->
-						<div class="fs-2 fw-bold text-muted text-center mb-3">
-						<span class="fs-1 lh-1 text-gray-700">“</span>When you care about your topic, you’ll write about it in a
-						<br />
-						<span class="text-gray-700 me-1">more powerful</span>, emotionally expressive way
-						<span class="fs-1 lh-1 text-gray-700">“</span></div>
-						<!--end::Testimonial-->
-						<!--begin::Author-->
-						<div class="fs-2 fw-bold text-muted text-center">
-							<a href="../../demo9/dist/account/security.html" class="link-primary fs-4 fw-bolder">Marcus Levy,</a>
-							<span class="fs-4 fw-bolder text-gray-600">KeenThemes CEO</span>
-						</div>
-						<!--end::Author-->
-					</div>
-					<!--end::Container-->
-				</div>
-				<!--end::Wrapper-->
 				<!--begin::Curve bottom-->
 				<div class="landing-curve landing-dark-color">
 					<svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -294,175 +189,116 @@
 			</div>
 			<!--end::Statistics Section-->
 			<!--begin::Team Section-->
-			<div class="py-10 py-lg-20">
+			<div class="py-20 py-lg-20">
 				<!--begin::Container-->
-				<div class="container">
+				<div class="container" id="team">
 					<!--begin::Heading-->
 					<div class="text-center mb-12">
 						<!--begin::Title-->
-						<h3 class="fs-2hx text-dark mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">Our Great Team</h3>
+						<h3 class="fs-2hx text-dark mb-5" data-kt-scroll-offset="{default: 100, lg: 150}">Meet Our Great Team</h3>
 						<!--end::Title-->
 						<!--begin::Sub-title-->
-						<div class="fs-5 text-muted fw-bold">It’s no doubt that when a development takes longer to complete, additional costs to
-						<br />integrate and test each extra feature creeps up and haunts most of us.</div>
+						<div class="fs-5 text-muted fw-bold ff-futura">The Center for Elderly's team is a group of dedicated individuals who provide care and support to the elderly community, aiming to improve their well-being and quality of life.</div>
 						<!--end::Sub-title=-->
 					</div>
 					<!--end::Heading-->
 					<!--begin::Slider-->
-					<div class="tns tns-default">
-						<!--begin::Wrapper-->
-						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev" data-tns-next-button="#kt_team_slider_next" data-tns-responsive="{1200: {items: 3}, 992: {items: 2}}">
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-2.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Paul Miles</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Development Lead</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
+					<div class="row w-100 gy-10 mb-md-20">
+						<!--begin::Col-->
+						<div class="col-md-6 col-lg-3 px-5">
+						  <!--begin::Story-->
+						  <div class="text-center mb-10 mb-md-0">
+							<!--begin::Photo-->
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/mayor.png')"></div>
+							<!--end::Photo-->
+							<!--begin::Person-->
+							<div class="mb-0">
+							  <!--begin::Name-->
+							  <a href="#" class="text-dark fw-bolder text-hover-yellow fs-3 ff-futura">Hon. Laarni Cayetano</a>
+							  <!--end::Name-->
+							  <!--begin::Position-->
+							  <div class="text-muted fs-6 fw-bold mt-1 ff-futura">City Mayor</div>
+							  <!--begin::Position-->
 							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-3.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Melisa Marcus</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Creative Director</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-4.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">David Nilson</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Python Expert</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-5.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Anne Clarc</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Project Manager</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-6.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Ricky Hunt</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Art Director</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-7.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Alice Wayde</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">Marketing Manager</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center">
-								<!--begin::Photo-->
-								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/150-8.jpg')"></div>
-								<!--end::Photo-->
-								<!--begin::Person-->
-								<div class="mb-0">
-									<!--begin::Name-->
-									<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Carles Puyol</a>
-									<!--end::Name-->
-									<!--begin::Position-->
-									<div class="text-muted fs-6 fw-bold mt-1">QA Managers</div>
-									<!--begin::Position-->
-								</div>
-								<!--end::Person-->
-							</div>
-							<!--end::Item-->
+							<!--end::Person-->
+						  </div>
+						  <!--end::Story-->
 						</div>
-						<!--end::Wrapper-->
-						<!--begin::Button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Button-->
-						<!--begin::Button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr071.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Button-->
-					</div>
+						<!--end::Col-->
+					  
+						<!--begin::Col-->
+						<div class="col-md-6 col-lg-3 px-5">
+						  <!--begin::Story-->
+						  <div class="text-center mb-10 mb-md-0">
+							<!--begin::Photo-->
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/vmayor.png')"></div>
+							<!--end::Photo-->
+							<!--begin::Person-->
+							<div class="mb-0">
+							  <!--begin::Name-->
+							  <a href="#" class="text-dark fw-bolder text-hover-yellow fs-3 ff-futura">Hon. Arvin Alit</a>
+							  <!--end::Name-->
+							  <!--begin::Position-->
+							  <div class="text-muted fs-6 fw-bold mt-1 ff-futura">City Vice Mayor</div>
+							  <!--begin::Position-->
+							</div>
+							<!--end::Person-->
+						  </div>
+						  <!--end::Story-->
+						</div>
+						<!--end::Col-->
+					  
+						<!--begin::Col-->
+						<div class="col-md-6 col-lg-3 px-5">
+						  <!--begin::Story-->
+						  <div class="text-center mb-10 mb-md-0">
+							<!--begin::Photo-->
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/hosca.png')"></div>
+							<!--end::Photo-->
+							<!--begin::Person-->
+							<div class="mb-0">
+							  <!--begin::Name-->
+							  <a href="#" class="text-dark fw-bolder text-hover-yellow fs-3 ff-futura">Ramonita Jordan</a>
+							  <!--end::Name-->
+							  <!--begin::Position-->
+							  <div class="text-muted fs-6 fw-bold mt-1 ff-futura">Head of OSCA</div>
+							  <!--begin::Position-->
+							</div>
+							<!--end::Person-->
+						  </div>
+						  <!--end::Story-->
+						</div>
+						<!--end::Col-->
+					  
+						<!--begin::Col-->
+						<div class="col-md-6 col-lg-3 px-5">
+						  <!--begin::Story-->
+						  <div class="text-center mb-10 mb-md-0">
+							<!--begin::Photo-->
+							<div class="rounded-circle mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('assets/media/avatars/hcenter.png')"></div>
+							<!--end::Photo-->
+							<!--begin::Person-->
+							<div class="mb-0">
+							  <!--begin::Name-->
+							  <a href="#" class="text-dark fw-bolder text-hover-yellow fs-3 ff-futura">Jeanette Reynoso</a>
+							  <!--end::Name-->
+							  <!--begin::Position-->
+							  <div class="text-muted fs-6 fw-bold mt-1 ff-futura">Head of the Center for the Elderly</div>
+							  <!--begin::Position-->
+							</div>
+							<!--end::Person-->
+						  </div>
+						  <!--end::Story-->
+						</div>
+						<!--end::Col-->
+					  </div>
 					<!--end::Slider-->
 				</div>
 				<!--end::Container-->
 			</div>
 			<!--end::Team Section-->
 			<!--begin::Projects Section-->
-			<div class="mb-lg-n15 position-relative z-index-2">
+			<div class="mb-lg-n15 position-relative z-index-2" id="services">
 				<!--begin::Container-->
 				<div class="container">
 					<!--begin::Card-->
@@ -472,7 +308,7 @@
 							<!--begin::Heading-->
 							<div class="text-center mb-5 mb-lg-10">
 								<!--begin::Title-->
-								<h3 class="fs-2hx text-dark mb-5" id="portfolio" data-kt-scroll-offset="{default: 100, lg: 150}">Our Projects</h3>
+								<h3 class="fs-2hx text-dark mb-5" data-kt-scroll-offset="{default: 100, lg: 150}">Our Services</h3>
 								<!--end::Title-->
 							</div>
 							<!--end::Heading-->
@@ -481,16 +317,19 @@
 								<!--begin::Tabs-->
 								<ul class="nav border-transparent flex-center fs-5 fw-bold">
 									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6 active" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_latest">Latest</a>
+										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6 active" href="#" data-bs-toggle="tab" data-bs-target="#therapypool">Therapy pool</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_web_design">Web Design</a>
+										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#massage">Massage</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_mobile_apps">Mobile Apps</a>
+										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#sauna">Sauna</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_development">Development</a>
+										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#gym">Gym/Yoga/Ballroom</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#mph">Multi-purpose hall</a>
 									</li>
 								</ul>
 								<!--end::Tabs-->
@@ -499,15 +338,27 @@
 							<!--begin::Tabs content-->
 							<div class="tab-content">
 								<!--begin::Tab pane-->
-								<div class="tab-pane fade show active" id="kt_landing_projects_latest">
+								<div class="tab-pane fade show active" id="therapypool">
 									<!--begin::Row-->
 									<div class="row g-10">
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-23.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/1.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-23.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/1.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/3.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/3.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -525,9 +376,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-22.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/5.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-22.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/5.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -541,9 +392,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/4.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/4.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -557,9 +408,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-20.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/therapy_pool/2.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-20.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/therapy_pool/2.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -575,15 +426,28 @@
 								</div>
 								<!--end::Tab pane-->
 								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_web_design">
+								<div class="tab-pane fade" id="massage">
+									<!--begin::Row-->
 									<!--begin::Row-->
 									<div class="row g-10">
 										<!--begin::Col-->
 										<div class="col-lg-6">
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-11.jpg">
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/massage/1.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-11.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/1.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/4.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/4.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -601,9 +465,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-12.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/2.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-12.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/2.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -617,9 +481,9 @@
 												<!--begin::Col-->
 												<div class="col-lg-6">
 													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/3.jpg">
 														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/3.jpg')"></div>
 														<!--end::Image-->
 														<!--begin::Action-->
 														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -633,9 +497,9 @@
 											</div>
 											<!--end::Row-->
 											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-20.jpg">
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/massage/5.jpg">
 												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-20.jpg')"></div>
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/massage/5.jpg')"></div>
 												<!--end::Image-->
 												<!--begin::Action-->
 												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -651,7 +515,225 @@
 								</div>
 								<!--end::Tab pane-->
 								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_mobile_apps">
+								<div class="tab-pane fade" id="sauna">
+									<!--begin::Row-->
+									<div class="row g-10">
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/2.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/center/sauna/2.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/1.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/sauna/1.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/sauna/3.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/sauna/3.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+									</div>
+									<!--end::Row-->
+								</div>
+								<!--end::Tab pane-->
+								<!--begin::Tab pane-->
+								<div class="tab-pane fade" id="gym">
+									<!--begin::Row-->
+									<div class="row g-10">
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Row-->
+											<div class="row g-10 mb-10">
+												<!--begin::Col-->
+												<div class="col-lg-6">
+													<!--begin::Item-->
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/4.jpg">
+														<!--begin::Image-->
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/4.jpg')"></div>
+														<!--end::Image-->
+														<!--begin::Action-->
+														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+															<i class="bi bi-eye-fill fs-3x text-white"></i>
+														</div>
+														<!--end::Action-->
+													</a>
+													<!--end::Item-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-lg-6">
+													<!--begin::Item-->
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/1.jpg">
+														<!--begin::Image-->
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/1.jpg')"></div>
+														<!--end::Image-->
+														<!--begin::Action-->
+														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+															<i class="bi bi-eye-fill fs-3x text-white"></i>
+														</div>
+														<!--end::Action-->
+													</a>
+													<!--end::Item-->
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/2.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/2.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/center/gym_yoga_ballroom/3.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/center/gym_yoga_ballroom/3.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+									</div>
+									<!--end::Row-->
+								</div>
+								<!--end::Tab pane-->
+								<!--begin::Tab pane-->
+								<div class="tab-pane fade" id="mph">
+									<!--begin::Row-->
+									<div class="row g-10">
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Row-->
+											<div class="row g-10 mb-10">
+												<!--begin::Col-->
+												<div class="col-lg-6">
+													<!--begin::Item-->
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/1.jpg">
+														<!--begin::Image-->
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/1.jpg')"></div>
+														<!--end::Image-->
+														<!--begin::Action-->
+														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+															<i class="bi bi-eye-fill fs-3x text-white"></i>
+														</div>
+														<!--end::Action-->
+													</a>
+													<!--end::Item-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-lg-6">
+													<!--begin::Item-->
+													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/2.jpg">
+														<!--begin::Image-->
+														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/2.jpg')"></div>
+														<!--end::Image-->
+														<!--begin::Action-->
+														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+															<i class="bi bi-eye-fill fs-3x text-white"></i>
+														</div>
+														<!--end::Action-->
+													</a>
+													<!--end::Item-->
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/3.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/3.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<!--begin::Col-->
+										<div class="col-lg-6">
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay g-10 mb-10" data-fslightbox="lightbox-projects" href="assets/media/center/mph/4.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/4.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/center/mph/5.jpg">
+												<!--begin::Image-->
+												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/center/mph/5.jpg')"></div>
+												<!--end::Image-->
+												<!--begin::Action-->
+												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+													<i class="bi bi-eye-fill fs-3x text-white"></i>
+												</div>
+												<!--end::Action-->
+											</a>
+											<!--end::Item-->
+										</div>
+										<!--end::Col-->
+										<!--end::Col-->
+									</div>
+									<!--end::Row-->
+								</div>
+								<!--end::Tab pane-->
+								<!--begin::Tab pane-->
+								<div class="tab-pane fade" id="draft">
 									<!--begin::Row-->
 									<div class="row g-10">
 										<!--begin::Col-->
@@ -726,82 +808,6 @@
 									<!--end::Row-->
 								</div>
 								<!--end::Tab pane-->
-								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_development">
-									<!--begin::Row-->
-									<div class="row g-10">
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-15.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-15.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Row-->
-											<div class="row g-10 mb-10">
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-22.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-22.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-14.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-14.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Tab pane-->
 							</div>
 							<!--end::Tabs content-->
 						</div>
@@ -822,7 +828,7 @@
 				</div>
 				<!--end::Curve top-->
 				<!--begin::Wrapper-->
-				<div class="py-20 landing-dark-bg">
+				{{-- <div class="py-20 landing-dark-bg">
 					<!--begin::Container-->
 					<div class="container">
 						<!--begin::Plans-->
@@ -830,7 +836,7 @@
 							<!--begin::Heading-->
 							<div class="mb-13 text-center">
 								<h1 class="fs-2hx fw-bolder text-white mb-5" id="pricing" data-kt-scroll-offset="{default: 100, lg: 150}">Clear Pricing Makes it Easy</h1>
-								<div class="text-gray-600 fw-bold fs-5">Save thousands to millions of bucks by using single tool for different
+								<div class="text-gray-600 fw-bold fs-5 ff-futura">Save thousands to millions of bucks by using single tool for different
 								<br />amazing and outstanding cool and great useful admin</div>
 							</div>
 							<!--end::Heading-->
@@ -1153,7 +1159,7 @@
 						<!--end::Plans-->
 					</div>
 					<!--end::Container-->
-				</div>
+				</div> --}}
 				<!--end::Wrapper-->
 				<!--begin::Curve bottom-->
 				<div class="landing-curve landing-dark-color">
@@ -1182,168 +1188,66 @@
 					<!--begin::Row-->
 					<div class="row g-lg-10 mb-10 mb-lg-20">
 						<!--begin::Col-->
+						@foreach ($reviews as $review)
 						<div class="col-lg-4">
 							<!--begin::Testimonial-->
-							<div class="d-flex flex-column justify-content-between h-lg-100 px-10 px-lg-0 pe-lg-10 mb-15 mb-lg-0">
-								<!--begin::Wrapper-->
-								<div class="mb-7">
-									<!--begin::Rating-->
-									<div class="rating mb-6">
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
+							<div class="card testimonial-card">
+								<!-- Card body -->
+								<div class="card-body d-flex flex-column justify-content-between h-lg-100 px-10 px-lg-0 pe-lg-10 mb-15 mb-lg-0">
+									<!--begin::Wrapper-->
+									<div class="mb-7">
+										<!--begin::Rating-->
+										<div class="rating mb-6">
+											@php
+											$rating = $review->rate;
+											$maxRating = 5; // Assuming the maximum rating is 5
+											@endphp
+											@for ($i = 1; $i <= $maxRating; $i++)
+												@if ($i <= $rating)
+													<div class="rating-label me-2 checked">
+														<i class="bi bi-star-fill fs-5"></i>
+													</div>
+												@else
+													<div class="rating-label me-2">
+														<i class="bi bi-star-fill fs-5"></i>
+													</div>
+												@endif
+											@endfor
 										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
+										<!--end::Rating-->
+										<!--begin::Title-->
+										<div class="fs-2 fw-bolder text-dark mb-3">{{ $review->rate }}</div>
+										<!--end::Title-->
+										<!--begin::Feedback-->
+										<div class="text-gray-500 fw-bold fs-4">{{ $review->comment }}</div>
+										<!--end::Feedback-->
 									</div>
-									<!--end::Rating-->
-									<!--begin::Title-->
-									<div class="fs-2 fw-bolder text-dark mb-3">This is by far the cleanest template
-									<br />and the most well structured</div>
-									<!--end::Title-->
-									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-bold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
-									<!--end::Feedback-->
+									<!--end::Wrapper-->
+									<!--begin::Author-->
+									<div class="d-flex align-items-center">
+										<!--begin::Avatar-->
+										<div class="symbol symbol-circle symbol-50px me-10">
+											<img src="assets/media/avatars/150-2.jpg" class="" alt="" />
+										</div>
+										<!--end::Avatar-->
+										<!--begin::Name-->
+										<div class="flex-grow-1">
+											<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $review->id }}</a>
+											<span class="text-muted d-block fw-bold">{{ $review->user_id }}</span>
+										</div>
+										<!--end::Name-->
+									</div>
+									<!--end::Author-->
 								</div>
-								<!--end::Wrapper-->
-								<!--begin::Author-->
-								<div class="d-flex align-items-center">
-									<!--begin::Avatar-->
-									<div class="symbol symbol-circle symbol-50px me-5">
-										<img src="assets/media/avatars/150-2.jpg" class="" alt="" />
-									</div>
-									<!--end::Avatar-->
-									<!--begin::Name-->
-									<div class="flex-grow-1">
-										<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Paul Miles</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
-									</div>
-									<!--end::Name-->
-								</div>
-								<!--end::Author-->
+								<!--end::Testimonial-->
 							</div>
-							<!--end::Testimonial-->
 						</div>
 						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col-lg-4">
-							<!--begin::Testimonial-->
-							<div class="d-flex flex-column justify-content-between h-lg-100 px-10 px-lg-0 pe-lg-10 mb-15 mb-lg-0">
-								<!--begin::Wrapper-->
-								<div class="mb-7">
-									<!--begin::Rating-->
-									<div class="rating mb-6">
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-									</div>
-									<!--end::Rating-->
-									<!--begin::Title-->
-									<div class="fs-2 fw-bolder text-dark mb-3">This is by far the cleanest template
-									<br />and the most well structured</div>
-									<!--end::Title-->
-									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-bold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
-									<!--end::Feedback-->
-								</div>
-								<!--end::Wrapper-->
-								<!--begin::Author-->
-								<div class="d-flex align-items-center">
-									<!--begin::Avatar-->
-									<div class="symbol symbol-circle symbol-50px me-5">
-										<img src="assets/media/avatars/150-3.jpg" class="" alt="" />
-									</div>
-									<!--end::Avatar-->
-									<!--begin::Name-->
-									<div class="flex-grow-1">
-										<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Janya Clebert</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
-									</div>
-									<!--end::Name-->
-								</div>
-								<!--end::Author-->
-							</div>
-							<!--end::Testimonial-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col-lg-4">
-							<!--begin::Testimonial-->
-							<div class="d-flex flex-column justify-content-between h-lg-100 px-10 px-lg-0 pe-lg-10 mb-15 mb-lg-0">
-								<!--begin::Wrapper-->
-								<div class="mb-7">
-									<!--begin::Rating-->
-									<div class="rating mb-6">
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-										<div class="rating-label me-2 checked">
-											<i class="bi bi-star-fill fs-5"></i>
-										</div>
-									</div>
-									<!--end::Rating-->
-									<!--begin::Title-->
-									<div class="fs-2 fw-bolder text-dark mb-3">This is by far the cleanest template
-									<br />and the most well structured</div>
-									<!--end::Title-->
-									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-bold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
-									<!--end::Feedback-->
-								</div>
-								<!--end::Wrapper-->
-								<!--begin::Author-->
-								<div class="d-flex align-items-center">
-									<!--begin::Avatar-->
-									<div class="symbol symbol-circle symbol-50px me-5">
-										<img src="assets/media/avatars/150-18.jpg" class="" alt="" />
-									</div>
-									<!--end::Avatar-->
-									<!--begin::Name-->
-									<div class="flex-grow-1">
-										<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Steave Brown</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
-									</div>
-									<!--end::Name-->
-								</div>
-								<!--end::Author-->
-							</div>
-							<!--end::Testimonial-->
-						</div>
-						<!--end::Col-->
+						@endforeach
 					</div>
 					<!--end::Row-->
 					<!--begin::Highlight-->
-					<div class="d-flex flex-stack flex-wrap flex-md-nowrap card-rounded shadow p-8 p-lg-12 mb-n5 mb-lg-n13" style="background: linear-gradient(90deg, #20AA3E 0%, #03A588 100%);">
+					{{-- <div class="d-flex flex-stack flex-wrap flex-md-nowrap card-rounded shadow p-8 p-lg-12 mb-n5 mb-lg-n13" style="background: linear-gradient(90deg, #20AA3E 0%, #03A588 100%);">
 						<!--begin::Content-->
 						<div class="my-2 me-5">
 							<!--begin::Title-->
@@ -1358,7 +1262,7 @@
 						<!--begin::Link-->
 						<a href="https://1.envato.market/EA4JP" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Purchase on Themeforest</a>
 						<!--end::Link-->
-					</div>
+					</div> --}}
 					<!--end::Highlight-->
 				</div>
 				<!--end::Container-->
@@ -1375,7 +1279,7 @@
 				<!--end::Curve top-->
 				<!--begin::Wrapper-->
 				<div class="landing-dark-bg pt-20">
-					<!--begin::Container-->
+					{{-- <!--begin::Container-->
 					<div class="container">
 						<!--begin::Row-->
 						<div class="row py-10 py-lg-20">
@@ -1478,9 +1382,9 @@
 						</div>
 						<!--end::Row-->
 					</div>
-					<!--end::Container-->
+					<!--end::Container--> --}}
 					<!--begin::Separator-->
-					<div class="landing-dark-separator"></div>
+					{{-- <div class="landing-dark-separator"></div> --}}
 					<!--end::Separator-->
 					<!--begin::Container-->
 					<div class="container">
@@ -1490,11 +1394,11 @@
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
 								<a href="../../demo9/dist/landing.html">
-									<img alt="Logo" src="assets/media/logos/logo-landing.svg" class="h-15px h-md-20px" />
+									<img alt="Logo" src="assets/media/logos/logotaguig.png" class="h-15px h-md-20px" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2021 Keenthemes Inc.</span>
+								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2023 eAlaga.</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
