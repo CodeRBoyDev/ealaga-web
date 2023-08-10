@@ -58,16 +58,16 @@ var KTSigninGeneral = (function () {
                                         // Login success, redirect to the appropriate route based on the user role
                                         if (data.data === "dashboard") {
                                             window.location.href = "/dashboard"; // Replace 'dashboard' with the actual URL for the admin dashboard
-                                        } else if (data.data === "clientHome") {
+                                        } else if (data.data === "ClientHome") {
                                             window.location.href =
-                                                "/client-home"; // Replace 'client-home' with the actual URL for the client dashboard
+                                                "/client/home"; // Replace 'client-home' with the actual URL for the client dashboard
                                         } else {
                                             // Handle other cases if needed
                                         }
                                     } else {
                                         // Login failed, show error message
                                         Swal.fire({
-                                            text: "Sorry, looks like there are some errors detected, please try again.",
+                                            text: data.message,
                                             icon: "error",
                                             buttonsStyling: false,
                                             confirmButtonText: "Ok, got it!",

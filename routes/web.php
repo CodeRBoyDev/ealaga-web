@@ -1,23 +1,23 @@
 <?php
 
-use App\Http\Controllers\Visitor\LandingController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\Client\ClientHomeController;
 
 // Comorbidity Management
-use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
+use App\Http\Controllers\Client\ScheduleController;
 // Dashboard
-use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Client\VolunteerController;
 // User Management
+use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\DatabaseTestController;
 use App\Http\Controllers\UserManagement\UserListController;
-use App\Http\Controllers\UserManagement\UserViewController;
-use Illuminate\Support\Facades\Route;
 
 //CLIENT
-use App\Http\Controllers\Client\ClientHomeController;
-use App\Http\Controllers\Client\ScheduleController;
-use App\Http\Controllers\Client\VolunteerController;
+use App\Http\Controllers\UserManagement\UserViewController;
+use App\Http\Controllers\Visitor\LandingController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +59,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
+Route::get('/register/email-otp', [RegisterController::class, 'emailOTP'])->name('emailOTP');
+Route::post('/register/confirm-otp', [RegisterController::class, 'confirmOTP'])->name('confirmOTP');
+Route::post('/register/resend-otp', [RegisterController::class, 'resendOTP'])->name('resendOTP');
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

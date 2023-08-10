@@ -97,7 +97,7 @@ class UserListController extends Controller
                 'birthday' => $request->input('birthday'),
                 'contact_number' => $request->input('contact_number'),
                 'role' => $request->input('user_role'),
-                'access_level' => $request->input('access_level'),
+                'access_level' => $request->input('user_role'),
                 'barangay' => $request->input('brgyId'),
                 'unitNo' => $request->input('unitNo'),
                 'houseNo' => $request->input('houseNo'),
@@ -260,6 +260,7 @@ class UserListController extends Controller
                 'village' => $request->input('village'),
                 'status' => $request->input('status'),
                 'updated_at' => $currentDate,
+                'access_level' => $request->input('access_level'),
             ];
 
             // Handle the avatar file upload (if applicable)

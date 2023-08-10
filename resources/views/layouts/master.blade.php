@@ -28,16 +28,16 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @stack('adminStyles')
     @elseif(request()->route()->getName() === 'login' &&
-        request()->route()->getName() === 'register' &&
-        request()->route()->getName() === 'dashboard' 
-        &&  request()->route()->getName() === 'ClientHome'
-        &&  request()->route()->getName() === 'ClientSchedule'
-        &&  request()->route()->getName() === 'ClientScheduleList'
-        &&  request()->route()->getName() === 'ClientScheduleHistory'
-        &&  request()->route()->getName() === 'ClientVolunteerList'
-            )
-               <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-               <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+            request()->route()->getName() === 'register' &&
+            request()->route()->getName() === 'dashboard' &&
+            request()->route()->getName() === 'ClientHome' &&
+            request()->route()->getName() === 'ClientSchedule' &&
+            request()->route()->getName() === 'ClientScheduleList' &&
+            request()->route()->getName() === 'ClientScheduleHistory' &&
+            request()->route()->getName() === 'ClientVolunteerList' &&
+            request()->route()->getName() === 'emailOTP')
+        <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     @else
         <!--begin::Global Stylesheets Bundle(used by all pages)-->
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -56,13 +56,13 @@
             request()->route()->getName() != 'dashboard' &&
             request()->route()->getName() != 'userList' &&
             request()->route()->getName() != 'userView' &&
-            request()->route()->getName() != 'comorbidityList'         
-            &&  request()->route()->getName() != 'ClientHome'
-            &&  request()->route()->getName() != 'ClientSchedule'
-            &&  request()->route()->getName() != 'ClientScheduleList'
-            &&  request()->route()->getName() != 'ClientScheduleHistory'
-            &&  request()->route()->getName() != 'ClientVolunteerList'
-            )
+            request()->route()->getName() != 'comorbidityList' &&
+            request()->route()->getName() != 'ClientHome' &&
+            request()->route()->getName() != 'ClientSchedule' &&
+            request()->route()->getName() != 'ClientScheduleList' &&
+            request()->route()->getName() != 'ClientScheduleHistory' &&
+            request()->route()->getName() != 'ClientVolunteerList' &&
+            request()->route()->getName() != 'emailOTP')
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->
