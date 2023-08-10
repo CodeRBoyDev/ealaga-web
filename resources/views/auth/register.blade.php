@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
     <!--begin::Main-->
     <div class="d-flex flex-column flex-root" style="height: 100vh;">
@@ -20,6 +19,7 @@
                     <div class="w-lg-550px p-10 p-lg-15" style="max-width: 100%;">
                         <!--begin::Form-->
                         <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+                            @csrf
                             <!--begin::Heading-->
                             <div class="mb-10 text-center">
                                 <!--begin::Logo-->
@@ -46,14 +46,14 @@
                             <div class="row fv-row mb-7">
                                 <!--begin::Col-->
                                 <div class="col-xl-6">
-                                    <label class="form-label fw-bolder text-dark fs-6">First Name</label>
+                                    <label class="form-label fw-bolder text-dark fs-6 required">First Name</label>
                                     <input class="form-control form-control-lg form-control-solid" type="text"
                                         placeholder="" name="first-name" autocomplete="off" />
                                 </div>
                                 <!--end::Col-->
                                 <!--begin::Col-->
                                 <div class="col-xl-6">
-                                    <label class="form-label fw-bolder text-dark fs-6">Last Name</label>
+                                    <label class="form-label fw-bolder text-dark fs-6 required">Last Name</label>
                                     <input class="form-control form-control-lg form-control-solid" type="text"
                                         placeholder="" name="last-name" autocomplete="off" />
                                 </div>
@@ -62,7 +62,7 @@
                             <!--end::Input group-->
                             <!--begin::Input group-->
                             <div class="fv-row mb-7">
-                                <label class="form-label fw-bolder text-dark fs-6">Email</label>
+                                <label class="form-label fw-bolder text-dark fs-6 required">Email</label>
                                 <input class="form-control form-control-lg form-control-solid" type="email" placeholder=""
                                     name="email" autocomplete="off" />
                             </div>
@@ -72,7 +72,7 @@
                                 <!--begin::Wrapper-->
                                 <div class="mb-1">
                                     <!--begin::Label-->
-                                    <label class="form-label fw-bolder text-dark fs-6">Password</label>
+                                    <label class="form-label fw-bolder text-dark fs-6 required">Password</label>
                                     <!--end::Label-->
                                     <!--begin::Input wrapper-->
                                     <div class="position-relative mb-3">
@@ -104,14 +104,14 @@
                             <!--end::Input group=-->
                             <!--begin::Input group-->
                             <div class="fv-row mb-5">
-                                <label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
+                                <label class="form-label fw-bolder text-dark fs-6 required">Confirm Password</label>
                                 <input class="form-control form-control-lg form-control-solid" type="password"
                                     placeholder="" name="confirm-password" autocomplete="off" />
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
                             <div class="fv-row mb-10">
-                                <label class="form-check form-check-custom form-check-solid form-check-inline">
+                                <label class="form-check form-check-custom form-check-solid form-check-inline required">
                                     <input class="form-check-input" type="checkbox" name="toc" value="1" />
                                     <span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
                                         <a href="#" class="ms-1 link-primary" data-bs-toggle="modal"
@@ -136,8 +136,7 @@
                         <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                             <!--begin::Links-->
                             <div class="d-flex flex-center fw-bold fs-6">
-                                <a href="{{ route('landing') }}" class="text-muted text-hover-primary px-2"
-                                    target="_blank">Go Back Home</a>
+                                <a href="{{ route('landing') }}" class="text-muted text-hover-primary px-2">Go Back Home</a>
                             </div>
                             <!--end::Links-->
                         </div>
@@ -187,8 +186,6 @@
         </div>
     </div>
 @endsection
-
-
 @push('scripts')
     <!-- Push the JS client to the 'scripts' stack -->
     <script src="{{ asset('client/js/custom/authentication/sign-up/general.js') }}"></script>
@@ -198,6 +195,12 @@
             const checkbox = document.querySelector('input[name="toc"]');
             // Check the checkbox
             checkbox.checked = true;
+
+            // Remove validation messages if any
+            const validationMessage = document.querySelector('[data-validator="notEmpty"]');
+            if (validationMessage) {
+                validationMessage.remove();
+            }
         }
     </script>
 @endpush
