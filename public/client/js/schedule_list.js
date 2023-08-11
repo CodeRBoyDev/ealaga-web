@@ -60,6 +60,7 @@ $(document).ready(function () {
   }
 
   $("#loader_div").hide();
+  $("#card_row_div").hide();
 
   function loadScheduleList() {
     $.ajax({
@@ -67,13 +68,14 @@ $(document).ready(function () {
       type: "GET",
       beforeSend: function () {
         $("#loader_div").show();
+        $("#card_row_div").hide();
       },
       success: function (data) {
-        console.log(data)
+        // console.log(data)
         $("#loader_div").hide();
+        $("#card_row_div").show();
         // Initialize an empty variable to store the generated HTML code
         let card_data = "";
-        let pagination_card_div = "";
 
         totalEntries = data.schedule?.length;
 
@@ -213,7 +215,7 @@ $(document).ready(function () {
       <!--begin::Actions-->
       <div class="text-center pt-15">
         <button type="reset" id="downloadimage" class="btn btn-light me-3">Download</button>
-        <button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
+        <button type="submit"  id="cancel_schedule" data-cancel_schedule="${data.schedule?.schedule_id}" class="btn btn-warning">
           <span class="indicator-label">Cancel</span>
           <span class="indicator-progress">Please wait...
           <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -253,6 +255,64 @@ $(document).ready(function () {
     }
 });
 
+$(document).on("click", "#cancel_schedule", function (event) {
+  event.preventDefault();
+  var id = $(this).data("cancel_schedule");
+
+  console.log(id);
+
+
+  Swal.fire({
+    text: "Are you sure you would like to cancel?",
+    icon: "warning",
+    showCancelButton: true,
+    buttonsStyling: false,
+    confirmButtonText: "Yes, cancel it!",
+    cancelButtonText: "No, return",
+    customClass: {
+      confirmButton: "btn btn-primary",
+      cancelButton: "btn btn-active-light",
+    },
+  }).then(function (result) {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: `/client/schedule/cancel/${id}`,
+        type: "GET",
+        beforeSend: function () {
+          Swal.fire({
+            text: "Loading.....",
+            showCancelButton: false,
+            showConfirmButton: false,
+            allowOutsideClick: false, // Disable clicking outside the modal to close it
+          });
+        },
+        success: function (data) {
+          
+          Swal.close();
+          $("#client_schedule_view_modal").modal("hide");
+          Swal.fire({
+            text: "Schedule has been successfully cancelled.",
+            icon: "success",
+            buttonsStyling: false,
+            confirmButtonText: "Close",
+            customClass: {
+              confirmButton: "btn btn-primary",
+            },
+          });
+    
+          loadScheduleList();
+    
+          // console.log(data)
+    
+        },
+      });
+    }
+  });
+
+
+
+});
+
 
 
 
@@ -264,8 +324,12 @@ $(document).ready(function () {
     Swal.fire({
       html: `
       <div class="fv-row mb-7">
-                          <span
-                            class="spinner-border spinner-border-lg align-middle ms-2"></span>
+      <div style="margin-top: 10px;" class="loader">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      </div>
                         </div>
         <div id="successMessage">
           <span id="redirectText">Redirect you to home page...</span>
@@ -285,11 +349,13 @@ $(document).ready(function () {
       redirectText.style.animation = 'waveAnimation 2s infinite';
     }
   
-      // Redirect to the home page after a short delay
-      setTimeout(function () {
-        window.location.href = "/client/home";
-                  Swal.close();
-      }, 2000); // Adjust the delay as needed
+     // Redirect to the home page after a short delay
+     setTimeout(function () {
+      window.location.href = "/client/home";
+    }, 1000); // Adjust the delay as needed
+    setTimeout(function () {
+                Swal.close();
+    }, 2000); // Adjust the delay as needed
   
   });
 });

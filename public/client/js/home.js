@@ -11,8 +11,12 @@
       Swal.fire({
         html: `
         <div class="fv-row mb-7">
-														<span
-															class="spinner-border spinner-border-lg align-middle ms-2"></span>
+        <div style="margin-top: 10px;" class="loader">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        </div>
 													</div>
           <div id="successMessage">
             <span id="redirectText">Redirect you to schedule page...</span>
@@ -35,8 +39,10 @@
         // Redirect to the home page after a short delay
         setTimeout(function () {
           window.location.href = "/client/schedule";
+        }, 1000); // Adjust the delay as needed
+        setTimeout(function () {
           Swal.close();
-        }, 2000); // Adjust the delay as needed
+        }, 2000);
 
     });
 
@@ -47,8 +53,12 @@
       Swal.fire({
         html: `
         <div class="fv-row mb-7">
-														<span
-															class="spinner-border spinner-border-lg align-middle ms-2"></span>
+        <div style="margin-top: 10px;" class="loader">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        </div>
 													</div>
           <div id="successMessage">
             <span id="redirectText">Redirect you to my schedule page...</span>
@@ -71,8 +81,10 @@
         // Redirect to the home page after a short delay
         setTimeout(function () {
           window.location.href = "/client/schedule/list";
+        }, 1000); // Adjust the delay as needed
+        setTimeout(function () {
           Swal.close();
-        }, 2000); // Adjust the delay as needed
+        }, 2000);
 
     });
 
@@ -82,8 +94,12 @@
       Swal.fire({
         html: `
         <div class="fv-row mb-7">
-														<span
-															class="spinner-border spinner-border-lg align-middle ms-2"></span>
+        <div style="margin-top: 10px;" class="loader">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        </div>
 													</div>
           <div id="successMessage">
             <span id="redirectText">Redirect you to my history page...</span>
@@ -106,8 +122,10 @@
         // Redirect to the home page after a short delay
         setTimeout(function () {
           window.location.href = "/client/schedule/history";
+        }, 1000); // Adjust the delay as needed
+        setTimeout(function () {
           Swal.close();
-        }, 2000); // Adjust the delay as needed
+        }, 2000);
 
     });
 
@@ -118,8 +136,12 @@
       Swal.fire({
         html: `
         <div class="fv-row mb-7">
-														<span
-															class="spinner-border spinner-border-lg align-middle ms-2"></span>
+        <div style="margin-top: 10px;" class="loader">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        </div>
 													</div>
           <div id="successMessage">
             <span id="redirectText">Redirect you to my history page...</span>
@@ -140,10 +162,12 @@
       }
   
         // Redirect to the home page after a short delay
-        setTimeout(function () {
-          window.location.href = "/client/volunteer";
-          Swal.close();
-        }, 2000); // Adjust the delay as needed
+           setTimeout(function () {
+            window.location.href = "/client/volunteer";
+          }, 1000); // Adjust the delay as needed
+          setTimeout(function () {
+            Swal.close();
+          }, 2000);
 
     });
 
