@@ -144,9 +144,8 @@ class ScheduleController extends Controller
             $schedule = DB::table('schedule')
             ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
             ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
-            // ->where('schedule.user_id', $userId)
-        // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
             ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
+            ->where('schedule.status', '<>', 3)
             ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
             ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
             ->groupBy('schedule.id')
@@ -154,16 +153,16 @@ class ScheduleController extends Controller
         
 
 
-                                $userEmail = "rickydonadillo02@gmail.com";
-                                $subject = 'Leaves Reminder';
-                                $userData = [
-                                'receiver_name' => "test",
-                                'body' => "test",
-                                'sender_name' => "test",
-                                'sender_position' => "Test",
-                                ];
+                                // $userEmail = "rickydonadillo02@gmail.com";
+                                // $subject = 'Leaves Reminder';
+                                // $userData = [
+                                // 'receiver_name' => "test",
+                                // 'body' => "test",
+                                // 'sender_name' => "test",
+                                // 'sender_position' => "Test",
+                                // ];
 
-                                Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
+                                // Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
 
 
 
@@ -196,11 +195,13 @@ class ScheduleController extends Controller
             $schedule = DB::table('schedule')
             ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
             ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+            ->leftjoin('reviews', 'reviews.schedule_id', '=', 'schedule.id')
             // ->where('schedule.user_id', $userId)
         // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
+            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status, reviews.rate')
             ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
+            ->orWhere('schedule.status', 3)
+            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'reviews.rate')
             ->groupBy('schedule.id')
             ->get();
         
@@ -248,6 +249,49 @@ class ScheduleController extends Controller
        } catch (\Exception $e) {
            return "Unable to connect to the database: " . $e->getMessage();
        }
+    }
+
+    public function ClientScheduleCancel(Request $request, $id)
+    {
+        //
+        try {
+           
+            DB::table('schedule')
+                ->where('id', $id)
+                ->update([
+                    'status' => 3,
+                ]);
+
+            return response()->json(['status' =>  $id]);
+      
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
+
+
+    public function ClientScheduleReview(Request $request)
+    {
+        try {
+            // dd("ho\i");
+            $data = $request->all();
+
+            $employee_id = 1;
+
+            $scheduleID = DB::table('reviews')->insert([
+                'user_id' => $employee_id ?? null,
+                'schedule_id' => $data['schedule_id'] ?? null,
+                'rate' => $data['rate'] ?? null,
+                'comment' => $data['comment'] ?? null,
+                'createdAt' => $this->getCurrentDateAsiaManila(),
+            ]);
+
+            return response()->json(['message' => "success"]);
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
     }
 
 }

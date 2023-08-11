@@ -419,7 +419,12 @@ $(document).on("change", ".service-checkbox", function() {
             Swal.fire({
               html: `
                 <div id="successMessage">
-                  <span>Success</span>
+                <div style="margin-top: 10px;" class="loader">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                </div>
                   <span id="redirectText">Redirect you to homepage...</span>
                 </div>
               `,
@@ -437,10 +442,12 @@ $(document).on("change", ".service-checkbox", function() {
               redirectText.style.animation = 'waveAnimation 2s infinite';
             }
         
-              // Redirect to the home page after a short delay
+             // Redirect to the home page after a short delay
               setTimeout(function () {
                 window.location.href = "/client/home";
-                Swal.close();
+              }, 1000); // Adjust the delay as needed
+              setTimeout(function () {
+                          Swal.close();
               }, 2000); // Adjust the delay as needed
             
           },
@@ -477,8 +484,12 @@ $("#back_homepage").click(function (event) {
   Swal.fire({
     html: `
     <div class="fv-row mb-7">
-                        <span
-                          class="spinner-border spinner-border-lg align-middle ms-2"></span>
+    <div style="margin-top: 10px;" class="loader">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    </div>
                       </div>
       <div id="successMessage">
         <span id="redirectText">Redirect you to home page...</span>
@@ -501,6 +512,8 @@ $("#back_homepage").click(function (event) {
     // Redirect to the home page after a short delay
     setTimeout(function () {
       window.location.href = "/client/home";
+    }, 1000); // Adjust the delay as needed
+    setTimeout(function () {
                 Swal.close();
     }, 2000); // Adjust the delay as needed
 
