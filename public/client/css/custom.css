@@ -201,9 +201,11 @@ body {
     height: 200px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black; /* Add 'solid' to specify border style */
-    padding: 5px; /* Add padding for spacing */
-    background-image: linear-gradient(90deg, rgba(208,118,118,0.3) 0%, rgba(255,184,184,0) 50%, rgba(208,118,118,0.3029586834733894) 100%);
+    border: 1px solid black;
+    /* Add 'solid' to specify border style */
+    padding: 5px;
+    /* Add padding for spacing */
+    background-image: linear-gradient(90deg, rgba(208, 118, 118, 0.3) 0%, rgba(255, 184, 184, 0) 50%, rgba(208, 118, 118, 0.3029586834733894) 100%);
 }
 
 .ticket {
@@ -212,7 +214,8 @@ body {
     position: relative;
 }
 
-.left, .right {
+.left,
+.right {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,11 +248,11 @@ body {
 }
 
 .left .ticket-number {
-	height: 200px;
-	/* width: 250px; */
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
+    height: 200px;
+    /* width: 250px; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .date {
@@ -261,7 +264,8 @@ body {
     color: var(--red);
 }
 
-.time p, .right p {
+.time p,
+.right p {
     margin: 0;
     /* font-size: 1rem; */
 }
@@ -5670,28 +5674,32 @@ fieldset:disabled .btn {
     /* box-shadow: 0 0 20px rgba(94, 98, 120, 1) !important; */
     /* box-shadow: 0 15px 0 #ED1C24 !important; */
 }
+
 /* Define the custom color for the specific date */
 .custom-date-color {
     background-color: #c7c7c7 !important;
     color: #929292 !important;
 }
-  
-  .flatpickr-next-month {
-  display: none !important;
+
+.flatpickr-next-month {
+    display: none !important;
 }
 
 #time_input:disabled {
-    background-color: #f2f2f2 !important; /* Change this to your desired background color */
-  }
+    background-color: #f2f2f2 !important;
+    /* Change this to your desired background color */
+}
 
-  #reset_date_time {
+#reset_date_time {
     cursor: pointer;
-  }
+}
 
-  .custom-date {
-    background-color: red !important; /* Replace with your desired color */
-    color: red !important; /* Replace with the text color you want */
-  }
+.custom-date {
+    background-color: red !important;
+    /* Replace with your desired color */
+    color: red !important;
+    /* Replace with the text color you want */
+}
 
 .border_below {
     position: relative;
@@ -39286,7 +39294,8 @@ a:hover {
 @media (max-width: 768px) {
     .custom_card .fs-4 {
         /* Change the font size to your desired value for mobile */
-        font-size: 13.5px !important; /* Example value, adjust as needed */
+        font-size: 13.5px !important;
+        /* Example value, adjust as needed */
     }
 }
 
@@ -39294,7 +39303,8 @@ a:hover {
 @media (min-width: 769px) and (max-width: 1279px) {
     .custom_card .fs-4 {
         /* Change the font size to your desired value for this screen width */
-        font-size: 11.5px !important; /* Example value, adjust as needed */
+        font-size: 11.5px !important;
+        /* Example value, adjust as needed */
     }
 }
 
@@ -39302,7 +39312,8 @@ a:hover {
 @media (min-width: 1280px) {
     .custom_card .fs-4 {
         /* Change the font size to your desired value for this screen width */
-        font-size: 12.5px !important; /* Example value, adjust as needed */
+        font-size: 12.5px !important;
+        /* Example value, adjust as needed */
     }
 }
 
@@ -39310,29 +39321,32 @@ a:hover {
 @media (max-width: 285px) {
     .custom_card img.h-50px {
         /* Change the height of the image to your desired value for mobile */
-        height: 15px; /* Example value, adjust as needed */
+        height: 15px;
+        /* Example value, adjust as needed */
     }
 }
 
 
 
-.card.card-stretch{
+.card.card-stretch {
     box-shadow: 0 5px 10px rgba(100, 100, 100, 0.6);
-    background: linear-gradient(to bottom, rgba(255,186,186,50%), rgba(255,186,186,0%));
-  transition: all 0.3s ease-in-out ;
+    background: linear-gradient(to bottom, rgba(255, 186, 186, 50%), rgba(255, 186, 186, 0%));
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         transform: scale(1.02);
         transition: all 0.4 ease-in-out;
         box-shadow: 0 5px 5px rgba(255, 0, 0, 0.6);
         cursor: pointer;
+
         span {
-          transition: all 0.4s ease-in-out ;
-          color: #EF3A47;
+            transition: all 0.4s ease-in-out;
+            color: #EF3A47;
         }
 
     }
 }
+
 .card.card-stretch {
     height: calc(100% - var(--bs-gutter-y))
 }
@@ -40057,52 +40071,60 @@ a:hover {
     text-align: center;
     opacity: 0;
     animation: fadeIn 1s forwards;
-  }
+}
 
-  #successMessage span {
+#successMessage span {
     display: block;
     font-size: 12px;
-  }
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
-  @keyframes waveAnimation {
+@keyframes waveAnimation {
     0% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
+
     25% {
-      transform: translateX(-12%);
+        transform: translateX(-12%);
     }
+
     50% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
+
     75% {
-      transform: translateX(0%);
+        transform: translateX(0%);
     }
+
     100% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
-  }
+}
 
-  #redirectText {
+#redirectText {
     animation: waveAnimation 2s infinite;
-  }
+}
 
-  .symbol-label.bg-light-danger {
-    cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
-  }
-  
-  /* Change the color of the SVG icon when hovering */
-  .symbol-label.bg-light-danger:hover .svg-icon-danger path {
-    fill: #ff0000; /* Change the fill color to red when hovering */
-  }
+.symbol-label.bg-light-danger {
+    cursor: pointer;
+    /* Change the cursor to a pointer to indicate interactivity */
+}
+
+/* Change the color of the SVG icon when hovering */
+.symbol-label.bg-light-danger:hover .svg-icon-danger path {
+    fill: #ff0000;
+    /* Change the fill color to red when hovering */
+}
+
 .btn-check:active+.btn.btn-primary i,
 .btn-check:checked+.btn.btn-primary i,
 .btn.btn-primary.active i,
@@ -40117,7 +40139,7 @@ a:hover {
 .select2-container--bootstrap5 .select2-dropdown .select2-results__option.select2-results__option--selected {
     background-color: #ED1C24 !important;
     color: #fff;
-    transition: color .2s ease,background-color .2s ease;
+    transition: color .2s ease, background-color .2s ease;
 }
 
 
@@ -40329,8 +40351,8 @@ a:hover {
 .btn.btn-active-light-primary:hover:not(.btn-active),
 .show>.btn.btn-active-light-primary {
     color: #fff;
-    border-color: #ED1C24;
-    background-color: #ED1C24 !important
+    border-color: #1A4798;
+    background-color: #1A4798 !important
 }
 
 .btn-check:active+.btn.btn-active-light-primary i,
@@ -48271,7 +48293,7 @@ code:not([class*=language-]) {
     width: 100%;
     flex-shrink: 0;
     display: inline-block;
-    border-radius: .95rem
+    border-radius: .475rem
 }
 
 .symbol.symbol-square,
@@ -48703,8 +48725,8 @@ code:not([class*=language-]) {
 }
 
 .symbol.symbol-100px>img {
-    width: 100px;
-    height: 100px
+    width: 150px;
+    height: 150px
 }
 
 .symbol.symbol-100px .symbol-label {
@@ -54686,14 +54708,15 @@ body {
     height: 300px;
     background-color: transparent;
 
-    
+
     /* background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);  */
     /* Set the background size for the first image to its original width */
-    background-size: cover; /* The first image will have its full width, the second image will be resized to cover the container */
-    
+    background-size: cover;
+    /* The first image will have its full width, the second image will be resized to cover the container */
+
     /* Set background position for both images */
     background-position: bottom, center;
-    
+
     /* Set background repeat */
     background-repeat: no-repeat;
 }
@@ -54706,8 +54729,8 @@ body {
     /* align-items: center;
     background-color: transparent; */
 
-    
-    background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg); 
+
+    background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
     background-size: 100%, cover;
     background-repeat: no-repeat;
     background-position: bottom, center;

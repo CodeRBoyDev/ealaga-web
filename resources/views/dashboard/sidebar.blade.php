@@ -24,6 +24,7 @@
                          alt="" />
                  </div>
                  <!--end::Symbol-->
+
                  <!--begin::Wrapper-->
                  <div class="aside-user-info flex-row-fluid flex-wrap ms-5">
                      <!--begin::Section-->
@@ -31,12 +32,14 @@
                          <!--begin::Info-->
                          <div class="flex-grow-1 me-2">
                              <!--begin::Username-->
-                             <a href="#"
-                                 class="text-white text-hover-primary fs-6 fw-bold">{{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}</a>
+                             <a href="" class="text-white fs-6 fw-bold disabled">
+                                 {{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}
+                             </a>
                              <!--end::Username-->
                              <!--begin::Description-->
                              <span
-                                 class="text-gray-600 fw-bold d-block fs-8 mb-1">{{ auth()->user()->role === 0 ? 'Admin' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}
+                                 class="text-white fw-bold d-block fs-8 mb-1">{{ auth()->user()->role === 0 ? 'Administrator' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}
+
                              </span>
                              <!--end::Description-->
                              <!--begin::Label-->
@@ -85,8 +88,8 @@
                                                  <span
                                                      class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{ auth()->user()->role === 0 ? 'Admin' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}</span>
                                              </div>
-                                             <a href="#"
-                                                 class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
+                                             {{-- <a href="#"
+                                                 class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a> --}}
                                          </div>
                                          <!--end::Username-->
                                      </div>
@@ -97,7 +100,7 @@
                                  <!--end::Menu separator-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-5">
-                                     <a href="../../demo8/dist/account/overview.html" class="menu-link px-5">My
+                                     <a href="{{ route('profilePage') }}" class="menu-link px-5">My
                                          Profile</a>
                                  </div>
                                  <!--end::Menu item-->
@@ -144,7 +147,7 @@
                      id="#kt_aside_menu" data-kt-menu="true">
                      <div class="menu-item">
                          <div class="menu-content pb-2">
-                             <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+                             <span class="menu-section text-white text-uppercase fs-8 ls-1">Dashboard</span>
                          </div>
                      </div>
                      <div class="menu-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}">

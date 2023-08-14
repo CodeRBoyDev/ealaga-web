@@ -87,6 +87,20 @@ class UserListController extends Controller
             $password = $last_name . '2023';
             $hashedPassword = Hash::make($password);
 
+            $birthday2 = Carbon::parse($request->input('birthday'))->setTimezone('Asia/Manila');
+            $birthdate = $birthday2;
+
+            // Calculate the user's age based on the birthday and current date
+            $age = null;
+            if ($birthdate) {
+                // Compare only month and day to check if birthday has occurred this year
+                $hasBirthdayOccurred = $currentDate->month > $birthdate->month ||
+                    ($currentDate->month === $birthdate->month && $currentDate->day >= $birthdate->day);
+
+                // Subtract 1 year if birthday hasn't occurred yet this year
+                $age = $currentDate->year - $birthdate->year - (!$hasBirthdayOccurred ? 1 : 0);
+            }
+
             $userData = [
                 'firstname' => $request->input('first_name'),
                 'middlename' => $request->input('middle_name'),
@@ -95,6 +109,7 @@ class UserListController extends Controller
                 'email' => $request->input('user_email'),
                 'username' => $request->input('username'),
                 'birthday' => $request->input('birthday'),
+                'age' => $age,
                 'contact_number' => $request->input('contact_number'),
                 'role' => $request->input('user_role'),
                 'access_level' => $request->input('user_role'),
@@ -123,6 +138,7 @@ class UserListController extends Controller
                 'role' => $request->input('user_role'),
                 'access_level' => $request->input('user_role'),
                 'barangay' => $request->input('brgyId'),
+                'age' => $age,
                 'unitNo' => $request->input('unitNo'),
                 'houseNo' => $request->input('houseNo'),
                 'street' => $request->input('street'),
@@ -241,6 +257,19 @@ class UserListController extends Controller
             }
 
             // Prepare the data to be updated in the users table
+            $birthday2 = Carbon::parse($request->input('birthday'))->setTimezone('Asia/Manila');
+            $birthdate = $birthday2;
+
+            // Calculate the user's age based on the birthday and current date
+            $age = null;
+            if ($birthdate) {
+                // Compare only month and day to check if birthday has occurred this year
+                $hasBirthdayOccurred = $currentDate->month > $birthdate->month ||
+                    ($currentDate->month === $birthdate->month && $currentDate->day >= $birthdate->day);
+
+                // Subtract 1 year if birthday hasn't occurred yet this year
+                $age = $currentDate->year - $birthdate->year - (!$hasBirthdayOccurred ? 1 : 0);
+            }
 
             // Update the user data based on the changes from the request
             $userDataToUpdate = [
@@ -251,6 +280,7 @@ class UserListController extends Controller
                 'email' => $request->input('user_email'),
                 'username' => $request->input('username'),
                 'birthday' => $request->input('birthday'),
+                'age' => $age,
                 'contact_number' => $request->input('contact_number'),
                 'role' => $request->input('user_role'),
                 'barangay' => $request->input('barangay'),

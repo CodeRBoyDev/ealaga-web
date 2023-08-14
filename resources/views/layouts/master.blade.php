@@ -27,23 +27,23 @@
         <!--end::Global Stylesheets Bundle-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @stack('adminStyles')
-    @elseif(request()->route()->getName() === 'login' &&
-            request()->route()->getName() === 'register' &&
-            request()->route()->getName() === 'dashboard' &&
-            request()->route()->getName() === 'ClientHome' &&
-            request()->route()->getName() === 'ClientSchedule' &&
-            request()->route()->getName() === 'ClientScheduleList' &&
-            request()->route()->getName() === 'ClientScheduleHistory' &&
-            request()->route()->getName() === 'ClientVolunteerList' &&
-            request()->route()->getName() === 'emailOTP')
+    @elseif(request()->route()->getName() === 'login' ||
+            request()->route()->getName() === 'register' ||
+            request()->route()->getName() === 'dashboard' ||
+            request()->route()->getName() === 'ClientHome' ||
+            request()->route()->getName() === 'ClientSchedule' ||
+            request()->route()->getName() === 'ClientScheduleList' ||
+            request()->route()->getName() === 'ClientScheduleHistory' ||
+            request()->route()->getName() === 'ClientVolunteerList' ||
+            request()->route()->getName() === 'emailOTP' ||
+            request()->route()->getName() === 'landing')
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    @else
-        <!--begin::Global Stylesheets Bundle(used by all pages)-->
-        <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-        <!--end::Global Stylesheets Bundle-->
         @stack('styles')
+    @else
+        <!--begin::Global Stylesheets Bundle(Certain Page and User)-->
+        @stack('customStyles')
+        <!--end::Global Stylesheets Bundle-->
     @endif
 
 </head>
@@ -62,7 +62,8 @@
             request()->route()->getName() != 'ClientScheduleList' &&
             request()->route()->getName() != 'ClientScheduleHistory' &&
             request()->route()->getName() != 'ClientVolunteerList' &&
-            request()->route()->getName() != 'emailOTP')
+            request()->route()->getName() != 'emailOTP' &&
+            request()->route()->getName() != 'profilePage')
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->
@@ -75,10 +76,10 @@
         @yield('content')
     </div>
     <!--end::Main-->
-    @if (request()->route()->getName() != 'dashboard' &&
-            request()->route()->getName() != 'userList' &&
-            request()->route()->getName() != 'userView' &&
-            request()->route()->getName() != 'comorbidityList')
+    {{-- @if (request()->route()->getName() != 'dashboard' &&
+    request()->route()->getName() != 'userList' &&
+    request()->route()->getName() != 'userView' &&
+    request()->route()->getName() != 'comorbidityList')
         <script>
             var hostUrl = "client/";
         </script>
@@ -105,8 +106,12 @@
         @stack('adminScripts')
         <!--end::Page Custom Javascript-->
         <!--end::Javascript-->
-    @endif
-
+    @endif --}}
+    <script src="{{ asset('client/plugins/global/plugins.bundle.js') }}"></script>
+    <script src="{{ asset('client/js/scripts.bundle.js') }}"></script>
+    <script src="{{ asset('admin/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+    @stack('scripts')
+    @stack('adminScripts')
 </body>
 <!--end::Body-->
 

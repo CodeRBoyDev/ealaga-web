@@ -12,11 +12,14 @@ use App\Http\Controllers\Client\VolunteerController;
 use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\DatabaseTestController;
-use App\Http\Controllers\UserManagement\UserListController;
+use App\Http\Controllers\Profile\ProfileController;
 
 //CLIENT
+use App\Http\Controllers\UserManagement\UserListController;
 use App\Http\Controllers\UserManagement\UserViewController;
 use App\Http\Controllers\Visitor\LandingController;
+
+// Profile
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,5 +86,14 @@ Route::get('/comorbidity-list', [ComorbidityController::class, 'getcomorbidity']
 Route::post('/comorbidity-management/comorbidity/add', [ComorbidityController::class, 'addComorbidity'])->name('addComorbidity');
 Route::post('/comorbidity-management/comorbidity/delete', [ComorbidityController::class, 'deleteComorbidity'])->name('deleteComorbidity');
 Route::post('/comorbidity-management/comorbidity/update', [ComorbidityController::class, 'updateComorbidity'])->name('updateComorbidity');
+
+// Profile Page
+Route::get('/profile-page', [ProfileController::class, 'profilePage'])->name('profilePage');
+Route::get('/profile-edit', [ProfileController::class, 'profileEdit'])->name('profileEdit');
+Route::post('/profile-update', [ProfileController::class, 'profileUpdate'])->name('profileUpdate');
+Route::post('/profile-comorbidty', [ProfileController::class, 'profileComorbidity'])->name('profileComorbidity');
+Route::post('/profile-email', [ProfileController::class, 'profileEmail'])->name('profileEmail');
+Route::post('/profile-password', [ProfileController::class, 'profilePassword'])->name('profilePassword');
+Route::post('/profile-username', [ProfileController::class, 'profileUsername'])->name('profileUsername');
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
