@@ -16,6 +16,7 @@
          <div class="card-body">
              <!--begin::Form-->
              <form class="form" id="kt_users_comorbidity_form">
+                 @csrf
                  <div style="max-height: 200px; overflow-y: auto;">
                      @foreach ($comorbidityList as $data)
                          <!--begin::Item-->

@@ -20,7 +20,6 @@ class UserViewController extends Controller
     {
         try {
             //code...
-
             $userData = DB::table('users')->where('id', $userId)->first();
             $scheduleData = DB::table('schedule')
                 ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')

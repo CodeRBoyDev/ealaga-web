@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,7 +18,13 @@ class DashboardController extends Controller
         //
         try {
             //code...
-            return view('dashboard.dashboard');
+            if (Auth::check()) {
+                // User is not authenticated, display the login view
+                return view('dashboard.dashboard');
+            }
+
+            return redirect()->route('login');
+
         } catch (\Throwable $th) {
             //throw $th;
             dd("Error:", $th->getmessage());

@@ -22,9 +22,15 @@ $(document).ready(function () {
 
             dataTable
                 .columns(1) // Assuming services are in the second column
-                .search(selectedService)
+                .search(selectedService) // Search exact match for selected service
                 .columns(4) // Assuming status is in the fifth column
-                .search(selectedStatus)
+                // .search("^" + selectedStatus + "$", true, false) // Search exact match for selected status
+                .search(
+                    selectedStatus ? "^" + selectedStatus + "$" : "",
+                    true,
+                    false
+                ) // Search exact match if selectedStatus is not empty
+
                 .draw();
         }
 
@@ -157,7 +163,7 @@ $(document).ready(function () {
                     if (response.success) {
                         // Close the modal first
                         Swal.fire({
-                            text: "User Created successfully!",
+                            text: "Updated successfully!",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "Ok, got it!",

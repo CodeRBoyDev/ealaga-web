@@ -90,6 +90,8 @@
                                <li class="breadcrumb-item text-dark">View User</li>
                            @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Comorbidty Management</li>
+                           @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">My Profile</li>
                            @else
                                <li class="breadcrumb-item text-dark">User Management</li>
                            @endif
@@ -513,7 +515,7 @@
                                                    <!--begin::Illustration-->
                                                    <div class="text-center px-4">
                                                        <img class="mw-100 mh-200px" alt="image"
-                                                           src="admin/media/illustrations/sketchy-1/1.png" />
+                                                           src="{{ asset('admin/media/illustrations/sketchy-1/1.png') }}" />
                                                    </div>
                                                    <!--end::Illustration-->
                                                </div>

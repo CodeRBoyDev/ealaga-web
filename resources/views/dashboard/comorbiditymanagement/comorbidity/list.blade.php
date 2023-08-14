@@ -1,12 +1,17 @@
 @extends('layouts.master')
-@push('adminStyles ')
-    <!--begin::Page Vendor Stylesheets(used by this page)-->
-    <link href="{{ asset('admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <!--end::Page Vendor Stylesheets-->
+@push('adminStyles')
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
+    </style>
 @endpush
 @section('content')
     <!--begin::Body-->
-    <div class="header-tablet-and-mobile-fixed aside-enabled">
+    <div class="body_background header-tablet-and-mobile-fixed aside-enabled">
         <!--begin::Main-->
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">

@@ -253,14 +253,7 @@ class RegisterController extends Controller
                 if ($userInputOTP !== $actualOTP) {
                     return response()->json(['success' => false, 'message' => 'OTP does not match.']);
                 }
-
-                // Update the user data
-                $userData = [
-                    "email_verified" => 1,
-                    "updated_at" => $this->getCurrentDateAsiaManila(),
-                    "is_active" => 1,
-                ];
-
+ 
                 // Update the user data
                 $userData = [
                     "email_verified" => 1,
