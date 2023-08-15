@@ -1,16 +1,15 @@
  <!--begin::Header Section-->
  <div class="mb-0" id="home">
      <!--begin::Wrapper-->
-     <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg"
-         style="background-image: url(client/media/svg/illustrations/landing.svg)">
-     <div class="bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom"
-         style="background-image: url(assets/media/svg/illustrations/footer-trim.png), url(assets/media/svg/illustrations/sunray.jpg); background-size: 100% auto, cover;
-         background-position: 0% 100%, center;">
+     <div class="background-container bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom">
+         {{-- <div class="background-container bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom"
+         style="background-image: url(client/media/svg/illustrations/footer-trim.png), url(client/media/svg/illustrations/sunray.jpg); background-size: 100% auto, cover;
+         background-position: 0% 100%, center;"> --}}
          <!--begin::Header-->
          <div class="cloud-container">
-            <div class="cloud cloud1" style="background-image: url(assets/media/svg/illustrations/cloud1.png)"></div>
-            <div class="cloud cloud2" style="background-image: url(assets/media/svg/illustrations/cloud2.png)"></div>
-            <div class="cloud cloud3" style="background-image: url(assets/media/svg/illustrations/cloud3.png)"></div>
+            <div class="cloud cloud1" style="background-image: url(client/media/svg/illustrations/cloud1.png)"></div>
+            <div class="cloud cloud2" style="background-image: url(client/media/svg/illustrations/cloud2.png)"></div>
+            <div class="cloud cloud3" style="background-image: url(client/media/svg/illustrations/cloud3.png)"></div>
          </div>
          <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
              data-kt-sticky-offset="{default: '200px', lg: '300px'}">
@@ -40,9 +39,9 @@
                          <!--end::Mobile menu toggle-->
                          <!--begin::Logo image-->
                          <a href="../../demo9/dist/landing.html">
-                             <img alt="Logo" src="assets/media/logos/logotaguig.png"
+                             <img alt="Logo" src="client/media/logos/logotaguig.png"
                                  class="logo-default h-25px h-lg-50px" />
-                             <img alt="Logo" src="assets/media/logos/logotaguig.png"
+                             <img alt="Logo" src="client/media/logos/logotaguig.png"
                                  class="logo-sticky h-20px h-lg-50px" />
                          </a>
                          <!--end::Logo image-->
@@ -122,64 +121,13 @@
                  <!--begin::Title-->
                  <h1 class="text-blue lh-base fw-bolder fs-2x fs-lg-3x mb-15">EXPERIENCE THE ENTERTAINMENT AND RELAXATION
                      <br />AT THE
-                     {{-- <span
-                         style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-                         <span id="kt_landing_hero_text">Center for The Elderly</span>
-                     </span> --}}
                      <span style="color: red;">
                          <span id="kt_landing_hero_text">CENTER FOR THE ELDERLY</span>
                      </span>
                  </h1>
-                 <!--end::Title-->
-                 <!--begin::Action-->
-                 {{-- <a href="../../demo9/dist/index.html" class="btn btn-primary">Try Metronic</a> --}}
-                 <!--end::Action-->
+
              </div>
              <!--end::Heading-->
-             <!--begin::Clients-->
-             {{-- <div class="d-flex flex-center flex-wrap position-relative px-5">
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
-                     <img src="client/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Vodafone">
-                     <img src="client/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="KPMG International">
-                     <img src="client/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Nasa">
-                     <img src="client/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Aspnetzero">
-                     <img src="client/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px"
-                         alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="AON - Empower Results">
-                     <img src="client/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Hewlett-Packard">
-                     <img src="client/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-                 <!--begin::Client-->
-                 <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Truman">
-                     <img src="client/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
-                 </div>
-                 <!--end::Client-->
-             </div> --}}
              <!--end::Clients-->
          </div>
          <!--end::Landing hero-->
@@ -187,12 +135,7 @@
      <!--end::Wrapper-->
      <!--begin::Curve bottom-->
      <div class="landing-curve landing-dark-color mb-10 mb-lg-20">
-         <svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path
-                 d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z"
-                 fill="currentColor"></path>
-         </svg>
-     </div>
+    </div>
      <!--end::Curve bottom-->
  </div>
  <!--end::Header Section-->

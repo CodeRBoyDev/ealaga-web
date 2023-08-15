@@ -2,7 +2,7 @@
 @section('content')
 
        <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
-       <link href="/client/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+       {{-- <link href="/client/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" /> --}}
    	<!--begin::Body-->
        <div class="body_background header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
 		<!--begin::Main-->
@@ -72,32 +72,55 @@
 							</div>
 							<div class="card mb-5 mb-xl-10">
 
-								<div class="card-body pt- pb-0">
+								<div class="card-body">
 									<!--begin::Navs-->
 									<div class="d-flex overflow-auto mb-5 mb-xl-10 h-55px">
 										<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
 											<!--begin::Nav item-->
 											<li class="nav-item">
-												<a class="nav-link text-active-primary me-6 active" href="../../demo9/dist/account/overview.html">Post</a>
+												<a id="volunteer_view" class="nav-link text-active-primary me-6 active" href="#">Posts</a>
 											</li>
 											<!--end::Nav item-->
 											<!--begin::Nav item-->
 											<li class="nav-item">
-												<a class="nav-link text-active-primary me-6" href="../../demo9/dist/account/settings.html">Pending</a>
+												<a id="application_view" class="nav-link text-active-primary me-6" href="#">Applications</a>
 											</li>
 											<!--end::Nav item-->
 											<!--begin::Nav item-->
 											<li class="nav-item">
-												<a class="nav-link text-active-primary me-6" href="../../demo9/dist/account/security.html">History</a>
+												<a id="history_view" class="nav-link text-active-primary me-6" href="../">History</a>
 											</li>
 											<!--end::Nav item-->
 										</ul>
 									</div>
-									<!--begin::Navs-->
+									<!--end::Navs-->
 									<!--begin::Addresses-->
+									<div id="volunteer_row_div" class="card-wrapper">
+										
+									</div>
+
+									<div id="application_row_div" class="card-wrapper">
+
+									</div>
+
+									<div id="history_row_div" class="card-wrapper">
+
+									</div>
+
+									<div id="pagination_card_div" class="d-flex flex-stack flex-wrap pt-10">
+										
+									</div>
+
+									<div id="application_pagination_div" class="d-flex flex-stack flex-wrap pt-10">
+										
+									</div>
 									
-									<!--end::Addresses-->
+									<div id="history_pagination_div" class="d-flex flex-stack flex-wrap pt-10">
+										
+									</div>
+
 								</div>
+								{{-- </div> --}}
 								<!--end::Card body-->
 							</div>
 							<!--end::Card-->
@@ -206,8 +229,8 @@
 @endsection
 
 @push('scripts')
-{{-- <script src="/client/js/schedule_history.js"></script> --}}
-<script src="/client/plugins/custom/datatables/datatables.bundle.js"></script>
+<script src="/client/js/volunteer_list.js"></script>
+{{-- <script src="/client/plugins/custom/datatables/datatables.bundle.js"></script> --}}
 @endpush
 
 
