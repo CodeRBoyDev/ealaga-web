@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('guest.landing');
 // })->name('landing');
 
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/', [LandingController::class, 'VisitorLanding'])->name('VisitorLanding');
 
 Route::get('/ticket', function () {
     return view('client.ticket');
@@ -57,7 +57,10 @@ Route::get('/client/schedule/history', [ScheduleController::class, 'ClientSchedu
 Route::get('/client/schedule/cancel/{id}', [ScheduleController::class, 'ClientScheduleCancel'])->name('ClientScheduleCancel');
 Route::post('/client/review/add', [ScheduleController::class, 'ClientScheduleReview'])->name('ClientScheduleReview');
 
+// Client volunteer
 Route::get('/client/volunteer', [VolunteerController::class, 'ClientVolunteerList'])->name('ClientVolunteerList');
+Route::post('/client/volunteer/submit', [VolunteerController::class, 'ClientVolunteerSubmit'])->name('ClientVolunteerSubmit');
+Route::delete('/client/volunteer/delete', [VolunteerController::class, 'ClientVolunteerDelete'])->name('ClientVolunteerDelete');
 
 // Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');
