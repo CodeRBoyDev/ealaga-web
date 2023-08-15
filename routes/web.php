@@ -34,7 +34,7 @@ use App\Http\Controllers\Client\VolunteerController;
 //     return view('guest.landing');
 // })->name('landing');
 
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/', [LandingController::class, 'VisitorLanding'])->name('VisitorLanding');
 
 Route::get('/ticket', function () {
     return view('client.ticket');
@@ -52,7 +52,10 @@ Route::get('/client/schedule/list', [ScheduleController::class, 'ClientScheduleL
 Route::get('/client/schedule/list/{id}', [ScheduleController::class, 'ClientScheduleView'])->name('ClientScheduleView');
 Route::get('/client/schedule/history', [ScheduleController::class, 'ClientScheduleHistory'])->name('ClientScheduleHistory');
 
+// Client volunteer
 Route::get('/client/volunteer', [VolunteerController::class, 'ClientVolunteerList'])->name('ClientVolunteerList');
+Route::post('/client/volunteer/submit', [VolunteerController::class, 'ClientVolunteerSubmit'])->name('ClientVolunteerSubmit');
+Route::delete('/client/volunteer/delete', [VolunteerController::class, 'ClientVolunteerDelete'])->name('ClientVolunteerDelete');
 
 // Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');

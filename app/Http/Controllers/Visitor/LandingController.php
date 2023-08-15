@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Visitor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\File;
+use Carbon\Carbon;
 
 class LandingController extends Controller
 {
@@ -13,22 +16,24 @@ class LandingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function VisitorLanding(Request $request)
     {
-        $announcementList = DB::table('announcements')->get();
-        $reviewList = DB::table('reviews')->get();
-        // dd($announcementList, $reviewList);
 
         try {
-            // dd($announcementList);
-            return view('guest.landing', ['announcements'=>$announcementList, 'reviews'=>$reviewList]);
-        } catch (\Throwable $th) {
-            // An exception occurred, handle it
-            dd($th->getmessage());
-        }
-            // return Announcement::all();
-    }
+            $announcements = DB::table('announcements')->get();
+            $reviews= DB::table('reviews')->get();
 
+            if (request()->ajax()) {
+                return response()->json(['announcement' => $announcements, 'review' => $reviews]);
+
+            }
+            return view('guest.landing', compact('announcements','reviews'));
+
+
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
     /**
      * Show the form for creating a new resource.
      *

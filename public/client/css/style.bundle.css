@@ -32695,7 +32695,7 @@ fieldset:disabled .btn {
 .rounded-circle {
     border-radius: 50% !important;
     border: 5px solid #ffffff; /* Border color */
-    box-shadow: 0px 0px 20px rgba(237, 28, 35, 0.363);
+    outline: 3px solid var(--red);
 }
 
 .flex-root {
@@ -54890,7 +54890,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.9920343137254902) 0%, rgba(237,28,36,0.20211834733893552) 200%);
     z-index: -1; /* Place the pseudo-element behind all the card content */
     opacity: 0; /* Hide the pseudo-element by default */
     transition: opacity 0.3s ease; /* Add a smooth transition effect for the pseudo-element */
@@ -54954,7 +54953,7 @@ body {
 
   .cloud3 {
 	width: 450px;
-	height: 200px;
+	height: 180px;
 	animation-name: moveCloud3;
 	animation-duration: 50s; /* Adjust the speed of the second cloud */
   }
@@ -54976,7 +54975,7 @@ body {
     }
     .cloud3 {
         width: 350px;
-        height: 150px;
+        height: 130px;
     }
 }
 
@@ -55040,3 +55039,4 @@ body {
 	  right: 100%; /* Adjust the end position of the second cloud */
 	}
   }
+

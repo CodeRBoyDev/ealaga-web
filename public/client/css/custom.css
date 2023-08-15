@@ -1,13 +1,10 @@
 @charset "UTF-8";
 
 :root {
-    --bs-blue: #009ef6;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
     --bs-pink: #d63384;
-    --bs-red: #dc3545;
     --bs-orange: #fd7e14;
-    --bs-yellow: #ffc107;
     --bs-green: #198754;
     --bs-teal: #20c997;
     --bs-cyan: #0dcaf0;
@@ -22,7 +19,6 @@
     --bs-gray-700: #5E6278;
     --bs-gray-800: #3F4254;
     --bs-gray-900: #181C32;
-    --bs-white: #ffffff;
     --bs-light: #F5F8FA;
     --bs-primary: #009EF7;
     --bs-secondary: #E4E6EF;
@@ -52,7 +48,13 @@
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
     --bs-body-color: #181C32;
-    --bs-body-bg: #ffffff
+    --bs-body-bg: #ffffff;
+
+    --white: #ffffff;
+    --black: #000000;
+    --blue: #1A4798;
+    --red: #ED1C24;
+    --yellow: #F4C027;
 }
 
 *,
@@ -72,12 +74,6 @@ body {
     background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
-
-    --white: #ffffff;
-    --black: #000000;
-    --blue: #1A4798;
-    --red: #ED1C24;
-    --yellow: #F4C027;
 }
 
 .ticket-container {
@@ -33185,10 +33181,10 @@ fieldset:disabled .btn {
     transition: color .2s ease, background-color .2s ease
 }
 
-.text-active-primary.active {
+/* .text-active-primary.active {
     transition: color .2s ease, background-color .2s ease;
     color: #009ef7 !important
-}
+} */
 
 .text-active-primary.active i {
     transition: color .2s ease, background-color .2s ease;
@@ -34863,14 +34859,14 @@ a:hover {
     margin-right: 0
 }
 
-.nav-line-tabs .nav-item .nav-link.active,
+/* .nav-line-tabs .nav-item .nav-link.active,
 .nav-line-tabs .nav-item .nav-link:hover:not(.disabled),
 .nav-line-tabs .nav-item.show .nav-link {
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #009ef7;
     transition: color .2s ease, background-color .2s ease
-}
+} */
 
 .nav-line-tabs.nav-line-tabs-2x {
     border-bottom-width: 2px
@@ -55091,7 +55087,97 @@ body {
     justify-content: flex-start
 }
 
-.card.card-docs {
-    background-color: #fff;
-    border: 0
-}
+/* volunteer-card */
+
+.card-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start; /* Spacing between items */
+    /* align-items: flex-start;  */
+    gap: 25px;
+    /* margin-bottom: 20px; */
+  }
+  
+  .vol-card {
+    position: relative;
+    width: calc(25% - 20px);
+    /* margin-bottom: 20px; */
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 10px 0 #ED1C24 !important;
+    border: 3px solid #eff2f5;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: .95rem;
+  }
+
+  .vol-card-content {
+    margin-bottom: 40px; /* Space for the button */
+  }
+
+  .vol-card-title {
+    margin-top: 0; /* Remove default margin */
+    margin-bottom: 10px; /* Adjust the space between title and details */
+  }
+
+  .vol-card-details {
+    display: block;
+    margin-bottom: 5px; /* 5px gap between details */
+  }
+
+  .vol-card-button {
+    position: absolute;
+    bottom: 10px;
+    left: 15px; /* Adjust the left position */
+
+  }
+
+  .inline-div {
+    display: inline; /* Set to inline */
+    margin-left: 5px; /* Add some space after "Time:" */
+  }
+  
+
+  @media (max-width: 1200px) {
+    .card-wrapper {
+        justify-content: space-between;
+      }
+
+    .vol-card {
+      width: calc(50% - 20px); /* 50% width for 2 cards per row, minus margins */
+    
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vol-card {
+      width: 100%;
+    }
+  }
+
+    .text-yellow-600 {
+        color: var(--yellow) !important
+    }
+
+    .text-green-600 {
+        color: var(--bs-green) !important
+    }
+
+    .nav-line-tabs .nav-item .nav-link.active,
+    .nav-line-tabs .nav-item .nav-link:hover:not(.disabled),
+    .nav-line-tabs .nav-item.show .nav-link {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--blue);
+        transition: color .2s ease, background-color .2s ease
+    }
+
+    .text-active-primary.active {
+        transition: color .2s ease, background-color .2s ease;
+        color: var(--yellow) !important
+    }

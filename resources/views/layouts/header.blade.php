@@ -1,11 +1,10 @@
  <!--begin::Header Section-->
  <div class="mb-0" id="home">
      <!--begin::Wrapper-->
-     <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom"
-         style="background-image: url(client/media/svg/illustrations/landing.svg)">
-     <div class="bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom"
+     <div class="background-container bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom">
+         {{-- <div class="background-container bg-no-repeat bgi-size-cover bgi-position-x-center bgi-position-y-bottom"
          style="background-image: url(client/media/svg/illustrations/footer-trim.png), url(client/media/svg/illustrations/sunray.jpg); background-size: 100% auto, cover;
-         background-position: 0% 100%, center;">
+         background-position: 0% 100%, center;"> --}}
          <!--begin::Header-->
          <div class="cloud-container">
             <div class="cloud cloud1" style="background-image: url(client/media/svg/illustrations/cloud1.png)"></div>
