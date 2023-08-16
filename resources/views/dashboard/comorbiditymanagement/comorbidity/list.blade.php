@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @push('adminStyles')
+    <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+
     <style>
         .body_background {
             background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);

@@ -57,7 +57,8 @@ var KTSigninGeneral = (function () {
                                     if (data.success) {
                                         // Login success, redirect to the appropriate route based on the user role
                                         if (data.data === "dashboard") {
-                                            window.location.href = "/dashboard"; // Replace 'dashboard' with the actual URL for the admin dashboard
+                                            window.location.href =
+                                                "/osca-dashboard"; // Replace 'dashboard' with the actual URL for the admin dashboard
                                         } else if (data.data === "ClientHome") {
                                             window.location.href =
                                                 "/client/home"; // Replace 'client-home' with the actual URL for the client dashboard

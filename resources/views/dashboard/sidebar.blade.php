@@ -33,7 +33,8 @@
                          <div class="flex-grow-1 me-2">
                              <!--begin::Username-->
                              <a href="" class="text-white fs-6 fw-bold disabled">
-                                 {{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}
+                                 {{ //   auth()->user()->firstname . ' ' .
+                                     auth()->user()->lastname }}
                              </a>
                              <!--end::Username-->
                              <!--begin::Description-->
@@ -152,7 +153,7 @@
                      </div>
                      <div class="menu-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}">
                          <a class="menu-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"
-                             href="{{ asset('dashboard') }}">
+                             href="{{ route('dashboard') }}">
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                  <span class="svg-icon svg-icon-2">
