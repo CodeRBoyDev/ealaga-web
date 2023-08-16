@@ -2,6 +2,8 @@
 @push('adminStyles')
     <!--begin::Page Vendor Stylesheets(used by this page)-->
     <link href="{{ asset('admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+
     <!--end::Page Vendor Stylesheets-->
     <style>
         .body_background {

@@ -423,13 +423,24 @@ $(document).ready(function () {
                 e.validate().then(function (status) {
                     if (status === "Valid") {
                         Swal.fire({
-                            title: "Loading...",
-                            html: "Please wait while we process your request",
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
+                            html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+                            // icon: "success",
                             showCancelButton: false,
-                            onBeforeOpen: () => {
-                                Swal.showLoading();
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                animateText();
                             },
                         });
                         // Alternatively, you can submit the form here using AJAX if needed
@@ -833,13 +844,24 @@ $(document).ready(function () {
                 e.validate().then(function (status) {
                     if (status === "Valid") {
                         Swal.fire({
-                            title: "Loading...",
-                            html: "Please wait while we process your request",
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
+                            html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+                            // icon: "success",
                             showCancelButton: false,
-                            onBeforeOpen: () => {
-                                Swal.showLoading();
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                animateText();
                             },
                         });
                         // Alternatively, you can submit the form here using AJAX if needed

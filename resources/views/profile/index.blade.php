@@ -5,10 +5,13 @@
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
         <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
     @else
         <link href="{{ asset('admin/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+        <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+
         <style>
             .body_background {
                 background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
