@@ -34,7 +34,7 @@
             <!--begin::Heading-->
             <h1 class="d-flex flex-column text-dark fw-bolder my-1">
                 <span class="text-black fs-1">Home</span>
-                <small class="text-black-600 fs-6 pt-2">Welcome, Ricky Boy</small>
+                <small class="text-black-600 fs-6 pt-2">Welcome, {{auth()->user()->firstname . " " . auth()->user()->lastname}}</small>
             </h1>
             <!--end::Heading-->
         </div>
@@ -784,7 +784,7 @@
                     <!--begin::Menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
                         <!--begin::Heading-->
-                        <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('/client/media/misc/pattern-1.jpg')">
+                        <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-color: #1A4798">
                             <!--begin::Title-->
                             <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
                             {{-- <span class="fs-8 opacity-75 ps-3">24 reports</span> --}}
@@ -811,7 +811,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Description-->
                                         <div class="flex-grow-1">
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Create FireStone Logo</a>
+                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Welcome to eAlaga</a>
                                             <span class="text-muted fw-bold d-block">Due in 2 Days</span>
                                         </div>
                                         <!--end::Description-->

@@ -4345,6 +4345,7 @@ fieldset:disabled .btn {
     box-shadow: 0 0 50px 0 rgba(82, 63, 105, .1)
 }
 
+
 .dropdown-menu[data-bs-popper] {
     top: 100%;
     left: 0;
@@ -5831,7 +5832,7 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #009ef7;
+    background-color: #ED1C24;
     border-color: transparent
 }
 
@@ -32957,7 +32958,7 @@ fieldset:disabled .btn {
 }
 
 .text-primary {
-    color: #009ef7 !important
+    color: #1A4798 !important
 }
 
 .text-inverse-primary {
@@ -35206,7 +35207,52 @@ a:hover {
     transform: rotateZ(-90deg)
 }
 
+.form-control:disabled {
+    background-color: #515151 !important;
+    color: #d4d1d1 !important;
+    opacity: 1;
+}
+
+/* Define the custom color for the specific date */
+.custom-date-color-default {
+    background-color: #fff !important;
+    color: #7e8299 !important;
+}
+
+.custom-selected-date-color-default {
+    background-color: #fff !important;
+    color: #7e8299 !important;
+}
+
+/* Define the custom color for the specific date */
+.custom-date-color {
+    background-color: #c7c7c7 !important;
+    color: #929292 !important;
+}
+
+.custom-selected-date-color {
+    background-color: rgba(26, 71, 152, 0.7) !important;
+    color: #fff !important;
+}
+
+
+
+.select2-container--bootstrap5 .select2-dropdown .select2-results__option.select2-results__option--selected {
+    background-color: #ED1C24 !important;
+    color: #fff;
+    transition: color .2s ease,background-color .2s ease;
+}
+
+.select2-container--bootstrap5 .select2-dropdown .select2-results__option.select2-results__option--highlighted {
+    background-color: #ED1C24 !important;
+    color: #fff !important;
+    transition: color .2s ease,background-color .2s ease;
+}
+
+
+
 .menu-sub-dropdown {
+    margin: 0 !important;
     display: none;
     border-radius: .475rem;
     background-color: #fff;
@@ -52844,7 +52890,7 @@ code:not([class*=language-]) {
 }
 
 .badge-light-primary {
-    color: #009ef7;
+    color: #F4C027;
     background-color: #1A4798
 }
 
@@ -52883,8 +52929,8 @@ code:not([class*=language-]) {
 }
 
 .badge-light-warning {
-    color: #ffc700;
-    background-color: #fff8dd
+    color: #1A4798;
+    background-color: #F4C027
 }
 
 .badge-danger {

@@ -98,9 +98,12 @@ $(document).ready(function () {
           // Compare the schedule date with the current date
           const isToday = moment(scheduleDate).isSame(currentDate, 'day');
         
-          // Determine the text to display for the schedule date
-          let scheduleDateText = '';
-          let badgeColorClass = '';
+             // Determine the text to display for the schedule date
+             let scheduleDateText = "";
+             let badgeColorClass = "";
+
+             let statusText = "";
+             let statusbadgeColorClass = "";
           
           if (isToday) {
             scheduleDateText = 'Today';
@@ -113,6 +116,24 @@ $(document).ready(function () {
             badgeColorClass = 'badge-light-warning'; // Change to your desired class for future dates
           }
         
+
+          if (schedule?.status === 0) {
+            statusText = "Pending";
+            statusbadgeColorClass = "badge-light-warning"; // Change to your desired class for today's date
+        }
+       else if (schedule?.status === 1) {
+          statusText = "Attended";
+          statusbadgeColorClass = "badge-light-success"; // Change to your desired class for today's date
+      } else if (
+        schedule?.status === 2
+      ) {
+        statusText = "Not Attended";
+        statusbadgeColorClass = "badge-light-danger"; // Change to your desired class for past dates
+      } else if(schedule?.status === 3) {
+        statusText = "Cancelled";
+        statusbadgeColorClass = "badge-light-primary"; // Change to your desired class for future dates
+      }
+
           // Generate the HTML code for each schedule card and append it to the `card_data`
           card_data +=
             ` <div class="col-xl-3">
@@ -120,9 +141,12 @@ $(document).ready(function () {
               <div class="schedule_list_border_below card-dashed h-xl-100 flex-row flex-stack flex-wrap p-6">
                 <!--begin::Details-->
                 <div class="d-flex flex-column py-2">
-                  <div class="d-flex align-items-center fs-5 fw-bolder mb-5">${formattedScheduleDate}
-                  <span class="badge ${badgeColorClass} fs-7 ms-2">${scheduleDateText}</span>
-                  </div>
+                <div class="d-flex align-items-center fs-5 fw-bolder mb-5">${formattedScheduleDate}
+                <span class="badge ${badgeColorClass} fs-7 ms-2">${scheduleDateText}</span>
+                </div>
+                <div class="d-flex align-items-center fs-5 fw-bolder mb-2">
+                <span class="badge ${statusbadgeColorClass} fs-7 ms-2">${statusText}</span>
+                </div>
                   <div class="fs-6 fw-bold text-gray-600">
                   ${schedule?.schedule_time == 0 ? 'Time: Morning 8:00am - 11:59am' : 'Time: Afternoon 1:00pm - 5:00pm'}
                  
@@ -215,11 +239,20 @@ $(document).ready(function () {
       <!--begin::Actions-->
       <div class="text-center pt-15">
         <button type="reset" id="downloadimage" class="btn btn-light me-3">Download</button>
-        <button type="submit"  id="cancel_schedule" data-cancel_schedule="${data.schedule?.schedule_id}" class="btn btn-warning">
-          <span class="indicator-label">Cancel</span>
+        ${data.schedule?.status == 0
+          ?
+          `
+          <button type="submit"  id="cancel_schedule" data-cancel_schedule="${data.schedule?.schedule_id}" class="btn btn-warning">
+          <span class="indicator-label">Cancel Schedule</span>
           <span class="indicator-progress">Please wait...
           <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
         </button>
+          `
+          :
+          ""
+
+        }
+      
       </div>
       <!--end::Actions-->
         `;

@@ -14,7 +14,11 @@
     @if (request()->route()->getName() === 'dashboard' ||
             request()->route()->getName() === 'userList' ||
             request()->route()->getName() === 'userView' ||
-            request()->route()->getName() === 'comorbidityList')
+            request()->route()->getName() === 'comorbidityList' ||
+            request()->route()->getName() === 'ServiceList'||
+            request()->route()->getName() === 'schedule' || 
+            request()->route()->getName() === 'scheduleQRscanner'
+            )
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -36,7 +40,8 @@
             request()->route()->getName() === 'ClientScheduleHistory' ||
             request()->route()->getName() === 'ClientVolunteerList' ||
             request()->route()->getName() === 'emailOTP' ||
-            request()->route()->getName() === 'landing')
+            request()->route()->getName() === 'landing' 
+            )
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         @stack('styles')
@@ -63,7 +68,11 @@
             request()->route()->getName() != 'ClientScheduleHistory' &&
             request()->route()->getName() != 'ClientVolunteerList' &&
             request()->route()->getName() != 'emailOTP' &&
-            request()->route()->getName() != 'profilePage')
+            request()->route()->getName() != 'profilePage' &&
+            request()->route()->getName() != 'ServiceList' && 
+            request()->route()->getName() != 'schedule' &&
+            request()->route()->getName() != 'scheduleQRscanner' 
+            )
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->

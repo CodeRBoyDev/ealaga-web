@@ -3,6 +3,9 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 
+//Services
+use App\Http\Controllers\Services\ServiceController;
+
 //CLIENT
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ScheduleController;
@@ -75,6 +78,18 @@ Route::post('/register', [RegisterController::class, 'postRegister'])->name('pos
 Route::get('/register/email-otp', [RegisterController::class, 'emailOTP'])->name('emailOTP');
 Route::post('/register/confirm-otp', [RegisterController::class, 'confirmOTP'])->name('confirmOTP');
 Route::post('/register/resend-otp', [RegisterController::class, 'resendOTP'])->name('resendOTP');
+
+
+//Schedule
+Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
+Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
+Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
+Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
+Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
+
+//Services
+Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
+Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
 
 // Dashboard
 Route::get('/osca-dashboard', [DashboardController::class, 'index'])->name('dashboard');

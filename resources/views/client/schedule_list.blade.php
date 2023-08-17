@@ -69,7 +69,7 @@
 									<!--begin::Card toolbar-->
 									<div class="card-toolbar">
 										<!--begin::Toolbar-->
-										<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+										{{-- <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
 											<!--begin::Filter-->
 											<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 											<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
@@ -155,7 +155,7 @@
 											<!--end::Menu 1-->
 											<!--end::Filter-->
 										
-										</div>
+										</div> --}}
 										<!--end::Toolbar-->
 									
 									</div>
@@ -240,7 +240,7 @@
 
 					<!--end::Content-->
 					<!--begin::Footer-->
-					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+					{{-- <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
 						<!--begin::Container-->
 						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
 							<!--begin::Copyright-->
@@ -264,7 +264,7 @@
 							<!--end::Menu-->
 						</div>
 						<!--end::Container-->
-					</div>
+					</div> --}}
 					<!--end::Footer-->
 				</div>
 				<!--end::Wrapper-->
