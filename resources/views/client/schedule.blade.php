@@ -34,7 +34,7 @@
 											
 
 											<a href="#" id="back_homepage" class="map-icon">
-                                                <span class="symbol symbol-50px me-6 ">
+                                                <span class="symbol symbol-50px me-6">
                                                     <span class="symbol-label bg-light-primary">
                                                         <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
                                                         <span class="svg-icon svg-icon-1 svg-icon-danger">
@@ -149,21 +149,19 @@
 												</label>
 												<!--end::Label-->
 												<!--begin:Options-->
-												<div class="">
+											<div class="scroll-y me-n5 pe-5 h-200px h-lg-auto" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_chat_contacts_header" data-kt-scroll-wrappers="#kt_content, #kt_chat_contacts_body" data-kt-scroll-offset="0px" style="">
 													<!--begin:Option-->
+													
 													@foreach ($services as $service)
 													<label class="d-flex flex-stack mb-5 cursor-pointer">
 														<!--begin:Label-->
 														<span class="d-flex align-items-center me-2">
 															<!--begin:Icon-->
-															<span class="symbol symbol-50px me-6">
-																<span class="symbol-label bg-light-danger">
+															<span class="symbol symbol-70px me-6">
+																<span class="symbol-label bg-light">
 																	<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
-																	<span class="svg-icon svg-icon-1 svg-icon-danger">
-																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																			<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="black" />
-																			<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="black" />
-																		</svg>
+																	<span class="svg-icon svg-icon-1 svg-icon-danger" data-service-icon="{{ $service->icon }}">
+																		<img alt="Logo" src="/{{ $service->icon }}" class="h-70px" />
 																	</span>
 																	<!--end::Svg Icon-->
 																</span>
@@ -215,7 +213,7 @@
 															<div class="d-flex justify-content-center flex-column me-3">
 															<!--begin::Info-->
 																<div class="mb-0 lh-1">
-																	<span class="badge badge-circle w-10px h-10px" style="background-color: #ED1C24;"></span>
+																	<span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
 																	<span class="fs-7 fw-bold text-muted me-1">Selected</span>
 																	<span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
 																	<span class="fs-7 fw-bold text-muted me-1">No Slot</span>
@@ -225,7 +223,7 @@
 															<!--end::User-->
 														</div>
 
-														<div class="col-6">
+														<div class="col-md-6">
 															<label class="required fs-6 fw-bold form-label mb-2">Date</label>
 															<!--begin::Input-->
 															<div class="position-relative d-flex align-items-center">
@@ -241,9 +239,9 @@
 														</div>
 														<!--end::Col-->
 														<!--begin::Col-->
-														<div class="col-6">
+														<div class="col-md-6">
 															<label class="required fs-6 fw-bold form-label mb-2">Available Time</label>
-															<select id="time_input" name="time_input" class="form-select form-select-solid" data-control="select2"c data-hide-search="true" data-placeholder="Time">
+															<select disabled id="time_input" name="time_input" class="form-select form-select-solid" data-control="select2"c data-hide-search="true" data-placeholder="Time">
 																<option></option>
 																<option value="0">AM</option>
 																<option value="1">PM</option>
@@ -347,7 +345,7 @@
 											<span class="svg-icon svg-icon-3 me-1">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<rect opacity="0.5" x="6" y="11" width="13" height="2" rx="1" fill="black" />
-													<path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="black" />
+													<path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" style="fill: #fff;" />
 												</svg>
 											</span>
 											<!--end::Svg Icon-->Back</button>

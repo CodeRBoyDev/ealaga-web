@@ -12,7 +12,7 @@ class ClientHomeController extends Controller
         //
         try {
             //code...
-
+ 
             return view('client.home');
 
         } catch (\Throwable $th) {

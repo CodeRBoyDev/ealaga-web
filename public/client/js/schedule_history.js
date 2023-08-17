@@ -153,7 +153,13 @@ $(document).ready(function () {
                         badgeColorClass = "badge-light-warning"; // Change to your desired class for future dates
                     }
 
-                    if (schedule?.status === 1) {
+                    
+                    
+                    if (schedule?.status === 0) {
+                        statusText = "Pending";
+                        statusbadgeColorClass = "badge-light-warning"; // Change to your desired class for today's date
+                    }
+                   else if (schedule?.status === 1) {
                       statusText = "Attended";
                       statusbadgeColorClass = "badge-light-success"; // Change to your desired class for today's date
                   } else if (
