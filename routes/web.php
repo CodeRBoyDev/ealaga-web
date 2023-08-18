@@ -102,7 +102,7 @@ Route::middleware(['access_level:0,1'])->group(function () {
     Route::post('/comorbidity-management/comorbidity/update', [ComorbidityController::class, 'updateComorbidity'])->name('updateComorbidity');
 
 });
-Route::middleware(['access_level:0,1,3'])->group(function () {
+Route::middleware(['access_level:0,1,2'])->group(function () {
 // Profile Page
     Route::get('/profile-page', [ProfileController::class, 'profilePage'])->name('profilePage');
     Route::get('/profile-edit', [ProfileController::class, 'profileEdit'])->name('profileEdit');
