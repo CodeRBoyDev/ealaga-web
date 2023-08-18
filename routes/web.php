@@ -4,20 +4,28 @@ use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\Client\ClientHomeController;
 
-// Comorbidity Management
+// Schedule Management
 use App\Http\Controllers\Client\ScheduleController;
-// Dashboard
-use App\Http\Controllers\Client\VolunteerController;
-// User Management
+
+// Comorbidity Management
 use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
+
+// Dashboard
 use App\Http\Controllers\Dashboard\DashboardController;
+
+// Volunteer Management
+use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
+use App\Http\Controllers\VolunteerManagement\ApplicationController;
+
+// User Management
 use App\Http\Controllers\DatabaseTestController;
 use App\Http\Controllers\Profile\ProfileController;
-
-//CLIENT
 use App\Http\Controllers\UserManagement\UserListController;
 use App\Http\Controllers\UserManagement\UserViewController;
+
+//CLIENT
 use App\Http\Controllers\Visitor\LandingController;
+use App\Http\Controllers\Client\VolunteerController;
 
 // Profile
 use Illuminate\Support\Facades\Route;
@@ -89,6 +97,21 @@ Route::get('/comorbidity-list', [ComorbidityController::class, 'getcomorbidity']
 Route::post('/comorbidity-management/comorbidity/add', [ComorbidityController::class, 'addComorbidity'])->name('addComorbidity');
 Route::post('/comorbidity-management/comorbidity/delete', [ComorbidityController::class, 'deleteComorbidity'])->name('deleteComorbidity');
 Route::post('/comorbidity-management/comorbidity/update', [ComorbidityController::class, 'updateComorbidity'])->name('updateComorbidity');
+
+// Volunteer Management
+Route::get('/volunteer-management/volunteer/list', [PersonnelVolunteerController::class, 'index'])->name('volunteerList');
+Route::get('/volunteer-list', [PersonnelVolunteerController::class, 'getVolunteer'])->name('getVolunteer');
+Route::post('/volunteer-management/volunteer/add', [PersonnelVolunteerController::class, 'addVolunteer'])->name('addVolunteer');
+Route::post('/volunteer-management/volunteer/update', [PersonnelVolunteerController::class, 'updateVolunteer'])->name('updateVolunteer');
+Route::post('/volunteer-management/volunteer/delete', [PersonnelVolunteerController::class, 'deleteVolunteer'])->name('deleteVolunteer');
+
+// Application Management
+Route::get('/application-management/application/list', [ApplicationController::class, 'index'])->name('applicationList');
+Route::get('/application-list', [ApplicationController::class, 'getApplication'])->name('getApplication');
+// Route::post('/application-management/application/add', [ApplicationController::class, 'addVolunteer'])->name('addVolunteer');
+Route::post('/application-management/application/approve', [ApplicationController::class, 'approveApplication'])->name('approveApplication');
+Route::post('/application-management/application/deny', [ApplicationController::class, 'denyApplication'])->name('denyApplication');
+// Route::post('/application-management/application/delete', [ApplicationController::class, 'deleteApplication'])->name('deleteApplication');
 
 // Profile Page
 Route::get('/profile-page', [ProfileController::class, 'profilePage'])->name('profilePage');

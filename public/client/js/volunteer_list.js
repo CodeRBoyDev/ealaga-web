@@ -185,10 +185,17 @@ $(document).ready(function () {
     }
 
     function formatTime(inputTime) {
-        const time = new Date(inputTime);
-        const options = { hour: 'numeric', minute: 'numeric', hour12: true };
-        return time.toLocaleTimeString([], options);
-    }
+      const time = new Date(inputTime);
+      const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+      return time.toLocaleTimeString([], options);
+  }
+
+    function formatDummyTime(inputTime) {
+      const dummyDate = `1970-01-01T${inputTime}`;
+      const time = new Date(dummyDate);
+      const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+      return time.toLocaleTimeString([], options);
+  }
 
     function loadVolunteerList() {
         $.ajax({
@@ -216,8 +223,8 @@ $(document).ready(function () {
                           <h3 class="vol-card-title">${volunteer.title}</h3>
                           <span class="vol-card-details">Description:<div class="inline-div text-gray-600">${volunteer.description}</div></span>
                           <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${volunteer.num_volunteers_needed}</div></span>
-                          <span class="vol-card-details">Must have:<div class="inline-div text-gray-600">${volunteer.required_skills}</div></span>
-                          <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(volunteer.date)} | ${formatTime(volunteer.date)}</div></span>
+                          ${volunteer.required_skills !== null ? `<span class="vol-card-details">Must have:<div class="inline-div text-gray-600">${volunteer.required_skills}</div></span>` : `<span class=" required vol-card-details">No skills needed<div class="inline-div text-gray-600"></div></span>`}
+                          <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(volunteer.scheduled_date)} | ${formatDummyTime(volunteer.scheduled_time)}</div></span>
                           <button id="submit_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-submit_modal_view="${volunteer.id}">Apply</button>
                         </div>
                       </div> `;
@@ -227,9 +234,9 @@ $(document).ready(function () {
                   let statusClass = application.status === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Pending</div></span>'
                   : '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Approved</div></span>'
                   let cancelButton = application.status === 0 ? `<button id="cancel_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-cancel_modal_view="${application.id}">Cancel</button>` : '';
-                  let dateClass = application.status === 'pending'
-                  ? `<span class="vol-card-details">Application date:<div class="inline-div text-gray-600">${formatDate(application.createdAt)} | ${formatTime(application.createdAt)}</div></span>`
-                  : `<span class="vol-card-details">Volunteer date:<div class="inline-div text-gray-600">${formatDate(application.date)} | ${formatTime(application.date)}</div></span>`;
+                  let dateClass = application.status === 0
+                  ? `<span class="vol-card-details">Application date:<div class="inline-div text-gray-600">${formatDate(application.created_at)} | ${formatTime(application.created_at)}</div></span>`
+                  : `<span class="vol-card-details">Volunteer date:<div class="inline-div text-gray-600">${formatDate(application.scheduled_date)} | ${formatDummyTime(application.scheduled_time)}</div></span>`;
 
                   secondCardData +=
                       ` <div class="vol-card">
@@ -254,7 +261,7 @@ $(document).ready(function () {
                         <h3 class="vol-card-title">${history.title}</h3>
                         <span class="vol-card-details">Description:<div class="inline-div text-gray-600">${history.description}</div></span>
                         <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${history.num_volunteers_needed}</div></span>
-                        <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(history.date)} | ${formatTime(history.date)}</div></span>
+                        <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(history.scheduled_date)} | ${formatDummyTime(history.scheduled_time)}</div></span>
                         ${isAttendedStatus}
                         <button id="delete_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-submit_modal_view="${history.id}">Delete</button>
                       </div>
@@ -299,7 +306,7 @@ $(document).ready(function () {
                     url: "/client/volunteer/submit", // Replace with the actual route in your backend
                     type: "POST",
                     data: {
-                        opportunity_id: id // Pass the volunteer ID to the backend
+                        volunteer_id: id // Pass the volunteer ID to the backend
                     },
                     beforeSend: function () {
                         Swal.fire({

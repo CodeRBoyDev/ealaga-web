@@ -72,7 +72,7 @@ $(document).ready(function () {
                                 return `
                                 <div class="text-center min-w-100px">
                                     <div class="dropdown">
-                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
+                                        <a href="#" class="btn btn-sm btn-flex btn-primary me-3 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                             <a href="#" class="dropdown-item" data-id="${row.id}"  data-kt-comorbidity-table-filter="edit_row">Edit</a>

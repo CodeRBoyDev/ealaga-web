@@ -84,17 +84,21 @@
                            </li>
                            <!--end::Item-->
                            <!--begin::Item-->
-                           @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
+                            @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Analytics</li>
-                           @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">View User</li>
-                           @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Comorbidty Management</li>
-                           @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">My Profile</li>
-                           @else
+                            @elseif(Route::currentRouteName() === 'volunteerList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Volunteer Management</li>
+                               @elseif(Route::currentRouteName() === 'applicationList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Application Management</li>
+                            @else
                                <li class="breadcrumb-item text-dark">User Management</li>
-                           @endif
+                            @endif
                            <!--end::Item-->
                        </ul>
                        <!--end::Breadcrumb-->

@@ -14,7 +14,9 @@
     @if (request()->route()->getName() === 'dashboard' ||
             request()->route()->getName() === 'userList' ||
             request()->route()->getName() === 'userView' ||
-            request()->route()->getName() === 'comorbidityList')
+            request()->route()->getName() === 'comorbidityList' ||
+            request()->route()->getName() === 'volunteerList' ||
+            request()->route()->getName() === 'applicationList')
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -36,7 +38,7 @@
             request()->route()->getName() === 'ClientScheduleHistory' ||
             request()->route()->getName() === 'ClientVolunteerList' ||
             request()->route()->getName() === 'emailOTP' ||
-            request()->route()->getName() === 'landing')
+            request()->route()->getName() === 'VisitorLanding')
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         @stack('styles')
@@ -57,6 +59,8 @@
             request()->route()->getName() != 'userList' &&
             request()->route()->getName() != 'userView' &&
             request()->route()->getName() != 'comorbidityList' &&
+            request()->route()->getName() != 'volunteerList' &&
+            request()->route()->getName() != 'applicationList' &&
             request()->route()->getName() != 'ClientHome' &&
             request()->route()->getName() != 'ClientSchedule' &&
             request()->route()->getName() != 'ClientScheduleList' &&
