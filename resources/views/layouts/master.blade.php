@@ -16,7 +16,9 @@
             request()->route()->getName() === 'userView' ||
             request()->route()->getName() === 'comorbidityList' ||
             request()->route()->getName() === 'reportList' ||
-            request()->route()->getName() === 'generatePDF')
+            request()->route()->getName() === 'generatePDF' ||
+            request()->route()->getName() === 'volunteerList' ||
+            request()->route()->getName() === 'applicationList')
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -60,6 +62,8 @@
             request()->route()->getName() != 'userList' &&
             request()->route()->getName() != 'userView' &&
             request()->route()->getName() != 'comorbidityList' &&
+            request()->route()->getName() != 'volunteerList' &&
+            request()->route()->getName() != 'applicationList' &&
             request()->route()->getName() != 'ClientHome' &&
             request()->route()->getName() != 'ClientSchedule' &&
             request()->route()->getName() != 'ClientScheduleList' &&
