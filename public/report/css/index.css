@@ -1,0 +1,6 @@
+   .body_background {
+       background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+       background-size: 100%, cover;
+       background-repeat: no-repeat;
+       background-position: bottom, center;
+   }

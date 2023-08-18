@@ -14,11 +14,12 @@ use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
 // Dashboard
 use App\Http\Controllers\Dashboard\AnaylticsController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\DatabaseTestController;
+use App\Http\Controllers\Dashboard\ReportController;
 // Profile
-use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\DatabaseTestController;
 
 // User Management
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\UserManagement\UserListController;
 use App\Http\Controllers\UserManagement\UserViewController;
 
@@ -108,5 +109,13 @@ Route::post('/profile-comorbidty', [ProfileController::class, 'profileComorbidit
 Route::post('/profile-email', [ProfileController::class, 'profileEmail'])->name('profileEmail');
 Route::post('/profile-password', [ProfileController::class, 'profilePassword'])->name('profilePassword');
 Route::post('/profile-username', [ProfileController::class, 'profileUsername'])->name('profileUsername');
+
+// Report Management
+Route::get('/report-management', [ReportController::class, 'index'])->name('reportList');
+Route::get('/users-report', [ReportController::class, 'usersReport'])->name('usersReport');
+Route::get('/barangay-report', [ReportController::class, 'barangayReport'])->name('barangayReport');
+Route::get('/services-report', [ReportController::class, 'servicesReport'])->name('servicesReport');
+Route::get('/comorbidities-report', [ReportController::class, 'comorbiditiesReport'])->name('comorbiditiesReport');
+Route::get('/generate-pdf', [ReportController::class, 'generatePDF'])->name('generatePDF');
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
