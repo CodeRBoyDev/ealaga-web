@@ -22,8 +22,8 @@ $(document).ready(function () {
 
     // Change background image after 6:00 PM 
     if (currentHour <= 6) {
-        backgroundContainer.style.backgroundImage = "url(client/media/svg/illustrations/night.jpg)";
-        // backgroundContainer.style.backgroundSize = "100% auto, cover";
+        backgroundContainer.style.backgroundImage = "url(client/media/svg/illustrations/banner_buildings.svg), url(client/media/svg/illustrations/night.jpg)";
+        backgroundContainer.style.backgroundSize = "100% auto, cover";
         backgroundContainer.style.backgroundPosition = "0% 100%, center";
     } else {
         backgroundContainer.style.backgroundImage = "url(client/media/svg/illustrations/banner_buildings.svg), url(client/media/svg/illustrations/sunray.jpg)";

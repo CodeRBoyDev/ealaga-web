@@ -620,6 +620,12 @@ $(document).ready(function () {
                 .trigger("change");
         }
 
+        if (rowData.gender !== null && rowData.gender !== undefined) {
+            $("#kt_modal_edit_user_form [name='gender']")
+                .val(rowData.gender)
+                .trigger("change");
+        }
+
         if (
             rowData.contact_number !== null &&
             rowData.contact_number !== undefined

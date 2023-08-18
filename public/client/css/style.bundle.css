@@ -54939,7 +54939,7 @@ body {
   
   .cloud1 {
 	width: 750px;
-	height: 350px;
+	height: 325px;
 	animation-name: moveCloud1;
 	animation-duration: 25s; /* Adjust the speed of the first cloud */
   }
@@ -54966,7 +54966,7 @@ body {
 
     .cloud1 {
         width: 650px;
-        height: 300px;
+        height: 275px;
     }
 
     .cloud2 {
