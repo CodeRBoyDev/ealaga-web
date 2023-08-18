@@ -45,7 +45,7 @@ $(document).ready(function () {
                                     ${
                                         row.description === null
                                             ? `<div class="badge badge-light-danger fw-bolder">Not Indicated</div>`
-                                            : `<div class="badge badge-light fw-bolder" style="color: black;  word-wrap: break-word; white-space: pre-wrap;">${row.description}</div`
+                                            : `<div class="badge badge-light fw-bolder" style="align-self:center; max-width:300px;color: black;  word-wrap: break-word; white-space: pre-wrap;">${row.description}</div`
                                     } 
                             `;
                             },

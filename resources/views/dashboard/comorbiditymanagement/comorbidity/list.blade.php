@@ -278,11 +278,11 @@
                                             <!--begin::Table head-->
                                             <thead class="align-middle">
                                                 <!--begin::Table row-->
-                                                <tr class=" text-center text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                                    <th class=" ">Name</th>
-                                                    <th class=" ">Description</th>
-                                                    <th class=" ">Created</th>
-                                                    <th class=" ">Actions</th>
+                                                <tr class=" text-muted fw-bolder fs-7 text-uppercase gs-0">
+                                                    <th>Name</th>
+                                                    <th class="text-center">Description</th>
+                                                    <th class="text-center">Created</th>
+                                                    <th class="text-end">Actions</th>
                                                 </tr>
                                                 <!--end::Table row-->
                                             </thead>
