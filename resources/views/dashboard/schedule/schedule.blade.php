@@ -1,12 +1,22 @@
 @extends('layouts.master')
-@push('adminStyles ')
+@push('adminStyles')
     <!--begin::Page Vendor Stylesheets(used by this page)-->
-    <link href="{{ asset('admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Page Vendor Stylesheets-->
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
+    </style>
+
 @endpush
 @section('content')
     <!--begin::Body-->
-    <div class="header-tablet-and-mobile-fixed aside-enabled">
+    <div class="body_background header-tablet-and-mobile-fixed aside-enabled">
         <!--begin::Main-->
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">
@@ -34,7 +44,7 @@
                                         <div class="card-title">
                                             <!--begin::Search-->
                                             <div class="d-flex align-items-center position-relative my-1">
-                                              <h1>Schedule</h1>
+                                              <h1 id="schedule_title">Today Attendees</h1>
                                             </div>
                                             <!--end::Search-->
                                         </div>
@@ -44,6 +54,18 @@
                                             <!--begin::Toolbar-->
                                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                                 <!--begin::Filter-->
+
+                                                <button id="qr_scanner_link" type="button" class="btn btn-light-primary me-3 button_blue">
+                                                <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <rect  style="fill: #fff;" opacity="0.3" x="4" y="4" width="8" height="16"/>
+                                                        <path d="M6,18 L9,18 C9.66666667,18.1143819 10,18.4477153 10,19 C10,19.5522847 9.66666667,19.8856181 9,20 L4,20 L4,15 C4,14.3333333 4.33333333,14 5,14 C5.66666667,14 6,14.3333333 6,15 L6,18 Z M18,18 L18,15 C18.1143819,14.3333333 18.4477153,14 19,14 C19.5522847,14 19.8856181,14.3333333 20,15 L20,20 L15,20 C14.3333333,20 14,19.6666667 14,19 C14,18.3333333 14.3333333,18 15,18 L18,18 Z M18,6 L15,6 C14.3333333,5.88561808 14,5.55228475 14,5 C14,4.44771525 14.3333333,4.11438192 15,4 L20,4 L20,9 C20,9.66666667 19.6666667,10 19,10 C18.3333333,10 18,9.66666667 18,9 L18,6 Z M6,6 L6,9 C5.88561808,9.66666667 5.55228475,10 5,10 C4.44771525,10 4.11438192,9.66666667 4,9 L4,4 L9,4 C9.66666667,4 10,4.33333333 10,5 C10,5.66666667 9.66666667,6 9,6 L6,6 Z" 
+                                                        style="fill: #fff;" fill-rule="nonzero"/>
+                                                    </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->QRcode Scanner</button>
                                             <button type="button" class="btn btn-light-primary me-3 button_blue"
                                             data-kt-menu-trigger="click" data-kt-menu-placement="top-end">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->

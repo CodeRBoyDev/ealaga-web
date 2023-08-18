@@ -54983,7 +54983,7 @@ body {
     height: 58px;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     border-radius: 22px;
-    background-color: rgba(245, 248, 250, .8)
+    background-color: #1A4798 !important
 }
 
 .aside .aside-footer .btn-custom .svg-icon svg {

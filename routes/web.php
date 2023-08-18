@@ -29,6 +29,13 @@ use App\Http\Controllers\UserManagement\UserViewController;
 use App\Http\Controllers\Visitor\LandingController;
 use Illuminate\Support\Facades\Route;
 
+//notification
+use App\Http\Controllers\NotificationController;
+
+
+//cronJob
+use App\Http\Controllers\CronJobController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -123,5 +130,19 @@ Route::post('/profile-comorbidty', [ProfileController::class, 'profileComorbidit
 Route::post('/profile-email', [ProfileController::class, 'profileEmail'])->name('profileEmail');
 Route::post('/profile-password', [ProfileController::class, 'profilePassword'])->name('profilePassword');
 Route::post('/profile-username', [ProfileController::class, 'profileUsername'])->name('profileUsername');
+
+//notification
+Route::get('/notification', [NotificationController::class, 'notificationList'])->name('notificationList');
+Route::get('/notification/update/{id}', [NotificationController::class, 'NotificationUpdate'])->name('NotificationUpdate');
+
+
+//cronjob
+Route::get('/restriction', [CronJobController::class, 'restriction'])->name('restriction');
+Route::get('/schedule/reminder/tomorrow', [CronJobController::class, 'reminderScheduleTomorrow'])->name('reminderScheduleTomorrow');
+Route::get('/schedule/reminder/today', [CronJobController::class, 'reminderScheduleToday'])->name('reminderScheduleToday');
+Route::get('/schedule/update', [CronJobController::class, 'updateSchedule'])->name('updateSchedule');
+Route::get('/volunteer/reminder/tomorrow', [CronJobController::class, 'reminderVolunteerTomorrow'])->name('reminderVolunteerTomorrow');
+Route::get('/volunteer/reminder/today', [CronJobController::class, 'reminderVolunteerToday'])->name('reminderVolunteerToday');
+Route::get('/updateAge', [CronJobController::class, 'updateAge'])->name('updateAge');
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);

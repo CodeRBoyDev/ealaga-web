@@ -779,7 +779,9 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <span class="bullet bullet-dot bg-warning h-8px w-8px position-absolute translate-middle top-0 start-100 animation-blink"></span>
+                        <div id="notification_total_div">
+
+                        </div>
                     </a>
                     <!--begin::Menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
@@ -800,30 +802,11 @@
                                 <!--begin::Items-->
                                 <div class="scroll-y mh-325px my-5 px-8">
                                     <!--begin::Item-->
-                                    <div class="d-flex align-items-center mb-8">
-                                        <!--begin::Bullet-->
-                                        <span class="bullet bullet-vertical h-40px bg-success"></span>
-                                        <!--end::Bullet-->
-                                        <!--begin::Checkbox-->
-                                        <div class="form-check form-check-custom form-check-solid mx-2">
-                                            {{-- <input class="form-check-input" type="checkbox" value=""> --}}
-                                        </div>
-                                        <!--end::Checkbox-->
-                                        <!--begin::Description-->
-                                        <div class="flex-grow-1">
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Welcome to eAlaga</a>
-                                            <span class="text-muted fw-bold d-block">Due in 2 Days</span>
-                                        </div>
-                                        <!--end::Description-->
-                                
-                                            <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
-                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-                                             
-                                                View
-                                                <!--end::Svg Icon-->
-                                            </a>
+                                    <div id="notification_list_div">
 
                                     </div>
+                                    
+                                 
                                     <!--end::Item-->
                                 </div>
                                 <!--end::Items-->
@@ -857,4 +840,70 @@
     <!--end::Container-->
     <div class="header-offset"></div>
 </div>
+
+
+ <!--begin::Modals-->
+        <!--begin::Modal - Add task-->
+         <!--begin::Modal - Add Leave-->
+           <!--begin::Modal - Add task-->
+        <div class="modal fade" id="modal_notification" tabindex="-1"
+           aria-hidden="true"  data-bs-keyboard="false">
+           <!--begin::Modal dialog-->
+           <div class="modal-dialog modal-dialog-centered mw-600px">
+               <!--begin::Modal content-->
+               <div class="modal-content">
+                   <!--begin::Modal header-->
+                   <div class="modal-header d-flex align-items-center justify-content-between"
+                       id="kt_modal_add_user_header">
+                       <!--begin::Modal title-->
+                       <div class="mx-auto">
+                           <h2 class="fw-bolder">Notification</h2>
+                       </div>
+                       <!--end::Modal title-->
+                       <!--begin::Close-->
+                       <div class="btn btn-icon btn-sm btn-active-icon-primary"
+                           data-bs-dismiss="modal">
+                           <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                           <span class="svg-icon svg-icon-1">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                   height="24" viewBox="0 0 24 24"
+                                   fill="none">
+                                   <rect opacity="0.5" x="6"
+                                       y="17.3137" width="16" height="2"
+                                       rx="1"
+                                       transform="rotate(-45 6 17.3137)"
+                                       fill="black" />
+                                   <rect x="7.41422" y="6"
+                                       width="16" height="2" rx="1"
+                                       transform="rotate(45 7.41422 6)"
+                                       fill="black" />
+                               </svg>
+                           </span>
+                           <!--end::Svg Icon-->
+                       </div>
+                       <!--end::Close-->
+                   </div>
+                   <!--end::Modal header-->
+                   <!--begin::Modal body-->
+                   <div class="modal-body   mx-5 mx-xl-15 my-7">
+                     
+                        
+                               <div id="view_schedule_display">
+                             
+                            </div>
+                           <!--end::Actions-->
+                    
+                   </div>
+                   <!--end::Modal body-->
+               </div>
+               <!--end::Modal content-->
+           </div>
+           <!--end::Modal dialog-->
+       </div>
+       <!--end::Modal - Add task-->
+
 <!--end::Header-->
+
+@push('adminScripts')
+    <script src="{{ asset('admin/js/custom/notification/notification.js') }}"></script>
+@endpush
