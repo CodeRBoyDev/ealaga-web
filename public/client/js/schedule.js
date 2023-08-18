@@ -102,26 +102,48 @@ $(document).ready(function () {
   $("#slot_loader").hide();
 
   let formattedDates = [];
-
+  let selected_date_formattedDates = [];
 
   const date_input = flatpickr("#date_input", {
     minDate: "today",
     onChange: function (selectedDates, dateStr, instance) {
-      // After a date is selected, reapply the custom class to the specific date element
-      // Loop through the formatted dates and find the corresponding element to change its color
-      formattedDates.forEach((formattedDate) => {
-        const specificDateElement = document.querySelector(`[aria-label="${formattedDate}"]`);
-        // Now you can change the color or do any other manipulation with the specificDateElement
-        specificDateElement.classList.add('custom-date-color');
-      });
+      applyCustomFormatting();
+    },
+    onMonthChange: function (selectedDates, dateStr, instance) {
+      applyCustomFormatting();
+    },
+    onYearChange: function (selectedDates, dateStr, instance) {
+      applyCustomFormatting();
     },
   });
-
+  
+  function applyCustomFormatting() {
+    formattedDates.forEach((formattedDate) => {
+      const specificDateElement = document.querySelector(
+        `[aria-label="${formattedDate}"]`
+      );
+      if (specificDateElement) {
+        specificDateElement.classList.add("custom-date-color");
+      }
+    });
+  
+    selected_date_formattedDates.forEach((selectedformattedDate) => {
+      const selectedspecificDateElement = document.querySelector(
+        `[aria-label="${selectedformattedDate}"]`
+      );
+      if (selectedspecificDateElement) {
+        selectedspecificDateElement.classList.add("custom-selected-date-color");
+      }
+    });
+  }
+  
+  // Call applyCustomFormatting initially to apply formatting to the current dates
+  applyCustomFormatting();
 
 
 
   let checkedServiceData = [];
-
+  let selected_date_disable = [];
 
   function schedule_slot() {
     $.ajax({
@@ -129,7 +151,7 @@ $(document).ready(function () {
       type: "GET",
       success: function (data) {
         const schedule_slot_total = data?.schedule_total;
-        // console.log(schedule_slot_total); // Move this line inside the success callback
+        selected_date_disable = data?.selected_date_disable; // Move this line inside the success callback
 
         
   // slot disable ============================================================
@@ -169,6 +191,7 @@ $(document).ready(function () {
       return date.getDay() === 6 || date.getDay() === 0;
     },
     ...disabledDates,
+    ...selected_date_disable
   ]);
 
 
@@ -202,13 +225,24 @@ $(document).ready(function () {
     formattedDates.push(formattedDate);
   });
 
-  console.log(formattedDates);
+  selected_date_disable.forEach((dateStr) => {
+    const selectedformattedDate = moment(dateStr).format('MMMM D, YYYY');
+    selected_date_formattedDates.push(selectedformattedDate);
+  });
 
   // Loop through the formatted dates and find the corresponding element to change its color
   formattedDates.forEach((formattedDate) => {
     const specificDateElement = document.querySelector(`[aria-label="${formattedDate}"]`);
     // Now you can change the color or do any other manipulation with the specificDateElement
     specificDateElement.classList.add('custom-date-color');
+  });
+
+  selected_date_formattedDates.forEach((selectedformattedDate) => {
+    const selectedspecificDateElement = document.querySelector(`[aria-label="${selectedformattedDate}"]`);
+    
+    if (selectedspecificDateElement) {
+      selectedspecificDateElement.classList.add('custom-selected-date-color');
+    }
   });
 
 
@@ -308,7 +342,9 @@ $(document).on("change", ".service-checkbox", function() {
     $("#time_input").val(null).trigger('change.select2');
     $("#time_input").prop("disabled", true);
     $("#date_input").val('');
-    date_input.clear();
+    // date_input.clear();
+    selectedDate.date = null;
+    selectedDate.time = null;
     $("#available_slot_display").text("");
 
     $("#date_time_display").text("Date & Time: Please select date & time");
@@ -326,9 +362,11 @@ $(document).on("change", ".service-checkbox", function() {
        $(".service-checkbox:checked").each(function () {
            var serviceTitle = $(this).closest('.cursor-pointer').find('.fw-bolder').text();
            var serviceDescription = $(this).closest('.cursor-pointer').find('.text-muted').text();
+           var serviceIcon = $(this).closest('.cursor-pointer').find('.svg-icon').data('service-icon');
            selectedServices.push({
                title: serviceTitle,
-               description: serviceDescription
+               description: serviceDescription,
+               icon: serviceIcon
            });
        });
    }
@@ -345,19 +383,30 @@ $(document).on("change", ".service-checkbox", function() {
        // Add each service's details to the newRowHtml
        selectedServices.forEach(function (service) {
            newRowHtml += `
-               <tr style="text-align: left;">
-                   <th>
-                       <div class="symbol symbol-50px me-2">
-                           <span class="symbol-label">
-                               <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="">
-                           </span>
-                       </div>
-                   </th>
-                   <td style="text-align: left;">
-                       <span href="#" style="text-align: left;" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">${service.title}</span>
-                       <span style="text-align: left;" class="text-muted fw-bold d-block fs-7">${service.description}</span>
-                   </td>
-               </tr>
+           <label class="d-flex flex-stack mb-5 align-items-start">
+           <!--begin:Label-->
+           <span class="d-flex align-items-start me-2"> <!-- Changed 'align-items-left' to 'align-items-start' -->
+             <!--begin:Icon-->
+             <span class="symbol symbol-65px me-6">
+               <span class="symbol-label bg-light">
+                 <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+                 <span class="svg-icon svg-icon-1 svg-icon-danger" data-service-icon="{{ $service->icon }}">
+                   <img alt="Logo" src="/${service.icon}" class="h-60px" />
+                 </span>
+                 <!--end::Svg Icon-->
+               </span>
+             </span>
+             <!--end:Icon-->
+             <!--begin:Info-->
+             <span class="d-flex flex-column">
+               <span class="fw-bolder fs-6" style="text-align: left;">${service.title}</span>
+               <span class="fs-7 text-muted" style="text-align: left;">${service.description}</span>
+             </span>
+             <!--end:Info-->
+           </span>
+           <!--end:Label-->
+         </label>
+         
            `;
        });
 
@@ -369,7 +418,7 @@ $(document).on("change", ".service-checkbox", function() {
   $("#create_schedule_form").submit(function (event) {
     event.preventDefault(); // prevent default form submission
 
-    console.log(selectedServices); 
+    console.log(checkedServiceData); 
 
     var formData = new FormData();
     formData.append("service_id", checkedServiceData);

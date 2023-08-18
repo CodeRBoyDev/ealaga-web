@@ -3,6 +3,9 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 
+//Services
+use App\Http\Controllers\Services\ServiceController;
+
 //CLIENT
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ScheduleController;
@@ -29,6 +32,13 @@ use App\Http\Controllers\VolunteerManagement\ApplicationController;
 // Visitor
 use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
 use Illuminate\Support\Facades\Route;
+
+//notification
+use App\Http\Controllers\NotificationController;
+
+
+//cronJob
+use App\Http\Controllers\CronJobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +90,18 @@ Route::post('/register/confirm-otp', [RegisterController::class, 'confirmOTP'])-
 Route::post('/register/resend-otp', [RegisterController::class, 'resendOTP'])->name('resendOTP');
 
 Route::middleware(['access_level:0,1'])->group(function () {
+
+//Schedule
+Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
+Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
+Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
+Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
+Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
+
+//Services
+Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
+Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
+
 // Dashboard
     Route::get('/osca-dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/user-statistics', [AnaylticsController::class, 'getUserStatistics'])->name('getUserStatistics');
@@ -139,4 +161,20 @@ Route::middleware(['access_level:0,1'])->group(function () {
     Route::get('/comorbidities-report', [ReportController::class, 'comorbiditiesReport'])->name('comorbiditiesReport');
     Route::get('/generate-pdf', [ReportController::class, 'generatePDF'])->name('generatePDF');
 });
+
+
+//notification
+Route::get('/notification', [NotificationController::class, 'notificationList'])->name('notificationList');
+Route::get('/notification/update/{id}', [NotificationController::class, 'NotificationUpdate'])->name('NotificationUpdate');
+
+
+//cronjob
+Route::get('/restriction', [CronJobController::class, 'restriction'])->name('restriction');
+Route::get('/schedule/reminder/tomorrow', [CronJobController::class, 'reminderScheduleTomorrow'])->name('reminderScheduleTomorrow');
+Route::get('/schedule/reminder/today', [CronJobController::class, 'reminderScheduleToday'])->name('reminderScheduleToday');
+Route::get('/schedule/update', [CronJobController::class, 'updateSchedule'])->name('updateSchedule');
+Route::get('/volunteer/reminder/tomorrow', [CronJobController::class, 'reminderVolunteerTomorrow'])->name('reminderVolunteerTomorrow');
+Route::get('/volunteer/reminder/today', [CronJobController::class, 'reminderVolunteerToday'])->name('reminderVolunteerToday');
+Route::get('/updateAge', [CronJobController::class, 'updateAge'])->name('updateAge');
+
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);

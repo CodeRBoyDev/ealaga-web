@@ -74,6 +74,12 @@ body {
     background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+
+    --white: #ffffff;
+    --black: #000000;
+    --blue: #1A4798;
+    --red: #ED1C24;
+    --yellow: #ED1C24;
 }
 
 /* star rating ---------------------------- */
@@ -5677,9 +5683,14 @@ fieldset:disabled .btn {
     color: #929292 !important;
 }
 
-.flatpickr-next-month {
-    display: none !important;
+.custom-selected-date-color {
+    background-color: rgba(26, 71, 152, 0.7) !important;
+    color: #fff !important;
 }
+  
+  /* .flatpickr-next-month {
+  display: none !important;
+} */
 
 #time_input:disabled {
     background-color: #f2f2f2 !important;
@@ -39336,8 +39347,8 @@ a:hover {
         cursor: pointer;
 
         span {
-            transition: all 0.4s ease-in-out;
-            color: #EF3A47;
+          transition: all 0.4s ease-in-out ;
+          color: #ED1C24 !important;
         }
 
     }
@@ -41200,9 +41211,9 @@ a:hover {
 }
 
 .btn.btn-light-warning {
-    color: #F4C027;
-    border-color: #fff8dd;
-    background-color: #fff8dd
+    color: #fff;
+    border-color: #F4C027;
+    background-color: #F4C027
 }
 
 .btn.btn-light-warning i {
@@ -54972,7 +54983,7 @@ body {
     height: 58px;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     border-radius: 22px;
-    background-color: rgba(245, 248, 250, .8)
+    background-color: #1A4798 !important
 }
 
 .aside .aside-footer .btn-custom .svg-icon svg {

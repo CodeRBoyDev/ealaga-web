@@ -99,22 +99,18 @@
 								<!--begin::Col-->
 								<div class="col-xl-8 ps-xl-12">
 									<!--begin::Engage widget 1-->
-									<div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-350px bg-primary mb-5 mb-xl-8" style="background-position: 100% 50px;background-color: #ED1C24 !important; background-size: 500px auto;background-image:url('/client/media/misc/city.png')">
+									<div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-150px bg-primary mb-5 mb-xl-8" style="background-position: 100% 50px; background-color: #ED1C24 !important; background-size: 500px auto; border: 2px solid #ED1C24;">
 										<!--begin::Body-->
-										<div class="card-body d-flex flex-column justify-content-center">
-											<!--begin::Title-->
-											<h3 class="text-white fs-2x fw-bolder line-height-lg mb-5">“The truth is, once you learn how to die, you learn how to live.”
-											<br /></h3><h4 class="text-white fs-1x fw-bolder line-height-lg mb-5">
-												Tuesdays with Morrie</h4>
-											<!--end::Title-->
-											<!--begin::Action-->
-											<div class="m-0">
-												<a href='#' class="btn btn-primary fw-bold px-6 py-3" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">View Announcement</a>
-											</div>
-											<!--begin::Action-->
+										<div style="position: relative; padding-bottom: 44.25%; /* 16:9 aspect ratio */">
+											{{-- <iframe class="embed-responsive-item card-rounded" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/qIHXpnASPAA" allowfullscreen="allowfullscreen"></iframe> --}}
+											{{-- <iframe class="embed-responsive-item card-rounded" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ftaguigcity%2Fvideos%2F282580089321688%2F&show_text=false&width=560&t=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
+											<iframe class="embed-responsive-item card-rounded" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FOSCATAGUIGOFFICIAL%2Fvideos%2F569452585278032%2F&show_text=false&width=560&t=0"  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+											{{-- <iframe class="embed-responsive-item card-rounded" src="https://player.vimeo.com/video/795953189?autoplay=1&amp;loop=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" loop="" autoplay="" allow="autoplay; loop; controls;" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> --}}
 										</div>
 										<!--end::Body-->
 									</div>
+									
+									
 									<!--end::Engage widget 1-->
 								</div>
 								<!--end::Col-->
@@ -125,7 +121,7 @@
 					</div>
 					<!--end::Content-->
 					<!--begin::Footer-->
-					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+					{{-- <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
 						<!--begin::Container-->
 						<div class="container-xxl d-flex flex-column flex-md-row flex-stack">
 							<!--begin::Copyright-->
@@ -149,7 +145,7 @@
 							<!--end::Menu-->
 						</div>
 						<!--end::Container-->
-					</div>
+					</div> --}}
 					<!--end::Footer-->
 				</div>
 				<!--end::Wrapper-->
