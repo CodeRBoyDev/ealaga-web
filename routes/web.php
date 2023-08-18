@@ -17,17 +17,17 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ReportController;
 
 // Volunteer Management
-use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
-use App\Http\Controllers\VolunteerManagement\ApplicationController;
-
-// User Management
 use App\Http\Controllers\DatabaseTestController;
 use App\Http\Controllers\Profile\ProfileController;
+
+// User Management
 use App\Http\Controllers\UserManagement\UserListController;
 use App\Http\Controllers\UserManagement\UserViewController;
+use App\Http\Controllers\Visitor\LandingController;
+use App\Http\Controllers\VolunteerManagement\ApplicationController;
 
 // Visitor
-use App\Http\Controllers\Visitor\LandingController;
+use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -119,10 +119,8 @@ Route::middleware(['access_level:0,1'])->group(function () {
     Route::post('/application-management/application/deny', [ApplicationController::class, 'denyApplication'])->name('denyApplication');
     // Route::post('/application-management/application/delete', [ApplicationController::class, 'deleteApplication'])->name('deleteApplication');
 
-
 });
 Route::middleware(['access_level:0,1,2'])->group(function () {
-
 // Profile Page
     Route::get('/profile-page', [ProfileController::class, 'profilePage'])->name('profilePage');
     Route::get('/profile-edit', [ProfileController::class, 'profileEdit'])->name('profileEdit');
