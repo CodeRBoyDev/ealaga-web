@@ -92,8 +92,12 @@
                                <li class="breadcrumb-item text-dark">Comorbidty Management</li>
                            @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">My Profile</li>
-                           @else
+                           @elseif(Route::currentRouteName() === 'reportList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Report Management</li>
+                           @elseif(Route::currentRouteName() === 'userList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">User Management</li>
+                           @else
+                               <li class="breadcrumb-item text-dark">404 Page Not Found</li>
                            @endif
                            <!--end::Item-->
                        </ul>

@@ -210,7 +210,8 @@
                                      @if (Route::currentRouteName() === 'userList') style="pointer-events: auto; {{ Route::currentRouteName() === 'userList' ? 'display: block;' : '' }}" @endif>
                                      <div
                                          class="menu-item {{ Route::currentRouteName() === 'userList' ? ' hover' : '' }}">
-                                         <a class="menu-link" href="{{ route('userList') }}">
+                                         <a class="menu-link  {{ Route::currentRouteName() === 'userList' ? ' active' : '' }}"
+                                             href="{{ route('userList') }}">
                                              <span class="menu-bullet">
                                                  <span class="bullet bullet-dot"></span>
                                              </span>
@@ -220,7 +221,8 @@
                                      @if (Route::currentRouteName() === 'userView')
                                          <div
                                              class="menu-item  {{ Route::currentRouteName() === 'userView' ? ' hover' : '' }}">
-                                             <a class="menu-link" href="#">
+                                             <a class="menu-link {{ Route::currentRouteName() === 'userView' ? ' active' : '' }}"
+                                                 href="#">
                                                  <span class="menu-bullet">
                                                      <span class="bullet bullet-dot"></span>
                                                  </span>
@@ -260,7 +262,8 @@
                          <div class="menu-sub menu-sub-accordion">
                              <div
                                  class="menu-item  {{ Route::currentRouteName() === 'comorbidityList' ? ' hover' : '' }}">
-                                 <a class="menu-link" href="{{ route('comorbidityList') }}">
+                                 <a class="menu-link {{ Route::currentRouteName() === 'comorbidityList' ? ' active' : '' }}"
+                                     href="{{ route('comorbidityList') }}">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -269,8 +272,9 @@
                              </div>
                          </div>
                      </div>
-                     <div class="menu-item">
-                         <a class="menu-link" href="{{ route('reportList') }}">
+                     <div class="menu-item {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}">
+                         <a
+                             class="menu-link {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}"href="{{ route('reportList') }}">
                              <span class="menu-icon">
                                  <span
                                      class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Files/File.svg--><svg
