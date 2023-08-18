@@ -8,7 +8,7 @@
              <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
                  <!--begin::Symbol-->
                  <div class="">
-                     <img alt="Logo" src="{{ asset('client/media/taguigbranding/osca-white.png') }}"
+                     <img alt="Logo" src="{{ asset('client/media/taguigbranding/OSCAJPG.png') }}"
                          class="h-100px h-lg-100px" />
                  </div>
                  <!--end::Symbol-->
@@ -270,6 +270,28 @@
                          </div>
                      </div>
                      <div class="menu-item">
+                         <a class="menu-link" href="{{ route('reportList') }}">
+                             <span class="menu-icon">
+                                 <span
+                                     class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Files/File.svg--><svg
+                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                             <polygon points="0 0 24 0 24 24 0 24" />
+                                             <path
+                                                 d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
+                                                 fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                             <rect fill="#000000" x="6" y="11" width="9"
+                                                 height="2" rx="1" />
+                                             <rect fill="#000000" x="6" y="15" width="5"
+                                                 height="2" rx="1" />
+                                         </g>
+                                     </svg><!--end::Svg Icon--></span>
+                             </span>
+                             <span class="menu-title">Report Management</span>
+                         </a>
+                     </div>
+                     <div class="menu-item">
                          <div class="menu-content">
                              <div class="separator mx-1 my-4"></div>
                          </div>
@@ -300,26 +322,6 @@
              <!--end::Aside Menu-->
          </div>
          <!--end::Aside menu-->
-         <!--begin::Footer-->
-         <div class="aside-footer flex-column-auto py-5" id="kt_aside_footer">
-             <a href="../../demo8/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100"
-                 data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
-                 title="200+ in-house components and 3rd-party plugins">
-                 <span class="btn-label">Docs &amp; Components</span>
-                 <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
-                 <span class="svg-icon btn-icon svg-icon-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none">
-                         <path opacity="0.3"
-                             d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM15 17C15 16.4 14.6 16 14 16H8C7.4 16 7 16.4 7 17C7 17.6 7.4 18 8 18H14C14.6 18 15 17.6 15 17ZM17 12C17 11.4 16.6 11 16 11H8C7.4 11 7 11.4 7 12C7 12.6 7.4 13 8 13H16C16.6 13 17 12.6 17 12ZM17 7C17 6.4 16.6 6 16 6H8C7.4 6 7 6.4 7 7C7 7.6 7.4 8 8 8H16C16.6 8 17 7.6 17 7Z"
-                             fill="black" />
-                         <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
-                     </svg>
-                 </span>
-                 <!--end::Svg Icon-->
-             </a>
-         </div>
-         <!--end::Footer-->
      </div>
      @push('styles')
          <style>

@@ -115,7 +115,7 @@
                                                     <!--end::Username-->
                                                     <!--begin::Description-->
                                                     <span
-                                                        class="text-success fw-bold d-block fs-8 mb-1">{{ auth()->user()->role === 0 ? 'Administrator' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}
+                                                        class="text-success fw-bold d-block fs-8 mb-1">{{ $review->role === 0 ? 'Administrator' : ($review->role === 1 ? 'Personnel' : 'Client') }}
                                                     </span>
                                                 </div>
 

@@ -6,7 +6,7 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Manila',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
@@ -44,6 +44,7 @@
       23 => 'App\\Providers\\AuthServiceProvider',
       24 => 'App\\Providers\\EventServiceProvider',
       25 => 'App\\Providers\\RouteServiceProvider',
+      26 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
     'aliases' => 
     array (
@@ -86,6 +87,7 @@
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
       'Vite' => 'Illuminate\\Support\\Facades\\Vite',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade',
     ),
   ),
   'auth' => 
@@ -195,7 +197,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\ealaga-web\\storage\\framework/cache/data',
+        'path' => 'C:\\Projects\\ealaga-web\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -360,6 +362,53 @@
       ),
     ),
   ),
+  'dompdf' => 
+  array (
+    'show_warnings' => false,
+    'public_path' => NULL,
+    'convert_entities' => true,
+    'options' => 
+    array (
+      'font_dir' => 'C:\\Projects\\ealaga-web\\storage\\fonts',
+      'font_cache' => 'C:\\Projects\\ealaga-web\\storage\\fonts',
+      'temp_dir' => 'C:\\Users\\solle\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Projects\\ealaga-web',
+      'allowed_protocols' => 
+      array (
+        'file://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'http://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'https://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+      ),
+      'log_output_file' => NULL,
+      'enable_font_subsetting' => false,
+      'pdf_backend' => 'CPDF',
+      'default_media_type' => 'screen',
+      'default_paper_size' => 'a4',
+      'default_paper_orientation' => 'portrait',
+      'default_font' => 'serif',
+      'dpi' => 96,
+      'enable_php' => false,
+      'enable_javascript' => true,
+      'enable_remote' => true,
+      'font_height_ratio' => 1.1,
+      'enable_html5_parser' => true,
+    ),
+  ),
   'filesystems' => 
   array (
     'default' => 'local',
@@ -368,13 +417,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\ealaga-web\\storage\\app',
+        'root' => 'C:\\Projects\\ealaga-web\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\ealaga-web\\storage\\app/public',
+        'root' => 'C:\\Projects\\ealaga-web\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -394,7 +443,7 @@
     ),
     'links' => 
     array (
-      'C:\\ealaga-web\\public\\storage' => 'C:\\ealaga-web\\storage\\app/public',
+      'C:\\Projects\\ealaga-web\\public\\storage' => 'C:\\Projects\\ealaga-web\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -433,13 +482,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\ealaga-web\\storage\\logs/laravel.log',
+        'path' => 'C:\\Projects\\ealaga-web\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\ealaga-web\\storage\\logs/laravel.log',
+        'path' => 'C:\\Projects\\ealaga-web\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -491,7 +540,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\ealaga-web\\storage\\logs/laravel.log',
+        'path' => 'C:\\Projects\\ealaga-web\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -557,7 +606,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\ealaga-web\\resources\\views/vendor/mail',
+        0 => 'C:\\Projects\\ealaga-web\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -663,7 +712,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\ealaga-web\\storage\\framework/sessions',
+    'files' => 'C:\\Projects\\ealaga-web\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -683,9 +732,13 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\ealaga-web\\resources\\views',
+      0 => 'C:\\Projects\\ealaga-web\\resources\\views',
     ),
-    'compiled' => 'C:\\ealaga-web\\storage\\framework\\views',
+    'compiled' => 'C:\\Projects\\ealaga-web\\storage\\framework\\views',
+  ),
+  'image' => 
+  array (
+    'driver' => 'gd',
   ),
   'flare' => 
   array (
@@ -760,7 +813,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'C:\\ealaga-web',
+    'remote_sites_path' => 'C:\\Projects\\ealaga-web',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
