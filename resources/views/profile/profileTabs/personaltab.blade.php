@@ -86,7 +86,7 @@
                              <!-- Format date using Carbon -->
                          </tr>
                          <tr>
-                             <td>Contac Number</td>
+                             <td>Contact Number</td>
                              <td> {{ $userData->contact_number ? $userData->contact_number : 'N/A' }}</td>
                          </tr>
                          <tr>
@@ -311,8 +311,29 @@
                          <!--begin::Input group-->
                          <div class="fv-row mb-7">
                              <div class="row">
+                                 <!-- Gender Column -->
+                                 <div class="col-md-3">
+                                     <div class="fv-row mb-7">
+                                         <label class="fw-bold fs-6 mb-2">Gender</label>
+                                         <div class="row g-3">
+                                             <div class="fv-row col">
+                                                 <select class="form-select form-select-solid fw-bolder"
+                                                     data-kt-select2="true" data-placeholder="Gender"
+                                                     data-allow-clear="true" data-kt-user-table-filter="gender"
+                                                     id="gender" name="gender" data-hide-search="true"
+                                                     tabindex="0" aria-hidden="false">
+                                                     <option value="">Gender
+                                                     </option>
+                                                     <option value="male">Male</option>
+                                                     <option value="female">Female</option>
+                                                 </select>
+                                                 <div class="validation-message"></div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
                                  <!-- Contact Number Column -->
-                                 <div class="col-md-4">
+                                 <div class="col-md-3">
                                      <div class="fv-row mb-7">
                                          <label class="required fw-bold fs-6 mb-2">Contact Number</label>
                                          <div class="row g-3">
@@ -328,7 +349,7 @@
                                  </div>
 
                                  <!-- Birthday Column -->
-                                 <div class="col-md-4">
+                                 <div class="col-md-3">
                                      <div class="fv-row mb-7">
                                          <label class="required fw-bold fs-6 mb-2">Birthday</label>
                                          <div class="row g-3">
@@ -344,7 +365,7 @@
                                  </div>
 
                                  <!-- Username Column -->
-                                 <div class="col-md-4">
+                                 <div class="col-md-3">
                                      <div class="fv-row mb-7">
                                          <label class=" required fw-bold fs-6 mb-2">Username</label>
                                          <div class="row g-3">

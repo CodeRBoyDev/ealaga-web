@@ -8,8 +8,8 @@
          <!--begin::Header-->
          <div class="cloud-container">
             <div class="cloud cloud1" style="background-image: url(client/media/svg/illustrations/cloud1.png)"></div>
-            <div class="cloud cloud2" style="background-image: url(client/media/svg/illustrations/cloud2.png)"></div>
-            <div class="cloud cloud3" style="background-image: url(client/media/svg/illustrations/cloud3.png)"></div>
+            {{-- <div class="cloud cloud2" style="background-image: url(client/media/svg/illustrations/cloud2.png)"></div> --}}
+            {{-- <div class="cloud cloud3" style="background-image: url(client/media/svg/illustrations/cloud3.png)"></div> --}}
          </div>
          <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
              data-kt-sticky-offset="{default: '200px', lg: '300px'}">

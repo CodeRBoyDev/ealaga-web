@@ -97,7 +97,7 @@
                                                             id="kt_modal_add_volunteer_header">
                                                             <!--begin::Modal title-->
                                                             <div class="mx-auto">
-                                                                <h2 class="fw-bolder">Create New Comorbidy Information</h2>
+                                                                <h2 class="fw-bolder">Create New Volunteer Opportunity</h2>
                                                             </div>
                                                             <!--end::Modal title-->
                                                             <!--begin::Close-->

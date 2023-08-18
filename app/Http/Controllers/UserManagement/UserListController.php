@@ -63,6 +63,7 @@ class UserListController extends Controller
             $request->validate([
                 'first_name' => 'required|string|max:255',
                 'last_name' => 'required|string|max:255',
+                'gender' => 'nullable|string|max:45',
                 'user_email' => 'nullable|email|unique:users,email',
                 'contact_number' => 'nullable|string|unique:users,contact_number|max:11|min:11', // Assuming contact_number is optional with a minimum length of 11 characters
                 'birthday' => 'nullable|date', // Assuming birthday is optional and should be a date
@@ -108,6 +109,7 @@ class UserListController extends Controller
                 'middlename' => $request->input('middle_name'),
                 'lastname' => $request->input('last_name'),
                 'suffix' => $request->input('suffix'),
+                'gender' => $request->input('gender'),
                 'email' => $request->input('user_email'),
                 'username' => $request->input('username'),
                 'birthday' => $request->input('birthday'),
@@ -136,6 +138,7 @@ class UserListController extends Controller
                 'middlename' => $request->input('middle_name'),
                 'lastname' => $request->input('last_name'),
                 'suffix' => $request->input('suffix'),
+                'gender' => $request->input('gender'),
                 'email' => $request->input('user_email'),
                 'role' => $request->input('user_role'),
                 'access_level' => $request->input('user_role'),
@@ -257,6 +260,7 @@ class UserListController extends Controller
                 'last_name' => 'required|string|max:255',
                 'user_email' => 'nullable|email|unique:users,email,' . $userId,
                 'contact_number' => 'nullable|string|unique:users,contact_number,' . $userId . '|max:11|min:11', // Assuming contact_number is optional with a minimum length of 11 characters
+                'gender' => 'nullable|string|max:45',
                 'birthday' => 'nullable|date', // Assuming birthday is optional and should be a date
                 'barangay' => 'required|string|max:255',
                 'username' => 'required|unique:users,username,' . $userId . '|max:255', // Assuming username is optional and unique (if provided)
@@ -299,6 +303,7 @@ class UserListController extends Controller
                 'middlename' => $request->input('middle_name'),
                 'lastname' => $request->input('last_name'),
                 'suffix' => $request->input('suffix'),
+                'gender' => $request->input('gender'),
                 'email' => $request->input('user_email'),
                 'username' => $request->input('username'),
                 'birthday' => $request->input('birthday'),
