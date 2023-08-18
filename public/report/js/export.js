@@ -23,7 +23,7 @@ $(document).ready(function () {
             showConfirmButton: false,
             allowOutsideClick: false,
             didOpen: () => {
-                animateText();
+                // animateText();
             },
         });
         console.log("Selected Value:", selectedValue);

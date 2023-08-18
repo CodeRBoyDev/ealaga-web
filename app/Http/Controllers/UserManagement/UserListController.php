@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\UserManagement;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EmailNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserListController extends Controller
@@ -184,6 +186,26 @@ class UserListController extends Controller
 
                 // Update the user record with the serialized valid ID paths in the users table
                 DB::table('users')->where('id', $userId)->update(['valid_id' => $jsonValidIdPaths]);
+            }
+
+            // Sending Email
+            $checkemail = $request->input('user_email');
+            if ($checkemail) {
+                # code...
+                $userEmail = $request->input('email');
+                $subject = 'Login Credentials- Center For the eldery';
+                $userData = [
+                    'receiver_name' => $request->input('first_name') . ' ' . $request->input('last_name'),
+                    'body' => "
+                    <p>We hope this message finds you well. Thank you for choosing [Website/App Name] as your preferred platform. We're excited to have you on board!<br>
+                    Below are your login credentials to access your account:</p><br>
+                    <h1 style=\"font-size: 24px\">Username/Email:<strong>$checkemail</strong><br>Password:<strong>$password</strong></h1>
+                    Please note that for security reasons, we recommend that you change your password after your initial login.
+                    Thank you!",
+                    'sender_name' => "Center for the elderly",
+                    'sender_position' => "eAlaga",
+                ];
+                Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
             }
 
             // Return response

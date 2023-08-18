@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EmailNotification;
 use Auth;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ProfileController extends Controller
@@ -290,6 +292,24 @@ class ProfileController extends Controller
             // Save the QR code image to the storage/app/public/qrcode directory
             $qrCodePath = $qrCodeDirectory . $userId . '.svg';
             file_put_contents($qrCodePath, $qrCode);
+            $checkemail = $request->input('profile_email');
+            $firstname = auth()->user()->firstname;
+            $lastname = auth()->user()->lastname;
+            # code...
+            $userEmail = $request->input('email');
+            $subject = 'Confirmation of Email Update- Center For the eldery';
+            $userData = [
+                'receiver_name' => $firstname . ' ' . $lastname,
+                'body' => "
+                    <p>We hope this message finds you well. We wanted to inform you that we have successfully updated the email associated with your account.
+                    </p><br>
+                    <h1 style=\"font-size: 24px\">New Email:<strong>$checkemail</strong></h1>
+                  If you initiated this change, no further action is required from your end. However, if you did not request this change or have any concerns about your account security, please contact our customer support team immediately.
+                    Thank you!",
+                'sender_name' => "Center for the elderly",
+                'sender_position' => "eAlaga",
+            ];
+            Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
 
             // Update the user record with the QR code path in the database
             DB::table('users')->where('id', $userId)->update(['qr_code' => "storage/userqrCode/" . $userId . '.svg']);

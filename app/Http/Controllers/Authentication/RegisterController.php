@@ -253,7 +253,7 @@ class RegisterController extends Controller
                 if ($userInputOTP !== $actualOTP) {
                     return response()->json(['success' => false, 'message' => 'OTP does not match.']);
                 }
- 
+
                 // Update the user data
                 $userData = [
                     "email_verified" => 1,
@@ -295,8 +295,7 @@ class RegisterController extends Controller
                 DB::table('users')->where('email', $userEmail)->update($userData);
 
                 // Sending Email
-                // $userEmail = $request->input('email');
-                $userEmail = "sollezapuyo.russel@gmail.com";
+                $userEmail = $request->input('email');
                 $subject = 'Verify Your New eAlaga Account - Resend Confirmation Email';
                 $userData = [
                     'receiver_name' => session('firstname') . ' ' . session('lastname'),
