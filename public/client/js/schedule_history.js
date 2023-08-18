@@ -114,9 +114,14 @@ $(document).ready(function () {
                   endIndex
               );
 
+              if (displayedSchedule?.length === 0) {
+                // Display a message when there are no schedules
+                $("#card_row_div").html("<h1>No schedules to display.</h1>");
+      
+              } else {
 
-                // Loop through each leave in the data.schedule array
-                $.each(displayedSchedule, function (i, schedule) {
+                 // Loop through each leave in the data.schedule array
+                 $.each(displayedSchedule, function (i, schedule) {
                     // Get the schedule date from the schedule object
                     const scheduleDate = schedule?.schedule_date;
 
@@ -153,7 +158,13 @@ $(document).ready(function () {
                         badgeColorClass = "badge-light-warning"; // Change to your desired class for future dates
                     }
 
-                    if (schedule?.status === 1) {
+                    
+                    
+                    if (schedule?.status === 0) {
+                        statusText = "Pending";
+                        statusbadgeColorClass = "badge-light-warning"; // Change to your desired class for today's date
+                    }
+                   else if (schedule?.status === 1) {
                       statusText = "Attended";
                       statusbadgeColorClass = "badge-light-success"; // Change to your desired class for today's date
                   } else if (
@@ -218,6 +229,9 @@ $(document).ready(function () {
 
                 // Append the generated HTML code to the div
                 $("#card_row_div").html(card_data);
+
+              }
+
                 updatePagination();
             },
         });

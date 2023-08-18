@@ -18,7 +18,11 @@
             request()->route()->getName() === 'reportList' ||
             request()->route()->getName() === 'generatePDF' ||
             request()->route()->getName() === 'volunteerList' ||
-            request()->route()->getName() === 'applicationList')
+            request()->route()->getName() === 'applicationList' ||
+            request()->route()->getName() === 'ServiceList'||
+            request()->route()->getName() === 'schedule' || 
+            request()->route()->getName() === 'scheduleQRscanner'
+            )
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -40,7 +44,8 @@
             request()->route()->getName() === 'ClientScheduleHistory' ||
             request()->route()->getName() === 'ClientVolunteerList' ||
             request()->route()->getName() === 'emailOTP' ||
-            request()->route()->getName() === 'VisitorLanding')
+            request()->route()->getName() === 'VisitorLanding' 
+            )
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         @stack('styles')
@@ -72,7 +77,11 @@
             request()->route()->getName() != 'emailOTP' &&
             request()->route()->getName() != 'profilePage' &&
             request()->route()->getName() != 'reportList' &&
-            request()->route()->getName() != 'generatePDF')
+            request()->route()->getName() != 'generatePDF' &&
+            request()->route()->getName() != 'ServiceList' && 
+            request()->route()->getName() != 'schedule' &&
+            request()->route()->getName() != 'scheduleQRscanner' 
+            )
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->
