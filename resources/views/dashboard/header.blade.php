@@ -84,21 +84,26 @@
                            </li>
                            <!--end::Item-->
                            <!--begin::Item-->
-                           @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
+                            @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Analytics</li>
-                           @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">View User</li>
-                           @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Comorbidty Management</li>
-                           @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
+                            @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">My Profile</li>
                            @elseif(Route::currentRouteName() === 'reportList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Report Management</li>
                            @elseif(Route::currentRouteName() === 'userList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">User Management</li>
+                            @elseif(Route::currentRouteName() === 'volunteerList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Volunteer Management</li>
+                            @elseif(Route::currentRouteName() === 'applicationList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Application Management</li>
                            @else
                                <li class="breadcrumb-item text-dark">404 Page Not Found</li>
                            @endif
+                          
                            <!--end::Item-->
                        </ul>
                        <!--end::Breadcrumb-->

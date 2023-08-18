@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
+use Auth;
 
 class VolunteerController extends Controller
 {
@@ -22,22 +23,25 @@ class VolunteerController extends Controller
     public function ClientVolunteerList(Request $request) 
     {
             try {
+                $user_id = auth()->user()->id;
+
                 $volunteers = DB::table('volunteer')
                 ->where('num_volunteers_needed', '>', 0)
+                ->where('volunteer.scheduled_date', '>=', $this->getCurrentDateAsiaManila())
                 ->get();
 
                 $applications = DB::table('params_volunteer_application')
-                ->select('params_volunteer_application.*', 'volunteer.title', 'volunteer.description', 'volunteer.num_volunteers_needed', 'volunteer.required_skills', 'volunteer.date')
-                ->leftJoin('volunteer', 'volunteer.id', '=', 'params_volunteer_application.opportunity_id')
-                ->where('params_volunteer_application.client_id', '=', 1)
-                ->where('volunteer.date', '>=', $this->getCurrentDateAsiaManila())
+                ->select('params_volunteer_application.*', 'volunteer.title', 'volunteer.description', 'volunteer.num_volunteers_needed', 'volunteer.required_skills', 'volunteer.scheduled_date', 'volunteer.scheduled_time')
+                ->leftJoin('volunteer', 'volunteer.id', '=', 'params_volunteer_application.volunteer_id')
+                ->where('params_volunteer_application.user_id', '=', $user_id)
+                ->where('volunteer.scheduled_date', '>=', $this->getCurrentDateAsiaManila())
                 ->get();
 
                 $histories = DB::table('volunteer')
-                ->select('volunteer.*', 'params_volunteer_application.status', 'params_volunteer_application.isAttended')
-                ->leftJoin('params_volunteer_application', 'params_volunteer_application.opportunity_id', '=', 'volunteer.id')
+                ->select('volunteer.*', 'params_volunteer_application.status', 'params_volunteer_application.is_attended')
+                ->leftJoin('params_volunteer_application', 'params_volunteer_application.volunteer_id', '=', 'volunteer.id')
                 ->where('params_volunteer_application.status', '=', 1)
-                ->where('volunteer.date', '<', $this->getCurrentDateAsiaManila())
+                ->where('volunteer.scheduled_date', '<', $this->getCurrentDateAsiaManila())
                 ->get();
                 
                 if (request()->ajax()) {
@@ -55,17 +59,18 @@ class VolunteerController extends Controller
     public function ClientVolunteerSubmit(Request $request)
     {
         try {
-            $client_id = 1;
-            $opportunity_id = $request->input('opportunity_id');
+            $user_id = auth()->user()->id;
+
+            $volunteer_id = $request->input('volunteer_id');
             $status = 0;
             $currentLocalDateTime = Carbon::now();
 
             // Insert the application into the database
             DB::table('params_volunteer_application')->insert([
-                'client_id' => $client_id,
-                'opportunity_id' => $opportunity_id,
+                'user_id' => $user_id,
+                'volunteer_id' => $volunteer_id,
                 'status' => $status,
-                'createdAt' => $this->getCurrentDateAsiaManila(),
+                'created_at' => $this->getCurrentDateAsiaManila(),
                 // Add other columns and their values as needed
             ]);
 

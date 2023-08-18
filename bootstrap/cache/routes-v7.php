@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ejDdy8DTtQW88cAz',
+            '_route' => 'generated::hZJq5oTBIWc7j3Wz',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'landing',
+            '_route' => 'VisitorLanding',
           ),
           1 => NULL,
           2 => 
@@ -311,6 +311,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/client/review/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientScheduleReview',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/client/volunteer' => 
       array (
         0 => 
@@ -324,6 +343,44 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/client/volunteer/submit' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientVolunteerSubmit',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/client/volunteer/delete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientVolunteerDelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'DELETE' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -370,14 +427,188 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'postRegister',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
       ),
-      '/dashboard' => 
+      '/register/email-otp' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'emailOTP',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/register/confirm-otp' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'confirmOTP',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/register/resend-otp' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'resendOTP',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/osca-dashboard' => 
       array (
         0 => 
         array (
           0 => 
           array (
             '_route' => 'dashboard',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/user-statistics' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getUserStatistics',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/services-statistics' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getServicesStatistics',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/schedules-statistics' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getSchedulesStatistics',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/top-list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getTopList',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comorbidity-statistics' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getComorbidityStatisticxs',
           ),
           1 => NULL,
           2 => 
@@ -547,13 +778,443 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/volunteer-management/volunteer/list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'volunteerList',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/volunteer-list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getVolunteer',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/volunteer-management/volunteer/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'addVolunteer',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/volunteer-management/volunteer/update' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'updateVolunteer',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/volunteer-management/volunteer/delete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deleteVolunteer',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/application-management/application/list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'applicationList',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/application-list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'getApplication',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/application-management/application/approve' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'approveApplication',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/application-management/application/deny' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'denyApplication',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-page' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profilePage',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-edit' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profileEdit',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-update' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profileUpdate',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-comorbidty' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profileComorbidity',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-email' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profileEmail',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-password' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profilePassword',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/profile-username' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profileUsername',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/report-management' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'reportList',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/users-report' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'usersReport',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/barangay-report' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'barangayReport',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/services-report' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'servicesReport',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comorbidities-report' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'comorbiditiesReport',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/generate-pdf' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generatePDF',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/test-database' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::ufOsUyb2LEkxRReH',
+            '_route' => 'generated::GkmR3kpRZ62r4WI6',
           ),
           1 => NULL,
           2 => 
@@ -570,11 +1231,11 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/client/schedule/list/([^/]++)(*:37)|/user\\-management/users/(?|([^/]++)(*:79)|view/([^/]++)(*:99)|([^/]++)/(?|is\\-active(*:128)|comorbidity(*:147))))/?$}sDu',
+      0 => '{^(?|/client/schedule/(?|list/([^/]++)(*:40)|cancel/([^/]++)(*:62))|/user\\-management/users/(?|([^/]++)(*:105)|view/([^/]++)(*:126)|([^/]++)/(?|is\\-active(*:156)|comorbidity(*:175))))/?$}sDu',
     ),
     3 => 
     array (
-      37 => 
+      40 => 
       array (
         0 => 
         array (
@@ -597,7 +1258,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      79 => 
+      62 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'ClientScheduleCancel',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      105 => 
       array (
         0 => 
         array (
@@ -619,7 +1303,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      99 => 
+      126 => 
       array (
         0 => 
         array (
@@ -642,7 +1326,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      128 => 
+      156 => 
       array (
         0 => 
         array (
@@ -664,7 +1348,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      147 => 
+      175 => 
       array (
         0 => 
         array (
@@ -847,7 +1531,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ejDdy8DTtQW88cAz' => 
+    'generated::hZJq5oTBIWc7j3Wz' => 
     array (
       'methods' => 
       array (
@@ -864,13 +1548,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:297:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000402f43b9000000004c1b5630";}";s:4:"hash";s:44:"gFNvHWSjKMaMG26ODIN2wHEHaBDikR1l0p2lssr/i8g=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004ed0000000000000000";}";s:4:"hash";s:44:"dxMqqqaqGQX0D+89uABnbqSpxhnXEjpCgViPiLtOSDU=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::ejDdy8DTtQW88cAz',
+        'as' => 'generated::hZJq5oTBIWc7j3Wz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -886,7 +1570,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'landing' => 
+    'VisitorLanding' => 
     array (
       'methods' => 
       array (
@@ -900,14 +1584,14 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\Visitor\\LandingController@index',
-        'controller' => 'App\\Http\\Controllers\\Visitor\\LandingController@index',
+        'uses' => 'App\\Http\\Controllers\\Visitor\\LandingController@VisitorLanding',
+        'controller' => 'App\\Http\\Controllers\\Visitor\\LandingController@VisitorLanding',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'landing',
+        'as' => 'VisitorLanding',
       ),
       'fallback' => false,
       'defaults' => 
@@ -939,7 +1623,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:270:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'client.ticket\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000402f43b4000000004c1b5630";}";s:4:"hash";s:44:"JcISY7N8lVoHcACZq4PUzoty0Xk9ATpZ26362dbdWMU=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f00000000000000000";}";s:4:"hash";s:44:"y0GKT7gN7bpPWiEcktW0FKGReXJIlrEVPjLH6gA/s8A=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1011,6 +1695,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ClientHomeController@ClientHome',
         'controller' => 'App\\Http\\Controllers\\Client\\ClientHomeController@ClientHome',
@@ -1048,6 +1733,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientSchedule',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientSchedule',
@@ -1084,6 +1770,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleAdd',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleAdd',
@@ -1121,6 +1808,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleSlot',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleSlot',
@@ -1158,6 +1846,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleList',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleList',
@@ -1195,6 +1884,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleView',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleView',
@@ -1232,6 +1922,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleHistory',
         'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleHistory',
@@ -1241,6 +1932,81 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'ClientScheduleHistory',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientScheduleCancel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'client/schedule/cancel/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleCancel',
+        'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleCancel',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientScheduleCancel',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientScheduleReview' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'client/review/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleReview',
+        'controller' => 'App\\Http\\Controllers\\Client\\ScheduleController@ClientScheduleReview',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientScheduleReview',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1269,6 +2035,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:2',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerList',
         'controller' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerList',
@@ -1278,6 +2045,80 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'ClientVolunteerList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientVolunteerSubmit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'client/volunteer/submit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerSubmit',
+        'controller' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerSubmit',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientVolunteerSubmit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'ClientVolunteerDelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'client/volunteer/delete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerDelete',
+        'controller' => 'App\\Http\\Controllers\\Client\\VolunteerController@ClientVolunteerDelete',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'ClientVolunteerDelete',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1403,6 +2244,151 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'postRegister' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'register',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Authentication\\RegisterController@postRegister',
+        'controller' => 'App\\Http\\Controllers\\Authentication\\RegisterController@postRegister',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'postRegister',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'emailOTP' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'register/email-otp',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Authentication\\RegisterController@emailOTP',
+        'controller' => 'App\\Http\\Controllers\\Authentication\\RegisterController@emailOTP',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'emailOTP',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'confirmOTP' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'register/confirm-otp',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Authentication\\RegisterController@confirmOTP',
+        'controller' => 'App\\Http\\Controllers\\Authentication\\RegisterController@confirmOTP',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'confirmOTP',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'resendOTP' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'register/resend-otp',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Authentication\\RegisterController@resendOTP',
+        'controller' => 'App\\Http\\Controllers\\Authentication\\RegisterController@resendOTP',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'resendOTP',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'dashboard' => 
     array (
       'methods' => 
@@ -1410,12 +2396,13 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'dashboard',
+      'uri' => 'osca-dashboard',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\Dashboard\\DashboardController@index',
         'controller' => 'App\\Http\\Controllers\\Dashboard\\DashboardController@index',
@@ -1425,6 +2412,196 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'dashboard',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getUserStatistics' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user-statistics',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getUserStatistics',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getUserStatistics',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getUserStatistics',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getServicesStatistics' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'services-statistics',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getServicesStatistics',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getServicesStatistics',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getServicesStatistics',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getSchedulesStatistics' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'schedules-statistics',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getSchedulesStatistics',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getSchedulesStatistics',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getSchedulesStatistics',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getTopList' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'top-list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getTopList',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getTopList',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getTopList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getComorbidityStatisticxs' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comorbidity-statistics',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getComorbidityStatisticxs',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\AnaylticsController@getComorbidityStatisticxs',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getComorbidityStatisticxs',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1453,6 +2630,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserListController@index',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserListController@index',
@@ -1490,6 +2668,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserListController@getUsers',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserListController@getUsers',
@@ -1526,6 +2705,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserListController@store',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserListController@store',
@@ -1562,6 +2742,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserListController@update',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserListController@update',
@@ -1599,6 +2780,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@userView',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@userView',
@@ -1635,6 +2817,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@isActive',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@isActive',
@@ -1671,6 +2854,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@UpdateComorbidity',
         'controller' => 'App\\Http\\Controllers\\UserManagement\\UserViewController@UpdateComorbidity',
@@ -1708,6 +2892,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@index',
         'controller' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@index',
@@ -1745,6 +2930,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@getcomorbidity',
         'controller' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@getcomorbidity',
@@ -1781,6 +2967,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@addComorbidity',
         'controller' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@addComorbidity',
@@ -1817,6 +3004,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@deleteComorbidity',
         'controller' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@deleteComorbidity',
@@ -1853,6 +3041,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'access_level:0,1',
         ),
         'uses' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@updateComorbidity',
         'controller' => 'App\\Http\\Controllers\\ComorbidityManagement\\ComorbidityController@updateComorbidity',
@@ -1877,7 +3066,833 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ufOsUyb2LEkxRReH' => 
+    'volunteerList' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'volunteer-management/volunteer/list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@index',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@index',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'volunteerList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getVolunteer' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'volunteer-list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@getVolunteer',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@getVolunteer',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getVolunteer',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'addVolunteer' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'volunteer-management/volunteer/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@addVolunteer',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@addVolunteer',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'addVolunteer',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'updateVolunteer' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'volunteer-management/volunteer/update',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@updateVolunteer',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@updateVolunteer',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'updateVolunteer',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deleteVolunteer' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'volunteer-management/volunteer/delete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@deleteVolunteer',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\PersonnelVolunteerController@deleteVolunteer',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'deleteVolunteer',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'applicationList' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'application-management/application/list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@index',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@index',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'applicationList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'getApplication' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'application-list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@getApplication',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@getApplication',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'getApplication',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'approveApplication' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'application-management/application/approve',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@approveApplication',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@approveApplication',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'approveApplication',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'denyApplication' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'application-management/application/deny',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@denyApplication',
+        'controller' => 'App\\Http\\Controllers\\VolunteerManagement\\ApplicationController@denyApplication',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'denyApplication',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profilePage' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'profile-page',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profilePage',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profilePage',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profilePage',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profileEdit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'profile-edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileEdit',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileEdit',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profileEdit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profileUpdate' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile-update',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileUpdate',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileUpdate',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profileUpdate',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profileComorbidity' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile-comorbidty',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileComorbidity',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileComorbidity',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profileComorbidity',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profileEmail' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile-email',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileEmail',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileEmail',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profileEmail',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profilePassword' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile-password',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profilePassword',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profilePassword',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profilePassword',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'profileUsername' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile-username',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1,2',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileUsername',
+        'controller' => 'App\\Http\\Controllers\\Profile\\ProfileController@profileUsername',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'profileUsername',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'reportList' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'report-management',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@index',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@index',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'reportList',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'usersReport' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'users-report',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@usersReport',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@usersReport',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'usersReport',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'barangayReport' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'barangay-report',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@barangayReport',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@barangayReport',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'barangayReport',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'servicesReport' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'services-report',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@servicesReport',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@servicesReport',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'servicesReport',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'comorbiditiesReport' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comorbidities-report',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@comorbiditiesReport',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@comorbiditiesReport',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'comorbiditiesReport',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generatePDF' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'generate-pdf',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'access_level:0,1',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Dashboard\\ReportController@generatePDF',
+        'controller' => 'App\\Http\\Controllers\\Dashboard\\ReportController@generatePDF',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generatePDF',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::GkmR3kpRZ62r4WI6' => 
     array (
       'methods' => 
       array (
@@ -1898,7 +3913,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ufOsUyb2LEkxRReH',
+        'as' => 'generated::GkmR3kpRZ62r4WI6',
       ),
       'fallback' => false,
       'defaults' => 
