@@ -5687,6 +5687,11 @@ fieldset:disabled .btn {
     background-color: rgba(26, 71, 152, 0.7) !important;
     color: #fff !important;
 }
+
+.custom-holiday-date-color {
+    background-color: #F4C027 !important;
+    color: #fff !important;
+}
   
   /* .flatpickr-next-month {
   display: none !important;

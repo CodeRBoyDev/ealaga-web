@@ -59,6 +59,18 @@ $(document).ready(function () {
             <td>
             ${services?.description}
           </td>
+          <td>
+          <div class="text-center min-w-100px">
+                                    <div class="dropdown">
+                                        <a href="#" class="btn btn-sm btn-flex btn-primary me-3 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end" style="">
+                                            <a href="#" class="dropdown-item" id="edit_service" data-edit_service="${services?.id}">Edit</a>
+                                            <a href="#" class="dropdown-item" id="delete_service" data-delete_service="${services?.id}">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+        </td>
            
           `);
           tbody.append(tr);
@@ -78,6 +90,200 @@ $(document).ready(function () {
     //   $("#admin_leaves_table").DataTable().search($(this).val()).draw();
     // });
     loadServiceTable();
+
+
+     // service management ===============================================================================
+
+
+     $(document).on("click", "#delete_service", function (event) {
+        event.preventDefault();
+        var id = $(this).data("delete_service");
+
+        // console.log(id);
+
+
+        Swal.fire({
+            text: "Are you sure you would like to Delete this data?",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "Yes",
+            cancelButtonText: "No, return",
+            customClass: {
+              confirmButton: "btn btn-primary",
+              cancelButton: "btn btn-active-light",
+            },
+          }).then(function (result) {
+            if (result.isConfirmed) {
+              $.ajax({
+                url: `/service/delete/${id}`,
+                type: "DELETE",
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+                    Swal.fire({
+                        html: `
+                        <div class="fv-row mb-7">
+                        <div style="margin-top: 10px;" class="loader">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        </div>
+                                                                    </div>
+                       
+                        `,
+                        // icon: "success",
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                      });
+              },
+                success: function (data) {
+                  
+                    Swal.close();
+                    loadServiceTable();
+                  Swal.fire({
+                    text: "Service has been successfully deleted.",
+                    icon: "success",
+                    buttonsStyling: false,
+                    confirmButtonText: "Close",
+                    customClass: {
+                      confirmButton: "btn btn-primary",
+                    },
+                  });
+                },
+                error: function (xhr, status, error) {
+                  console.log(error);
+                },
+              });
+            }
+          });
+
+
+     });
+
+     let serviceId = "";
+     
+     $(document).on("click", "#edit_service", function (event) {
+        event.preventDefault();
+        var id = $(this).data("edit_service");
+  
+        serviceId = id;
+        console.log(id); 
+
+        $.ajax({
+            url: `/service/edit/${id}`,
+            type: "GET",
+            beforeSend: function () {
+                Swal.fire({
+                    html: `
+                    <div class="fv-row mb-7">
+                    <div style="margin-top: 10px;" class="loader">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    </div>
+                                                                </div>
+                   
+                    `,
+                    // icon: "success",
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                  });
+          },
+            success: function (data) {
+                Swal.close();
+                console.log(data);
+                
+               
+                $("#edit_service_modal").modal("show");
+
+                $("#edit_title").val(data.services?.title);
+                $("#edit_description").val(data.services?.description);
+
+                if (data.services?.icon) {
+                    const iconUrl = data.services.icon;
+                    $(".image-input-wrapper").css("background-image", `url('${iconUrl}')`);
+                }
+                
+            }
+            });
+
+
+     });
+
+
+
+     $("#modal_edit_service_form").submit(function (event) {
+        event.preventDefault(); // prevent default form submission
+
+        var formData = new FormData();
+ 
+        var selectedICon = $("#edit_icon")[0].files[0];
+        
+        // console.log(serviceId);
+        
+        formData.append("edit_icon", selectedICon);
+    
+        // // Get other field values and append to FormData
+        const editTitle = $("#edit_title").val();
+        const editDescription = $("#edit_description").val();
+    
+        formData.append("edit_title", editTitle);
+        formData.append("edit_description", editDescription);
+
+
+        $.ajax({
+            url: `/service/update/${serviceId}`,
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                Swal.fire({
+                    html: `
+                    <div class="fv-row mb-7">
+                    <div style="margin-top: 10px;" class="loader">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    </div>
+                                                                </div>
+                   
+                    `,
+                    // icon: "success",
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                  });
+          },
+            success: function (data) {
+                Swal.close();
+                console.log(data);
+                
+               
+                $("#edit_service_modal").modal("hide");
+                loadServiceTable();
+                Swal.fire({
+                    text: "Service has been successfully updated.",
+                    icon: "success",
+                    buttonsStyling: false,
+                    confirmButtonText: "Close",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    },
+                });
+
+            }
+            });
+
+
+
+     });
 
 
         // initialize form validation
@@ -158,28 +364,40 @@ $(document).ready(function () {
                             data: formData,
                             contentType: false,
                             processData: false,
-                            // beforeSend: function () {
-                            //     Swal.fire({
-                            //         text: "Loading.....",
-                            //         showCancelButton: false,
-                            //         showConfirmButton: false,
-                            //         allowOutsideClick: false, // Disable clicking outside the modal to close it
-                            //     });
-                            // },
+                            beforeSend: function () {
+                                Swal.fire({
+                                    html: `
+                                    <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                   
+                                    `,
+                                    // icon: "success",
+                                    showCancelButton: false,
+                                    showConfirmButton: false,
+                                    allowOutsideClick: false,
+                                  });
+                            },
                             success: function (response) {
                                 console.log(response);
-                                // Swal.close();
-                                // loadScheduleList();
-                                // $("#client_feedback_view_modal").modal("hide");
-                                // Swal.fire({
-                                //     text: "Review has been successfully sent.",
-                                //     icon: "success",
-                                //     buttonsStyling: false,
-                                //     confirmButtonText: "Close",
-                                //     customClass: {
-                                //         confirmButton: "btn btn-primary",
-                                //     },
-                                // });
+                                Swal.close();
+
+                                $("#kt_modal_add_service").modal("hide");
+                                loadServiceTable();
+                                Swal.fire({
+                                    text: "Service has been successfully added.",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Close",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    },
+                                });
                             },
                             error: function (response) {
                                 // Handle error response from server
@@ -377,6 +595,15 @@ $(document).ready(function () {
 
 
     });
+
+
+    $("#edit_service_modal").on("hide.bs.modal", function () {
+      
+        $("#edit_title").val("");
+        $("#edit_description").val("");
+  
+  
+      });
 
   
   });

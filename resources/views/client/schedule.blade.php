@@ -215,6 +215,8 @@
 																<div class="mb-0 lh-1">
 																	<span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
 																	<span class="fs-7 fw-bold text-muted me-1">Selected</span>
+																	<span class="badge badge-circle w-10px h-10px" style="background-color: #F4C027;"></span>
+																	<span class="fs-7 fw-bold text-muted me-1">Holiday</span>
 																	<span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
 																	<span class="fs-7 fw-bold text-muted me-1">No Slot</span>
 																</div>

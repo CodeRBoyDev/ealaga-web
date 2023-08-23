@@ -282,11 +282,11 @@
                                        y="17.3137" width="16" height="2"
                                        rx="1"
                                        transform="rotate(-45 6 17.3137)"
-                                       fill="black" />
+                                       style="fill: #000;" />
                                    <rect x="7.41422" y="6"
                                        width="16" height="2" rx="1"
                                        transform="rotate(45 7.41422 6)"
-                                       fill="black" />
+                                       style="fill: #000;" />
                                </svg>
                            </span>
                            <!--end::Svg Icon-->
@@ -418,6 +418,8 @@
                                         <div class="mb-0 lh-1">
                                             <span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
                                             <span class="fs-7 fw-bold text-muted me-1">Selected</span>
+                                            <span class="badge badge-circle w-10px h-10px" style="background-color: #F4C027;"></span>
+											<span class="fs-7 fw-bold text-muted me-1">Holiday</span>
                                             <span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
                                             <span class="fs-7 fw-bold text-muted me-1">No Slot</span>
                                         </div>
@@ -718,10 +720,6 @@
 @push('adminScripts')
     <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="{{ asset('admin/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-    <!-- Fancybox JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
+ 
     <script src="{{ asset('admin/js/custom/schedule/schedule.js') }}"></script>
-    {{-- <script src="https://cdn.rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
-    <!--end::Page Vendors Javascript-->
 @endpush

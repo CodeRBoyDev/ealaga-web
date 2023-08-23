@@ -263,6 +263,15 @@ class RegisterController extends Controller
                 // Update the user record in the database
                 DB::table('users')->where('email', $userEmail)->update($userData);
 
+                 DB::table('notification')->insert([
+                'user_id' => $checkUser->id ?? null,
+                'title' => "Welcome to Center for the Elderly App!" ?? null,
+                'message' => 
+                'Thank you for registering at Center for the Elderly App! We\'re thrilled to have you join our platform designed to make booking health care services easier for the elderly community in Taguig City. To verify your account and ensure smooth service booking, please visit your profile and fill up all the required information.',
+                'timestamp' => date('Y-m-d H:i:s') ?? null,
+
+                ]);
+
                 return response()->json(['success' => true, 'message' => 'User email verified successfully.']);
             } else {
                 return response()->json(['success' => false, 'message' => 'User not found.']);
