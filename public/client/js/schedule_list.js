@@ -92,7 +92,17 @@ $(document).ready(function () {
 
           $.each(displayedSchedule, function (i, schedule) {
             // Get the schedule date from the schedule object
-            const scheduleDate = schedule?.schedule_date;
+            // Assuming scheduleDate is a Date object
+            const scheduleDate = moment(schedule?.schedule_date, 'Asia/Manila').format('YYYY-MM-DD');
+
+            // Set the specific time (8:00 AM Asia/Manila time) for the same day as scheduleDate
+            const specificTime = 
+            schedule?.schedule_time == 0
+            ? moment(scheduleDate, 'Asia/Manila').set({ hour: 8, minute: 0, second: 0 })
+            : moment(scheduleDate, 'Asia/Manila').set({ hour: 13, minute: 0, second: 0 });        
+
+            // Calculate the relative time from now to the specific time
+            const relativeTime = specificTime.fromNow();
           
             // Format the schedule date using moment.js
             const formattedScheduleDate = moment(scheduleDate).format('MMMM DD, YYYY');
@@ -114,10 +124,10 @@ $(document).ready(function () {
               scheduleDateText = 'Today';
               badgeColorClass = 'badge-light-primary'; // Change to your desired class for today's date
             } else if (moment(scheduleDate).isBefore(currentDate, 'day')) {
-              scheduleDateText = moment(scheduleDate).fromNow();
+              scheduleDateText = relativeTime;
               badgeColorClass = 'badge-light-danger'; // Change to your desired class for past dates
             } else {
-              scheduleDateText = moment(scheduleDate).fromNow();
+              scheduleDateText = relativeTime;
               badgeColorClass = 'badge-light-warning'; // Change to your desired class for future dates
             }
           
@@ -152,11 +162,12 @@ $(document).ready(function () {
                   <div class="d-flex align-items-center fs-5 fw-bolder mb-2">
                   <span class="badge ${statusbadgeColorClass} fs-7 ms-2">${statusText}</span>
                   </div>
-                    <div class="fs-6 fw-bold text-gray-600">
+                  <div class="fs-6 fw-bold text-gray-600">
                     ${schedule?.schedule_time == 0 ? 'Time: Morning 8:00am - 11:59am' : 'Time: Afternoon 1:00pm - 5:00pm'}
-                   
-                    <br />Services:       ${schedule?.services}
-                    <br />Location: 13, 1639 Manzanitas St, Taguig, Metro Manila</div>
+                    <br />Services: ${schedule?.services.length > 30 ? `${schedule.services.slice(0, 30)}...` : schedule.services}
+                    <br />Location: 13, 1639 Manzanitas St, Taguig, Metro Manila
+                  </div>
+
                   </div>
                   <!--end::Details-->
                   <!--begin::Actions-->
@@ -197,11 +208,33 @@ $(document).ready(function () {
       type: "GET",
       beforeSend: function () {
         Swal.fire({
-          text: "Loading.....",
+          html: `
+          <div class="fv-row mb-7">
+          <div style="margin-top: 10px;" class="loader">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          </div>
+                            </div>
+            <div id="successMessage">
+              <span id="redirectText">loading...</span>
+            </div>
+          `,
+          // icon: "success",
           showCancelButton: false,
           showConfirmButton: false,
-          allowOutsideClick: false, // Disable clicking outside the modal to close it
+          allowOutsideClick: false,
+          didOpen: () => {
+            animateText();
+          }
         });
+
+        function animateText() {
+          const redirectText = document.getElementById('redirectText');
+          redirectText.style.animation = 'waveAnimation 2s infinite';
+        }
+
       },
       success: function (data) {
         
@@ -320,11 +353,33 @@ $(document).on("click", "#cancel_schedule", function (event) {
         type: "GET",
         beforeSend: function () {
           Swal.fire({
-            text: "Loading.....",
+            html: `
+            <div class="fv-row mb-7">
+            <div style="margin-top: 10px;" class="loader">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            </div>
+                              </div>
+              <div id="successMessage">
+                <span id="redirectText">loading...</span>
+              </div>
+            `,
+            // icon: "success",
             showCancelButton: false,
             showConfirmButton: false,
-            allowOutsideClick: false, // Disable clicking outside the modal to close it
+            allowOutsideClick: false,
+            didOpen: () => {
+              animateText();
+            }
           });
+
+          function animateText() {
+            const redirectText = document.getElementById('redirectText');
+            redirectText.style.animation = 'waveAnimation 2s infinite';
+          }
+
         },
         success: function (data) {
           
@@ -355,9 +410,6 @@ $(document).on("click", "#cancel_schedule", function (event) {
 
 
 
-
-
-
   $("#back_homepage").click(function (event) {
     event.preventDefault(); // Prevent the default link behavior (e.g., navigating to "#")
   
@@ -383,11 +435,13 @@ $(document).on("click", "#cancel_schedule", function (event) {
         animateText();
       }
     });
-  
+
     function animateText() {
       const redirectText = document.getElementById('redirectText');
       redirectText.style.animation = 'waveAnimation 2s infinite';
     }
+  
+
   
      // Redirect to the home page after a short delay
      setTimeout(function () {

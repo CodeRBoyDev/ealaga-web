@@ -120,6 +120,8 @@ $(document).ready(function () {
                     $("#modal_notification").modal("show");
                     console.log(data?.notification?.message);
                     
+                    const formattedMessage = data?.notification?.message.replace(/(\.|!)/g, "$1<br><br>");
+                    
                     const html = `
                     <!--begin::Content-->
                     <div class="d-flex align-items-center">
@@ -130,8 +132,39 @@ $(document).ready(function () {
                     <div class="d-flex align-items-center mb-2">
                         <span class="text-muted fw-bold fs-7">${moment(data?.notification?.timestamp).format('MMMM DD, YYYY HH:mm')}</span>
                     </div>
-                    <span class="text-muted fw-bold fs-5">${data?.notification?.message}</span>
-                    <!--end::Text-->
+                    <br>
+                    <span class=" fw-bold fs-6">${formattedMessage}</span>
+
+                    ${
+                      data?.notification?.title == "Welcome to Center for the Elderly App!"
+                      ?
+                       `
+                       <a class="btn btn-sm btn-light btn-active-light-danger" 
+                       href="/profile-page"
+                       >
+                       View Account Status
+                       </a>  
+                      `
+                      :
+                      ""
+                  }
+
+                  ${
+                    data?.notification?.title == "Schedule Reminder"
+                    ?
+                     `
+                     <a class="btn btn-sm btn-light btn-active-light-danger" 
+                     href="/client/schedule/list"
+                     >
+                     View Schedule
+                     </a>  
+                    `
+                    :
+                    ""
+                }
+
+                  
+
                 `;
     
                 // Use the correct selector (id in this case)
