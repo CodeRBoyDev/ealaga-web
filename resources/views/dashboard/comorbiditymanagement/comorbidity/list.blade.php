@@ -1,12 +1,19 @@
 @extends('layouts.master')
-@push('adminStyles ')
-    <!--begin::Page Vendor Stylesheets(used by this page)-->
-    <link href="{{ asset('admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <!--end::Page Vendor Stylesheets-->
+@push('adminStyles')
+    <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
+    </style>
 @endpush
 @section('content')
     <!--begin::Body-->
-    <div class="header-tablet-and-mobile-fixed aside-enabled">
+    <div class="body_background header-tablet-and-mobile-fixed aside-enabled">
         <!--begin::Main-->
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">
@@ -271,11 +278,11 @@
                                             <!--begin::Table head-->
                                             <thead class="align-middle">
                                                 <!--begin::Table row-->
-                                                <tr class=" text-center text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                                    <th class=" ">Name</th>
-                                                    <th class=" ">Description</th>
-                                                    <th class=" ">Created</th>
-                                                    <th class=" ">Actions</th>
+                                                <tr class=" text-muted fw-bolder fs-7 text-uppercase gs-0">
+                                                    <th>Name</th>
+                                                    <th class="text-center">Description</th>
+                                                    <th class="text-center">Created</th>
+                                                    <th class="text-end">Actions</th>
                                                 </tr>
                                                 <!--end::Table row-->
                                             </thead>

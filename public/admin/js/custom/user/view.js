@@ -22,9 +22,15 @@ $(document).ready(function () {
 
             dataTable
                 .columns(1) // Assuming services are in the second column
-                .search(selectedService)
+                .search(selectedService) // Search exact match for selected service
                 .columns(4) // Assuming status is in the fifth column
-                .search(selectedStatus)
+                // .search("^" + selectedStatus + "$", true, false) // Search exact match for selected status
+                .search(
+                    selectedStatus ? "^" + selectedStatus + "$" : "",
+                    true,
+                    false
+                ) // Search exact match if selectedStatus is not empty
+
                 .draw();
         }
 
@@ -78,13 +84,24 @@ $(document).ready(function () {
     };
     const updateUserStatus = (userId, isActive) => {
         Swal.fire({
-            title: "Loading...",
-            html: "Please wait while we process your request",
-            allowOutsideClick: false,
-            showConfirmButton: false,
+            html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+            // icon: "success",
             showCancelButton: false,
-            onBeforeOpen: () => {
-                Swal.showLoading();
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                animateText();
             },
         });
         let data = {
@@ -136,13 +153,24 @@ $(document).ready(function () {
         submitButton.addEventListener("click", function (event) {
             event.preventDefault();
             Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
+                html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+                // icon: "success",
                 showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    animateText();
                 },
             });
             // Alternatively, you can submit the form here using AJAX if needed
@@ -157,7 +185,7 @@ $(document).ready(function () {
                     if (response.success) {
                         // Close the modal first
                         Swal.fire({
-                            text: "User Created successfully!",
+                            text: "Updated successfully!",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "Ok, got it!",

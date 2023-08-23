@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogController;
 use Auth;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+// Make sure to import the BaseController
+
+class LoginController extends LogController
 {
     /**
      * Display a listing of the resource.
@@ -26,12 +28,12 @@ class LoginController extends Controller
 
             // Check if the authenticated user has the role "admin"
             $user = Auth::user();
-            if ($user->role === 0 || $user->role === 1) {
+            if (Auth::user()->role === 0 || Auth::user()->role === 1) {
                 // If the user is an admin, redirect to the admin dashboard or any other admin route
                 return redirect()->route('dashboard');
             } else {
                 // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
-                return redirect()->route('clientHome');
+                return redirect()->route('ClientHome');
             }
 
         } catch (\Throwable $th) {
@@ -110,66 +112,64 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         try {
-            // code...
             $credentials = $request->only('email', 'password');
 
-            // Check if the provided input is in email format
             $isEmailFormat = filter_var($credentials['email'], FILTER_VALIDATE_EMAIL);
 
-            // Attempt to log in using email or username
-            if ($isEmailFormat) {
-                if (Auth::attempt($credentials)) {
-                    // Authentication successful
+            if ($isEmailFormat && Auth::attempt($credentials)) {
+                $user_id = Auth::user()->id;
+                $action = 'Login'; // Example
+                $details = 'Login with Email'; // Example
+                $url = $request->fullUrl();
+                $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+                $logController = new LogController();
+                $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
+                // Check if the user's is_active is 1 (active) or 0 (inactive)
+                if (Auth::user()->is_active === 1) {
                     if (Auth::user()->role !== 2) {
                         // If the user is an admin, redirect to the admin dashboard or any other admin route
                         return response()->json(['success' => true, 'data' => 'dashboard']);
-
                     } else {
                         // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
-                        return response()->json(['success' => true, 'data' => 'clientHome']);
+                        return response()->json(['success' => true, 'data' => 'ClientHome']);
                     }
                 } else {
-                    // Authentication failed
-                    return response()->json(['success' => false]);
+                    // Inactive user
+                    return response()->json(['success' => false, 'message' => 'User is inactive']);
                 }
-
             } else {
                 if (Auth::attempt(['username' => $credentials['email'], 'password' => $credentials['password']])) {
-                    // Authentication successful using username
-                    if (Auth::user()->role !== 2) {
-                        // If the user is an admin, redirect to the admin dashboard or any other admin route
-                        return response()->json(['success' => true, 'data' => 'dashboard']);
+                    // Check if the user's is_active is 1 (active) or 0 (inactive)
+
+                    $user_id = Auth::user()->id;
+                    $action = 'Login';
+                    $details = 'Login with Username';
+                    $url = $request->fullUrl();
+                    $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+                    $logController = new LogController();
+                    $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
+
+                    if (Auth::user()->is_active === 1) {
+                        if (Auth::user()->role !== 2) {
+                            // If the user is an admin, redirect to the admin dashboard or any other admin route
+                            return response()->json(['success' => true, 'data' => 'dashboard']);
+                        } else {
+                            // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
+                            return response()->json(['success' => true, 'data' => 'ClientHome']);
+                        }
 
                     } else {
-                        // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
-                        return response()->json(['success' => true, 'data' => 'clientHome']);
+                        // Inactive user
+                        return response()->json(['success' => false, 'message' => 'User is inactive']);
                     }
 
                 }
             }
+            return response()->json(['success' => false, 'message' => 'Incorrect Email or Password']);
 
-            // $credentials = $request->only('email', 'password');
-
-            // if (Auth::attempt($credentials)) {
-            //     // Authentication successful
-            //     if (Auth::user()->role !== 2) {
-            //         // If the user is an admin, redirect to the admin dashboard or any other admin route
-            //         return response()->json(['success' => true, 'data' => 'dashboard']);
-
-            //     } else {
-            //         // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
-            //         return response()->json(['success' => true, 'data' => 'clientHome']);
-            //     }
-            // } else {
-            //     // Authentication failed
-            //     return response()->json(['success' => false]);
-            // }
         } catch (\Throwable $th) {
-            // Handle any exceptions that might occur
-            // dd($th);
-            return response()->json(['success' => false, 'message' => $th->getmessage()]);
+            return response()->json(['success' => false, 'message' => $th->getMessage()]);
         }
-
     }
 
     public function logout()

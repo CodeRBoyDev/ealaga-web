@@ -1,9 +1,18 @@
 @extends('layouts.master')
-@push('adminStyles ')
+@push('adminStyles')
+    <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
+    </style>
 @endpush
 @section('content')
     <!--begin::Body-->
-    <div id="kt_body" class="header-tablet-and-mobile-fixed aside-enabled">
+    <div class="body_background header-tablet-and-mobile-fixed aside-enabled">
         <!--begin::Main-->
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">
@@ -175,10 +184,8 @@
         var hostUrl = "admin/";
     </script>
     <!--begin::Javascript-->
-    <!--begin::Page Custom Javascript(used by this page)-->
     <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="{{ asset('admin/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-    <script src="{{ asset('admin/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
     <script src="{{ asset('admin/js/custom/user/view.js') }}"></script>
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->

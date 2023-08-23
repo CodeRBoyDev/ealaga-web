@@ -6,7 +6,7 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Manila',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
@@ -44,6 +44,7 @@
       23 => 'App\\Providers\\AuthServiceProvider',
       24 => 'App\\Providers\\EventServiceProvider',
       25 => 'App\\Providers\\RouteServiceProvider',
+      26 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
     'aliases' => 
     array (
@@ -86,6 +87,7 @@
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
       'Vite' => 'Illuminate\\Support\\Facades\\Vite',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade',
     ),
   ),
   'auth' => 
@@ -195,7 +197,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -286,8 +288,8 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '192.168.40.135',
-        'port' => '168',
+        'host' => '122.53.109.98',
+        'port' => '128',
         'database' => 'ealaga',
         'username' => 'ealaga',
         'password' => 'stJH_ltiwh.1nCSJ',
@@ -306,8 +308,8 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '192.168.40.135',
-        'port' => '168',
+        'host' => '122.53.109.98',
+        'port' => '128',
         'database' => 'ealaga',
         'username' => 'ealaga',
         'password' => 'stJH_ltiwh.1nCSJ',
@@ -321,8 +323,8 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '192.168.40.135',
-        'port' => '168',
+        'host' => '122.53.109.98',
+        'port' => '128',
         'database' => 'ealaga',
         'username' => 'ealaga',
         'password' => 'stJH_ltiwh.1nCSJ',
@@ -368,13 +370,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\app',
+        'root' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\app/public',
+        'root' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -394,7 +396,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\public\\storage' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\app/public',
+      'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\public\\storage' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -433,13 +435,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -491,7 +493,13 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/laravel.log',
+      ),
+      'custom_api_logs' => 
+      array (
+        'driver' => 'single',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/api_calls.log',
+        'level' => 'debug',
       ),
     ),
   ),
@@ -503,11 +511,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailpit',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.hostinger.com',
+        'port' => '465',
+        'encryption' => 'ssl',
+        'username' => 'noreply@taguig.info',
+        'password' => '@Po11o168',
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -549,7 +557,7 @@
     ),
     'from' => 
     array (
-      'address' => 'hello@example.com',
+      'address' => 'noreply@taguig.info',
       'name' => 'Laravel',
     ),
     'markdown' => 
@@ -557,7 +565,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -663,7 +671,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -683,9 +691,60 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\resources\\views',
+      0 => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\framework\\views',
+  ),
+  'dompdf' => 
+  array (
+    'show_warnings' => false,
+    'public_path' => NULL,
+    'convert_entities' => true,
+    'options' => 
+    array (
+      'font_dir' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\fonts',
+      'font_cache' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\fonts',
+      'temp_dir' => 'C:\\Users\\ricky\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web',
+      'allowed_protocols' => 
+      array (
+        'file://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'http://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'https://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+      ),
+      'log_output_file' => NULL,
+      'enable_font_subsetting' => false,
+      'pdf_backend' => 'CPDF',
+      'default_media_type' => 'screen',
+      'default_paper_size' => 'a4',
+      'default_paper_orientation' => 'portrait',
+      'default_font' => 'serif',
+      'dpi' => 96,
+      'enable_php' => false,
+      'enable_javascript' => true,
+      'enable_remote' => true,
+      'font_height_ratio' => 1.1,
+      'enable_html5_parser' => true,
+    ),
+  ),
+  'image' => 
+  array (
+    'driver' => 'gd',
   ),
   'flare' => 
   array (
@@ -760,7 +819,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealagaV2',
+    'remote_sites_path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

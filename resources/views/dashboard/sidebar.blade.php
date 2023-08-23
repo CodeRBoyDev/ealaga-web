@@ -8,7 +8,7 @@
              <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
                  <!--begin::Symbol-->
                  <div class="">
-                     <img alt="Logo" src="{{ asset('client/media/taguigbranding/osca-white.png') }}"
+                     <img alt="Logo" src="{{ asset('client/media/taguigbranding/OSCAJPG.png') }}"
                          class="h-100px h-lg-100px" />
                  </div>
                  <!--end::Symbol-->
@@ -24,6 +24,7 @@
                          alt="" />
                  </div>
                  <!--end::Symbol-->
+
                  <!--begin::Wrapper-->
                  <div class="aside-user-info flex-row-fluid flex-wrap ms-5">
                      <!--begin::Section-->
@@ -31,12 +32,15 @@
                          <!--begin::Info-->
                          <div class="flex-grow-1 me-2">
                              <!--begin::Username-->
-                             <a href="#"
-                                 class="text-white text-hover-primary fs-6 fw-bold">{{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}</a>
+                             <a href="" class="text-white fs-6 fw-bold disabled">
+                                 {{ //   auth()->user()->firstname . ' ' .
+                                     auth()->user()->lastname }}
+                             </a>
                              <!--end::Username-->
                              <!--begin::Description-->
                              <span
-                                 class="text-gray-600 fw-bold d-block fs-8 mb-1">{{ auth()->user()->role === 0 ? 'Admin' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}
+                                 class="text-white fw-bold d-block fs-8 mb-1">{{ auth()->user()->role === 0 ? 'Administrator' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}
+
                              </span>
                              <!--end::Description-->
                              <!--begin::Label-->
@@ -85,8 +89,8 @@
                                                  <span
                                                      class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{ auth()->user()->role === 0 ? 'Admin' : (auth()->user()->role === 1 ? 'Personnel' : 'Client') }}</span>
                                              </div>
-                                             <a href="#"
-                                                 class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
+                                             {{-- <a href="#"
+                                                 class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a> --}}
                                          </div>
                                          <!--end::Username-->
                                      </div>
@@ -97,19 +101,13 @@
                                  <!--end::Menu separator-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-5">
-                                     <a href="../../demo8/dist/account/overview.html" class="menu-link px-5">My
+                                     <a href="{{ route('profilePage') }}" class="menu-link px-5">My
                                          Profile</a>
                                  </div>
                                  <!--end::Menu item-->
                                  <!--begin::Menu separator-->
                                  <div class="separator my-2"></div>
                                  <!--end::Menu separator-->
-                                 <!--begin::Menu item-->
-                                 <div class="menu-item px-5 my-1">
-                                     <a href="../../demo8/dist/account/settings.html" class="menu-link px-5">Account
-                                         Settings</a>
-                                 </div>
-                                 <!--end::Menu item-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-5">
                                      <a href="{{ route('logout') }}" class="menu-link px-5">Sign Out</a>
@@ -144,12 +142,12 @@
                      id="#kt_aside_menu" data-kt-menu="true">
                      <div class="menu-item">
                          <div class="menu-content pb-2">
-                             <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+                             <span class="menu-section text-white text-uppercase fs-8 ls-1">Dashboard</span>
                          </div>
                      </div>
                      <div class="menu-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}">
                          <a class="menu-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"
-                             href="{{ asset('dashboard') }}">
+                             href="{{ route('dashboard') }}">
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                  <span class="svg-icon svg-icon-2">
@@ -168,6 +166,29 @@
                                  <!--end::Svg Icon-->
                              </span>
                              <span class="menu-title">Analytics</span>
+                         </a>
+                     </div>
+                     <div class="menu-item {{ Route::currentRouteName() === 'schedule' ? 'active' : '' }}">
+                         <a class="menu-link {{ Route::currentRouteName() === 'schedule' ? 'active' : '' }}"
+                             href="{{ asset('schedule') }}">
+                             <span class="menu-icon">
+                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none">
+                                         <rect x="2" y="2" width="9" height="9"
+                                             rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="2" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="2" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
+                             </span>
+                             <span class="menu-title">Schedule</span>
                          </a>
                      </div>
                      <div data-kt-menu-trigger="click"
@@ -206,7 +227,8 @@
                                      @if (Route::currentRouteName() === 'userList') style="pointer-events: auto; {{ Route::currentRouteName() === 'userList' ? 'display: block;' : '' }}" @endif>
                                      <div
                                          class="menu-item {{ Route::currentRouteName() === 'userList' ? ' hover' : '' }}">
-                                         <a class="menu-link" href="{{ route('userList') }}">
+                                         <a class="menu-link  {{ Route::currentRouteName() === 'userList' ? ' active' : '' }}"
+                                             href="{{ route('userList') }}">
                                              <span class="menu-bullet">
                                                  <span class="bullet bullet-dot"></span>
                                              </span>
@@ -216,7 +238,8 @@
                                      @if (Route::currentRouteName() === 'userView')
                                          <div
                                              class="menu-item  {{ Route::currentRouteName() === 'userView' ? ' hover' : '' }}">
-                                             <a class="menu-link" href="#">
+                                             <a class="menu-link {{ Route::currentRouteName() === 'userView' ? ' active' : '' }}"
+                                                 href="#">
                                                  <span class="menu-bullet">
                                                      <span class="bullet bullet-dot"></span>
                                                  </span>
@@ -256,7 +279,8 @@
                          <div class="menu-sub menu-sub-accordion">
                              <div
                                  class="menu-item  {{ Route::currentRouteName() === 'comorbidityList' ? ' hover' : '' }}">
-                                 <a class="menu-link" href="{{ route('comorbidityList') }}">
+                                 <a class="menu-link {{ Route::currentRouteName() === 'comorbidityList' ? ' active' : '' }}"
+                                     href="{{ route('comorbidityList') }}">
                                      <span class="menu-bullet">
                                          <span class="bullet bullet-dot"></span>
                                      </span>
@@ -265,13 +289,130 @@
                              </div>
                          </div>
                      </div>
+                     <div class="menu-item {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}">
+                         <a
+                             class="menu-link {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}"href="{{ route('reportList') }}">
+                             <span class="menu-icon">
+                                 <span
+                                     class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Files/File.svg--><svg
+                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                             <polygon points="0 0 24 0 24 24 0 24" />
+                                             <path
+                                                 d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
+                                                 fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                             <rect fill="#000000" x="6" y="11" width="9"
+                                                 height="2" rx="1" />
+                                             <rect fill="#000000" x="6" y="15" width="5"
+                                                 height="2" rx="1" />
+                                         </g>
+                                     </svg><!--end::Svg Icon--></span>
+                             </span>
+                             <span class="menu-title">Report Management</span>
+                         </a>
+                     </div>
+                     <div data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion mb-1{{ Route::currentRouteName() === 'volunteerList' || Route::currentRouteName() === 'applicationList' ? ' hover show' : '' }}">
+                         <span class="menu-link">
+                             <span class="menu-icon">
+                                 <!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                         viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                             <rect x="0" y="0" width="24" height="24" />
+                                             <path
+                                                 d="M7.03587629,17.2664036 L2.54094808,14.2345363 C1.62521847,13.6168689 1.38359132,12.373805 2.00125875,11.4580753 C2.61892617,10.5423457 3.86199008,10.3007186 4.7777197,10.918386 L7,12.417333 L7,8 C7,4.6862915 9.6862915,2 13,2 C16.3137085,2 19,4.6862915 19,8 L19,17 C19,17.5522847 18.5522847,18 18,18 L8,18 C7.53996718,18 7.15248755,17.6893628 7.03587629,17.2664036 Z"
+                                                 fill="#000000" />
+                                             <rect fill="#000000" opacity="0.3" x="6" y="20"
+                                                 width="14" height="2" rx="1" />
+                                         </g>
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
+                             </span>
+                             <span class="menu-title">Volunteer Management</span>
+                             <span class="menu-arrow"></span>
+                         </span>
+                         <div class="menu-sub menu-sub-accordion">
+                             <div
+                                 class="menu-item  {{ Route::currentRouteName() === 'volunteerList' ? ' hover' : '' }}">
+                                 <a class="menu-link" href="{{ route('volunteerList') }}">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Volunteer List</span>
+                                 </a>
+                             </div>
+                         </div>
+                         <div class="menu-sub menu-sub-accordion">
+                             <div
+                                 class="menu-item  {{ Route::currentRouteName() === 'applicationList' ? ' hover' : '' }}">
+                                 <a class="menu-link" href="{{ route('applicationList') }}">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Application List</span>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="menu-item {{ Route::currentRouteName() === 'ServiceList' ? 'active' : '' }}">
+                        <a class="menu-link {{ Route::currentRouteName() === 'ServiceList' ? 'active' : '' }}"
+                            href="{{ asset('service') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <rect x="2" y="2" width="9" height="9"
+                                            rx="2" fill="black" />
+                                        <rect opacity="0.3" x="13" y="2" width="9"
+                                            height="9" rx="2" fill="black" />
+                                        <rect opacity="0.3" x="13" y="13" width="9"
+                                            height="9" rx="2" fill="black" />
+                                        <rect opacity="0.3" x="2" y="13" width="9"
+                                            height="9" rx="2" fill="black" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title">Services</span>
+                        </a>
+                    </div>
+                    <div class="menu-item {{ Route::currentRouteName() === 'HolidaysView' ? 'active' : '' }}">
+                        <a class="menu-link {{ Route::currentRouteName() === 'HolidaysView' ? 'active' : '' }}"
+                            href="{{ asset('holidays') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <rect x="2" y="2" width="9" height="9"
+                                            rx="2" fill="black" />
+                                        <rect opacity="0.3" x="13" y="2" width="9"
+                                            height="9" rx="2" fill="black" />
+                                        <rect opacity="0.3" x="13" y="13" width="9"
+                                            height="9" rx="2" fill="black" />
+                                        <rect opacity="0.3" x="2" y="13" width="9"
+                                            height="9" rx="2" fill="black" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title">Holiday</span>
+                        </a>
+                    </div>
                      <div class="menu-item">
                          <div class="menu-content">
                              <div class="separator mx-1 my-4"></div>
                          </div>
                      </div>
-                     <div class="menu-item">
-                         <a class="menu-link" href="../../demo8/dist/documentation/getting-started/changelog.html">
+                     <div class="menu-item {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}">
+                         <a class="menu-link {{ Route::currentRouteName() === 'getLogs' ? 'active' : '' }}"
+                             href="{{ route('getLogs') }}">
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                                  <span class="svg-icon svg-icon-2">
@@ -296,26 +437,6 @@
              <!--end::Aside Menu-->
          </div>
          <!--end::Aside menu-->
-         <!--begin::Footer-->
-         <div class="aside-footer flex-column-auto py-5" id="kt_aside_footer">
-             <a href="../../demo8/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100"
-                 data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
-                 title="200+ in-house components and 3rd-party plugins">
-                 <span class="btn-label">Docs &amp; Components</span>
-                 <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
-                 <span class="svg-icon btn-icon svg-icon-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none">
-                         <path opacity="0.3"
-                             d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM15 17C15 16.4 14.6 16 14 16H8C7.4 16 7 16.4 7 17C7 17.6 7.4 18 8 18H14C14.6 18 15 17.6 15 17ZM17 12C17 11.4 16.6 11 16 11H8C7.4 11 7 11.4 7 12C7 12.6 7.4 13 8 13H16C16.6 13 17 12.6 17 12ZM17 7C17 6.4 16.6 6 16 6H8C7.4 6 7 6.4 7 7C7 7.6 7.4 8 8 8H16C16.6 8 17 7.6 17 7Z"
-                             fill="black" />
-                         <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
-                     </svg>
-                 </span>
-                 <!--end::Svg Icon-->
-             </a>
-         </div>
-         <!--end::Footer-->
      </div>
      @push('styles')
          <style>

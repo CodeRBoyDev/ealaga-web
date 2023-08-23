@@ -45,7 +45,7 @@ $(document).ready(function () {
                                     ${
                                         row.description === null
                                             ? `<div class="badge badge-light-danger fw-bolder">Not Indicated</div>`
-                                            : `<div class="badge badge-light fw-bolder" style="color: black;  word-wrap: break-word; white-space: pre-wrap;">${row.description}</div`
+                                            : `<div class="badge badge-light fw-bolder" style="align-self:center; max-width:300px;color: black;  word-wrap: break-word; white-space: pre-wrap;">${row.description}</div`
                                     } 
                             `;
                             },
@@ -72,7 +72,7 @@ $(document).ready(function () {
                                 return `
                                 <div class="text-center min-w-100px">
                                     <div class="dropdown">
-                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
+                                        <a href="#" class="btn btn-sm btn-flex btn-primary me-3 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                             <a href="#" class="dropdown-item" data-id="${row.id}"  data-kt-comorbidity-table-filter="edit_row">Edit</a>
@@ -150,13 +150,24 @@ $(document).ready(function () {
         submitButton.addEventListener("click", function (event) {
             event.preventDefault();
             Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
+                html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+                // icon: "success",
                 showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    animateText();
                 },
             });
             // Alternatively, you can submit the form here using AJAX if needed
@@ -215,13 +226,24 @@ $(document).ready(function () {
         const comorbidityData = { comorbidityID: comorbidityID };
 
         Swal.fire({
-            title: "Loading...",
-            html: "Please wait while we process your request",
-            allowOutsideClick: false,
-            showConfirmButton: false,
+            html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+            // icon: "success",
             showCancelButton: false,
-            onBeforeOpen: () => {
-                Swal.showLoading();
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                animateText();
             },
         });
         // Alternatively, you can submit the form here using AJAX if needed
@@ -300,13 +322,24 @@ $(document).ready(function () {
         submitButton.addEventListener("click", function (event) {
             event.preventDefault();
             Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
+                html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+                // icon: "success",
                 showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    animateText();
                 },
             });
 

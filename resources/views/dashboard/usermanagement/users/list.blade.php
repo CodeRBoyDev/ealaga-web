@@ -1,12 +1,22 @@
 @extends('layouts.master')
-@push('adminStyles ')
+@push('adminStyles')
     <!--begin::Page Vendor Stylesheets(used by this page)-->
     <link href="{{ asset('admin/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/loader.css') }}" rel="stylesheet" type="text/css" />
+
     <!--end::Page Vendor Stylesheets-->
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
+    </style>
 @endpush
 @section('content')
     <!--begin::Body-->
-    <div class="header-tablet-and-mobile-fixed aside-enabled">
+    <div class="body_background header-tablet-and-mobile-fixed aside-enabled">
         <!--begin::Main-->
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">
@@ -67,7 +77,7 @@
                                                             height="24" viewBox="0 0 24 24" fill="none">
                                                             <path
                                                                 d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z"
-                                                                fill="black" />
+                                                                style="fill:#fff" />
                                                         </svg>
                                                     </span>
                                                     <!--end::Svg Icon-->Filter</button>
@@ -134,7 +144,7 @@
                                                             height="24" viewBox="0 0 24 24" fill="none">
                                                             <rect opacity="0.5" x="11.364" y="20.364"
                                                                 width="16" height="2" rx="1"
-                                                                transform="rotate(-90 11.364 20.364)" fill="black" />
+                                                                transform="rotate(-90 11.364 20.364)" fill="#000000" />
                                                             <rect x="4.36396" y="11.364" width="16"
                                                                 height="2" rx="1" fill="black" />
                                                         </svg>
@@ -173,11 +183,11 @@
                                                                             y="17.3137" width="16" height="2"
                                                                             rx="1"
                                                                             transform="rotate(-45 6 17.3137)"
-                                                                            fill="black" />
+                                                                            style="fill:black" />
                                                                         <rect x="7.41422" y="6"
                                                                             width="16" height="2" rx="1"
                                                                             transform="rotate(45 7.41422 6)"
-                                                                            fill="black" />
+                                                                            style="fill:black" />
                                                                     </svg>
                                                                 </span>
                                                                 <!--end::Svg Icon-->
@@ -330,8 +340,27 @@
                                                                     <!--begin::Input group-->
                                                                     <div class="fv-row mb-7">
                                                                         <div class="row">
+
+                                                                            <!-- Gender Column -->
+                                                                            <div class="col-md-3">
+                                                                                <div class="fv-row mb-7">
+                                                                                    <label class="fw-bold fs-6 mb-2">Gender</label>
+                                                                                    <div class="row g-3">
+                                                                                        <div class="fv-row col">
+                                                                                            <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Gender" data-allow-clear="true" data-kt-user-table-filter="gender" id="gender" name="gender" data-hide-search="true" tabindex="0" aria-hidden="false">
+                                                                                                <option value="">Gender
+                                                                                                </option>
+                                                                                                <option value="male">Male</option>
+                                                                                                <option value="female">Female</option>
+                                                                                            </select>
+                                                                                            <div class="validation-message"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
                                                                             <!-- Contact Number Column -->
-                                                                            <div class="col-md-4">
+                                                                            <div class="col-md-3">
                                                                                 <div class="fv-row mb-7">
                                                                                     <label
                                                                                         class="  fw-bold fs-6 mb-2">Contact
@@ -352,7 +381,7 @@
                                                                             </div>
 
                                                                             <!-- Birthday Column -->
-                                                                            <div class="col-md-4">
+                                                                            <div class="col-md-3">
                                                                                 <div class="fv-row mb-7">
                                                                                     <label
                                                                                         class="  fw-bold fs-6 mb-2">Birthday</label>
@@ -372,7 +401,7 @@
                                                                             </div>
 
                                                                             <!-- Username Column -->
-                                                                            <div class="col-md-4">
+                                                                            <div class="col-md-3">
                                                                                 <div class="fv-row mb-7">
                                                                                     <label
                                                                                         class=" required fw-bold fs-6 mb-2">Username</label>
@@ -687,7 +716,7 @@
         <!--end::Root-->
         <!--end::Drawers-->
         <!--begin::Modals-->
-        <!--begin::Modal - Add task-->
+        <!--begin::Modal - edit user-->
         <div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
             data-bs-keyboard="false">
             <!--begin::Modal dialog-->
@@ -709,9 +738,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none">
                                     <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
-                                        rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                        rx="1" transform="rotate(-45 6 17.3137)" style="fill:black" />
                                     <rect x="7.41422" y="6" width="16" height="2" rx="1"
-                                        transform="rotate(45 7.41422 6)" fill="black" />
+                                        transform="rotate(45 7.41422 6)" style="fill:black" />
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
@@ -848,8 +877,26 @@
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-7">
                                     <div class="row">
+                                        <!-- Gender Column -->
+                                        <div class="col-md-3">
+                                            <div class="fv-row mb-7">
+                                                <label class="fw-bold fs-6 mb-2">Gender</label>
+                                                <div class="row g-3">
+                                                    <div class="fv-row col">
+                                                        <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Gender" data-allow-clear="true" data-kt-user-table-filter="gender" id="gender" name="gender" data-hide-search="true" tabindex="0" aria-hidden="false">
+                                                            <option value="">Gender
+                                                            </option>
+                                                            <option value="male">Male</option>
+                                                            <option value="female">Female</option>
+                                                        </select>
+                                                        <div class="validation-message"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <!-- Contact Number Column -->
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="fv-row mb-7">
                                                 <label class="required fw-bold fs-6 mb-2">Contact Number</label>
                                                 <div class="row g-3">
@@ -865,7 +912,7 @@
                                         </div>
 
                                         <!-- Birthday Column -->
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="fv-row mb-7">
                                                 <label class="required fw-bold fs-6 mb-2">Birthday</label>
                                                 <div class="row g-3">
@@ -881,7 +928,7 @@
                                         </div>
 
                                         <!-- Username Column -->
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="fv-row mb-7">
                                                 <label class=" required fw-bold fs-6 mb-2">Username</label>
                                                 <div class="row g-3">
@@ -1039,7 +1086,7 @@
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <!--begin::Input-->
                                                     <input class="form-check-input me-3" name="user_role" type="radio"
-                                                        value="3" id="kt_modal_update_user_role_option_3" />
+                                                        value="2" id="kt_modal_update_user_role_option_3" />
                                                     <!--end::Input-->
                                                     <!--begin::Label-->
                                                     <label class="form-check-label"
@@ -1119,7 +1166,7 @@
                                                 <div class="form-check form-check-custom form-check-solid">
                                                     <!--begin::Input-->
                                                     <input class="form-check-input me-3" name="access_level"
-                                                        type="radio" value="3"
+                                                        type="radio" value="2"
                                                         id="kt_modal_update_access_option_3" />
                                                     <!--end::Input-->
                                                     <!--begin::Label-->
@@ -1208,7 +1255,7 @@
             </div>
             <!--end::Modal dialog-->
         </div>
-        <!--end::Modal - Add task-->
+        <!--end::Modal - edit user-->
         <!--end::Modals-->
         <!--end::Main-->
     </div>
@@ -1219,7 +1266,6 @@
     <script src="{{ asset('admin/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <!-- Fancybox JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
     <script src="{{ asset('admin/js/custom/user/list.js') }}"></script>
     <script src="{{ asset('admin/js/custom/user/add.js') }}"></script>
     <script src="{{ asset('admin/js/custom/user/edit.js') }}"></script>
