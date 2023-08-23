@@ -303,31 +303,30 @@ $(document).ready(function () {
                             <!--begin::Label-->
                         </div>
             
-                        <div class="row mb-10">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-bold text-muted">Processed on </label>
-                            <!--begin::Label-->
-                            <!--begin::Label-->
-                            <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800">${
-                                    data?.processed_by?.firstname
-                                        ? moment(
-                                              data?.schedule?.processed_date
-                                          ).format("MMM DD, YYYY h:mm A")
-                                        : "Not yet approved"
-                                }</span>
-                            </div>
-                            <!--begin::Label-->
+                        <div class="row mb-10" style="margin-bottom: 30px;">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-bold text-muted">Processed on </label>
+                        <!--begin::Label-->
+                        <!--begin::Label-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">${
+                                data?.processed_by?.firstname
+                                    ? moment(data?.schedule?.processed_date).format("MMM DD, YYYY h:mm A")
+                                    : "Not yet approved"
+                            }</span>
                         </div>
+                        <!--begin::Label-->
+                    </div>
+                    
                         <!--end::Input group-->
                         `;
 
                                             $("#qr_content").html(html);
 
-                                            setTimeout(function () {
-                                                $("#qr_content").hide();
-                                                $("#qr_code_title").show();
-                                            }, 10000);
+                                            // setTimeout(function () {
+                                            //     $("#qr_content").hide();
+                                            //     $("#qr_code_title").show();
+                                            // }, 10000);
                                         }
                                     }
                                 }

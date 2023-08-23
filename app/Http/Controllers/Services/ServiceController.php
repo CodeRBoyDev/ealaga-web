@@ -61,4 +61,79 @@ class ServiceController extends Controller
         }
 
     }
+
+
+    public function ServiceEdit($id)
+    {
+        //
+        try {
+           
+        
+            $services = DB::table('services')
+            ->where('services.id', $id)
+            ->first();
+
+                return response()->json(['services' => $services]);
+      
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
+
+    public function ServiceUpdate(Request $request, $id)
+    {
+        //
+        try {
+           
+            $data = $request->all();
+            
+            if ($request->hasFile('edit_icon')) {
+                // Store the uploaded avatar in the storage/app/public/avatars directory
+                $iconPath = $request->file('edit_icon')->store('icon', 'public');
+                // Update the user record with the avatar path
+                DB::table('services')
+                ->where('id', $id)
+                ->update([
+                    'icon' => "storage/" . $iconPath,
+                    'title' => $data['edit_title'] ?? null,
+                    'description' => $data['edit_description'] ?? null,
+                ]);
+                return response()->json(['services' => 'success']);
+            }else{
+
+                DB::table('services')
+                ->where('id', $id)
+                ->update([
+                    'title' => $data['edit_title'] ?? null,
+                    'description' => $data['edit_description'] ?? null,
+                ]);
+                return response()->json(['services' => 'success']);
+
+            }
+              
+      
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
+
+
+    public function ServiceDelete($id)
+    {
+        //
+        try {
+           
+            DB::table('services')->where('id', $id)->delete();
+            // Log::debug("Deleting leave request with ID: $id");
+            return response()->json(['status' => 'success']);
+
+
+                return response()->json(['services' => $id]);
+      
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
+
+    
 }

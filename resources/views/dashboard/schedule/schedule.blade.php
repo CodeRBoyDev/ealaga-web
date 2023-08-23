@@ -275,21 +275,21 @@
                            data-bs-dismiss="modal">
                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                            <span class="svg-icon svg-icon-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24"
-                                fill="none">
-                                <rect opacity="0.5" x="6"
-                                    y="17.3137" width="16" height="2"
-                                    rx="1"
-                                    transform="rotate(-45 6 17.3137)"
-                                    style="fill:black" />
-                                <rect x="7.41422" y="6"
-                                    width="16" height="2" rx="1"
-                                    transform="rotate(45 7.41422 6)"
-                                    style="fill:black" />
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                   height="24" viewBox="0 0 24 24"
+                                   fill="none">
+                                   <rect opacity="0.5" x="6"
+                                       y="17.3137" width="16" height="2"
+                                       rx="1"
+                                       transform="rotate(-45 6 17.3137)"
+                                       style="fill: #000;" />
+                                   <rect x="7.41422" y="6"
+                                       width="16" height="2" rx="1"
+                                       transform="rotate(45 7.41422 6)"
+                                       style="fill: #000;" />
+                               </svg>
+                           </span>
+                           <!--end::Svg Icon-->
                        </div>
                        <!--end::Close-->
                    </div>
@@ -390,18 +390,64 @@
                             <div id="schedule_content">
 
                                 <!--begin::Col-->
-                                <div class="fv-row mb-7">
-                                    <label class="required fs-6 fw-semibold mb-2">Services?</label>
-                                    <label class="fs-8 fw-semibold mb-2">(You can select a multiple services)</label>
-                                    <select class="form-select form-select-solid "
-                                        data-control="select2" data-hide-search="true"
-                                        data-placeholder="Select a Services" id="services"
-                                        name="services[]" data-required="true" multiple>
+                                <!--begin::Col-->
+                             <div class="fv-row mb-7">
+                                <label class="required fs-6 fw-semibold mb-2">Services?</label>
+                                <label class="fs-8 fw-semibold mb-2">(You can select a multiple services)</label>
+                                <select class="form-select form-select-solid "
+                                    data-control="select2" data-hide-search="true"
+                                    data-placeholder="Select a Services" id="services"
+                                    name="services[]" data-required="true" multiple>
 
-                                        @foreach ($services as $service)
-                                            <option value="{{ $service->id }}">
-                                                {{ $service->title }}</option>
-                                        @endforeach
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->id }}">
+                                            {{ $service->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <!--end::Col-->
+
+                            <div class="row fv-row">
+                                <!--begin::Col-->
+                                <div class="card-title">
+                                    <!--begin::User-->
+                                    <div class="d-flex justify-content-center flex-column me-3">
+                                    <!--begin::Info-->
+                                        <div class="mb-0 lh-1">
+                                            <span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
+                                            <span class="fs-7 fw-bold text-muted me-1">Selected</span>
+                                            <span class="badge badge-circle w-10px h-10px" style="background-color: #F4C027;"></span>
+											<span class="fs-7 fw-bold text-muted me-1">Holiday</span>
+                                            <span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
+                                            <span class="fs-7 fw-bold text-muted me-1">No Slot</span>
+                                        </div>
+                                        <!--end::Info-->
+                                    </div>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="required fs-6 fw-bold form-label mb-2">Date</label>
+                                    <!--begin::Input-->
+                                    <div class="position-relative d-flex align-items-center">
+                                        <!--begin::Icon-->
+                                    
+                                        <!--end::Icon-->
+                                        <!--begin::Datepicker-->
+                                        <input class="form-control form-control-solid"
+                                            id="date_input" placeholder="Select a date"
+                                            name="date_input" />
+                                        <!--end::Datepicker-->
+                                    </div>
+                                </div>
+                                <!--end::Col-->
+                                <!--begin::Col-->
+                                <div class="col-md-6">
+                                    <label class="required fs-6 fw-bold form-label mb-2">Available Time</label>
+                                    <select id="time_input" name="time_input" class="form-select form-select-solid" data-control="select2"c data-hide-search="true" data-placeholder="Time">
+                                        <option></option>
+                                        <option value="0">AM</option>
+                                        <option value="1">PM</option>
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -716,10 +762,6 @@
 @push('adminScripts')
     <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="{{ asset('admin/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-    <!-- Fancybox JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
+ 
     <script src="{{ asset('admin/js/custom/schedule/schedule.js') }}"></script>
-    {{-- <script src="https://cdn.rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
-    <!--end::Page Vendors Javascript-->
 @endpush

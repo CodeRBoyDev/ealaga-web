@@ -2,6 +2,7 @@
 // Authentication
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 //Services
 use App\Http\Controllers\Services\ServiceController;
@@ -35,7 +36,7 @@ use Illuminate\Support\Facades\Route;
 
 //notification
 use App\Http\Controllers\NotificationController;
-
+use App\Http\Controllers\HolidayController;
 
 //cronJob
 use App\Http\Controllers\CronJobController;
@@ -89,6 +90,11 @@ Route::get('/register/email-otp', [RegisterController::class, 'emailOTP'])->name
 Route::post('/register/confirm-otp', [RegisterController::class, 'confirmOTP'])->name('confirmOTP');
 Route::post('/register/resend-otp', [RegisterController::class, 'resendOTP'])->name('resendOTP');
 
+Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgotPassword');
+Route::post('/forgot-password/email-otp', [ForgotPasswordController::class, 'forgotPasswordOTP'])->name('forgotPasswordOTP');
+Route::post('/forgot-password/confirm-otp', [ForgotPasswordController::class, 'forgotPasswordConfirmOTP'])->name('forgotPasswordConfirmOTP');
+Route::post('/forgot-password/resend-otp', [ForgotPasswordController::class, 'forgotPasswordResendOTP'])->name('forgotPasswordResendOTP');
+
 Route::middleware(['access_level:0,1'])->group(function () {
 
 //Schedule
@@ -97,10 +103,17 @@ Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->
 Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
 Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
 Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
+Route::get('/schedule/disable-date', [ScheduleController::class, 'scheduleDateDisable'])->name('scheduleDateDisable');
+Route::get('/schedule/slot', [ScheduleController::class, 'scheduleSlot'])->name('scheduleSlot');
+Route::post('/schedule/add', [ScheduleController::class, 'ScheduleAdd'])->name('ScheduleAdd');
 
 //Services
 Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
 Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
+Route::get('/service/edit/{id}', [ServiceController::class, 'ServiceEdit'])->name('ServiceEdit');
+Route::post('/service/update/{id}', [ServiceController::class, 'ServiceUpdate'])->name('ServiceUpdate');
+Route::delete('/service/delete/{id}', [ServiceController::class, 'ServiceDelete'])->name('ServiceDelete');
+
 
 // Dashboard
     Route::get('/osca-dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -141,6 +154,17 @@ Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('Ser
     Route::post('/application-management/application/attended', [ApplicationController::class, 'checkInApplication'])->name('checkInApplication');
     Route::post('/application-management/application/search', [ApplicationController::class, 'searchUser'])->name('searchUser');
     Route::post('/application-management/application/add', [ApplicationController::class, 'addApplication'])->name('addApplication');
+    // Route::post('/application-management/application/delete', [ApplicationController::class, 'deleteApplication'])->name('deleteApplication');
+
+    Route::get('/holidays', [HolidayController::class, 'HolidaysView'])->name('HolidaysView');
+    Route::get('/holiday/ph', [HolidayController::class, 'GetPhHolidays'])->name('GetPhHolidays');
+    Route::get('/holiday/cu', [HolidayController::class, 'GetCuHolidays'])->name('GetCuHolidays');
+    Route::get('/holiday/single/{id}', [HolidayController::class, 'HolidayGet'])->name('HolidayGet');
+    Route::post('/holiday/update/{id}', [HolidayController::class, 'HolidayUpdate'])->name('HolidayUpdate');
+    Route::post('/holiday/add', [HolidayController::class, 'HolidayAdd'])->name('HolidayAdd');
+    Route::delete('/holiday/delete/{id}', [HolidayController::class, 'HolidayDelete'])->name('HolidayDelete');
+
+
 });
 Route::middleware(['access_level:0,1,2'])->group(function () {
 // Profile Page

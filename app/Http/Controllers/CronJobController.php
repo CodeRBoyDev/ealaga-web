@@ -36,7 +36,6 @@ class CronJobController extends Controller
                     DB::table('users')
                         ->where('id', $user->id)
                         ->update([
-                            'is_active' => 1,
                             'is_restricted' => 0,
                             'restrictionExpiration' => null
                         ]);
@@ -78,21 +77,20 @@ class CronJobController extends Controller
                         DB::table('users')
                             ->where('id', $user->id)
                             ->update([
-                                'is_active' => 0,
                                 'is_restricted' => 1,
                                 'lastRestricted' => Carbon::now(),
                                 'restrictionExpiration' => Carbon::now()->addDays(7),
                                 'notAttendedCount' => 0
                             ]);
             
-                        // DB::table('notification')->insert([
-                        //     'user_id' => $user->id,
-                        //     'type' => 'status_restricted',
-                        //     'description' => "We regret to inform you that your Alaga account has been temporarily restricted for a period of 7 days. This action has been taken as you were unable to attend 5 scheduled appointments, which has resulted in the restriction of your account. Due to this restriction, you will not be able to book any new healthcare services during this time. As a platform designed to provide healthcare services to the elderly community in Taguig City, we prioritize the needs of our clients and strive to ensure efficient scheduling and booking processes. We understand the importance of timely attendance for the smooth operation of our services, and we hope to have your cooperation in adhering to the scheduled appointments in the future. Thank you for your understanding."
-                        // ]);
+                        DB::table('notification')->insert([
+                            'user_id' => $user->id,
+                            'type' => 'status_restricted',
+                            'description' => "We regret to inform you that your Alaga account has been temporarily restricted for a period of 7 days. This action has been taken as you were unable to attend 5 scheduled appointments, which has resulted in the restriction of your account. Due to this restriction, you will not be able to book any new healthcare services during this time. As a platform designed to provide healthcare services to the elderly community in Taguig City, we prioritize the needs of our clients and strive to ensure efficient scheduling and booking processes. We understand the importance of timely attendance for the smooth operation of our services, and we hope to have your cooperation in adhering to the scheduled appointments in the future. Thank you for your understanding."
+                        ]);
                         
                         // Additional actions if needed
-                        $test[] = "User $user->firstname $user->lastname has been restricted.";
+                        // $test[] = "User $user->firstname $user->lastname has been restricted.";
 
                       
                     }
@@ -100,7 +98,7 @@ class CronJobController extends Controller
           
 
             }
-            return response()->json(['schedule' => $test]);
+            return response()->json(['schedule' => "success"]);
 
             // return response()->json(['schedule' => $test]);
 

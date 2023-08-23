@@ -4859,14 +4859,22 @@ fieldset:disabled .btn {
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #009ef7
+    color: #fff !important;
+    background-color: #1A4798
 }
 
 .nav-fill .nav-item,
 .nav-fill>.nav-link {
     flex: 1 1 auto;
     text-align: center
+}
+
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #1c1c1d;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .nav-justified .nav-item,
@@ -35239,6 +35247,11 @@ a:hover {
 
 .custom-selected-date-color {
     background-color: rgba(26, 71, 152, 0.7) !important;
+    color: #fff !important;
+}
+
+.custom-holiday-date-color {
+    background-color: #F4C027 !important;
     color: #fff !important;
 }
 
