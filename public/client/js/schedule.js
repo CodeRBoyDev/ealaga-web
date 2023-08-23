@@ -103,6 +103,7 @@ $(document).ready(function () {
 
   let formattedDates = [];
   let selected_date_formattedDates = [];
+  let holiday_date_formattedDates = [];
 
   const date_input = flatpickr("#date_input", {
     minDate: "today",
@@ -135,6 +136,16 @@ $(document).ready(function () {
         selectedspecificDateElement.classList.add("custom-selected-date-color");
       }
     });
+
+    holiday_date_formattedDates.forEach((selectedformattedDate) => {
+      const selectedspecificDateElement = document.querySelector(
+        `[aria-label="${selectedformattedDate}"]`
+      );
+      if (selectedspecificDateElement) {
+        selectedspecificDateElement.classList.add("custom-holiday-date-color");
+      }
+    });
+
   }
   
   // Call applyCustomFormatting initially to apply formatting to the current dates
@@ -144,6 +155,7 @@ $(document).ready(function () {
 
   let checkedServiceData = [];
   let selected_date_disable = [];
+  let disable_holidays_date = [];
 
   function schedule_slot() {
     $.ajax({
@@ -152,6 +164,7 @@ $(document).ready(function () {
       success: function (data) {
         const schedule_slot_total = data?.schedule_total;
         selected_date_disable = data?.selected_date_disable; // Move this line inside the success callback
+        disable_holidays_date = data?.disable_holidays_date;
 
         
   // slot disable ============================================================
@@ -191,7 +204,8 @@ $(document).ready(function () {
       return date.getDay() === 6 || date.getDay() === 0;
     },
     ...disabledDates,
-    ...selected_date_disable
+    ...selected_date_disable,
+    ...disable_holidays_date
   ]);
 
 
@@ -230,6 +244,11 @@ $(document).ready(function () {
     selected_date_formattedDates.push(selectedformattedDate);
   });
 
+  disable_holidays_date.forEach((dateStr) => {
+    const selectedformattedDate = moment(dateStr).format('MMMM D, YYYY');
+    holiday_date_formattedDates.push(selectedformattedDate);
+  });
+
   // Loop through the formatted dates and find the corresponding element to change its color
   formattedDates.forEach((formattedDate) => {
     const specificDateElement = document.querySelector(`[aria-label="${formattedDate}"]`);
@@ -242,6 +261,14 @@ $(document).ready(function () {
     
     if (selectedspecificDateElement) {
       selectedspecificDateElement.classList.add('custom-selected-date-color');
+    }
+  });
+
+  holiday_date_formattedDates.forEach((selectedformattedDate) => {
+    const selectedspecificDateElement = document.querySelector(`[aria-label="${selectedformattedDate}"]`);
+    
+    if (selectedspecificDateElement) {
+      selectedspecificDateElement.classList.add('custom-holiday-date-color');
     }
   });
 

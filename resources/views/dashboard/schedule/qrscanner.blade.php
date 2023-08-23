@@ -107,7 +107,7 @@
                                             </div>
                                             <!--end::Header-->
                                             <!--begin::Body-->
-                                            <div class="card-body p-9" style="height: 450px;">
+                                            <div class="card-body p-9" style="height: 650%;">
                                                
                                                 <span id="qr_code_title" class="fw-bold fs-6 text-gray-800">
                                                     Position the QR code in front of the camera to accept attendees.</span>

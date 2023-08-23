@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="manifest" href="/manifest.json">
     <title>eAlaga</title>
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -21,7 +22,8 @@
             request()->route()->getName() === 'ServiceList' ||
             request()->route()->getName() === 'schedule' ||
             request()->route()->getName() === 'scheduleQRscanner' ||
-            request()->route()->getName() === 'getLogs')
+            request()->route()->getName() === 'getLogs' ||
+            request()->route()->getName() === 'HolidaysView')
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -43,7 +45,10 @@
             request()->route()->getName() === 'ClientScheduleHistory' ||
             request()->route()->getName() === 'ClientVolunteerList' ||
             request()->route()->getName() === 'emailOTP' ||
-            request()->route()->getName() === 'VisitorLanding')
+            request()->route()->getName() === 'VisitorLanding' ||
+            request()->route()->getName() === 'forgotPassword' 
+            
+            )
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         @stack('styles')
@@ -78,7 +83,9 @@
             request()->route()->getName() != 'ServiceList' &&
             request()->route()->getName() != 'schedule' &&
             request()->route()->getName() != 'scheduleQRscanner' &&
-            request()->route()->getName() != 'getLogs')
+            request()->route()->getName() != 'getLogs' &&
+            request()->route()->getName() != 'HolidaysView' &&
+            request()->route()->getName() != 'forgotPassword' )
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->

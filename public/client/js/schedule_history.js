@@ -86,15 +86,14 @@ $(document).ready(function () {
 
                 let card_data = "";
 
-                totalEntries = data.schedule?.length;
-
                 // Filter the schedule data based on pagination
 
                
                 const startIndex = (currentPage - 1) * entriesPerPage;
                 const endIndex = startIndex + entriesPerPage;
+                
                 const displayedSchedule = data.schedule?.filter(schedule => {
-                  const status = schedule?.status.toString(); // Convert the integer to a string
+                  const status = schedule?.status?.toString(); // Convert the integer to a string
                   const schedule_date = moment(schedule?.schedule_date); // Convert schedule_date to a moment object
                   console.log(schedule_date);
               
@@ -104,26 +103,35 @@ $(document).ready(function () {
                   console.log(filterStartDate);
                   
                   if (filterStartDate && filterEndDate) { // Only execute if both filterStartDate and filterEndDate have data
-                      return status.match(filter_status) && schedule_date.isBetween(filterStartDate, filterEndDate, 'day', '[]');
+                      return status?.match(filter_status) && schedule_date.isBetween(filterStartDate, filterEndDate, 'day', '[]');
                   } else {
-                    return status.match(filter_status)
+                    return status?.match(filter_status)
                   }
               });
-                displayedSchedule?.slice(
-                  startIndex,
-                  endIndex
-              );
 
-              if (displayedSchedule?.length === 0) {
+              const paginatedSchedule = displayedSchedule?.slice(startIndex, endIndex);
+
+              totalEntries = displayedSchedule?.length;
+
+              if (paginatedSchedule?.length === 0) {
                 // Display a message when there are no schedules
-                $("#card_row_div").html("<h1>No schedules to display.</h1>");
+                $("#card_row_div").html("<h1>No history to display.</h1>");
       
               } else {
 
                  // Loop through each leave in the data.schedule array
-                 $.each(displayedSchedule, function (i, schedule) {
+                 $.each(paginatedSchedule, function (i, schedule) {
                     // Get the schedule date from the schedule object
-                    const scheduleDate = schedule?.schedule_date;
+                    const scheduleDate = moment(schedule?.schedule_date, 'Asia/Manila').format('YYYY-MM-DD');
+
+                    // Set the specific time (8:00 AM Asia/Manila time) for the same day as scheduleDate
+                    const specificTime = 
+                    schedule?.schedule_time == 0
+                    ? moment(scheduleDate, 'Asia/Manila').set({ hour: 8, minute: 0, second: 0 })
+                    : moment(scheduleDate, 'Asia/Manila').set({ hour: 13, minute: 0, second: 0 });        
+        
+                    // Calculate the relative time from now to the specific time
+                    const relativeTime = specificTime.fromNow();
 
                     // Format the schedule date using moment.js
                     const formattedScheduleDate =
@@ -151,10 +159,10 @@ $(document).ready(function () {
                     } else if (
                         moment(scheduleDate).isBefore(currentDate, "day")
                     ) {
-                        scheduleDateText = moment(scheduleDate).fromNow();
+                        scheduleDateText = relativeTime;
                         badgeColorClass = "badge-light-danger"; // Change to your desired class for past dates
                     } else {
-                        scheduleDateText = moment(scheduleDate).fromNow();
+                        scheduleDateText = relativeTime;
                         badgeColorClass = "badge-light-warning"; // Change to your desired class for future dates
                     }
 
@@ -196,7 +204,7 @@ $(document).ready(function () {
                           : "1:00pm - 5:00pm Afternoon"
                   }
                  
-                  <br />Services:       ${schedule?.services}
+                  <br />Services: ${schedule?.services.length > 30 ? `${schedule.services.slice(0, 30)}...` : schedule.services}
                   <br />Location: 13, 1639 Manzanitas St, Taguig, Metro Manila</div>
                 </div>
                 <!--end::Details-->
@@ -315,11 +323,27 @@ $(document).ready(function () {
                             processData: false,
                             beforeSend: function () {
                                 Swal.fire({
-                                    text: "Loading.....",
+                                    html: `
+                                    <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                      </div>
+                                      <div id="successMessage">
+                                        <span id="redirectText">loading...</span>
+                                      </div>
+                                    `,
+                                    // icon: "success",
                                     showCancelButton: false,
                                     showConfirmButton: false,
-                                    allowOutsideClick: false, // Disable clicking outside the modal to close it
-                                });
+                                    allowOutsideClick: false,
+                                    didOpen: () => {
+                                      animateText();
+                                    }
+                                  });
                             },
                             success: function (response) {
                                 console.log(response);

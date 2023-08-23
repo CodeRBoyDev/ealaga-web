@@ -104,7 +104,16 @@
 										<div style="position: relative; padding-bottom: 44.25%; /* 16:9 aspect ratio */">
 											{{-- <iframe class="embed-responsive-item card-rounded" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/qIHXpnASPAA" allowfullscreen="allowfullscreen"></iframe> --}}
 											{{-- <iframe class="embed-responsive-item card-rounded" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ftaguigcity%2Fvideos%2F282580089321688%2F&show_text=false&width=560&t=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
-											<iframe class="embed-responsive-item card-rounded" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FOSCATAGUIGOFFICIAL%2Fvideos%2F569452585278032%2F&show_text=false&width=560&t=0"  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+											<iframe
+											class="embed-responsive-item card-rounded"
+											src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FOSCATAGUIGOFFICIAL%2Fvideos%2F569452585278032%2F&show_text=false&width=560&t=0"
+											style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+											scrolling="no"
+											frameborder="0"
+											allowfullscreen="true"
+											allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+											allowFullScreen="true"
+										></iframe>
 											{{-- <iframe class="embed-responsive-item card-rounded" src="https://player.vimeo.com/video/795953189?autoplay=1&amp;loop=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" loop="" autoplay="" allow="autoplay; loop; controls;" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> --}}
 										</div>
 										<!--end::Body-->

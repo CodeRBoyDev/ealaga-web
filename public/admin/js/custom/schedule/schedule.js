@@ -25,31 +25,41 @@ $(document).ready(function () {
         console.log(data);
         $("#loading-row").remove();
         var tbody = $("#schedule_table tbody");
-  
-// console.log(filter_start_date);
+          
+        // console.log(filter_start_date);
         const displayedSchedule = data.schedule?.filter(schedule => {
-          const status = schedule?.status.toString(); // Convert the integer to a string
-          const time = schedule?.schedule_time.toString(); // Convert the integer to a string
-          const barangay = schedule?.barangay.toString(); // Convert the integer to a string
-          const schedule_date = moment(schedule?.schedule_date); // Convert schedule_date to a moment object
-          // console.log(schedule_date);
-      
-          const filterStartDate = filter_start_date ? moment(filter_start_date) : null; // Use null instead of an empty string
-          const filterEndDate =  filter_end_date ? moment(filter_end_date) : null; // Use null instead of an empty string
-          
-          // console.log(filterStartDate);
-          
+          const status = schedule.status?.toString() || ""; // Use || instead of ??
+          const time = schedule.schedule_time?.toString() || ""; // Use || instead of ??
+          const barangay = schedule.barangay?.toString() || ""; // Use || instead of ??
+          const schedule_date = moment(schedule.schedule_date);
+
+          const filterStartDate = filter_start_date ? moment(filter_start_date) : null;
+          const filterEndDate =  filter_end_date ? moment(filter_end_date) : null;
+
           if (filterStartDate && !filterEndDate) {
-            return status.match(filter_status) && time.match(filter_time) && barangay.match(filter_barangay) && schedule_date.isSame(moment(filterStartDate).startOf('day'), 'day')
-          } 
-          else if (filterStartDate && filterEndDate) { // Only execute if both filterStartDate and filterEndDate have data
-              return status.match(filter_status) && time.match(filter_time) && barangay.match(filter_barangay) && schedule_date.isBetween(filterStartDate, filterEndDate, 'day', '[]');
+              return (!filter_status || status.match(filter_status)) && 
+                  (!filter_time || time.match(filter_time)) && 
+                  (!filter_barangay || barangay.match(filter_barangay)) && 
+                  schedule_date.isSame(moment(filterStartDate).startOf('day'), 'day');
+          } else if (filterStartDate && filterEndDate) {
+              return (!filter_status || status.match(filter_status)) && 
+                  (!filter_time || time.match(filter_time)) && 
+                  (!filter_barangay || barangay.match(filter_barangay)) && 
+                  schedule_date.isBetween(filterStartDate, filterEndDate, 'day', '[]');
           } else {
-            return status.match(filter_status) && time.match(filter_time) && barangay.match(filter_barangay)
+              return (!filter_status || status.match(filter_status)) && 
+                  (!filter_time || time.match(filter_time)) && 
+                  (!filter_barangay || barangay.match(filter_barangay));
           }
-      });
+        });
 
        
+        if (displayedSchedule.length === 0) {
+          const cardBody = $(".card-body.pt-0");
+          cardBody.html("<h1 style='margin-top: 50px;' class='text-center'>No schedules to display</h1>");
+        } 
+        
+
         $.each(displayedSchedule, function (i, schedule) { 
           
           var tr = $("<tr>");
@@ -213,7 +223,8 @@ $(document).ready(function () {
 
     let formattedDates = [];
     let selected_date_formattedDates = [];
-  
+    let holiday_date_formattedDates = [];
+
     const date_input = flatpickr("#date_input", {
       minDate: "today",
       onChange: function (selectedDates, dateStr, instance) {
@@ -245,6 +256,15 @@ $(document).ready(function () {
           selectedspecificDateElement.classList.add("custom-selected-date-color");
         }
       });
+
+      holiday_date_formattedDates.forEach((selectedformattedDate) => {
+        const selectedspecificDateElement = document.querySelector(
+          `[aria-label="${selectedformattedDate}"]`
+        );
+        if (selectedspecificDateElement) {
+          selectedspecificDateElement.classList.add("custom-holiday-date-color");
+        }
+      });
     }
     
     // Call applyCustomFormatting initially to apply formatting to the current dates
@@ -253,6 +273,8 @@ $(document).ready(function () {
     $("#schedule_content").hide();
     $("#indicator_search_loading").hide();
     let selected_date_disable = [];
+    let disable_holidays_date = [];
+    
     let user_id = "";
 
     $("#search_result_div").on("click", ".data-item", function () {
@@ -264,7 +286,7 @@ $(document).ready(function () {
       $("#indicator_search_loading").hide();
 
       $.ajax({
-        url: "/client/schedule",
+        url: "/schedule/disable-date",
         type: "GET",
         data: {
           user_id: user_id,
@@ -280,6 +302,7 @@ $(document).ready(function () {
 
           const schedule_slot_total = data?.schedule_total;
           selected_date_disable = data?.selected_date_disable;
+          disable_holidays_date = data?.disable_holidays_date;
 
             // Step 1: Group scheduleTotals by schedule_date
           const groupedByDate = {};
@@ -303,7 +326,8 @@ $(document).ready(function () {
               return date.getDay() === 6 || date.getDay() === 0;
             },
             ...disabledDates,
-            ...selected_date_disable
+            ...selected_date_disable,
+            ...disable_holidays_date
           ]);
           
 
@@ -340,6 +364,11 @@ $(document).ready(function () {
             const selectedformattedDate = moment(dateStr).format('MMMM D, YYYY');
             selected_date_formattedDates.push(selectedformattedDate);
           });
+
+          disable_holidays_date.forEach((dateStr) => {
+            const selectedformattedDate = moment(dateStr).format('MMMM D, YYYY');
+            holiday_date_formattedDates.push(selectedformattedDate);
+          });
         
           // Loop through the formatted dates and find the corresponding element to change its color
           formattedDates.forEach((formattedDate) => {
@@ -358,6 +387,13 @@ $(document).ready(function () {
             }
           });
 
+          holiday_date_formattedDates.forEach((selectedformattedDate) => {
+            const selectedspecificDateElement = document.querySelector(`[aria-label="${selectedformattedDate}"]`);
+            
+            if (selectedspecificDateElement) {
+              selectedspecificDateElement.classList.add('custom-holiday-date-color');
+            }
+          });
 
 
         }
@@ -405,7 +441,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-      url: `/client/schedule/slot`,
+      url: `/schedule/slot`,
       type: "GET",
       data: selectedDate,
       beforeSend: function () {
@@ -538,7 +574,7 @@ $(document).ready(function () {
               if (result.isConfirmed) {
                 $.ajax({
                   type: "POST",
-                  url: "/client/schedule/add",
+                  url: "/schedule/add",
                   data: formData,
                   contentType: false,
                   processData: false,

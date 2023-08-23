@@ -495,6 +495,12 @@
       array (
         'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/laravel.log',
       ),
+      'custom_api_logs' => 
+      array (
+        'driver' => 'single',
+        'path' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\logs/api_calls.log',
+        'level' => 'debug',
+      ),
     ),
   ),
   'mail' => 
@@ -689,6 +695,53 @@
     ),
     'compiled' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\framework\\views',
   ),
+  'dompdf' => 
+  array (
+    'show_warnings' => false,
+    'public_path' => NULL,
+    'convert_entities' => true,
+    'options' => 
+    array (
+      'font_dir' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\fonts',
+      'font_cache' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web\\storage\\fonts',
+      'temp_dir' => 'C:\\Users\\ricky\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Users\\ricky\\OneDrive\\Documents\\ealaga-web',
+      'allowed_protocols' => 
+      array (
+        'file://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'http://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+        'https://' => 
+        array (
+          'rules' => 
+          array (
+          ),
+        ),
+      ),
+      'log_output_file' => NULL,
+      'enable_font_subsetting' => false,
+      'pdf_backend' => 'CPDF',
+      'default_media_type' => 'screen',
+      'default_paper_size' => 'a4',
+      'default_paper_orientation' => 'portrait',
+      'default_font' => 'serif',
+      'dpi' => 96,
+      'enable_php' => false,
+      'enable_javascript' => true,
+      'enable_remote' => true,
+      'font_height_ratio' => 1.1,
+      'enable_html5_parser' => true,
+    ),
+  ),
   'image' => 
   array (
     'driver' => 'gd',
@@ -776,53 +829,6 @@
       1 => 'Spatie\\LaravelIgnition\\Recorders\\JobRecorder\\JobRecorder',
       2 => 'Spatie\\LaravelIgnition\\Recorders\\LogRecorder\\LogRecorder',
       3 => 'Spatie\\LaravelIgnition\\Recorders\\QueryRecorder\\QueryRecorder',
-    ),
-  ),
-  'dompdf' => 
-  array (
-    'show_warnings' => false,
-    'public_path' => NULL,
-    'convert_entities' => true,
-    'options' => 
-    array (
-      'font_dir' => 'C:\\ealaga-web\\storage\\fonts',
-      'font_cache' => 'C:\\ealaga-web\\storage\\fonts',
-      'temp_dir' => 'C:\\Users\\monta\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\ealaga-web',
-      'allowed_protocols' => 
-      array (
-        'file://' => 
-        array (
-          'rules' => 
-          array (
-          ),
-        ),
-        'http://' => 
-        array (
-          'rules' => 
-          array (
-          ),
-        ),
-        'https://' => 
-        array (
-          'rules' => 
-          array (
-          ),
-        ),
-      ),
-      'log_output_file' => NULL,
-      'enable_font_subsetting' => false,
-      'pdf_backend' => 'CPDF',
-      'default_media_type' => 'screen',
-      'default_paper_size' => 'a4',
-      'default_paper_orientation' => 'portrait',
-      'default_font' => 'serif',
-      'dpi' => 96,
-      'enable_php' => false,
-      'enable_javascript' => true,
-      'enable_remote' => true,
-      'font_height_ratio' => 1.1,
-      'enable_html5_parser' => true,
     ),
   ),
   'tinker' => 
