@@ -16,9 +16,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('command:update_age')->everyMinute(); // Adjust the schedule as needed
-        // $schedule->command('command:update_age')->dailyAt('00:00');
-
+        $schedule->command('command:update_age')->dailyAt('00:00');
+        $schedule->command('command:reminderScheduleToday')->dailyAt('00:00');
+        $schedule->command('command:reminderScheduleTomorrow')->dailyAt('17:00');
+        $schedule->command('command:reminderVolunteerToday')->dailyAt('00:00');
+        $schedule->command('command:reminderVolunteerTomorrow')->dailyAt('17:00');
+        $schedule->command('command:updateSchedule')->dailyAt('17:00');
     }
 
     /**
