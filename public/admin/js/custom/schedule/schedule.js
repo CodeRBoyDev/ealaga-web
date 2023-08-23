@@ -458,7 +458,6 @@ $(document).ready(function () {
     $("#reset_date_time").on("click", function (e) {
       e.preventDefault();
 
-      console.log("yooo");
       $("#time_input").val(null).trigger('change.select2');
       $("#time_input").prop("disabled", true);
       $("#date_input").val('');

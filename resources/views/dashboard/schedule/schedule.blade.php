@@ -275,21 +275,21 @@
                            data-bs-dismiss="modal">
                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                            <span class="svg-icon svg-icon-1">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                   height="24" viewBox="0 0 24 24"
-                                   fill="none">
-                                   <rect opacity="0.5" x="6"
-                                       y="17.3137" width="16" height="2"
-                                       rx="1"
-                                       transform="rotate(-45 6 17.3137)"
-                                       fill="black" />
-                                   <rect x="7.41422" y="6"
-                                       width="16" height="2" rx="1"
-                                       transform="rotate(45 7.41422 6)"
-                                       fill="black" />
-                               </svg>
-                           </span>
-                           <!--end::Svg Icon-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6"
+                                    y="17.3137" width="16" height="2"
+                                    rx="1"
+                                    transform="rotate(-45 6 17.3137)"
+                                    style="fill:black" />
+                                <rect x="7.41422" y="6"
+                                    width="16" height="2" rx="1"
+                                    transform="rotate(45 7.41422 6)"
+                                    style="fill:black" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
                        </div>
                        <!--end::Close-->
                    </div>
@@ -341,11 +341,9 @@
                                             <!--begin::Header-->
                                             <div class="px-7 py-5">
                                                 <div id="title_search"
-                                                    class="fs-5 text-dark fw-bold">
-                                                    Search Result</div>
+                                                    class="fs-5 text-dark fw-bold">Search Result</div>
                                             </div>
-
-
+                                            
                                             <!--end::Header-->
                                             <!--begin::Separator-->
                                             <div class="separator border-gray-200"></div>
@@ -391,99 +389,99 @@
                             
                             <div id="schedule_content">
 
-                             <!--begin::Col-->
-                             <div class="fv-row mb-7">
-                                <label class="required fs-6 fw-semibold mb-2">Services?</label>
-                                <label class="fs-8 fw-semibold mb-2">(You can select a multiple services)</label>
-                                <select class="form-select form-select-solid "
-                                    data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a Services" id="services"
-                                    name="services[]" data-required="true" multiple>
-
-                                    @foreach ($services as $service)
-                                        <option value="{{ $service->id }}">
-                                            {{ $service->title }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <!--end::Col-->
-
-                            <div class="row fv-row">
                                 <!--begin::Col-->
+                                <div class="fv-row mb-7">
+                                    <label class="required fs-6 fw-semibold mb-2">Services?</label>
+                                    <label class="fs-8 fw-semibold mb-2">(You can select a multiple services)</label>
+                                    <select class="form-select form-select-solid "
+                                        data-control="select2" data-hide-search="true"
+                                        data-placeholder="Select a Services" id="services"
+                                        name="services[]" data-required="true" multiple>
 
-                                <div class="card-title">
-                                    <!--begin::User-->
-                                    <div class="d-flex justify-content-center flex-column me-3">
-                                    <!--begin::Info-->
-                                        <div class="mb-0 lh-1">
-                                            <span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
-                                            <span class="fs-7 fw-bold text-muted me-1">Selected</span>
-                                            <span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
-                                            <span class="fs-7 fw-bold text-muted me-1">No Slot</span>
-                                        </div>
-                                        <!--end::Info-->
-                                    </div>
-                                    <!--end::User-->
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="required fs-6 fw-bold form-label mb-2">Date</label>
-                                    <!--begin::Input-->
-                                    <div class="position-relative d-flex align-items-center">
-                                        <!--begin::Icon-->
-                                    
-                                        <!--end::Icon-->
-                                        <!--begin::Datepicker-->
-                                        <input class="form-control form-control-solid"
-                                            id="date_input" placeholder="Select a date"
-                                            name="date_input" />
-                                        <!--end::Datepicker-->
-                                    </div>
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-md-6">
-                                    <label class="required fs-6 fw-bold form-label mb-2">Available Time</label>
-                                    <select id="time_input" name="time_input" class="form-select form-select-solid" data-control="select2"c data-hide-search="true" data-placeholder="Time">
-                                        <option></option>
-                                        <option value="0">AM</option>
-                                        <option value="1">PM</option>
+                                        @foreach ($services as $service)
+                                            <option value="{{ $service->id }}">
+                                                {{ $service->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
-                            
                                 <!--end::Col-->
-                            </div>
-                            <a href="#" id="reset_date_time" class="fs-7 fw-bold text-danger form-label mb-2">reset</a>
-                            <!--end::Row-->
 
-                            <div class="d-flex flex-stack">
-                                <!--begin::Label-->
-                                <div class="me-5">
-                                    <label id="date_time_display" class="fs-5 fw-bold text-muted">Date & Time: Please select date & time</label>
-                                    <div id="available_slot_display" class="fs-3 fw-bold form-label">
+                                <div class="row fv-row">
+                                    <!--begin::Col-->
+
+                                    <div class="card-title">
+                                        <!--begin::User-->
+                                        <div class="d-flex justify-content-center flex-column me-3">
+                                        <!--begin::Info-->
+                                            <div class="mb-0 lh-1">
+                                                <span class="badge badge-circle w-10px h-10px" style="background-color: rgba(26, 71, 152, 0.7);"></span>
+                                                <span class="fs-7 fw-bold text-muted me-1">Selected</span>
+                                                <span class="badge badge-circle w-10px h-10px" style="background-color: #c7c7c7;"></span>
+                                                <span class="fs-7 fw-bold text-muted me-1">No Slot</span>
+                                            </div>
+                                            <!--end::Info-->
+                                        </div>
+                                        <!--end::User-->
                                     </div>
 
-                                    <div class="fv-row mb-7" id="slot_loader">
-                                        <span
-                                            class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    <div class="col-md-6">
+                                        <label class="required fs-6 fw-bold form-label mb-2">Date</label>
+                                        <!--begin::Input-->
+                                        <div class="position-relative d-flex align-items-center">
+                                            <!--begin::Icon-->
+                                        
+                                            <!--end::Icon-->
+                                            <!--begin::Datepicker-->
+                                            <input class="form-control form-control-solid"
+                                                id="date_input" placeholder="Select a date"
+                                                name="date_input" />
+                                            <!--end::Datepicker-->
+                                        </div>
                                     </div>
-
-                                </div>
-                                <!--end::Label-->
+                                    <!--end::Col-->
+                                    <!--begin::Col-->
+                                    <div class="col-md-6">
+                                        <label class="required fs-6 fw-bold form-label mb-2">Available Time</label>
+                                        <select id="time_input" name="time_input" class="form-select form-select-solid" data-control="select2"c data-hide-search="true" data-placeholder="Time">
+                                            <option></option>
+                                            <option value="0">AM</option>
+                                            <option value="1">PM</option>
+                                        </select>
+                                    </div>
                                 
-                            </div>
+                                    <!--end::Col-->
+                                </div>
+                                <a href="#" id="reset_date_time" class="fs-7 fw-bold text-danger form-label mb-2">reset</a>
+                                <!--end::Row-->
 
-                            <div class="text-center pt-15">
-                                <button type="reset" class="btn btn-light me-3"
-                                data-bs-dismiss="modal">Discard</button>
-                                <button type="submit" class="btn btn-primary"
-                                    data-kt-users-modal-action="submit">
-                                    <span class="indicator-label">Submit</span>
-                                    <span class="indicator-progress">Please wait...
-                                        <span
-                                            class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                </button>
-                            </div>
+                                <div class="d-flex flex-stack">
+                                    <!--begin::Label-->
+                                    <div class="me-5">
+                                        <label id="date_time_display" class="fs-5 fw-bold text-muted">Date & Time: Please select date & time</label>
+                                        <div id="available_slot_display" class="fs-3 fw-bold form-label">
+                                        </div>
+
+                                        <div class="fv-row mb-7" id="slot_loader">
+                                            <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </div>
+
+                                    </div>
+                                    <!--end::Label-->
+                                    
+                                </div>
+
+                                <div class="text-center pt-15">
+                                    <button type="reset" class="btn btn-light me-3"
+                                    data-bs-dismiss="modal">Discard</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        data-kt-users-modal-action="submit">
+                                        <span class="indicator-label">Submit</span>
+                                        <span class="indicator-progress">Please wait...
+                                            <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                    </button>
+                                </div>
                             
 
                              </div>

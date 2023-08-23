@@ -41,9 +41,10 @@
     --bs-body-color-rgb: 24, 28, 50;
     --bs-body-bg-rgb: 255, 255, 255;
     --bs-font-sans-serif: Poppins, Helvetica, "sans-serif";
+    --bs-font-futura-serif: 'Futura', sans-serif;
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-family: var(--bs-font-futura-serif);
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
@@ -5759,7 +5760,7 @@ fieldset:disabled .btn {
     background-clip: border-box;
     border: 3px solid #eff2f5;
     border-radius: .95rem;
-    box-shadow: 0 15px 0 #ED1C24 !important;
+    box-shadow: 0 10px 0 #ED1C24 !important;
 }
 
 
@@ -7209,7 +7210,7 @@ fieldset:disabled .btn {
     z-index: 1080;
     display: block;
     margin: 0;
-    font-family: var(--bs-font-sans-serif);
+    font-family: var(--bs-font-futura-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -7334,7 +7335,7 @@ fieldset:disabled .btn {
     z-index: 1070;
     display: block;
     max-width: 276px;
-    font-family: var(--bs-font-sans-serif);
+    font-family: var(--bs-font-futura-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -54576,7 +54577,7 @@ html {
     padding: 0;
     font-size: 13px !important;
     font-weight: 400;
-    font-family: Poppins, Helvetica, sans-serif;
+    font-family: var(--bs-font-futura-serif);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
@@ -55331,6 +55332,10 @@ body {
 
     .text-green-600 {
         color: var(--bs-green) !important
+    }
+
+    .text-red-600 {
+        color: var(--bs-red) !important
     }
 
     .nav-line-tabs .nav-item .nav-link.active,

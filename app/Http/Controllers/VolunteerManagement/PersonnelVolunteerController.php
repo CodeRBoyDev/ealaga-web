@@ -48,15 +48,6 @@ class PersonnelVolunteerController extends Controller
                 'time' => (new DateTime($request->time))->format('H:i:s')
             ]);
 
-            $request->validate([
-                'title' => 'required|string|max:45',
-                'description' => 'required|string|max:255', 
-                'date' => 'required|date_format:Y-m-d',
-                'time' => 'required|date_format:H:i:s',
-                'skill' => 'nullable|string|max:45',
-                'vacant' => 'required|integer',
-            ]);
-
             $volunteerData = [
                 'personnel_id' => $personnel_id,
                 'title' => $request->input('title'),
@@ -67,9 +58,8 @@ class PersonnelVolunteerController extends Controller
                 'num_volunteers_needed' => $request->input('vacant'),
                 'created_at' => $this->getCurrentDateAsiaManila(),
             ];
-
-            // Save the user to the database using DB::table('users')->insert()
-            $userId = DB::table('volunteer')->insert($volunteerData);
+            
+            DB::table('volunteer')->insert($volunteerData);
             return response()->json(['success' => true, 'message' => 'Volunteer added successfully']);
 
         } catch (\Throwable $th) {
@@ -86,15 +76,6 @@ class PersonnelVolunteerController extends Controller
             // Validate the incoming request data
             $request->merge([
                 'time' => (new DateTime($request->time))->format('H:i:s')
-            ]);
-
-            $request->validate([
-                'title' => 'required|string|max:45',
-                'description' => 'required|string|max:255', 
-                'date' => 'required|date_format:Y-m-d',
-                'time' => 'required|date_format:H:i:s',
-                'skill' => 'required|string|max:45',
-                'vacant' => 'required|integer',
             ]);
             
             $volunteerID = $request->input('volunteerId');

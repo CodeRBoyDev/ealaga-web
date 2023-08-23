@@ -136,11 +136,11 @@ Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('Ser
     // Application Management
     Route::get('/application-management/application/list', [ApplicationController::class, 'index'])->name('applicationList');
     Route::get('/application-list', [ApplicationController::class, 'getApplication'])->name('getApplication');
-    // Route::post('/application-management/application/add', [ApplicationController::class, 'addVolunteer'])->name('addVolunteer');
     Route::post('/application-management/application/approve', [ApplicationController::class, 'approveApplication'])->name('approveApplication');
     Route::post('/application-management/application/deny', [ApplicationController::class, 'denyApplication'])->name('denyApplication');
-    // Route::post('/application-management/application/delete', [ApplicationController::class, 'deleteApplication'])->name('deleteApplication');
-
+    Route::post('/application-management/application/attended', [ApplicationController::class, 'checkInApplication'])->name('checkInApplication');
+    Route::post('/application-management/application/search', [ApplicationController::class, 'searchUser'])->name('searchUser');
+    Route::post('/application-management/application/add', [ApplicationController::class, 'addApplication'])->name('addApplication');
 });
 Route::middleware(['access_level:0,1,2'])->group(function () {
 // Profile Page

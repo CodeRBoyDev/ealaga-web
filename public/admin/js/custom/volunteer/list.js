@@ -197,6 +197,68 @@ $(document).ready(function () {
         });
     };
 
+    var submit_add_volunteer_form = FormValidation.formValidation(
+        document.getElementById("kt_modal_add_volunteer_form"),
+        {
+            fields: {
+                title: {
+                    validators: {
+                        notEmpty: {
+                            message: "Title field required.",
+                        },
+                    },
+                },
+                description: {
+                    validators: {
+                        notEmpty: {
+                            message: "Description field required.",
+                        },
+                    },
+                },
+                date: {
+                    validators: {
+                        notEmpty: {
+                            message: "Date field required.",
+                        },
+                    },
+                },
+                time: {
+                    validators: {
+                        notEmpty: {
+                            message: "Time field required.",
+                        },
+                    },
+                },
+                skill: {
+                    validators: {
+                        regexp: {
+                            regexp: /^[a-zA-Z\s]*$/,
+                            message: "Vacant must be a character.",
+                        },
+                    },
+                },
+                vacant: {
+                    validators: {
+                        notEmpty: {
+                            message: "Vacant field required.",
+                        },
+                        integer: {
+                            message: "Vacant must be an integer.",
+                        },
+                    },
+                },
+            },
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: ".fv-row",
+                    eleInvalidClass: "",
+                    eleValidClass: "",
+                }),
+            },
+        }
+    );
+
     const addVolunteer = () => {
         let t;
         t = document.querySelector("#kt_modal_add_volunteer_form");
@@ -205,56 +267,74 @@ $(document).ready(function () {
         );
         submitButton.addEventListener("click", function (event) {
             event.preventDefault();
-            Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
-                showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                },
-            });
-            // Alternatively, you can submit the form here using AJAX if needed
-            var formData = new FormData(t);
-            $.ajax({
-                url: `/volunteer-management/volunteer/add`,
-                type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response.success) {
-                        // Close the modal first
-                        reloadTableData();
-                        t.reset();
-                        $("#kt_modal_add_volunteer").modal("hide");
-                        Swal.fire({
-                            text: "Volunteer Created successfully!",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            },
-                        });
-                    } else {
-                        Swal.fire({
-                            text: response.message,
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            },
-                        });
-                    }
-                },
-                error: function (error) {
-                    // Handle the error response here
-                    console.error(error);
-                    Swal.close();
-                },
+
+            submit_add_volunteer_form.validate().then(function (status) {
+                if (status === "Valid") {
+
+                    Swal.fire({
+                        title: "Loading...",
+                        html: "Please wait while we process your request",
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        showCancelButton: false,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                    });
+                    // Alternatively, you can submit the form here using AJAX if needed
+                    var formData = new FormData(t);
+                    $.ajax({
+                        url: `/volunteer-management/volunteer/add`,
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response.success) {
+                                // Close the modal first
+                                reloadTableData();
+                                t.reset();
+                                $("#kt_modal_add_volunteer").modal("hide");
+                                Swal.fire({
+                                    text: "Volunteer Created successfully!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    },
+                                });
+                            } else {
+                                Swal.fire({
+                                    text: response.message,
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    },
+                                });
+                            }
+                        },
+                        error: function (error) {
+                            // Handle the error response here
+                            console.error(error);
+                            Swal.close();
+                        },
+                    });
+                } else {
+                // if form is invalid, display an error message
+                Swal.close();
+                Swal.fire({
+                    text: "Please fill in all required fields.",
+                    icon: "error",
+                    buttonsStyling: !1,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                        },
+                    });
+                }
             });
         });
     };
@@ -308,6 +388,68 @@ $(document).ready(function () {
         $("#kt_modal_edit_volunteer").modal("show");
     };
 
+    var submit_edit_volunteer_form = FormValidation.formValidation(
+        document.getElementById("kt_modal_edit_volunteer_form"),
+        {
+            fields: {
+                title: {
+                    validators: {
+                        notEmpty: {
+                            message: "Title field required.",
+                        },
+                    },
+                },
+                description: {
+                    validators: {
+                        notEmpty: {
+                            message: "Description field required.",
+                        },
+                    },
+                },
+                date: {
+                    validators: {
+                        notEmpty: {
+                            message: "Date field required.",
+                        },
+                    },
+                },
+                time: {
+                    validators: {
+                        notEmpty: {
+                            message: "Time field required.",
+                        },
+                    },
+                },
+                skill: {
+                    validators: {
+                        regexp: {
+                            regexp: /^[a-zA-Z\s]*$/,
+                            message: "Vacant must be a character.",
+                        },
+                    },
+                },
+                vacant: {
+                    validators: {
+                        notEmpty: {
+                            message: "Vacant field required.",
+                        },
+                        integer: {
+                            message: "Vacant must be an integer.",
+                        },
+                    },
+                },
+            },
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: ".fv-row",
+                    eleInvalidClass: "",
+                    eleValidClass: "",
+                }),
+            },
+        }
+    );
+
     const updateVolunteer = () => {
         let t;
         t = document.querySelector("#kt_modal_edit_volunteer_form");
@@ -316,58 +458,74 @@ $(document).ready(function () {
         );
         submitButton.addEventListener("click", function (event) {
             event.preventDefault();
-            Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
-                showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                },
-            });
 
-            // Alternatively, you can submit the form here using AJAX if needed
-            var formData = new FormData(t);
-            formData.append("volunteerId", volunteerID); // Append the volunteerID to the FormData
-            $.ajax({
-                url: `/volunteer-management/volunteer/update`,
-                type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response.success) {
-                        // Close the modal first
-                        reloadTableData();
-                        t.reset();
-                        $("#kt_modal_edit_volunteer").modal("hide");
-                        Swal.fire({
-                            text: "Volunteer Updated successfully!",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            },
-                        });
-                    } else {
-                        Swal.fire({
-                            text: response.message,
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            },
-                        });
-                    }
-                },
-                error: function (error) {
-                    // Handle the error response here
-                    console.error(error);
-                    Swal.close();
-                },
+            submit_edit_volunteer_form.validate().then(function (status) {
+                if (status === "Valid") {
+                    Swal.fire({
+                        title: "Loading...",
+                        html: "Please wait while we process your request",
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        showCancelButton: false,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                    });
+                    // Alternatively, you can submit the form here using AJAX if needed
+                    var formData = new FormData(t);
+                    formData.append("volunteerId", volunteerID); // Append the volunteerID to the FormData
+                    $.ajax({
+                        url: `/volunteer-management/volunteer/update`,
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response.success) {
+                                // Close the modal first
+                                reloadTableData();
+                                t.reset();
+                                $("#kt_modal_edit_volunteer").modal("hide");
+                                Swal.fire({
+                                    text: "Volunteer Updated successfully!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    },
+                                });
+                            } else {
+                                Swal.fire({
+                                    text: response.message,
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary",
+                                    },
+                                });
+                            }
+                        },
+                        error: function (error) {
+                            // Handle the error response here
+                            console.error(error);
+                            Swal.close();
+                        },
+                    });
+                } else {
+                // if form is invalid, display an error message
+                Swal.close();
+                Swal.fire({
+                    text: "Please fill in all required fields.",
+                    icon: "error",
+                    buttonsStyling: !1,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                        },
+                    });
+                }
             });
         });
     };
