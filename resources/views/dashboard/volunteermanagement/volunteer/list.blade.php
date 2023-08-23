@@ -78,7 +78,7 @@
                                                                 height="2" rx="1" fill="black" />
                                                         </svg>
                                                     </span>
-                                                    <!--end::Svg Icon-->Add Opportunity
+                                                    <!--end::Svg Icon-->Add Volunteer Opportunity
                                                 </button>
                                                 <!--end::Add Volunteer-->
                                             </div>
@@ -232,6 +232,8 @@
                                                                                                 <option value="6">6</option>
                                                                                                 <option value="7">7</option>
                                                                                                 <option value="8">8</option>
+                                                                                                <option value="9">9</option>
+                                                                                                <option value="10">10</option>
                                                                                             </select>
                                                                                             <div class="validation-message"></div>
                                                                                         </div>
@@ -246,7 +248,7 @@
                                                                 <!--begin::Actions-->
                                                                 <div class="text-center pt-15">
                                                                     <button type="reset" class="btn btn-light me-3"
-                                                                        data-kt-volunteer-modal-action="cancel">Discard</button>
+                                                                        data-bs-dismiss="modal">Discard</button>
                                                                     <button type="submit" class="btn btn-primary"
                                                                         data-kt-volunteer-modal-action="submit">
                                                                         <span class="indicator-label">Submit</span>
@@ -405,6 +407,8 @@
                                                                                                 <option value="6">6</option>
                                                                                                 <option value="7">7</option>
                                                                                                 <option value="8">8</option>
+                                                                                                <option value="9">9</option>
+                                                                                                <option value="10">10</option>
                                                                                             </select>
                                                                                             <div class="validation-message"></div>
                                                                                         </div>
@@ -417,7 +421,7 @@
                                                                 </div>
                                                                 <div class="text-center pt-15">
                                                                     <button type="reset" class="btn btn-light me-3"
-                                                                        data-kt-edit-volunteer-modal-action="cancel">Discard</button>
+                                                                        data-bs-dismiss="modal">Discard</button>
                                                                     <button type="submit" class="btn btn-primary"
                                                                         data-kt-edit-volunteer-modal-action="submit">
                                                                         <span class="indicator-label">Save Changes</span>

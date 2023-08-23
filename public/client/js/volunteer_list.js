@@ -5,6 +5,9 @@ $(document).ready(function () {
         },
     });
 
+    $("#application_div").hide();
+    $("#history_div").hide();
+
     $("#application_row_div").hide();
     $("#history_row_div").hide();
   
@@ -60,9 +63,9 @@ $(document).ready(function () {
         </ul>
       `;
 
-      $("#pagination_card_div").html(paginationHTML);
+      $("#volunteer_pagination_div").html(paginationHTML);
 
-      $("pagination_card_div .page-item").on("click", function () {
+      $("volunteer_pagination_div .page-item").on("click", function () {
         if ($(this).hasClass("previous") && currentPage > 1) {
           currentPage--;
         } else if ($(this).hasClass("next") && currentPage < totalPages) {
@@ -74,14 +77,16 @@ $(document).ready(function () {
           }
         }
 
-        loadVolunteerList();
+        // loadVolunteerList();
       });
       //end
+    }
 
+    function updatePaginationTwo() {
       // application pagination
       const totalApplicationPages = Math.ceil(totalApplicationEntries / applicationEntriesPerPage);
       let applicationPaginationHTML = `
-      <div class="fs-6 fw-bold text-gray-700">Showing ${(currentApplicationPage - 1) * entriesPerPage + 1} to ${
+      <div class="fs-6 fw-bold text-gray-700">Showing ${(currentApplicationPage - 1) * applicationEntriesPerPage + 1} to ${
       Math.min(currentApplicationPage * applicationEntriesPerPage, totalApplicationEntries)
       } of ${totalApplicationEntries} entries</div>
         <ul class="pagination">
@@ -126,56 +131,58 @@ $(document).ready(function () {
         loadVolunteerList();
       });
       // end
+    }
 
+    function updatePaginationThree() {
       // HIstory pagination
 
-        const totalHistoryPages = Math.ceil(totalHistoryEntries / historyEntriesPerPage);
-        let historyPaginationHTML = `
-        <div class="fs-6 fw-bold text-gray-700">Showing ${(currentHistoryPage - 1) * historyEntriesPerPage + 1} to ${
-        Math.min(currentHistoryPage * historyEntriesPerPage, totalHistoryEntries)
-        } of ${totalHistoryEntries} entries</div>
-          <ul class="pagination">
-        <li class="page-item previous ${currentHistoryPage === 1 ? 'disabled' : ''}">
-              <a href="#" class="page-link">
-                <i class="previous"></i>
-              </a>
-            </li>
-        `;
-  
-        for (let i = 1; i <= totalHistoryPages; i++) {
-          historyPaginationHTML += `
-            <li class="page-item ${i === currentHistoryPage ? 'active' : ''}">
-              <a href="#" class="page-link">${i}</a>
-            </li>
-          `;
-        }
-  
+      const totalHistoryPages = Math.ceil(totalHistoryEntries / historyEntriesPerPage);
+      let historyPaginationHTML = `
+      <div class="fs-6 fw-bold text-gray-700">Showing ${(currentHistoryPage - 1) * historyEntriesPerPage + 1} to ${
+      Math.min(currentHistoryPage * historyEntriesPerPage, totalHistoryEntries)
+      } of ${totalHistoryEntries} entries</div>
+        <ul class="pagination">
+      <li class="page-item previous ${currentHistoryPage === 1 ? 'disabled' : ''}">
+            <a href="#" class="page-link">
+              <i class="previous"></i>
+            </a>
+          </li>
+      `;
+
+      for (let i = 1; i <= totalHistoryPages; i++) {
         historyPaginationHTML += `
-        <li class="page-item next ${currentHistoryPage === totalHistoryPages ? 'disabled' : ''}">
-        <a href="#" class="page-link">
-          <i class="next"></i>
-        </a>
-      </li>
-          </ul>
+          <li class="page-item ${i === currentHistoryPage ? 'active' : ''}">
+            <a href="#" class="page-link">${i}</a>
+          </li>
         `;
-        
-        $("#history_pagination_div").html(historyPaginationHTML);
-  
-        $("history_pagination_div .page-item").on("click", function () {
-          if ($(this).hasClass("previous") && currentHistoryPage > 1) {
-            currentHistoryPage--;
-          } else if ($(this).hasClass("next") && currentHistoryPage < totalHistoryPages) {
-            currentHistoryPage++;
-          } else if (!$(this).hasClass("previous") && !$(this).hasClass("next")) {
-            const clickedPage = parseInt($(this).text());
-            if (!isNaN(clickedPage)) {
-              currentHistoryPage = clickedPage;
-            }
+      }
+
+      historyPaginationHTML += `
+      <li class="page-item next ${currentHistoryPage === totalHistoryPages ? 'disabled' : ''}">
+      <a href="#" class="page-link">
+        <i class="next"></i>
+      </a>
+    </li>
+        </ul>
+      `;
+      
+      $("#history_pagination_div").html(historyPaginationHTML);
+
+      $("history_pagination_div .page-item").on("click", function () {
+        if ($(this).hasClass("previous") && currentHistoryPage > 1) {
+          currentHistoryPage--;
+        } else if ($(this).hasClass("next") && currentHistoryPage < totalHistoryPages) {
+          currentHistoryPage++;
+        } else if (!$(this).hasClass("previous") && !$(this).hasClass("next")) {
+          const clickedPage = parseInt($(this).text());
+          if (!isNaN(clickedPage)) {
+            currentHistoryPage = clickedPage;
           }
-  
-          loadVolunteerList();
-        });
-        //end
+        }
+
+        loadVolunteerList();
+      });
+      //end
     }
 
     function formatDate(inputDate) {
@@ -213,8 +220,6 @@ $(document).ready(function () {
                 totalApplicationEntries = data.application?.length;
                 totalHistoryEntries = data.history?.length;
 
-                console.log(totalEntries);
-
                 data.volunteer.forEach(function (volunteer) {
                     // Generate HTML for each volunteer
                     firstCardData +=
@@ -232,7 +237,9 @@ $(document).ready(function () {
 
                 data.application.forEach(function (application) {
                   let statusClass = application.status === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Pending</div></span>'
-                  : '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Approved</div></span>'
+                 : application.status === 1 ? '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Approved</div></span>'
+                 : application.status === 2 ? '<span class="vol-card-details">Status:<div class="inline-div text-red-600">Denied</div></span>'
+                 : '';
                   let cancelButton = application.status === 0 ? `<button id="cancel_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-cancel_modal_view="${application.id}">Cancel</button>` : '';
                   let dateClass = application.status === 0
                   ? `<span class="vol-card-details">Application date:<div class="inline-div text-gray-600">${formatDate(application.created_at)} | ${formatTime(application.created_at)}</div></span>`
@@ -252,7 +259,7 @@ $(document).ready(function () {
               });
 
                 data.history.forEach(function (history) {
-                  let isAttendedStatus = history.isAttended === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Not attended</div></span>'
+                  let isAttendedStatus = history.is_attended === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Not attended</div></span>'
                   : '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Attended</div></span>'
 
                   thirdCardData +=
@@ -273,6 +280,8 @@ $(document).ready(function () {
                 $("#history_row_div").html(thirdCardData);
 
                 updatePagination();
+                updatePaginationTwo();
+                updatePaginationThree();
             },
             error: function (xhr, status, error) {
                 console.error("AJAX Request Error:", error);
@@ -288,11 +297,11 @@ $(document).ready(function () {
         console.log(id);
         
         Swal.fire({
-            text: "Are you sure you would like to submit?",
+            text: "Are you sure you would like to volunteer?",
             icon: "warning",
             showCancelButton: true,
             buttonsStyling: false,
-            confirmButtonText: "For sure",
+            confirmButtonText: "Yes, I'm sure",
             cancelButtonText: "No, return",
             customClass: {
                 confirmButton: "btn btn-primary",
@@ -412,22 +421,34 @@ $(document).ready(function () {
       $("#volunteer_row_div").show();
       $("#application_row_div").hide();
       $("#history_row_div").hide();
+
+      $("#volunteer_div").show();
+      $("#application_div").hide();
+      $("#history_div").hide();
     });
 
     $(document).on("click", "#application_view", function (event) {
       event.preventDefault();
       
-      $("#application_row_div").show();
       $("#volunteer_row_div").hide();
+      $("#application_row_div").show();
       $("#history_row_div").hide();
+
+      $("#volunteer_div").hide();
+      $("#application_div").show();
+      $("#history_div").hide();
     });
 
     $(document).on("click", "#history_view", function (event) {
       event.preventDefault();
       
-      $("#history_row_div").show();
       $("#volunteer_row_div").hide();
       $("#application_row_div").hide();
+      $("#history_row_div").show();
+
+      $("#volunteer_div").hide();
+      $("#application_div").hide();
+      $("#history_div").show();
     });
     
     $("#back_homepage").click(function (event) {

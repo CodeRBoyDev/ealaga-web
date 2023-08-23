@@ -15,13 +15,20 @@ class ApplicationController extends Controller
         $currentDate = Carbon::now('Asia/Manila');
         return $currentDate;
     }
+
     public function index()
     {
         try {
-            return view('dashboard.volunteermanagement.application.list');
-        } catch (\Throwable $th) {
-            dd($th->getmessage());
-        }
+
+        $volunteers = DB::table('volunteer')
+        ->where('num_volunteers_needed', '>', 0)
+        ->get();
+        
+        return view('dashboard.volunteermanagement.application.list', compact('volunteers'));
+
+        } catch (\Exception $e) {
+        return "Unable to connect to the database: " . $e->getMessage();
+    }
     }
 
     public function getApplication()
@@ -58,6 +65,15 @@ class ApplicationController extends Controller
             ];
             DB::table('params_volunteer_application')->where('id', $applicationID)->update($applicationDataToUpdate);
 
+            // Now, update the num_volunteers_needed in the volunteer table
+            $volunteerID = $applicationData->volunteer_id;
+            $volunteerData = DB::table('volunteer')->where('id', $volunteerID)->first();
+            
+            if ($volunteerData) {
+                $newNumVolunteersNeeded = max(0, $volunteerData->num_volunteers_needed - 1);
+                DB::table('volunteer')->where('id', $volunteerID)->update(['num_volunteers_needed' => $newNumVolunteersNeeded]);
+            }
+
             // Return response
             return response()->json(['success' => true, 'message' => 'Application updated successfully']);
             
@@ -93,5 +109,89 @@ class ApplicationController extends Controller
             // Return an error response
             return response()->json(['success' => false, 'message' => $th->getMessage()]);
         }
+    }
+
+    public function checkInApplication(Request $request)
+    {
+        try {
+            $applicationID = $request->input('applicationID');
+            $attended = 1;
+
+            $applicationData = DB::table('params_volunteer_application')->where('id', $applicationID)->first();
+
+            if (!$applicationData) {
+                // Return a not found response or redirect to an error page
+                return response()->json(['success' => false, 'message' => 'Application not found']);
+            }
+
+            // Update the application data based on the changes from the request
+            $applicationDataToUpdate = [
+                'is_attended' => $attended,
+            ];
+            DB::table('params_volunteer_application')->where('id', $applicationID)->update($applicationDataToUpdate);
+
+            // Return response
+            return response()->json(['success' => true, 'message' => 'Client attended']);
+            
+        } catch (\Throwable $th) {
+            // Return an error response
+            return response()->json(['success' => false, 'message' => $th->getMessage()]);
+        }
+    }
+
+    public function searchUser(Request $request)
+    {
+        //
+        try {
+            $full_name = $request->input('full_name');
+            
+            $list_filter_user = DB::table('users')
+            ->whereRaw("CONCAT(firstname, ' ', lastname) LIKE '%$full_name%'")
+            ->where('role', 2)
+            ->select(
+                            'users.id',
+                            'users.firstname',
+                            'users.lastname',
+                            'users.barangay',
+                            'users.img_path',
+                        )
+                        ->get();
+
+            return response()->json($list_filter_user);
+            
+
+       } catch (\Exception $e) {
+           return "Unable to connect to the database: " . $e->getMessage();
+       }
+    }
+
+    public function addApplication(Request $request)
+    {
+
+        try {
+            $status = 0;
+
+            $request->validate([
+                'user_id' => 'required',
+                'volunteer_id' => 'required',
+            ]);
+
+            $applicationData = [
+                'user_id' => $request->input('user_id'),
+                'volunteer_id' => $request->input('volunteer_id'),
+                'status' => $status,
+                'created_at' => $this->getCurrentDateAsiaManila(),
+            ];
+
+            // Save the user to the database using DB::table('users')->insert()
+            DB::table('params_volunteer_application')->insert($applicationData);
+            return response()->json(['success' => true, 'message' => 'Application added successfully']);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json(['success' => false, 'message' => $th->getmessage()]);
+
+        }
+
     }
 }
