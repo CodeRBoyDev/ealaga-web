@@ -297,7 +297,7 @@ $(document).ready(function () {
                     },
                     error: function (xhr, status, error) {
                         Swal.close();
-                        console.log(error);
+                        //console.log(error);
                     },
                 });
             } else {
@@ -324,7 +324,7 @@ $(document).ready(function () {
             event.preventDefault();
 
             holidayId = event.target.dataset.holidayId;
-            // console.log(holidayId)
+            // //console.log(holidayId)
 
             $.ajax({
                 url: `/holiday/single/${holidayId}`,
@@ -446,7 +446,7 @@ $(document).ready(function () {
                 },
                 error: function (xhr, status, error) {
                     // Handle error case
-                    console.log(error);
+                    //console.log(error);
                 }
             });
 
@@ -458,7 +458,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var holidayEditId = this.dataset.holidayEditId;
-        console.log(holidayEditId);
+        //console.log(holidayEditId);
         // Get the form element
         var form = document.getElementById(`submit_edit_holiday`);
 
@@ -501,7 +501,7 @@ $(document).ready(function () {
 
               },
             success: function(response) {
-                console.log(response);
+                //console.log(response);
                 Swal.close();
                 // Clear the form fields
                 $("#edit_holiday_type").val(null).trigger('change.select2');
@@ -528,7 +528,7 @@ $(document).ready(function () {
             },
             error: function(xhr, status, error) {
                 // Handle the error case
-                console.log(xhr, status, error);
+                //console.log(xhr, status, error);
             }
         });
     });
@@ -577,7 +577,7 @@ $(document).ready(function () {
                   });
                 },
                 error: function (xhr, status, error) {
-                  console.log(error);
+                  //console.log(error);
                 },
               });
             }

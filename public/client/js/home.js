@@ -32,7 +32,7 @@
             });
         },
         success: function (data) {
-        console.log(data);
+        // console.log(data);
 
         if(data.user?.status === null) {
 
