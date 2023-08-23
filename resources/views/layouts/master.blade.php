@@ -90,9 +90,7 @@
     @endif
     <!-- Your other content goes here -->
 
-    <div id="sample">
-        @include('botman.chatbox');
-    </div>
+   
     <!--begin::Main-->
     <div>
         @yield('content')
@@ -102,6 +100,11 @@
     <script src="{{ asset('admin/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
     @stack('scripts')
     @stack('adminScripts')
+    
+    <div id="sample">
+        @include('botman.chatbox');
+    </div>
+
 </body>
 <!--end::Body-->
 

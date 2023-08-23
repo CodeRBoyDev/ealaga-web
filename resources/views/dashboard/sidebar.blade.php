@@ -44,9 +44,9 @@
                              </span>
                              <!--end::Description-->
                              <!--begin::Label-->
-                             <div class="d-flex align-items-center text-success fs-9">
+                             {{-- <div class="d-flex align-items-center text-success fs-9">
                                  <span class="bullet bullet-dot bg-success me-1"></span>online
-                             </div>
+                             </div> --}}
                              <!--end::Label-->
                          </div>
                          <!--end::Info-->
