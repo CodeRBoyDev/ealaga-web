@@ -12,12 +12,12 @@ $(document).ready(function () {
     $("#camera_management").change(function () {
         if ($(this).is(":checked")) {
             $(".form-check-label").text("Open");
-            console.log("hi");
+            //console.log("hi");
 
             startCamera();
         } else {
             $(".form-check-label").text("Close");
-            console.log("low");
+            //console.log("low");
 
             stopCamera();
         }
@@ -66,10 +66,10 @@ $(document).ready(function () {
                             success: function (data) {
                                 Swal.close();
 
-                                // console.log(data);
+                                // //console.log(data);
 
                                 if (data.result == "not_found") {
-                                    console.log("not found huhu");
+                                    //console.log("not found huhu");
                                 } else {
                                     if (data.result == "not_today") {
                                         Swal.fire({

@@ -71,7 +71,7 @@ $(document).ready(function () {
         $("#card_row_div").hide();
       },
       success: function (data) {
-        // console.log(data)
+        // //console.log(data)
         $("#loader_div").hide();
         $("#card_row_div").show();
         // Initialize an empty variable to store the generated HTML code
@@ -238,7 +238,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         
-        console.log(data);
+        //console.log(data);
         Swal.close();
         $("#client_schedule_view_modal").modal("show");
         const ticket_schedule_div =
@@ -321,10 +321,10 @@ $(document).ready(function () {
             downloadLink.href = imageData;
             downloadLink.download = 'ticket.jpg';
             downloadLink.click();
-            console.log('SUCCESS');
+            //console.log('SUCCESS');
         });
     } else {
-        console.log("Invalid element: 'ticket-container' not found.");
+        //console.log("Invalid element: 'ticket-container' not found.");
     }
 });
 
@@ -332,7 +332,7 @@ $(document).on("click", "#cancel_schedule", function (event) {
   event.preventDefault();
   var id = $(this).data("cancel_schedule");
 
-  console.log(id);
+  //console.log(id);
 
 
   Swal.fire({
@@ -397,7 +397,7 @@ $(document).on("click", "#cancel_schedule", function (event) {
     
           loadScheduleList();
     
-          // console.log(data)
+          // //console.log(data)
     
         },
       });

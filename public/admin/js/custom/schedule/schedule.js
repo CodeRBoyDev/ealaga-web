@@ -22,11 +22,11 @@ $(document).ready(function () {
       url: "/schedule",
       type: "GET",
       success: function (data) {
-      console.log(data);
+      //console.log(data);
       $("#loading-row").remove();
       var tbody = $("#schedule_table tbody");
         
-      // console.log(filter_start_date);
+      // //console.log(filter_start_date);
       const displayedSchedule = data.schedule?.filter(schedule => {
         const status = schedule.status?.toString() || ""; // Use || instead of ??
         const time = schedule.schedule_time?.toString() || ""; // Use || instead of ??
@@ -158,7 +158,7 @@ $(document).ready(function () {
 
     const full_name = $("#fullname").val();
 
-    console.log(full_name);
+    //console.log(full_name);
 
     $.ajax({
       url: "/schedule/search",
@@ -167,7 +167,7 @@ $(document).ready(function () {
         full_name: full_name,
       },
       success: function (data) {
-        console.log(data);
+        //console.log(data);
        
         $("#indicator_search_loading_result").hide();
         $("#search_result_div").show();
@@ -209,7 +209,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
-        console.log(error);
+        //console.log(error);
       },
     });
 
@@ -295,7 +295,7 @@ $(document).ready(function () {
         $("#indicator_search_loading").show();
       },
       success: function (data) {
-        console.log(data)
+        //console.log(data)
 
         $("#indicator_search_loading").hide();
         $("#schedule_content").show();
@@ -450,7 +450,7 @@ $("#time_input").on("change", function() {
       $("#available_slot_display").text("");
     },
     success: function (data) {
-      console.log(data);
+      //console.log(data);
      
       $("#slot_loader").hide();
 
@@ -494,7 +494,7 @@ $("#reset_fullname").on("click", function (e) {
   $("#reset_date_time").on("click", function (e) {
     e.preventDefault();
 
-    console.log("yooo");
+    //console.log("yooo");
     $("#time_input").val(null).trigger('change.select2');
     $("#time_input").prop("disabled", true);
     $("#date_input").val('');
@@ -547,7 +547,7 @@ $("#reset_fullname").on("click", function (e) {
   $("#modal_add_schedule_form").submit(function (event) {
     event.preventDefault(); // prevent default form submission
 
-        console.log("yoooo");
+        //console.log("yoooo");
         var formData = new FormData();
       formData.append("service_id", $("#services").val());
       formData.append("schedule_time", $("#time_input").val());
@@ -555,7 +555,7 @@ $("#reset_fullname").on("click", function (e) {
       formData.append("user_id", user_id);
       
 
-  // console.log(checkedServiceData, $("#time_input").val(), $("#date_input").val())
+  // //console.log(checkedServiceData, $("#time_input").val(), $("#date_input").val())
 
       submit_add_services_form.validate().then(function (status) {
         if (status === "Valid") {
@@ -591,7 +591,7 @@ $("#reset_fullname").on("click", function (e) {
                   });
                 },
                 success: function (response) {
-                  console.log(response);
+                  //console.log(response);
                    Swal.close();
                    $("#modal_add_schedule").modal("hide");
                     $("#schedule_table").DataTable().destroy();
@@ -600,7 +600,7 @@ $("#reset_fullname").on("click", function (e) {
                 },
                 error: function (response) {
                   // Handle error response from server
-                  console.log(response);
+                  //console.log(response);
                 },
               });
               
@@ -634,7 +634,7 @@ $("#reset_fullname").on("click", function (e) {
     event.preventDefault();
     var id = $(this).data("accept_schedule");
 
-    console.log(id); 
+    //console.log(id); 
     
     Swal.fire({
       text: "Are you sure you would like to accept?",
@@ -666,7 +666,7 @@ $("#reset_fullname").on("click", function (e) {
         },
           success: function (data) {
 
-            // console.log(data);
+            // //console.log(data);
             Swal.close();
 
             $("#schedule_table").DataTable().destroy();
@@ -682,7 +682,7 @@ $("#reset_fullname").on("click", function (e) {
               },
             });
 
-            // console.log(data);
+            // //console.log(data);
           }
         });
       }else{
@@ -697,7 +697,7 @@ $("#reset_fullname").on("click", function (e) {
     event.preventDefault();
     var id = $(this).data("view_schedule");
 
-    console.log(id);
+    //console.log(id);
 
     $.ajax({
       url: `/schedule/view/${id}`,
@@ -712,7 +712,7 @@ $("#reset_fullname").on("click", function (e) {
     },
       success: function (data) {
 
-        console.log(data);
+        //console.log(data);
         Swal.close();
         $("#view_schedule_modal").modal("show");
 
@@ -855,7 +855,7 @@ $("#reset_fullname").on("click", function (e) {
       filter_time = $('#filter_time').val();
       filter_end_date = $('#filter_end_date').val();
       loadScheduleTable();
-      // console.log($('#filter_status').val(),
+      // //console.log($('#filter_status').val(),
       // $('#filter_date').val());
     });
 
@@ -873,7 +873,7 @@ $("#reset_fullname").on("click", function (e) {
       filter_start_date_calendar.clear();
       filter_end_date_calendar.clear();
       loadScheduleTable();
-      // console.log($('#filter_status').val(),
+      // //console.log($('#filter_status').val(),
       // $('#filter_date').val());
     });
 
@@ -887,7 +887,7 @@ $("#reset_fullname").on("click", function (e) {
           type: "GET",
           dataType: "json",
           success: function (response) {
-              console.log('hii');
+              //console.log('hii');
               // Get the select element
               const selectElement = document.getElementById("filter_barangay");
               

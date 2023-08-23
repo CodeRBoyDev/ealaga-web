@@ -18,7 +18,7 @@ $(document).ready(function () {
     // Extract the hour from the formatted time
     const currentHour = parseInt(localTime);
 
-    console.log('TIME -', currentHour);
+    // console.log('TIME -', currentHour);
 
     // Change background image after 6:00 PM 
     if (currentHour <= 6) {
@@ -36,8 +36,8 @@ $(document).ready(function () {
             url: "/",
             type: "GET",
             success: function (data) {
-                console.log("Announcement Data:", data.announcement);
-                console.log("Review Data:", data.review);
+                // console.log("Announcement Data:", data.announcement);
+                // console.log("Review Data:", data.review);
 
                 let sliderHtml = "";
                 let reviewHtml = "";

@@ -10,7 +10,7 @@ $(document).ready(function () {
           url: "/notification",
           type: "GET",
           success: function (data) {
-            console.log(data.notifications);
+            //console.log(data.notifications);
 
             let total_notification = "";
             if(data.notificationsTotal?.length){
@@ -31,7 +31,7 @@ $(document).ready(function () {
              
             $.each(data.notifications, function (i, notification) {
              
-                console.log(notification?.is_read);
+                //console.log(notification?.is_read);
                 notification_list += `
                 <div class="d-flex align-items-center mb-8">
                 <!--begin::Bullet-->
@@ -87,7 +87,7 @@ $(document).ready(function () {
       $(document).on("click", "#view_notification", function (event) {
         event.preventDefault();
         var id = $(this).data("view_notification");
-            console.log(id);
+            //console.log(id);
 
           
             $.ajax({
@@ -118,7 +118,7 @@ $(document).ready(function () {
                     loadNotification();
                     Swal.close();
                     $("#modal_notification").modal("show");
-                    console.log(data?.notification?.message);
+                    //console.log(data?.notification?.message);
                     
                     const formattedMessage = data?.notification?.message.replace(/(\.|!)/g, "$1<br><br>");
                     

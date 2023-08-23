@@ -79,7 +79,7 @@ $(document).ready(function () {
                 $("#card_row_div").hide();
             },
             success: function (data) {
-                console.log(data);
+                //console.log(data);
 
                 $("#loader_div").hide();
                 $("#card_row_div").show();
@@ -95,12 +95,12 @@ $(document).ready(function () {
                 const displayedSchedule = data.schedule?.filter(schedule => {
                   const status = schedule?.status?.toString(); // Convert the integer to a string
                   const schedule_date = moment(schedule?.schedule_date); // Convert schedule_date to a moment object
-                  console.log(schedule_date);
+                  //console.log(schedule_date);
               
                   const filterStartDate = filter_start_date ? moment(filter_start_date) : null; // Use null instead of an empty string
                   const filterEndDate =  filter_end_date ? moment(filter_end_date) : null; // Use null instead of an empty string
                   
-                  console.log(filterStartDate);
+                  //console.log(filterStartDate);
                   
                   if (filterStartDate && filterEndDate) { // Only execute if both filterStartDate and filterEndDate have data
                       return status?.match(filter_status) && schedule_date.isBetween(filterStartDate, filterEndDate, 'day', '[]');
@@ -259,7 +259,7 @@ $(document).ready(function () {
 
         $("#client_feedback_view_modal").modal("show");
 
-        console.log(feedbackSchedID);
+        //console.log(feedbackSchedID);
     });
 
     // initialize form validation
@@ -346,7 +346,7 @@ $(document).ready(function () {
                                   });
                             },
                             success: function (response) {
-                                console.log(response);
+                                //console.log(response);
                                 Swal.close();
                                 loadScheduleList();
                                 $("#client_feedback_view_modal").modal("hide");
@@ -362,7 +362,7 @@ $(document).ready(function () {
                             },
                             error: function (response) {
                                 // Handle error response from server
-                                console.log(response);
+                                //console.log(response);
                             },
                         });
                     }
@@ -408,7 +408,7 @@ $(document).ready(function () {
       filter_start_date = $('#filter_start_date').val();
       filter_end_date = $('#filter_end_date').val();
       loadScheduleList();
-      // console.log($('#filter_status').val(),
+      // //console.log($('#filter_status').val(),
       // $('#filter_date').val());
     });
 
@@ -423,7 +423,7 @@ $(document).ready(function () {
       filter_start_date_calendar.clear();
       filter_end_date_calendar.clear();
       loadScheduleList();
-      // console.log($('#filter_status').val(),
+      // //console.log($('#filter_status').val(),
       // $('#filter_date').val());
     });
 
