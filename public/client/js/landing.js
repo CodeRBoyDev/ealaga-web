@@ -37,7 +37,7 @@ $(document).ready(function () {
             type: "GET",
             success: function (data) {
                 // console.log("Announcement Data:", data.announcement);
-                // console.log("Review Data:", data.review);
+                console.log("Review Data:", data);
 
                 let sliderHtml = "";
                 let reviewHtml = "";
@@ -111,7 +111,7 @@ $(document).ready(function () {
                                     <div class="d-flex align-items-center">
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-circle symbol-50px me-10">
-                                            <img src="client/media/avatars/150-2.jpg" class="" alt="" />
+                                            <img src="/${review.img_path}" class="" alt="" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Name-->

@@ -870,17 +870,17 @@
 							<!--begin::Copyright-->
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
-								<a href="../../demo9/dist/landing.html">
+								<a href="https://www.taguig.gov.ph/OfficialWebsite/">
 									<img alt="Logo" src="client/media/logos/logotaguig.png" class="h-15px h-md-20px" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2023 eAlaga.</span>
+								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://www.taguig.gov.ph/OfficialWebsite/">© 2023 eAlaga.</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
-							<ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+							{{-- <ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
 								<li class="menu-item">
 									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
 								</li>
@@ -890,7 +890,7 @@
 								<li class="menu-item">
 									<a href="" target="_blank" class="menu-link px-2">Purchase</a>
 								</li>
-							</ul>
+							</ul> --}}
 							<!--end::Menu-->
 						</div>
 						<!--end::Wrapper-->

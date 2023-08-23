@@ -34,7 +34,10 @@ class LandingController extends Controller
                 }
             }
             $announcements = DB::table('announcements')->get();
-            $reviews= DB::table('reviews')->get();
+            $reviews = DB::table('users')
+            ->join('reviews', 'reviews.user_id', 'users.id')
+            ->select('users.img_path', 'users.email', 'users.firstname', 'users.lastname', 'users.role', 'reviews.*')
+            ->get();
 
             if (request()->ajax()) {
                 return response()->json(['announcement' => $announcements, 'review' => $reviews]);
