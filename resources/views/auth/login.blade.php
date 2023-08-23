@@ -26,7 +26,7 @@
                                 <img alt="Logo" src="{{ asset('client/media/logos/OSCA.png') }}" class="h-150px" />
                                 <!--end::Logo-->
                                 <!--begin::Title-->
-                                <h1 class="text-dark mb-3">Welcome to eAlaga</h1>
+                                <h1 class="text-dark mb-3">Welcome to Center for the Elderly</h1>
                                 <!--end::Title-->
                                 <!--begin::Link-->
                                 <div class="text-gray-400 fw-bold fs-4">New Here?
@@ -83,7 +83,8 @@
                         <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                             <!--begin::Links-->
                             <div class="d-flex flex-center fw-bold fs-6">
-                                <a href="{{ route('VisitorLanding') }}" class="text-muted text-hover-primary px-2">Go Back Home</a>
+                                <a href="{{ route('VisitorLanding') }}" class="text-muted text-hover-primary px-2">Go Back
+                                    Home</a>
                             </div>
                             <!--end::Links-->
                         </div>

@@ -122,6 +122,11 @@ return [
             'path' => storage_path('logs/api_calls.log'), // Change this path to your desired directory and filename
             'level' => 'debug',
         ],
+        'unanswered_questions' => [
+            'driver' => 'single', // You can use other logging drivers too
+            'path' => storage_path('logs/unanswered_questions.log'), // Customize the log path
+            'level' => 'info',
+        ],
     ],
 
 ];

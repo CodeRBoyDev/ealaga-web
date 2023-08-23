@@ -109,12 +109,6 @@
                                  <div class="separator my-2"></div>
                                  <!--end::Menu separator-->
                                  <!--begin::Menu item-->
-                                 <div class="menu-item px-5 my-1">
-                                     <a href="../../demo8/dist/account/settings.html" class="menu-link px-5">Account
-                                         Settings</a>
-                                 </div>
-                                 <!--end::Menu item-->
-                                 <!--begin::Menu item-->
                                  <div class="menu-item px-5">
                                      <a href="{{ route('logout') }}" class="menu-link px-5">Sign Out</a>
                                  </div>
@@ -175,28 +169,28 @@
                          </a>
                      </div>
                      <div class="menu-item {{ Route::currentRouteName() === 'schedule' ? 'active' : '' }}">
-                        <a class="menu-link {{ Route::currentRouteName() === 'schedule' ? 'active' : '' }}"
-                            href="{{ asset('schedule') }}">
-                            <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect x="2" y="2" width="9" height="9"
-                                            rx="2" fill="black" />
-                                        <rect opacity="0.3" x="13" y="2" width="9"
-                                            height="9" rx="2" fill="black" />
-                                        <rect opacity="0.3" x="13" y="13" width="9"
-                                            height="9" rx="2" fill="black" />
-                                        <rect opacity="0.3" x="2" y="13" width="9"
-                                            height="9" rx="2" fill="black" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
-                            </span>
-                            <span class="menu-title">Schedule</span>
-                        </a>
-                    </div>
+                         <a class="menu-link {{ Route::currentRouteName() === 'schedule' ? 'active' : '' }}"
+                             href="{{ asset('schedule') }}">
+                             <span class="menu-icon">
+                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none">
+                                         <rect x="2" y="2" width="9" height="9"
+                                             rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="2" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="2" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
+                             </span>
+                             <span class="menu-title">Schedule</span>
+                         </a>
+                     </div>
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion mb-1{{ Route::currentRouteName() === 'userList' ? ' hover show' : (Route::currentRouteName() === 'userView' ? 'hover show' : '') }}">
                          <span class="menu-link">
@@ -319,18 +313,23 @@
                          </a>
                      </div>
                      <div data-kt-menu-trigger="click"
-                        class="menu-item menu-accordion mb-1{{ Route::currentRouteName() === 'volunteerList' || Route::currentRouteName() === 'applicationList' ? ' hover show' : '' }}">
+                         class="menu-item menu-accordion mb-1{{ Route::currentRouteName() === 'volunteerList' || Route::currentRouteName() === 'applicationList' ? ' hover show' : '' }}">
                          <span class="menu-link">
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
                                  <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"/>
-                                            <path d="M7.03587629,17.2664036 L2.54094808,14.2345363 C1.62521847,13.6168689 1.38359132,12.373805 2.00125875,11.4580753 C2.61892617,10.5423457 3.86199008,10.3007186 4.7777197,10.918386 L7,12.417333 L7,8 C7,4.6862915 9.6862915,2 13,2 C16.3137085,2 19,4.6862915 19,8 L19,17 C19,17.5522847 18.5522847,18 18,18 L8,18 C7.53996718,18 7.15248755,17.6893628 7.03587629,17.2664036 Z" fill="#000000"/>
-                                            <rect fill="#000000" opacity="0.3" x="6" y="20" width="14" height="2" rx="1"/>
-                                        </g>
-                                    </svg>
+                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                         viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                             <rect x="0" y="0" width="24" height="24" />
+                                             <path
+                                                 d="M7.03587629,17.2664036 L2.54094808,14.2345363 C1.62521847,13.6168689 1.38359132,12.373805 2.00125875,11.4580753 C2.61892617,10.5423457 3.86199008,10.3007186 4.7777197,10.918386 L7,12.417333 L7,8 C7,4.6862915 9.6862915,2 13,2 C16.3137085,2 19,4.6862915 19,8 L19,17 C19,17.5522847 18.5522847,18 18,18 L8,18 C7.53996718,18 7.15248755,17.6893628 7.03587629,17.2664036 Z"
+                                                 fill="#000000" />
+                                             <rect fill="#000000" opacity="0.3" x="6" y="20"
+                                                 width="14" height="2" rx="1" />
+                                         </g>
+                                     </svg>
                                  </span>
                                  <!--end::Svg Icon-->
                              </span>
@@ -349,47 +348,48 @@
                              </div>
                          </div>
                          <div class="menu-sub menu-sub-accordion">
-                            <div
-                                class="menu-item  {{ Route::currentRouteName() === 'applicationList' ? ' hover' : '' }}">
-                                <a class="menu-link" href="{{ route('applicationList') }}">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Application List</span>
-                                </a>
-                            </div>
-                        </div>
+                             <div
+                                 class="menu-item  {{ Route::currentRouteName() === 'applicationList' ? ' hover' : '' }}">
+                                 <a class="menu-link" href="{{ route('applicationList') }}">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Application List</span>
+                                 </a>
+                             </div>
+                         </div>
                      </div>
                      <div class="menu-item {{ Route::currentRouteName() === 'ServiceList' ? 'active' : '' }}">
-                        <a class="menu-link {{ Route::currentRouteName() === 'ServiceList' ? 'active' : '' }}"
-                            href="{{ asset('service') }}">
-                            <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect x="2" y="2" width="9" height="9"
-                                            rx="2" fill="black" />
-                                        <rect opacity="0.3" x="13" y="2" width="9"
-                                            height="9" rx="2" fill="black" />
-                                        <rect opacity="0.3" x="13" y="13" width="9"
-                                            height="9" rx="2" fill="black" />
-                                        <rect opacity="0.3" x="2" y="13" width="9"
-                                            height="9" rx="2" fill="black" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
-                            </span>
-                            <span class="menu-title">Services</span>
-                        </a>
-                    </div>
+                         <a class="menu-link {{ Route::currentRouteName() === 'ServiceList' ? 'active' : '' }}"
+                             href="{{ asset('service') }}">
+                             <span class="menu-icon">
+                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none">
+                                         <rect x="2" y="2" width="9" height="9"
+                                             rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="2" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="13" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                         <rect opacity="0.3" x="2" y="13" width="9"
+                                             height="9" rx="2" fill="black" />
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
+                             </span>
+                             <span class="menu-title">Services</span>
+                         </a>
+                     </div>
                      <div class="menu-item">
                          <div class="menu-content">
                              <div class="separator mx-1 my-4"></div>
                          </div>
                      </div>
-                     <div class="menu-item">
-                         <a class="menu-link" href="../../demo8/dist/documentation/getting-started/changelog.html">
+                     <div class="menu-item {{ Route::currentRouteName() === 'reportList' ? 'active' : '' }}">
+                         <a class="menu-link {{ Route::currentRouteName() === 'getLogs' ? 'active' : '' }}"
+                             href="{{ route('getLogs') }}">
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                                  <span class="svg-icon svg-icon-2">

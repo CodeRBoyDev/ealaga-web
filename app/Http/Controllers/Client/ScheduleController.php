@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogController;
+use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\File;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\EmailNotification;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class ScheduleController extends Controller
+class ScheduleController extends LogController
 {
 
     public function getCurrentDateAsiaManila()
@@ -25,168 +24,158 @@ class ScheduleController extends Controller
     {
         //
         try {
-           
+
             // Get the current date and time
             $currentDate = Carbon::now('Asia/Manila');
 
             $services = DB::table('services')->get();
 
             $schedule = DB::table('schedule')
-            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
-            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
-            ->leftjoin('users', 'users.id', '=', 'schedule.user_id')
+                ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+                ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+                ->leftjoin('users', 'users.id', '=', 'schedule.user_id')
             // ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
             // ->where('schedule.status', '<>', 3)
             // ->where('schedule.user_id', auth()->user()->id)
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, 
+                ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services,
             schedule.schedule_date, schedule.schedule_time, schedule.status, users.firstname, users.lastname,
             users.barangay')
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status'
-            , 'users.firstname', 'users.lastname', 'users.barangay')
-            ->groupBy('schedule.id')
-            ->get();
-
+                ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status'
+                    , 'users.firstname', 'users.lastname', 'users.barangay')
+                ->groupBy('schedule.id')
+                ->get();
 
             // DB::table('notification')->insert([
             //     'user_id' => auth()->user()->id ?? null,
             //     'title' => "test" ?? null,
             //     'message' => 'test ',
             //     'timestamp' => date('Y-m-d H:i:s') ?? null,
-    
+
             // ]);
 
-
             if (request()->ajax()) {
-                return response()->json(['schedule' => $schedule,]);
+                return response()->json(['schedule' => $schedule]);
             } else {
                 return view('dashboard.schedule.schedule', compact('services'));
             }
 
-
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
-
 
     public function scheduleView(Request $request, $id)
     {
         //
         try {
-           
+
             // $services = DB::table('services')->get();
-        
+
             $currentDate = Carbon::now('Asia/Manila');
 
             // $data = $request->all();
             $schedule = DB::table('schedule')
-            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
-            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
-            ->leftjoin('users', 'users.id', '=', 'schedule.user_id')
+                ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+                ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+                ->leftjoin('users', 'users.id', '=', 'schedule.user_id')
             // ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
             // ->where('schedule.status', '<>', 3)
             // ->where('schedule.user_id', auth()->user()->id)
-            ->where('schedule.id', $id)
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, 
+                ->where('schedule.id', $id)
+                ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services,
             schedule.schedule_date, schedule.schedule_time, schedule.status, users.firstname, users.lastname,
             users.barangay, users.email, schedule.processed_date, schedule.processed_by, schedule.qr_code'
-            )
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status',
-            'users.firstname', 'users.lastname', 'users.barangay', 'users.email', 'schedule.processed_date',
-            'schedule.processed_by', 'schedule.qr_code')
-            ->groupBy('schedule.id')
-            ->first();
+                )
+                ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status',
+                    'users.firstname', 'users.lastname', 'users.barangay', 'users.email', 'schedule.processed_date',
+                    'schedule.processed_by', 'schedule.qr_code')
+                ->groupBy('schedule.id')
+                ->first();
 
             $processed_by = DB::table('users')
-            ->where('users.id', '=', $schedule->processed_by)
-            ->selectRaw('users.lastname,
+                ->where('users.id', '=', $schedule->processed_by)
+                ->selectRaw('users.lastname,
             users.firstname'
-            )
-            ->groupBy('users.lastname', 'users.firstname')
-            ->groupBy('users.id')
-            ->first();
-            
-        
-                return response()->json(['schedule' => $schedule, 'processed_by' => $processed_by]);
-      
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+                )
+                ->groupBy('users.lastname', 'users.firstname')
+                ->groupBy('users.id')
+                ->first();
+
+            return response()->json(['schedule' => $schedule, 'processed_by' => $processed_by]);
+
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function scheduleQRscanner()
     {
         //
         try {
-           
-           
+
             if (request()->ajax()) {
-                return response()->json(['schedule' => "hiii",]);
+                return response()->json(['schedule' => "hiii"]);
             } else {
                 return view('dashboard.schedule.qrscanner');
             }
 
-      
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function scheduleAccept(Request $request, $id)
     {
         //
         try {
-           
+
             // $services = DB::table('services')->get();
-        
+
             $currentDate = Carbon::now('Asia/Manila');
             $schedule_checker = DB::table('schedule')
-                        ->where('schedule.id', $id)
-                        ->select('schedule.schedule_date','schedule.status')
-                        ->first();
+                ->where('schedule.id', $id)
+                ->select('schedule.schedule_date', 'schedule.status')
+                ->first();
 
-            if($schedule_checker){
-                if($currentDate->format('Y-m-d') ==  date('Y-m-d', strtotime($schedule_checker->schedule_date))){
+            if ($schedule_checker) {
+                if ($currentDate->format('Y-m-d') == date('Y-m-d', strtotime($schedule_checker->schedule_date))) {
 
-                 
-                        if($schedule_checker->status == 1 ){
-                            return response()->json(['result' => 'attended']);
-                        }elseif($schedule_checker->status == 2){
-                            return response()->json(['result' => 'not_attended']);
-                        }elseif($schedule_checker->status == 3){
-                            return response()->json(['result' => 'cancelled']);
-                        }else{
-                            
+                    if ($schedule_checker->status == 1) {
+                        return response()->json(['result' => 'attended']);
+                    } elseif ($schedule_checker->status == 2) {
+                        return response()->json(['result' => 'not_attended']);
+                    } elseif ($schedule_checker->status == 3) {
+                        return response()->json(['result' => 'cancelled']);
+                    } else {
 
-                            DB::table('schedule')
+                        DB::table('schedule')
                             ->where('id', $id)
                             ->update([
                                 'status' => 1,
                                 'processed_by' => auth()->user()->id,
                                 'processed_date' => $this->getCurrentDateAsiaManila(),
                             ]);
-                
-                
-                            // $data = $request->all();
-                            $schedule = DB::table('schedule')
+
+                        // $data = $request->all();
+                        $schedule = DB::table('schedule')
                             ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
                             ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
                             ->leftjoin('users', 'users.id', '=', 'schedule.user_id')
-                            // ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
-                            // ->where('schedule.status', '<>', 3)
-                            // ->where('schedule.user_id', auth()->user()->id)
+                        // ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
+                        // ->where('schedule.status', '<>', 3)
+                        // ->where('schedule.user_id', auth()->user()->id)
                             ->where('schedule.id', $id)
-                            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, 
+                            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services,
                             schedule.schedule_date, schedule.schedule_time, schedule.status, users.firstname, users.lastname,
                             users.barangay, users.email, schedule.processed_date, schedule.processed_by, schedule.qr_code'
                             )
                             ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status',
-                            'users.firstname', 'users.lastname', 'users.barangay', 'users.email', 'schedule.processed_date',
-                            'schedule.processed_by', 'schedule.qr_code')
+                                'users.firstname', 'users.lastname', 'users.barangay', 'users.email', 'schedule.processed_date',
+                                'schedule.processed_by', 'schedule.qr_code')
                             ->groupBy('schedule.id')
                             ->first();
-                
-                            $processed_by = DB::table('users')
+
+                        $processed_by = DB::table('users')
                             ->where('users.id', '=', $schedule->processed_by)
                             ->selectRaw('users.lastname,
                             users.firstname'
@@ -194,96 +183,83 @@ class ScheduleController extends Controller
                             ->groupBy('users.lastname', 'users.firstname')
                             ->groupBy('users.id')
                             ->first();
-                
-                        
-                                return response()->json(['schedule' => $schedule, 'processed_by' => $processed_by]);
-                                
-                        }
 
+                        return response()->json(['schedule' => $schedule, 'processed_by' => $processed_by]);
 
-                }else{
+                    }
+
+                } else {
                     return response()->json(['result' => 'not_today']);
 
                 }
-            }
-            else{
+            } else {
                 return response()->json(['result' => 'not_found']);
 
             }
-           
-      
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
-    }
 
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
+    }
 
     public function scheduleSearch(Request $request)
     {
         //
         try {
-           
+
             $full_name = $request->input('full_name');
-            
+
             $list_filter_user = DB::table('users')
-            ->whereRaw("CONCAT(firstname, ' ', lastname) LIKE '%$full_name%'")
-            ->where('role', 2)
-            ->select(
-                            'users.id',
-                            'users.firstname',
-                            'users.lastname',
-                            'users.barangay',
-                            'users.img_path',
-                        )
-                        ->get();
+                ->whereRaw("CONCAT(firstname, ' ', lastname) LIKE '%$full_name%'")
+                ->where('role', 2)
+                ->select(
+                    'users.id',
+                    'users.firstname',
+                    'users.lastname',
+                    'users.barangay',
+                    'users.img_path',
+                )
+                ->get();
 
             return response()->json($list_filter_user);
-            
 
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
-
-
-
-
-
     //client ==================================================================================================================
-
 
     public function ClientSchedule(Request $request)
     {
         //
         try {
-           
+
             $data = $request->all();
-            
-            if(isset($data['user_id'])) {
+
+            if (isset($data['user_id'])) {
                 $user_id = $data['user_id'];
             } else {
                 $user_id = auth()->user()->id;
             }
 
-            
             // Get the current date and time
             $currentDate = Carbon::now('Asia/Manila');
 
             $services = DB::table('services')->get();
 
             $scheduleTotals = DB::table('schedule')
-            ->select('schedule_date', 'schedule_time', DB::raw('COUNT(*) as total'))
-            ->whereDate('schedule_date', '>=', $currentDate->format('Y-m-d'))
-            ->groupBy('schedule_date', 'schedule_time')
-            ->get()
-            ->toArray();
+                ->select('schedule_date', 'schedule_time', DB::raw('COUNT(*) as total'))
+                ->whereDate('schedule_date', '>=', $currentDate->format('Y-m-d'))
+                ->groupBy('schedule_date', 'schedule_time')
+                ->get()
+                ->toArray();
 
             $selected_disable_dates = DB::table('schedule')
-            ->where('schedule.user_id', $user_id)
-            ->where('schedule.status', '<>', 3)
-            ->pluck('schedule_date')
-            ->toArray();
+                ->where('schedule.user_id', $user_id)
+                ->where('schedule.status', '<>', 3)
+                ->pluck('schedule_date')
+                ->toArray();
 
             if (request()->ajax()) {
                 return response()->json(['services' => $services, 'schedule_total' => $scheduleTotals, 'selected_date_disable' => $selected_disable_dates]);
@@ -291,10 +267,9 @@ class ScheduleController extends Controller
                 return view('client.schedule', compact('services'));
             }
 
-
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function ClientScheduleAdd(Request $request)
@@ -306,12 +281,11 @@ class ScheduleController extends Controller
             $service_id_array = explode(",", $data['service_id']);
 
             // $user_auth_id = auth()->user()->id;
-            if(isset($data['user_id'])) {
+            if (isset($data['user_id'])) {
                 $user_id = $data['user_id'];
             } else {
                 $user_id = auth()->user()->id;
             }
-
 
             $scheduleID = DB::table('schedule')->insertGetId([
                 'user_id' => $user_id ?? null,
@@ -353,6 +327,14 @@ class ScheduleController extends Controller
 
             // Log::debug('Data received from AJAX call:', $data);
 
+            $user_id = Auth::user()->id;
+            $action = 'Add'; // Example
+            $details = Auth::user()->lastname . " " . Auth::user()->firstname . " Add a schedule"; // Example
+            $url = $request->fullUrl();
+            $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+            $logController = new LogController();
+            $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
+
             // return response()->json(['message' => "successfully added!"]);
             return response()->json(['message' => json_encode($service_id_array)]);
 
@@ -362,64 +344,57 @@ class ScheduleController extends Controller
 
     }
 
-
     public function ClientScheduleSlot(Request $request)
     {
         //
         try {
-           
+
             // $services = DB::table('services')->get();
-        
+
             $data = $request->all();
             $schedule = DB::table('schedule')
-            ->where('schedule.status', '<>', 3)
-            ->where('schedule_date', $data['date'])
-            ->where('schedule_time', $data['time'])
-            ->get();
+                ->where('schedule.status', '<>', 3)
+                ->where('schedule_date', $data['date'])
+                ->where('schedule_time', $data['time'])
+                ->get();
 
             return response()->json(['schedule' => $schedule]);
 
-
-
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function ClientScheduleList(Request $request)
     {
         //
         try {
-           
+
             $currentDate = Carbon::now('Asia/Manila');
             // $services = DB::table('services')->get();
-        
+
             // $data = $request->all();
             $schedule = DB::table('schedule')
-            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
-            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
-            ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
-            ->where('schedule.status', '<>', 3)
-            ->where('schedule.user_id', auth()->user()->id)
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
-            ->groupBy('schedule.id')
-            ->get();
-        
+                ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+                ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+                ->where('schedule.schedule_date', '>=', $currentDate->format('Y-m-d'))
+                ->where('schedule.status', '<>', 3)
+                ->where('schedule.user_id', auth()->user()->id)
+                ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status')
+                ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status')
+                ->groupBy('schedule.id')
+                ->get();
 
+            // $userEmail = "rickydonadillo02@gmail.com";
+            // $subject = 'Leaves Reminder';
+            // $userData = [
+            // 'receiver_name' => "test",
+            // 'body' => "test",
+            // 'sender_name' => "test",
+            // 'sender_position' => "Test",
+            // ];
 
-                                // $userEmail = "rickydonadillo02@gmail.com";
-                                // $subject = 'Leaves Reminder';
-                                // $userData = [
-                                // 'receiver_name' => "test",
-                                // 'body' => "test",
-                                // 'sender_name' => "test",
-                                // 'sender_position' => "Test",
-                                // ];
-
-                                // Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
-
-
+            // Mail::to(trim($userEmail))->send(new EmailNotification($userData, $subject));
 
             if (request()->ajax()) {
                 return response()->json(['schedule' => $schedule]);
@@ -428,38 +403,33 @@ class ScheduleController extends Controller
                 return view('client.schedule_list', compact('schedule'));
             }
 
-
-
-
-       } catch (\Exception $e) {
-           return "error: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "error: " . $e->getMessage();
+        }
     }
-
 
     public function ClientScheduleHistory(Request $request)
     {
         //
         try {
-           
+
             // $services = DB::table('services')->get();
-        
+
             $currentDate = Carbon::now('Asia/Manila');
 
             // $data = $request->all();
             $schedule = DB::table('schedule')
-            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
-            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
-            ->leftjoin('reviews', 'reviews.schedule_id', '=', 'schedule.id')
-            ->where('schedule.user_id', auth()->user()->id)
-        // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status, reviews.rate')
-            ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
-            ->orWhere('schedule.status', 3)
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'reviews.rate')
-            ->groupBy('schedule.id')
-            ->get();
-        
+                ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+                ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+                ->leftjoin('reviews', 'reviews.schedule_id', '=', 'schedule.id')
+                ->where('schedule.user_id', auth()->user()->id)
+            // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
+                ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.schedule_time, schedule.status, reviews.rate')
+                ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
+                ->orWhere('schedule.status', 3)
+                ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'reviews.rate')
+                ->groupBy('schedule.id')
+                ->get();
 
             if (request()->ajax()) {
                 return response()->json(['schedule' => $schedule]);
@@ -468,62 +438,58 @@ class ScheduleController extends Controller
                 return view('client.schedule_history', compact('schedule'));
             }
 
-
-
-
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function ClientScheduleView(Request $request, $id)
     {
         //
         try {
-           
+
             // $services = DB::table('services')->get();
-        
+
             $currentDate = Carbon::now('Asia/Manila');
 
             // $data = $request->all();
             $schedule = DB::table('schedule')
-            ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
-            ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
+                ->leftjoin('param_schedule_services', 'schedule.id', '=', 'param_schedule_services.schedule_id')
+                ->leftjoin('services', 'services.id', '=', 'param_schedule_services.service_id')
             // ->where('schedule.user_id', $userId)
-        // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
-            ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.qr_code, schedule.schedule_time, schedule.status')
-          
+            // ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services')
+                ->selectRaw('schedule.id as schedule_id, GROUP_CONCAT(services.title) as services, schedule.schedule_date, schedule.qr_code, schedule.schedule_time, schedule.status')
+
             // ->where('schedule.schedule_date', '<', $currentDate->format('Y-m-d'))
-            ->where('schedule.id', $id)
-            ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'schedule.qr_code')
-            ->groupBy('schedule.id')
-            ->first();
-        
-                return response()->json(['schedule' => $schedule]);
-      
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
+                ->where('schedule.id', $id)
+                ->groupBy('schedule.id', 'schedule.schedule_date', 'schedule.schedule_time', 'schedule.status', 'schedule.qr_code')
+                ->groupBy('schedule.id')
+                ->first();
+
+            return response()->json(['schedule' => $schedule]);
+
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
     }
 
     public function ClientScheduleCancel(Request $request, $id)
     {
         //
         try {
-           
+
             DB::table('schedule')
                 ->where('id', $id)
                 ->update([
                     'status' => 3,
                 ]);
 
-            return response()->json(['status' =>  $id]);
-      
-       } catch (\Exception $e) {
-           return "Unable to connect to the database: " . $e->getMessage();
-       }
-    }
+            return response()->json(['status' => $id]);
 
+        } catch (\Exception $e) {
+            return "Unable to connect to the database: " . $e->getMessage();
+        }
+    }
 
     public function ClientScheduleReview(Request $request)
     {

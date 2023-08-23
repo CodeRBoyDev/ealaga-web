@@ -84,26 +84,28 @@
                            </li>
                            <!--end::Item-->
                            <!--begin::Item-->
-                            @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
+                           @if (Route::currentRouteName() === 'dashboard' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Analytics</li>
-                            @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
+                           @elseif(Route::currentRouteName() === 'userView' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">View User</li>
-                            @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
+                           @elseif(Route::currentRouteName() === 'comorbidityList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Comorbidty Management</li>
-                            @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
+                           @elseif(Route::currentRouteName() === 'profilePage' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">My Profile</li>
                            @elseif(Route::currentRouteName() === 'reportList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Report Management</li>
                            @elseif(Route::currentRouteName() === 'userList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">User Management</li>
-                            @elseif(Route::currentRouteName() === 'volunteerList' ? 'active' : '')
+                           @elseif(Route::currentRouteName() === 'volunteerList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Volunteer Management</li>
-                            @elseif(Route::currentRouteName() === 'applicationList' ? 'active' : '')
+                           @elseif(Route::currentRouteName() === 'applicationList' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Application Management</li>
+                           @elseif(Route::currentRouteName() === 'getLogs' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Activity Logs</li>
                            @else
                                <li class="breadcrumb-item text-dark">404 Page Not Found</li>
                            @endif
-                          
+
                            <!--end::Item-->
                        </ul>
                        <!--end::Breadcrumb-->
@@ -118,16 +120,21 @@
                                <!--begin::Notifications-->
                                <div class="d-flex align-items-center">
                                    <!--begin::Menu- wrapper-->
-                                   <a href="#" class="btn btn-icon position-relative btn-custom btn-icon btn-icon-muted btn-active-icon-primary"
+                                   <a href="#"
+                                       class="btn btn-icon position-relative btn-custom btn-icon btn-icon-muted btn-active-icon-primary"
                                        data-kt-menu-trigger="click" data-kt-menu-attach="parent"
-                                       data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"
-                                       >
+                                       data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                        <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
                                        <span class="svg-icon svg-icon-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path opacity="0.3" d="M12 22C13.6569 22 15 20.6569 15 19C15 17.3431 13.6569 16 12 16C10.3431 16 9 17.3431 9 19C9 20.6569 10.3431 22 12 22Z" fill="black" />
-                                            <path d="M19 15V18C19 18.6 18.6 19 18 19H6C5.4 19 5 18.6 5 18V15C6.1 15 7 14.1 7 13V10C7 7.6 8.7 5.6 11 5.1V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V5.1C15.3 5.6 17 7.6 17 10V13C17 14.1 17.9 15 19 15ZM11 10C11 9.4 11.4 9 12 9C12.6 9 13 8.6 13 8C13 7.4 12.6 7 12 7C10.3 7 9 8.3 9 10C9 10.6 9.4 11 10 11C10.6 11 11 10.6 11 10Z" fill="black" />
-                                        </svg>
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                               viewBox="0 0 24 24" fill="none">
+                                               <path opacity="0.3"
+                                                   d="M12 22C13.6569 22 15 20.6569 15 19C15 17.3431 13.6569 16 12 16C10.3431 16 9 17.3431 9 19C9 20.6569 10.3431 22 12 22Z"
+                                                   fill="black" />
+                                               <path
+                                                   d="M19 15V18C19 18.6 18.6 19 18 19H6C5.4 19 5 18.6 5 18V15C6.1 15 7 14.1 7 13V10C7 7.6 8.7 5.6 11 5.1V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V5.1C15.3 5.6 17 7.6 17 10V13C17 14.1 17.9 15 19 15ZM11 10C11 9.4 11.4 9 12 9C12.6 9 13 8.6 13 8C13 7.4 12.6 7 12 7C10.3 7 9 8.3 9 10C9 10.6 9.4 11 10 11C10.6 11 11 10.6 11 10Z"
+                                                   fill="black" />
+                                           </svg>
                                        </span>
                                        <!--end::Svg Icon-->
 
@@ -137,34 +144,36 @@
 
                                    </a>
                                    <!--begin::Menu-->
-                                   <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
-                                    <!--begin::Heading-->
-                                    <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-color: #1A4798">
-                                        <!--begin::Title-->
-                                        <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
-                                        {{-- <span class="fs-8 opacity-75 ps-3">24 reports</span> --}}
-                                    </h3>
-                                        <!--end::Title-->
-                                       
-                                    </div>
-                                    <!--end::Heading-->
-                                    <!--begin::Tab content-->
-                                    <div class="tab-content">
-                                        <!--begin::Tab panel-->
-                                        <div>
-                                            <!--begin::Items-->
-                                            <div class="scroll-y mh-325px my-5 px-8">
-                                                <!--begin::Item-->
-                                                <div id="notification_list_div">
-            
-                                                </div>
-                                                
-                                             
-                                                <!--end::Item-->
-                                            </div>
-                                            <!--end::Items-->
-                                            <!--begin::View more-->
-                                            {{-- <div class="py-3 text-center border-top">
+                                   <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
+                                       data-kt-menu="true">
+                                       <!--begin::Heading-->
+                                       <div class="d-flex flex-column bgi-no-repeat rounded-top"
+                                           style="background-color: #1A4798">
+                                           <!--begin::Title-->
+                                           <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
+                                               {{-- <span class="fs-8 opacity-75 ps-3">24 reports</span> --}}
+                                           </h3>
+                                           <!--end::Title-->
+
+                                       </div>
+                                       <!--end::Heading-->
+                                       <!--begin::Tab content-->
+                                       <div class="tab-content">
+                                           <!--begin::Tab panel-->
+                                           <div>
+                                               <!--begin::Items-->
+                                               <div class="scroll-y mh-325px my-5 px-8">
+                                                   <!--begin::Item-->
+                                                   <div id="notification_list_div">
+
+                                                   </div>
+
+
+                                                   <!--end::Item-->
+                                               </div>
+                                               <!--end::Items-->
+                                               <!--begin::View more-->
+                                               {{-- <div class="py-3 text-center border-top">
                                                 <a href="../../demo9/dist/pages/profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                                 <span class="svg-icon svg-icon-5">
@@ -175,13 +184,13 @@
                                                 </span>
                                                 <!--end::Svg Icon--></a>
                                             </div> --}}
-                                            <!--end::View more-->
-                                        </div>
-                                        <!--end::Tab panel-->
-                                       
-                                    </div>
-                                    <!--end::Tab content-->
-                                </div>
+                                               <!--end::View more-->
+                                           </div>
+                                           <!--end::Tab panel-->
+
+                                       </div>
+                                       <!--end::Tab content-->
+                                   </div>
                                    <!--end::Menu-->
                                    <!--end::Menu wrapper-->
                                </div>
@@ -197,61 +206,53 @@
            </div>
        </div>
 
-       <div class="modal fade" id="modal_notification" tabindex="-1"
-       aria-hidden="true"  data-bs-keyboard="false">
-       <!--begin::Modal dialog-->
-       <div class="modal-dialog modal-dialog-centered mw-600px">
-           <!--begin::Modal content-->
-           <div class="modal-content">
-               <!--begin::Modal header-->
-               <div class="modal-header d-flex align-items-center justify-content-between"
-                   id="kt_modal_add_user_header">
-                   <!--begin::Modal title-->
-                   <div class="mx-auto">
-                       <h2 class="fw-bolder">Notification</h2>
+       <div class="modal fade" id="modal_notification" tabindex="-1" aria-hidden="true" data-bs-keyboard="false">
+           <!--begin::Modal dialog-->
+           <div class="modal-dialog modal-dialog-centered mw-600px">
+               <!--begin::Modal content-->
+               <div class="modal-content">
+                   <!--begin::Modal header-->
+                   <div class="modal-header d-flex align-items-center justify-content-between"
+                       id="kt_modal_add_user_header">
+                       <!--begin::Modal title-->
+                       <div class="mx-auto">
+                           <h2 class="fw-bolder">Notification</h2>
+                       </div>
+                       <!--end::Modal title-->
+                       <!--begin::Close-->
+                       <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
+                           <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                           <span class="svg-icon svg-icon-1">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                   viewBox="0 0 24 24" fill="none">
+                                   <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
+                                       rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                   <rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                       transform="rotate(45 7.41422 6)" fill="black" />
+                               </svg>
+                           </span>
+                           <!--end::Svg Icon-->
+                       </div>
+                       <!--end::Close-->
                    </div>
-                   <!--end::Modal title-->
-                   <!--begin::Close-->
-                   <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                       data-bs-dismiss="modal">
-                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-                       <span class="svg-icon svg-icon-1">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                               height="24" viewBox="0 0 24 24"
-                               fill="none">
-                               <rect opacity="0.5" x="6"
-                                   y="17.3137" width="16" height="2"
-                                   rx="1"
-                                   transform="rotate(-45 6 17.3137)"
-                                   fill="black" />
-                               <rect x="7.41422" y="6"
-                                   width="16" height="2" rx="1"
-                                   transform="rotate(45 7.41422 6)"
-                                   fill="black" />
-                           </svg>
-                       </span>
-                       <!--end::Svg Icon-->
-                   </div>
-                   <!--end::Close-->
-               </div>
-               <!--end::Modal header-->
-               <!--begin::Modal body-->
-               <div class="modal-body   mx-5 mx-xl-15 my-7">
-                 
-                    
-                           <div id="view_schedule_display">
-                         
-                        </div>
-                       <!--end::Actions-->
-                
-               </div>
-               <!--end::Modal body-->
-           </div>
-           <!--end::Modal content-->
-       </div>
-       <!--end::Modal dialog-->
-   </div>
+                   <!--end::Modal header-->
+                   <!--begin::Modal body-->
+                   <div class="modal-body   mx-5 mx-xl-15 my-7">
 
-@push('adminScripts')
-    <script src="{{ asset('admin/js/custom/notification/notification.js') }}"></script>
-@endpush
+
+                       <div id="view_schedule_display">
+
+                       </div>
+                       <!--end::Actions-->
+
+                   </div>
+                   <!--end::Modal body-->
+               </div>
+               <!--end::Modal content-->
+           </div>
+           <!--end::Modal dialog-->
+       </div>
+
+       @push('adminScripts')
+           <script src="{{ asset('admin/js/custom/notification/notification.js') }}"></script>
+       @endpush

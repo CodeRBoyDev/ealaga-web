@@ -1,21 +1,23 @@
 @extends('layouts.master')
-<style>
-    .body_background {
-        background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
-        background-size: 100%, cover;
-        background-repeat: no-repeat;
-        background-position: bottom, center;
-    }
+@push('adminStyles')
+    <style>
+        .body_background {
+            background-image: url(/client/media/taguigbranding/footer-trim.png), url(/client/media/taguigbranding/sunray.jpg);
+            background-size: 100%, cover;
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+        }
 
-    .total-value {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
-        font-weight: bold;
-    }
-</style>
+        .total-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+@endpush
 @section('content')
     <!--begin::Body-->
     <div class=" body_background header-tablet-and-mobile-fixed aside-enabled">

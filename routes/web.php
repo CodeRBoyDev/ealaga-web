@@ -4,41 +4,42 @@ use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 
 //Services
-use App\Http\Controllers\Services\ServiceController;
+use App\Http\Controllers\BotmanController;
 
 //CLIENT
 use App\Http\Controllers\Client\ClientHomeController;
 use App\Http\Controllers\Client\ScheduleController;
+// Comorbidity Management
 use App\Http\Controllers\Client\VolunteerController;
 
-// Comorbidity Management
+//cronJob
 use App\Http\Controllers\ComorbidityManagement\ComorbidityController;
 
 // Dashboard
+use App\Http\Controllers\CronJobController;
 use App\Http\Controllers\Dashboard\AnaylticsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ReportController;
 
 // Volunteer Management
 use App\Http\Controllers\DatabaseTestController;
-use App\Http\Controllers\Profile\ProfileController;
+// Log COntroller
+use App\Http\Controllers\LogController;
 
 // User Management
-use App\Http\Controllers\UserManagement\UserListController;
-use App\Http\Controllers\UserManagement\UserViewController;
-use App\Http\Controllers\Visitor\LandingController;
-use App\Http\Controllers\VolunteerManagement\ApplicationController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\Services\ServiceController;
 
 // Visitor
-use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserManagement\UserListController;
+use App\Http\Controllers\UserManagement\UserViewController;
 
 //notification
-use App\Http\Controllers\NotificationController;
-
-
-//cronJob
-use App\Http\Controllers\CronJobController;
+use App\Http\Controllers\Visitor\LandingController;
+use App\Http\Controllers\VolunteerManagement\ApplicationController;
+use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,15 +93,15 @@ Route::post('/register/resend-otp', [RegisterController::class, 'resendOTP'])->n
 Route::middleware(['access_level:0,1'])->group(function () {
 
 //Schedule
-Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
-Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
-Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
-Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
-Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
+    Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
+    Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
+    Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
+    Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
+    Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
 
 //Services
-Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
-Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
+    Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
+    Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
 
 // Dashboard
     Route::get('/osca-dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -162,11 +163,9 @@ Route::middleware(['access_level:0,1'])->group(function () {
     Route::get('/generate-pdf', [ReportController::class, 'generatePDF'])->name('generatePDF');
 });
 
-
 //notification
 Route::get('/notification', [NotificationController::class, 'notificationList'])->name('notificationList');
 Route::get('/notification/update/{id}', [NotificationController::class, 'NotificationUpdate'])->name('NotificationUpdate');
-
 
 //cronjob
 Route::get('/restriction', [CronJobController::class, 'restriction'])->name('restriction');
@@ -175,6 +174,9 @@ Route::get('/schedule/reminder/today', [CronJobController::class, 'reminderSched
 Route::get('/schedule/update', [CronJobController::class, 'updateSchedule'])->name('updateSchedule');
 Route::get('/volunteer/reminder/tomorrow', [CronJobController::class, 'reminderVolunteerTomorrow'])->name('reminderVolunteerTomorrow');
 Route::get('/volunteer/reminder/today', [CronJobController::class, 'reminderVolunteerToday'])->name('reminderVolunteerToday');
-Route::get('/updateAge', [CronJobController::class, 'updateAge'])->name('updateAge');
+Route::get('/update-age', [CronJobController::class, 'updateAge'])->name('updateAge');
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
+Route::match (['get', 'post'], '/chatbox-botman', [BotmanController::class, 'enterRequest']);
+Route::get('/get-logs', [LogController::class, 'getLogs'])->name('getLogs');
+Route::get('/api-logs', [LogController::class, 'apiLogs'])->name('apiLogs');
