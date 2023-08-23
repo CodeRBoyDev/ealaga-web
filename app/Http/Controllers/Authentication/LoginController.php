@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogController;
 use Auth;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+// Make sure to import the BaseController
+
+class LoginController extends LogController
 {
     /**
      * Display a listing of the resource.
@@ -115,6 +117,13 @@ class LoginController extends Controller
             $isEmailFormat = filter_var($credentials['email'], FILTER_VALIDATE_EMAIL);
 
             if ($isEmailFormat && Auth::attempt($credentials)) {
+                $user_id = Auth::user()->id;
+                $action = 'Login'; // Example
+                $details = 'Login with Email'; // Example
+                $url = $request->fullUrl();
+                $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+                $logController = new LogController();
+                $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
                 // Check if the user's is_active is 1 (active) or 0 (inactive)
                 if (Auth::user()->is_active === 1) {
                     if (Auth::user()->role !== 2) {
@@ -131,6 +140,15 @@ class LoginController extends Controller
             } else {
                 if (Auth::attempt(['username' => $credentials['email'], 'password' => $credentials['password']])) {
                     // Check if the user's is_active is 1 (active) or 0 (inactive)
+
+                    $user_id = Auth::user()->id;
+                    $action = 'Login';
+                    $details = 'Login with Username';
+                    $url = $request->fullUrl();
+                    $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+                    $logController = new LogController();
+                    $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
+
                     if (Auth::user()->is_active === 1) {
                         if (Auth::user()->role !== 2) {
                             // If the user is an admin, redirect to the admin dashboard or any other admin route
@@ -139,6 +157,7 @@ class LoginController extends Controller
                             // If the user is not an admin, redirect to the client dashboard or any other default route for non-admin users
                             return response()->json(['success' => true, 'data' => 'ClientHome']);
                         }
+
                     } else {
                         // Inactive user
                         return response()->json(['success' => false, 'message' => 'User is inactive']);

@@ -69,7 +69,25 @@
                                                         <div class="mb-9">
                                                             <!--begin::Badge-->
                                                             <div class="badge badge-light-info d-inline">
-                                                                {{ $userData->role === 0 ? 'Administrator' : ($userData->role === 1 ? 'Personnel' : 'Client') }}
+                                                                @if ($userData->role === 0)
+                                                                    Administrator
+                                                                @endif
+                                                                @if ($userData->role === 1)
+                                                                    Personnel
+                                                                @endif
+
+                                                                @if ($userData->role === 2)
+                                                                    @if ($userData->status === 0)
+                                                                        Pending
+                                                                    @elseif ($userData->status === 1)
+                                                                        Verified
+                                                                    @elseif ($userData->status === 2)
+                                                                        Not Verified
+                                                                    @elseif (is_null($userData->status))
+                                                                        Please Upload Senior Id
+                                                                    @endif
+                                                                @endif
+
                                                             </div>
                                                             <!--begin::Badge-->
                                                         </div>

@@ -178,7 +178,10 @@ class ProfileController extends Controller
                 $jsonValidIdPaths = json_encode($validIdPaths);
 
                 // Update the user record with the serialized valid ID paths in the users table
-                DB::table('users')->where('id', $userId)->update(['valid_id' => $jsonValidIdPaths]);
+                DB::table('users')->where('id', $userId)->update([
+                    'valid_id' => $jsonValidIdPaths,
+                    'status' => 0,
+                ]);
             }
 
             // Return response

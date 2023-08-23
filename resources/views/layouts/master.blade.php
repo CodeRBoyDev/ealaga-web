@@ -1,5 +1,4 @@
-<html lang="en">
-
+<!DOCTYPE html>
 <!--begin::Head-->
 
 <head>
@@ -19,10 +18,10 @@
             request()->route()->getName() === 'generatePDF' ||
             request()->route()->getName() === 'volunteerList' ||
             request()->route()->getName() === 'applicationList' ||
-            request()->route()->getName() === 'ServiceList'||
-            request()->route()->getName() === 'schedule' || 
-            request()->route()->getName() === 'scheduleQRscanner'
-            )
+            request()->route()->getName() === 'ServiceList' ||
+            request()->route()->getName() === 'schedule' ||
+            request()->route()->getName() === 'scheduleQRscanner' ||
+            request()->route()->getName() === 'getLogs')
         <!--begin::Page Vendor Stylesheets(used by this page)-->
         <link href="{{ asset('admin/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
             type="text/css" />
@@ -44,8 +43,7 @@
             request()->route()->getName() === 'ClientScheduleHistory' ||
             request()->route()->getName() === 'ClientVolunteerList' ||
             request()->route()->getName() === 'emailOTP' ||
-            request()->route()->getName() === 'VisitorLanding' 
-            )
+            request()->route()->getName() === 'VisitorLanding')
         <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
         @stack('styles')
@@ -56,7 +54,6 @@
     @endif
 
 </head>
-
 <!--end::Head-->
 
 <body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_VisitorLanding_menu" data-bs-offset="200"
@@ -78,53 +75,21 @@
             request()->route()->getName() != 'profilePage' &&
             request()->route()->getName() != 'reportList' &&
             request()->route()->getName() != 'generatePDF' &&
-            request()->route()->getName() != 'ServiceList' && 
+            request()->route()->getName() != 'ServiceList' &&
             request()->route()->getName() != 'schedule' &&
-            request()->route()->getName() != 'scheduleQRscanner' 
-            )
+            request()->route()->getName() != 'scheduleQRscanner' &&
+            request()->route()->getName() != 'getLogs')
         @include('layouts.header')
     @endif
     <!-- Your other content goes here -->
 
     <div id="sample">
-
+        @include('botman.chatbox');
     </div>
     <!--begin::Main-->
     <div>
         @yield('content')
     </div>
-    <!--end::Main-->
-    {{-- @if (request()->route()->getName() != 'dashboard' &&
-    request()->route()->getName() != 'userList' &&
-    request()->route()->getName() != 'userView' &&
-    request()->route()->getName() != 'comorbidityList')
-        <script>
-            var hostUrl = "client/";
-        </script>
-        <!--begin::Javascript-->
-        <!--begin::Global Javascript Bundle(used by all pages)-->
-        <script src="{{ asset('client/plugins/global/plugins.bundle.js') }}"></script>
-        <script src="{{ asset('client/js/scripts.bundle.js') }}"></script>
-        <!--end::Global Javascript Bundle-->
-        <!--begin::Page Custom Javascript(used by this page)-->
-        @stack('scripts')
-        <!--end::Page Custom Javascript-->
-        <!--end::Javascript-->
-    @else
-        <!-- Push the JS assets to the 'scripts' stack -->
-        <script>
-            var hostUrl = "admin/";
-        </script>
-        <!--begin::Javascript-->
-        <!--begin::Global Javascript Bundle(used by all pages)-->
-        <script src="{{ asset('admin/plugins/global/plugins.bundle.js') }}"></script>
-        <script src="{{ asset('admin/js/scripts.bundle.js') }}"></script>
-        <!--end::Global Javascript Bundle-->
-        <!--begin::Page Custom Javascript(used by this page)-->
-        @stack('adminScripts')
-        <!--end::Page Custom Javascript-->
-        <!--end::Javascript-->
-    @endif --}}
     <script src="{{ asset('client/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('client/js/scripts.bundle.js') }}"></script>
     <script src="{{ asset('admin/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>

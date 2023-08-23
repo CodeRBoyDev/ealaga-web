@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\UserManagement;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogController;
 use App\Mail\EmailNotification;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class UserListController extends Controller
+class UserListController extends LogController
 {
     /**
      * Display a listing of the resource.
@@ -361,6 +362,14 @@ class UserListController extends Controller
                 // Update the user record with the serialized valid ID paths in the users table
                 DB::table('users')->where('id', $userId)->update(['valid_id' => $jsonValidIdPaths]);
             }
+
+            $user_id = Auth::user()->id;
+            $action = 'Update'; // Example
+            $details = 'Update User Information of User #' . $userId; // Example
+            $url = $request->fullUrl();
+            $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
+            $logController = new LogController();
+            $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
 
             // Return response
             return response()->json(['success' => true, 'message' => 'User updated successfully']);
