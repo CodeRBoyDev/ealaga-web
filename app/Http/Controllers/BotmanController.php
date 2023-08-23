@@ -76,6 +76,10 @@ class BotmanController extends Controller
                 $this->replyHealthcareServicesInfo($botman);
             } elseif ($this->isPaymentQuestion($lowercaseMessage)) {
                 $this->replyPaymentInfo($botman);
+            } elseif ($this->isAccompanyQuestion($lowercaseMessage)) {
+                $this->replyToAccompanyQuestion($botman);
+            } elseif ($this->isNeedRegistrationQuestion($lowercaseMessage)) {
+                $this->replyToRegistrationQuestion($botman);
             } else {
                 $this->fallbackReply($botman); // Handle questions the bot can't answer
             }
@@ -174,10 +178,12 @@ class BotmanController extends Controller
             strpos($lowercaseMessage, 'what are the services') !== false ||
             strpos($lowercaseMessage, 'ano ang mga services') !== false ||
             strpos($lowercaseMessage, 'ano ang mga service') !== false ||
-            strpos($lowercaseMessage, 'services') !== false ||
-            strpos($lowercaseMessage, 'service') !== false ||
-            strpos($lowercaseMessage, 'serbisyo') !== false
+            strpos($lowercaseMessage, 'serbisyo') !== false ||
+            (strpos($lowercaseMessage, 'ano') !== false && strpos($lowercaseMessage, 'service') !== false) ||
+            (strpos($lowercaseMessage, 'ano') !== false && strpos($lowercaseMessage, 'serbisyo') !== false) ||
+            (strpos($lowercaseMessage, 'what') !== false && strpos($lowercaseMessage, 'service') !== false)
         );
+
     }
 
     public function replyServiceList($botman)
@@ -192,13 +198,16 @@ class BotmanController extends Controller
     {
         $lowercaseMessage = strtolower($message);
         return (
-            strpos($lowercaseMessage, 'what') !== false ||
+            strpos($lowercaseMessage, 'what') !== false &&
             strpos($lowercaseMessage, 'center for the elderly') !== false
         ) || (
-            strpos($lowercaseMessage, 'about') !== false ||
-            strpos($lowercaseMessage, 'center for the elderly') !== false
+            strpos($lowercaseMessage, 'about') !== false &&
+            strpos($lowercaseMessage, 'elderly') !== false
         ) || (
-            strpos($lowercaseMessage, 'meaning') !== false ||
+            strpos($lowercaseMessage, 'about') !== false &&
+            strpos($lowercaseMessage, 'center') !== false
+        ) || (
+            strpos($lowercaseMessage, 'meaning') !== false &&
             strpos($lowercaseMessage, 'center for the elderly') !== false
         );
     }
@@ -241,7 +250,7 @@ class BotmanController extends Controller
     }
     public function isRegistrationQuestion($message)
     {
-        $registrationKeywords = ['register', 'how to register', 'how can I register', 'registration process'];
+        $registrationKeywords = ['paano', 'paano mag register ', 'how to register', 'how can I register', 'registration process'];
 
         foreach ($registrationKeywords as $keyword) {
             if (strpos($message, $keyword) !== false) {
@@ -292,7 +301,8 @@ class BotmanController extends Controller
     public function isEnrollQuestion($message)
     {
         $lowercaseMessage = strtolower($message);
-        return strpos($lowercaseMessage, 'enroll') !== false || strpos($lowercaseMessage, 'avail') !== false;
+        return strpos($lowercaseMessage, 'enroll') !== false ||
+            (strpos($lowercaseMessage, 'paano') !== false && strpos($lowercaseMessage, 'avail') !== false);
     }
 
     public function replyEnrollInfo($botman)
@@ -481,7 +491,11 @@ class BotmanController extends Controller
         strpos($lowercaseMessage, 'sino ang pwedeng sumali sa center') !== false ||
             (strpos($lowercaseMessage, 'sino') !== false && strpos($lowercaseMessage, 'eligible') !== false) ||
             (strpos($lowercaseMessage, 'sino') !== false && strpos($lowercaseMessage, 'sumali') !== false) ||
-            (strpos($lowercaseMessage, 'eligible') !== false || strpos($lowercaseMessage, 'sumali') !== false);
+            (strpos($lowercaseMessage, 'eligible') !== false || strpos($lowercaseMessage, 'sumali') !== false) ||
+            (strpos($lowercaseMessage, 'pwede') !== false && strpos($lowercaseMessage, 'taguig') !== false) ||
+            (strpos($lowercaseMessage, 'puwede') !== false && strpos($lowercaseMessage, 'taguig') !== false) ||
+            (strpos($lowercaseMessage, 'taga') !== false && strpos($lowercaseMessage, 'taguig') !== false) ||
+            (strpos($lowercaseMessage, 'tiga') !== false && strpos($lowercaseMessage, 'taguig') !== false);
     }
 
     public function replyWhosEligibleInfo($botman)
@@ -586,5 +600,53 @@ class BotmanController extends Controller
         $paymentInfo = "Our services are offered for free, but there might be fees associated with certain specialized services. Please contact us for detailed information on fees and payment options.";
         $botman->reply($paymentInfo);
     }
+    public function isAccompanyQuestion($message)
+    {
+        // Define keywords to identify the question
+        $keywords = ['accompany', 'someone with me', 'kasama'];
 
+        // Convert the user's message to lowercase for case-insensitive matching
+        $lowercaseMessage = strtolower($message);
+
+        // Check if any of the keywords are present in the message
+        foreach ($keywords as $keyword) {
+            if (strpos($lowercaseMessage, $keyword) !== false) {
+                return true; // The question is found
+            }
+        }
+
+        return false; // The question is not found
+    }
+
+// Function to reply to the accompany question
+    public function replyToAccompanyQuestion($botman)
+    {
+        // Reply to the user's question
+        $botman->reply("Certainly! Someone can accompany you. Please provide us with more details about the event and your preferences.");
+    }
+
+    public function isNeedRegistrationQuestion($message)
+    {
+        // Define keywords to identify the question
+        $keywords = ['sign up', 'need to register', 'required to register'];
+
+        // Convert the user's message to lowercase for case-insensitive matching
+        $lowercaseMessage = strtolower($message);
+
+        // Check if any of the keywords are present in the message
+        foreach ($keywords as $keyword) {
+            if (strpos($lowercaseMessage, $keyword) !== false) {
+                return true; // The question is found
+            }
+        }
+
+        return false; // The question is not found
+    }
+
+// Function to reply to the registration question
+    public function replyToRegistrationQuestion($botman)
+    {
+        // Reply to the user's question
+        $botman->reply("Yes, you need to register to avail our services. Registration helps us provide you with a better experience and tailored services. You can easily register on our website or contact our customer support for assistance.");
+    }
 }
