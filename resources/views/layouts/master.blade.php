@@ -50,8 +50,8 @@
             request()->route()->getName() === 'forgotPassword' 
             
             )
-        <link href="{{ asset('client/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('client/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <link href="/client/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+        <link href="/client/css/style.bundle.css" rel="stylesheet" type="text/css" />
         @stack('styles')
     @else
         <!--begin::Global Stylesheets Bundle(Certain Page and User)-->
@@ -96,9 +96,9 @@
     <div>
         @yield('content')
     </div>
-    <script src="{{ asset('client/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('client/js/scripts.bundle.js') }}"></script>
-    <script src="{{ asset('admin/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+    <script src="/client/plugins/global/plugins.bundle.js"></script>
+    <script src="/client/js/scripts.bundle.js"></script>
+    <script src="/admin/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
     @stack('scripts')
     @stack('adminScripts')
     
