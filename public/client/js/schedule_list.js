@@ -133,7 +133,7 @@ $(document).ready(function () {
           
   
             if (schedule?.status === 0) {
-              statusText = "Pending";
+              statusText = "To attend";
               statusbadgeColorClass = "badge-light-warning"; // Change to your desired class for today's date
           }
          else if (schedule?.status === 1) {

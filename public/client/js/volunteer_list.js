@@ -232,6 +232,9 @@ $(document).ready(function () {
                   secondCardData = '<h1>No volunteers available.</h1>';
                 } else{
                 data.volunteer.forEach(function (volunteer) {
+                 
+                  const volunteer_id = volunteer?.id;
+
                     // Generate HTML for each volunteer
                     firstCardData +=
                         ` <div class="vol-card">
@@ -241,8 +244,15 @@ $(document).ready(function () {
                           <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${volunteer.num_volunteers_needed}</div></span>
                           ${volunteer.required_skills !== null ? `<span class="vol-card-details">Must have:<div class="inline-div text-gray-600">${volunteer.required_skills}</div></span>` : `<span class=" required vol-card-details">No skills needed<div class="inline-div text-gray-600"></div></span>`}
                           <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(volunteer.scheduled_date)} | ${formatDummyTime(volunteer.scheduled_time)}</div></span>
-                          <button id="submit_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-submit_modal_view="${volunteer.id}">Apply</button>
-                        </div>
+                    ${
+                      data.is_volunteered.includes(volunteer_id)
+                      ?
+                        `<span class="badge badge-light-info fs-7 ms-2">Applied</span>`
+                      :
+                    ` <button id="submit_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-submit_modal_view="${volunteer.id}">Apply</button>`
+
+                    } 
+                          </div>
                       </div> `;
                 });
               };
@@ -345,12 +355,22 @@ $(document).ready(function () {
                         volunteer_id: id // Pass the volunteer ID to the backend
                     },
                     beforeSend: function () {
-                        Swal.fire({
-                          text: "Loading.....",
-                          showCancelButton: false,
-                          showConfirmButton: false,
-                          allowOutsideClick: false, // Disable clicking outside the modal to close it
-                        });
+                      Swal.fire({
+                        html: `
+                        <div class="fv-row mb-7">
+                        <div style="margin-top: 10px;" class="loader">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        </div>
+                                          </div>
+                        `,
+                        // icon: "success",
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                      });
                     },
                     success: function (response) {
                       // Handle success response, if needed
@@ -407,12 +427,22 @@ $(document).ready(function () {
                   params_volunteer_application_id: id // Pass the volunteer ID to the backend
                 },
                 beforeSend: function () {
-                    Swal.fire({
-                      text: "Loading.....",
-                      showCancelButton: false,
-                      showConfirmButton: false,
-                      allowOutsideClick: false, // Disable clicking outside the modal to close it
-                    });
+                  Swal.fire({
+                    html: `
+                    <div class="fv-row mb-7">
+                    <div style="margin-top: 10px;" class="loader">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    </div>
+                                      </div>
+                    `,
+                    // icon: "success",
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                  });
                 },
                 success: function (response) {
                   // Handle success response, if needed

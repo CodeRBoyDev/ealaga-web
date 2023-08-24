@@ -102,6 +102,14 @@
                                <li class="breadcrumb-item text-dark">Application Management</li>
                            @elseif(Route::currentRouteName() === 'getLogs' ? 'active' : '')
                                <li class="breadcrumb-item text-dark">Activity Logs</li>
+                           @elseif(Route::currentRouteName() === 'schedule' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Schedule</li>
+                           @elseif(Route::currentRouteName() === 'ServiceList' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Services</li>
+                           @elseif(Route::currentRouteName() === 'HolidaysView' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">Holiday</li>
+                           @elseif(Route::currentRouteName() === 'scheduleQRscanner' ? 'active' : '')
+                               <li class="breadcrumb-item text-dark">QR Code Scanner</li>
                            @else
                                <li class="breadcrumb-item text-dark">404 Page Not Found</li>
                            @endif

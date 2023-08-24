@@ -321,7 +321,7 @@
                                             placeholder="Full name" value="" />
                                         <button type="button" class="btn btn-light-primary"
                                             id="search_fullname" data-kt-menu-trigger="click"
-                                            data-kt-menu-placement="bottom-end">
+                                            data-kt-menu-placement="top-end">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24"/>

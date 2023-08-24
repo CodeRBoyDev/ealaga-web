@@ -187,7 +187,7 @@ class CronJobController extends Controller
 
             $schedulesToday = DB::table('schedule')
                 ->where('status', 0)
-                ->whereDate('schedule_date', $currentDate->format('Y-m-d'))
+                ->whereDate('schedule_date', "<=" , $currentDate->format('Y-m-d'))
                 ->get();
 
             foreach ($schedulesToday as $schedule) {

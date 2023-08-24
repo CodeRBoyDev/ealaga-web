@@ -38,7 +38,7 @@
                          </button>
                          <!--end::Mobile menu toggle-->
                          <!--begin::Logo image-->
-                         <a href="../../demo9/dist/landing.html">
+                         <a href="/">
                              <img alt="Logo" src="client/media/logos/logotaguig.png"
                                  class="logo-default h-25px h-lg-50px" />
                              <img alt="Logo" src="client/media/logos/logotaguig.png"
