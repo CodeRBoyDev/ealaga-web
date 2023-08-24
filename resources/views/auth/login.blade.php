@@ -116,5 +116,5 @@
 
 @push('scripts')
     <!-- Push the JS client to the 'scripts' stack -->
-    <script src="{{ asset('client/js/custom/authentication/sign-in/general.js') }}"></script>
+    <script src="/client/js/custom/authentication/sign-in/general.js"></script>
 @endpush
