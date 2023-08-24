@@ -65,7 +65,7 @@
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Show a list of available healthcare services offered by the Center for the Elderly.
 									<br />
-								<br />b. Pick a service from the options available (e.g. recreational activities, dialysis, multipurpose hall, etc.).</div>
+								<br />b. Pick a service from the options available (e.g. Therapy Pool, Massage, Sauna, Gym, Yoga, Balroom, etc.).</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -91,7 +91,7 @@
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Provide options for the user to select their preferred date and time for the service.
 									<br />
-								<br />b. Show available slots for the selected date and time and Allow the user to pick a slot that works best for them.</div>
+								<br />b. System will display available slots for the selected date and time. If there is no avaiable slot, schedule will not proceed.</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -115,7 +115,8 @@
 								</div>
 								<!--end::Heading-->
 								<!--begin::Description-->
-								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Confirm the details of the user's selected service, date, and time, and slot.
+								<div class="fw-bold fs-6 fs-lg-4 text-muted ff-futura">a. Confirm the details of the user's selected service, date, and time.
+									<br />
 									<br />
 								<br />b. Generate a proof of confirmation in the form of QR codes that contains necessary details.</div>
 								<!--end::Description-->

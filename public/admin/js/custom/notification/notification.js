@@ -109,9 +109,6 @@ $(document).ready(function () {
                         showCancelButton: false,
                         showConfirmButton: false,
                         allowOutsideClick: false,
-                        didOpen: () => {
-                          animateText();
-                        }
                       });
                 },
                 success: function (data) {
