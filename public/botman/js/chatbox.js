@@ -1446,7 +1446,7 @@
                 bottom: "0px",
                 right: "0px",
                 zIndex: 2147483647,
-                minWidth: "400px",
+                minWidth: "100px",
                 boxSizing: "content-box",
                 overflow: "hidden",
                 minHeight: "120px",
@@ -1456,7 +1456,7 @@
                 bottom: "0px",
                 right: "0px",
                 zIndex: 2147483647,
-                minWidth: "400px",
+                minWidth: "100px",
                 boxSizing: "content-box",
                 overflow: "hidden",
                 minHeight: "120px",
@@ -2177,7 +2177,7 @@
         });
         var o = {
             chatServer: "/chatbox-botman",
-            frameEndpoint: "/botman/chat",
+            frameEndpoint: "/chat",
             timeFormat: "HH:MM",
             dateTimeFormat: "m/d/yy HH:MM",
             title: "Center ChatBot",
