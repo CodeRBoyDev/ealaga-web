@@ -112,8 +112,8 @@ class BotmanController extends Controller
         strpos($lowercaseMessage, 'location') !== false ||
         strpos($lowercaseMessage, 'lugar') !== false ||
             (strpos($lowercaseMessage, 'saan') !== false &&
-            strpos($lowercaseMessage, 'center') !== false);
-        (strpos($lowercaseMessage, 'paano') !== false &&
+            strpos($lowercaseMessage, 'center') !== false) ||
+            (strpos($lowercaseMessage, 'paano') !== false &&
             strpos($lowercaseMessage, 'pumunta') !== false);
 
     }
@@ -128,7 +128,7 @@ class BotmanController extends Controller
 
     public function isGreeting($message)
     {
-        return in_array($message, ['hi', 'hello']);
+        return in_array($message, ['hi', 'hello', 'yow', 'sup', 'holla', 'musta', 'kamusta', 'kumusta']);
     }
 
     public function replyGreeting($botman)
