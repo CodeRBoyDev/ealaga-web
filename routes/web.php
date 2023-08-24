@@ -1,8 +1,8 @@
 <?php
 // Authentication
+use App\Http\Controllers\Authentication\ForgotPasswordController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
-use App\Http\Controllers\Authentication\ForgotPasswordController;
 
 //Services
 use App\Http\Controllers\BotmanController;
@@ -25,24 +25,23 @@ use App\Http\Controllers\Dashboard\ReportController;
 // Volunteer Management
 use App\Http\Controllers\DatabaseTestController;
 // Log COntroller
-use App\Http\Controllers\LogController;
+use App\Http\Controllers\HolidayController;
 
 // User Management
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Profile\ProfileController;
-use App\Http\Controllers\Services\ServiceController;
 
 // Visitor
+use App\Http\Controllers\Services\ServiceController;
 use App\Http\Controllers\UserManagement\UserListController;
-use App\Http\Controllers\UserManagement\UserViewController;
 
 //notification
+use App\Http\Controllers\UserManagement\UserViewController;
 use App\Http\Controllers\Visitor\LandingController;
 use App\Http\Controllers\VolunteerManagement\ApplicationController;
 use App\Http\Controllers\VolunteerManagement\PersonnelVolunteerController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HolidayController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -101,22 +100,21 @@ Route::post('/forgot-password/resend-otp', [ForgotPasswordController::class, 'fo
 Route::middleware(['access_level:0,1'])->group(function () {
 
 //Schedule
-Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
-Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
-Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
-Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
-Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
-Route::get('/schedule/disable-date', [ScheduleController::class, 'scheduleDateDisable'])->name('scheduleDateDisable');
-Route::get('/schedule/slot', [ScheduleController::class, 'scheduleSlot'])->name('scheduleSlot');
-Route::post('/schedule/add', [ScheduleController::class, 'ScheduleAdd'])->name('ScheduleAdd');
+    Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
+    Route::get('/schedule/view/{id}', [ScheduleController::class, 'scheduleView'])->name('scheduleView');
+    Route::post('/schedule/accept/{id}', [ScheduleController::class, 'scheduleAccept'])->name('scheduleAccept');
+    Route::post('/schedule/search', [ScheduleController::class, 'scheduleSearch'])->name('scheduleSearch');
+    Route::get('/schedule/qrscanner', [ScheduleController::class, 'scheduleQRscanner'])->name('scheduleQRscanner');
+    Route::get('/schedule/disable-date', [ScheduleController::class, 'scheduleDateDisable'])->name('scheduleDateDisable');
+    Route::get('/schedule/slot', [ScheduleController::class, 'scheduleSlot'])->name('scheduleSlot');
+    Route::post('/schedule/add', [ScheduleController::class, 'ScheduleAdd'])->name('ScheduleAdd');
 
 //Services
-Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
-Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
-Route::get('/service/edit/{id}', [ServiceController::class, 'ServiceEdit'])->name('ServiceEdit');
-Route::post('/service/update/{id}', [ServiceController::class, 'ServiceUpdate'])->name('ServiceUpdate');
-Route::delete('/service/delete/{id}', [ServiceController::class, 'ServiceDelete'])->name('ServiceDelete');
-
+    Route::get('/service', [ServiceController::class, 'ServiceList'])->name('ServiceList');
+    Route::post('/service/add', [ServiceController::class, 'ServiceAdd'])->name('ServiceAdd');
+    Route::get('/service/edit/{id}', [ServiceController::class, 'ServiceEdit'])->name('ServiceEdit');
+    Route::post('/service/update/{id}', [ServiceController::class, 'ServiceUpdate'])->name('ServiceUpdate');
+    Route::delete('/service/delete/{id}', [ServiceController::class, 'ServiceDelete'])->name('ServiceDelete');
 
 // Dashboard
     Route::get('/osca-dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -167,7 +165,6 @@ Route::delete('/service/delete/{id}', [ServiceController::class, 'ServiceDelete'
     Route::post('/holiday/add', [HolidayController::class, 'HolidayAdd'])->name('HolidayAdd');
     Route::delete('/holiday/delete/{id}', [HolidayController::class, 'HolidayDelete'])->name('HolidayDelete');
 
-
 });
 Route::middleware(['access_level:0,1,2'])->group(function () {
 // Profile Page
@@ -206,3 +203,6 @@ Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
 Route::match (['get', 'post'], '/chatbox-botman', [BotmanController::class, 'enterRequest']);
 Route::get('/get-logs', [LogController::class, 'getLogs'])->name('getLogs');
 Route::get('/api-logs', [LogController::class, 'apiLogs'])->name('apiLogs');
+Route::get('/chat', function () {
+    return view('botman.chat');
+})->name('chat');
