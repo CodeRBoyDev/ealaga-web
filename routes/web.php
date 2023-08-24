@@ -202,8 +202,11 @@ Route::get('/update-age', [CronJobController::class, 'updateAge'])->name('update
 
 Route::get('/test-database', [DatabaseTestController::class, 'testDatabase']);
 Route::match (['get', 'post'], '/chatbox-botman', [BotmanController::class, 'enterRequest']);
-Route::get('/get-logs', [LogController::class, 'getLogs'])->name('getLogs');
-Route::get('/api-logs', [LogController::class, 'apiLogs'])->name('apiLogs');
+Route::middleware(['access_level:0,1'])->group(function () {
+    // Logs
+    Route::get('/get-logs', [LogController::class, 'getLogs'])->name('getLogs');
+    Route::get('/api-logs', [LogController::class, 'apiLogs'])->name('apiLogs');
+    });
 Route::get('/chat', function () {
     return view('botman.chat');
 })->name('chat');

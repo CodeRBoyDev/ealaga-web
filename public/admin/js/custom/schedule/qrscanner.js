@@ -57,11 +57,21 @@ $(document).ready(function () {
                             processData: false,
                             beforeSend: function () {
                                 Swal.fire({
-                                    text: "Loading.....",
+                                    html: `
+                                    <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                      </div>
+                                    `,
+                                    // icon: "success",
                                     showCancelButton: false,
                                     showConfirmButton: false,
-                                    allowOutsideClick: false, // Disable clicking outside the modal to close it
-                                });
+                                    allowOutsideClick: false,
+                                  });
                             },
                             success: function (data) {
                                 Swal.close();

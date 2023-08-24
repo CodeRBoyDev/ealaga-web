@@ -30,6 +30,11 @@ class VolunteerController extends Controller
                 ->where('volunteer.scheduled_date', '>=', $this->getCurrentDateAsiaManila())
                 ->get();
 
+                $isVolunteered = DB::table('params_volunteer_application')
+                ->where('user_id', $user_id)
+                ->pluck('volunteer_id')
+                ->toArray();
+
                 $applications = DB::table('params_volunteer_application')
                 ->select('params_volunteer_application.*', 'volunteer.title', 'volunteer.description', 'volunteer.num_volunteers_needed', 'volunteer.required_skills', 'volunteer.scheduled_date', 'volunteer.scheduled_time')
                 ->leftJoin('volunteer', 'volunteer.id', '=', 'params_volunteer_application.volunteer_id')
@@ -46,7 +51,7 @@ class VolunteerController extends Controller
                 ->get();
                 
                 if (request()->ajax()) {
-                    return response()->json(['volunteer' => $volunteers, 'application' => $applications, 'history' => $histories]);
+                    return response()->json(['is_volunteered' => $isVolunteered, 'volunteer' => $volunteers, 'application' => $applications, 'history' => $histories]);
     
                 }
                 return view('client.volunteer', compact('volunteers','applications','histories'));
