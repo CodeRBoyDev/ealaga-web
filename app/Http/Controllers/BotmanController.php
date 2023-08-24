@@ -757,6 +757,7 @@ class BotmanController extends Controller
             'what is the booking procedure',
             'how do I schedule an appointment',
             'can you guide me on booking a slot',
+            'how to book',
 
             // Mixed English and Tagalog
             'paano mag book ng schedule',
@@ -785,6 +786,10 @@ class BotmanController extends Controller
             'paano ko isaschedule ang appointment',
             'maari mo bang tulungan ako sa pag book ng slot',
             'paano mag book',
+            'paano magbook',
+            'magschedule',
+            'magbook',
+
         ];
 
         // Convert the user's message to lowercase for case-insensitive matching
@@ -845,6 +850,7 @@ class BotmanController extends Controller
             'dapat bang sumipot',
             'need ko bang puntahan',
             'need ko bang pumunta',
+            'umattend',
 
             // Tagalog translations with short forms
             'kailangan ko bang pumunta',
