@@ -34,7 +34,7 @@
                      </button>
                      <!--end::Edit-->
 
-                     <!--begin::Logout-->
+                     {{-- <!--begin::Logout-->
                      @if (auth()->user()->role === 2)
                          <a href="{{ route('logout') }}" style="color: inherit; text-decoration: none;">
                              <button type="button" class="btn btn-sm btn-flex btn-primary me-3"
@@ -58,7 +58,7 @@
                              </button>
                          </a>
                      @endif
-                     <!--end::Logout-->
+                     <!--end::Logout--> --}}
 
                  </div>
              </div>

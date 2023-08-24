@@ -27,11 +27,11 @@ var KTCreateApp = (function () {
               a.classList.remove("d-none"));
         }),
         i.on("kt.stepper.next", function (e) {
-          //console.log("stepper.next");
+          // console.log("stepper.next");
           var t = n[e.getCurrentStepIndex() - 1];
           t
             ? t.validate().then(function (t) {
-                //console.log("validated!"),
+                // console.log("validated!"),
                   "Valid" == t
                     ? e.goNext()
                     : Swal.fire({
@@ -45,7 +45,8 @@ var KTCreateApp = (function () {
             : (e.goNext(), KTUtil.scrollTop());
         }),
         i.on("kt.stepper.previous", function (e) {
-          //console.log("stepper.previous"), e.goPrevious(), KTUtil.scrollTop();
+          // console.log("stepper.previous"), 
+          e.goPrevious(), KTUtil.scrollTop();
         }),
         n.push(
           FormValidation.formValidation(o, {
@@ -194,7 +195,7 @@ $(document).ready(function () {
     .filter(([_, scheduleTimes]) => scheduleTimes[0] === 2 && scheduleTimes[1] === 2)
     .map(([date]) => date);
 
-    //console.log("Disabled Dates:", disabledDates);
+    // console.log("Disabled Dates:", disabledDates);
 
 
   
@@ -342,7 +343,7 @@ $(document).on("change", ".service-checkbox", function() {
         $("#available_slot_display").text("");
       },
       success: function (data) {
-        //console.log(data);
+        // console.log(data);
        
         $("#slot_loader").hide();
 
@@ -441,11 +442,11 @@ $(document).on("change", ".service-checkbox", function() {
        $("#summary_schedule_details").html(newRowHtml);
    });
 
-   // //console.log(checkedServiceData);
+   // console.log(checkedServiceData);
   $("#create_schedule_form").submit(function (event) {
     event.preventDefault(); // prevent default form submission
 
-    //console.log(checkedServiceData); 
+    // console.log(checkedServiceData); 
 
     var formData = new FormData();
     formData.append("service_id", checkedServiceData);
@@ -453,7 +454,7 @@ $(document).on("change", ".service-checkbox", function() {
     formData.append("schedule_date", $("#date_input").val());
     
 
-    // //console.log(checkedServiceData, $("#time_input").val(), $("#date_input").val())
+    // console.log(checkedServiceData, $("#time_input").val(), $("#date_input").val())
 
 
     Swal.fire({
@@ -487,7 +488,7 @@ $(document).on("change", ".service-checkbox", function() {
             });
           },
           success: function (response) {
-            //console.log(response);
+            // console.log(response);
             Swal.close();
         
             // Add a delay before showing the success SweetAlert

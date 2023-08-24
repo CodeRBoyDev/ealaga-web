@@ -304,7 +304,7 @@ class RegisterController extends Controller
                 DB::table('users')->where('email', $userEmail)->update($userData);
 
                 // Sending Email
-                $userEmail = $request->input('email');
+                $userEmail = $request->input('userEmail');
                 $subject = 'Verify Your New eAlaga Account - Resend Confirmation Email';
                 $userData = [
                     'receiver_name' => session('firstname') . ' ' . session('lastname'),

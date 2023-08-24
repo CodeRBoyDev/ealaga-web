@@ -248,7 +248,7 @@
         </div>
 													</div>
           <div id="successMessage">
-            <span id="redirectText">Redirect you to my history page...</span>
+            <span id="redirectText">Redirect you to volunteer page...</span>
           </div>
         `,
         // icon: "success",

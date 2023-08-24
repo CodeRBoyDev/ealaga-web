@@ -204,14 +204,22 @@ $(document).ready(function () {
       return time.toLocaleTimeString([], options);
   }
 
+
+    $("#loader_div").hide();
+
     function loadVolunteerList() {
         $.ajax({
             url: "/client/volunteer",
             type: "GET",
+            beforeSend: function () {
+              $("#loader_div").show();
+            },
             success: function (data) {
-                console.log("Volunteer Data:", data.volunteer);
-                console.log("Application Data:", data.application);
-                console.log("History Data:", data.history);
+                //console.log("Volunteer Data:", data.volunteer);
+                //console.log("Application Data:", data.application);
+                //console.log("History Data:", data.history);
+
+                $("#loader_div").hide();
 
                 let firstCardData = ""; 
                 let secondCardData = "";
@@ -220,6 +228,9 @@ $(document).ready(function () {
                 totalApplicationEntries = data.application?.length;
                 totalHistoryEntries = data.history?.length;
 
+                if (data.volunteer.length === 0) {
+                  secondCardData = '<h1>No volunteers available.</h1>';
+                } else{
                 data.volunteer.forEach(function (volunteer) {
                     // Generate HTML for each volunteer
                     firstCardData +=
@@ -234,33 +245,48 @@ $(document).ready(function () {
                         </div>
                       </div> `;
                 });
+              };
 
-                data.application.forEach(function (application) {
-                  let statusClass = application.status === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Pending</div></span>'
-                 : application.status === 1 ? '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Approved</div></span>'
-                 : application.status === 2 ? '<span class="vol-card-details">Status:<div class="inline-div text-red-600">Denied</div></span>'
-                 : '';
-                  let cancelButton = application.status === 0 ? `<button id="cancel_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-cancel_modal_view="${application.id}">Cancel</button>` : '';
-                  let dateClass = application.status === 0
-                  ? `<span class="vol-card-details">Application date:<div class="inline-div text-gray-600">${formatDate(application.created_at)} | ${formatTime(application.created_at)}</div></span>`
-                  : `<span class="vol-card-details">Volunteer date:<div class="inline-div text-gray-600">${formatDate(application.scheduled_date)} | ${formatDummyTime(application.scheduled_time)}</div></span>`;
+                if (data.application.length === 0) {
+                  secondCardData = '<h1>No applications available.</h1>';
+                } else {
+                    data.application.forEach(function (application) {
+                        let statusClass = application.status === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Pending</div></span>'
+                            : application.status === 1 ? '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Approved</div></span>'
+                                : application.status === 2 ? '<span class="vol-card-details">Status:<div class="inline-div text-red-600">Denied</div></span>'
+                                    : '';
+                        let cancelButton = application.status === 0 ? `<button id="cancel_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-cancel_modal_view="${application.id}">Cancel</button>` : '';
+                        let dateClass = application.status === 0
+                            ? `<span class="vol-card-details">Application date:<div class="inline-div text-gray-600">${formatDate(application.created_at)} | ${formatTime(application.created_at)}</div></span>`
+                            : `<span class="vol-card-details">Volunteer date:<div class="inline-div text-gray-600">${formatDate(application.scheduled_date)} | ${formatDummyTime(application.scheduled_time)}</div></span>`;
+                
+                        secondCardData +=
+                            ` <div class="vol-card">
+                                <div class="vol-card-content">
+                                    <h3 class="vol-card-title">${application.title}</h3>
+                                    <span class="vol-card-details">Description:<div class="inline-div text-gray-600">${application.description}</div></span>
+                                    <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${application.num_volunteers_needed}</div></span>
+                                    ${statusClass}
+                                    ${dateClass}
+                                    ${cancelButton}
+                                </div>
+                            </div> `;
+                    });
+                }
+              
 
-                  secondCardData +=
-                      ` <div class="vol-card">
-                      <div class="vol-card-content">
-                        <h3 class="vol-card-title">${application.title}</h3>
-                        <span class="vol-card-details">Description:<div class="inline-div text-gray-600">${application.description}</div></span>
-                        <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${application.num_volunteers_needed}</div></span>
-                        ${statusClass}
-                        ${dateClass}
-                        ${cancelButton}
-                      </div>
-                    </div> `;
-              });
-
+                if (data.history.length === 0) {
+                  secondCardData = '<h1>No histories available.</h1>';
+                } else {
                 data.history.forEach(function (history) {
-                  let isAttendedStatus = history.is_attended === 0 ? '<span class="vol-card-details">Status:<div class="inline-div text-yellow-600">Not attended</div></span>'
-                  : '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Attended</div></span>'
+                  //console.log(history.is_attended);
+                  let isAttendedStatus =
+                        (history.is_attended === null || history.is_attended === 0) && history.status !== 2
+                        ? '<span class="vol-card-details">Status:<div class="inline-div text-red-600">Not attended</div></span>'
+                        : history.status === 2
+                        ? '<span class="vol-card-details">Status:<div class="inline-div text-blue-600">Denied</div></span>'
+                        :
+                        '<span class="vol-card-details">Status:<div class="inline-div text-green-600">Attended</div></span>'
 
                   thirdCardData +=
                       ` <div class="vol-card">
@@ -270,10 +296,11 @@ $(document).ready(function () {
                         <span class="vol-card-details">Vacancy:<div class="inline-div text-gray-600">${history.num_volunteers_needed}</div></span>
                         <span class="vol-card-details">Schedule:<div class="inline-div text-gray-600">${formatDate(history.scheduled_date)} | ${formatDummyTime(history.scheduled_time)}</div></span>
                         ${isAttendedStatus}
-                        <button id="delete_modal_view" class="vol-card-button btn btn-sm btn-light btn-active-light-primary" data-submit_modal_view="${history.id}">Delete</button>
+                      
                       </div>
                     </div> `;
               });
+            };
 
                 $("#volunteer_row_div").html(firstCardData); 
                 $("#application_row_div").html(secondCardData);
@@ -294,7 +321,7 @@ $(document).ready(function () {
     $(document).on("click", "#submit_modal_view", function (event) {
         event.preventDefault();
         var id = $(this).data("submit_modal_view");
-        console.log(id);
+        //console.log(id);
         
         Swal.fire({
             text: "Are you sure you would like to volunteer?",
@@ -309,7 +336,7 @@ $(document).ready(function () {
             }
         }).then(function (result) {
             if (result.isConfirmed) {
-                console.log(id);
+                //console.log(id);
                 // Perform AJAX POST request to submit the application
                 $.ajax({
                     url: "/client/volunteer/submit", // Replace with the actual route in your backend
@@ -327,7 +354,7 @@ $(document).ready(function () {
                     },
                     success: function (response) {
                       // Handle success response, if needed
-                      console.log("Application submitted successfully:", response);
+                      //console.log("Application submitted successfully:", response);
                   
                       // Close the initial loading Swal
                       Swal.close();
@@ -356,7 +383,7 @@ $(document).ready(function () {
     $(document).on("click", "#cancel_modal_view", function (event) {
       event.preventDefault();
       var id = $(this).data("cancel_modal_view");
-      console.log(id);
+      //console.log(id);
       
       Swal.fire({
           text: "Are you sure you would like to cancel?",
@@ -371,7 +398,7 @@ $(document).ready(function () {
           }
       }).then(function (result) {
         if (result.isConfirmed) {
-            console.log(id);
+            //console.log(id);
             // Perform AJAX POST request to submit the application
             $.ajax({
                 url: "/client/volunteer/delete", // Replace with the actual route in your backend
@@ -389,7 +416,7 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                   // Handle success response, if needed
-                  console.log("Application submitted successfully:", response);
+                  //console.log("Application submitted successfully:", response);
               
                   // Close the initial loading Swal
                   Swal.close();
@@ -457,9 +484,13 @@ $(document).ready(function () {
         Swal.fire({
           html: `
           <div class="fv-row mb-7">
-                              <span
-                                class="spinner-border spinner-border-lg align-middle ms-2"></span>
-                            </div>
+          <div style="margin-top: 10px;" class="loader">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          </div>
+                                                      </div>
             <div id="successMessage">
               <span id="redirectText">Redirect you to home page...</span>
             </div>

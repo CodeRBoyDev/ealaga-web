@@ -2,6 +2,7 @@
 @section('content')
 
        <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
+	   <link href="{{ asset('/client/css/loader.css') }}" rel="stylesheet" type="text/css" />
        {{-- <link href="/client/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" /> --}}
    	<!--begin::Body-->
        <div class="body_background header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
@@ -88,13 +89,22 @@
 											<!--end::Nav item-->
 											<!--begin::Nav item-->
 											<li class="nav-item">
-												<a id="history_view" class="nav-link text-active-primary me-6" href="../">History</a>
+												<a id="history_view" class="nav-link text-active-primary me-6" href="#">History</a>
 											</li>
 											<!--end::Nav item-->
 										</ul>
 									</div>
 									<!--end::Navs-->
 									<!--begin::Addresses-->
+									<div id="loader_div" style="text-align: center;">
+										<div class="loader">
+											<span class="dot"></span>
+											<span class="dot"></span>
+											<span class="dot"></span>
+											<span class="dot"></span>
+										  </div>
+									</div>
+
 									<div id="volunteer_row_div" class="card-wrapper">
 										
 									</div>
