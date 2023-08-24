@@ -55331,6 +55331,10 @@ body {
     }
   }
 
+        .text-blue-600 {
+            color: #1A4798 !important
+            }
+
     .text-yellow-600 {
         color: var(--yellow) !important
     }

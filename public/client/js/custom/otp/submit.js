@@ -69,15 +69,25 @@ $(document).ready(function () {
             }
 
             Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
+                html: `
+                <div class="fv-row mb-7">
+                <div style="margin-top: 10px;" class="loader">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                </div>
+                                  </div>
+                  <div id="successMessage">
+                    <span id="redirectText">Please wait while we process your request...</span>
+                  </div>
+                `,
+                // icon: "success",
                 showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                },
-            });
+                showConfirmButton: false,
+                allowOutsideClick: false,
+              });
+              
             let otp = "";
             otpInputs.forEach((input) => {
                 otp += input.value;
@@ -140,15 +150,25 @@ $(document).ready(function () {
             userEmail = userEmailElement.textContent; // Get the text content of the element
 
             Swal.fire({
-                title: "Loading...",
-                html: "Please wait while we process your request",
-                allowOutsideClick: false,
-                showConfirmButton: false,
+                html: `
+                <div class="fv-row mb-7">
+                <div style="margin-top: 10px;" class="loader">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                </div>
+                                  </div>
+                  <div id="successMessage">
+                    <span id="redirectText">Please wait while we process your request...</span>
+                  </div>
+                `,
+                // icon: "success",
                 showCancelButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                },
-            });
+                showConfirmButton: false,
+                allowOutsideClick: false,
+              });
+
             let data = { userEmail: userEmail };
             $.ajax({
                 url: `/register/resend-otp`,

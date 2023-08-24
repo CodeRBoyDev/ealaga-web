@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <!--begin::Main-->
+    <link href="{{ asset('/client/css/loader.css') }}" rel="stylesheet" type="text/css" />
+    
     <div class="d-flex flex-column flex-root" style="height: 100vh;">
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid" style="height: 100%;">

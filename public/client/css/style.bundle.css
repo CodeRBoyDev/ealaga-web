@@ -7499,7 +7499,7 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-    color: #009ef7
+    color: #1A4798
 }
 
 .link-primary:focus,
@@ -39767,8 +39767,8 @@ a:hover {
 
 .btn.btn-primary {
     color: #fff;
-    border-color: #009ef7;
-    background-color: #009ef7
+    border-color: #1A4798;
+    background-color: #1A4798
 }
 
 .btn.btn-primary i {

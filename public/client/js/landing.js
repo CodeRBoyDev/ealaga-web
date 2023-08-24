@@ -6,22 +6,13 @@ $(document).ready(function () {
     });
 
     const backgroundContainer = document.querySelector(".bg-no-repeat");
-    const now = new Date();
-
-    // Specify the time zone as 'Asia/Manila'
-    const options = { timeZone: 'Asia/Manila', hour: 'numeric' };
-    const formatter = new Intl.DateTimeFormat('en-US', options);
-
-    // Format the current time in Asia/Manila time zone
-    const localTime = formatter.format(now);
-
-    // Extract the hour from the formatted time
-    const currentHour = parseInt(localTime);
-
-    // console.log('TIME -', currentHour);
+   
+    const now = moment();
+    const currentHour = now.format('H');
 
     // Change background image after 6:00 PM 
-    if (currentHour <= 6) {
+    if (currentHour >= 18 || currentHour < 6) {
+        // Nighttime (6:00 PM to 5:59 AM)
         backgroundContainer.style.backgroundImage = "url(client/media/svg/illustrations/banner_buildings.svg), url(client/media/svg/illustrations/night.jpg)";
         backgroundContainer.style.backgroundSize = "100% auto, cover";
         backgroundContainer.style.backgroundPosition = "0% 100%, center";
@@ -46,7 +37,7 @@ $(document).ready(function () {
                     const isActive = index === 0 ? 'active' : '';
                     sliderHtml +=
                         `<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10 ${isActive}">
-                            <img src="${announcement.image}" class="card-rounded shadow mw-100" alt="" />
+                            <img src="${announcement.img_path}" class="card-rounded shadow mw-100" alt="" />
                         </div>`;
                 });
 

@@ -94,16 +94,27 @@ var KTSignupGeneral = (function () {
                         t.setAttribute("data-kt-indicator", "on");
                         t.disabled = true;
                         let formData = new FormData(e);
+
                         Swal.fire({
-                            title: "Loading...",
-                            html: "Please wait while we process your request",
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
+                            html: `
+                            <div class="fv-row mb-7">
+                            <div style="margin-top: 10px;" class="loader">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            </div>
+                                              </div>
+                              <div id="successMessage">
+                                <span id="redirectText">Please wait while we process your request...</span>
+                              </div>
+                            `,
+                            // icon: "success",
                             showCancelButton: false,
-                            onBeforeOpen: () => {
-                                Swal.showLoading();
-                            },
-                        });
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                          });
+
                         // Make an AJAX request
                         fetch("/register", {
                             method: "POST",

@@ -710,6 +710,94 @@ $(document).ready(function () {
             });
         });
     };
+
+
+    const handleCheckboxChange = () => {
+        const checkbox = document.getElementById("kt_modal_is_active");
+        const userStatusText = document.getElementById("userStatusText");
+
+        const userStatusDescription = document.getElementById(
+            "userStatusDescription"
+        );
+
+        checkbox.addEventListener("change", function () {
+            let userId = this.getAttribute("data-user-id");
+            
+            const isActive = this.checked ? 1 : 0;
+
+            // Make an AJAX request to update the user's is_active status
+            updateUserStatus(userId, isActive);
+            // Update user status text and description
+            userStatusText.textContent =
+                isActive === 1 ? "Activated" : "Deactivated";
+            userStatusDescription.textContent =
+                isActive === 1
+                    ? "Account is currently active and usable"
+                    : "Account has been deactivated and is not currently usable";
+        });
+    };
+
+    const updateUserStatus = (userId, isActive) => {
+
+        console.log(userId);
+        Swal.fire({
+            html: ` <div class="fv-row mb-7">
+                                    <div style="margin-top: 10px;" class="loader">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    </div>
+                                                                                </div>
+                                    <div id="successMessage">
+                                        <span id="redirectText">Please wait while we process your request</span>
+                                    </div>
+                                    `,
+            // icon: "success",
+            showCancelButton: false,
+            showConfirmButton: false,
+            allowOutsideClick: false,
+        });
+        let data = {
+            is_active: isActive,
+        };
+
+        $.ajax({
+            url: `/profile/${userId}/is-active`,
+            type: "POST",
+            data: JSON.stringify(data), // Stringify the data
+            contentType: "application/json", // Set content type to JSON
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        text: "User Updated successfully!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        },
+                    });
+                } else {
+                    Swal.fire({
+                        text: response.message,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        },
+                    });
+                }
+            },
+            error: function (error) {
+                // Handle the error response here
+                console.error(error);
+                Swal.close();
+            },
+        });
+    };
+
     // Add an event listener to the document to handle clicks on the "Edit" link
     $(document).on(
         "click",
@@ -724,4 +812,6 @@ $(document).ready(function () {
         KTModalEditUserForm.init();
     });
     profileComorbidity();
+
+    handleCheckboxChange();
 });

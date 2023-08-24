@@ -40,7 +40,8 @@ class VolunteerController extends Controller
                 $histories = DB::table('volunteer')
                 ->select('volunteer.*', 'params_volunteer_application.status', 'params_volunteer_application.is_attended')
                 ->leftJoin('params_volunteer_application', 'params_volunteer_application.volunteer_id', '=', 'volunteer.id')
-                ->where('params_volunteer_application.status', '=', 1)
+                // ->where('params_volunteer_application.status', '=', 1)
+                ->where('params_volunteer_application.user_id', '=', $user_id)
                 ->where('volunteer.scheduled_date', '<', $this->getCurrentDateAsiaManila())
                 ->get();
                 

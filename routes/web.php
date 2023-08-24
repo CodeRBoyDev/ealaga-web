@@ -178,6 +178,7 @@ Route::middleware(['access_level:0,1,2'])->group(function () {
     Route::post('/profile-email', [ProfileController::class, 'profileEmail'])->name('profileEmail');
     Route::post('/profile-password', [ProfileController::class, 'profilePassword'])->name('profilePassword');
     Route::post('/profile-username', [ProfileController::class, 'profileUsername'])->name('profileUsername');
+    Route::post('/profile/{userId}/is-active', [UserViewController::class, 'isActive'])->name('profileActive');
 });
 Route::middleware(['access_level:0,1'])->group(function () {
 // Report Management
