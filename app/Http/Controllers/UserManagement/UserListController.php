@@ -196,7 +196,7 @@ class UserListController extends LogController
             $checkemail = $request->input('user_email');
             if ($checkemail) {
                 # code...
-                $userEmail = $request->input('email');
+                $userEmail = $request->input('user_email');
                 $subject = 'Login Credentials- Center For the eldery';
                 $userData = [
                     'receiver_name' => $request->input('first_name') . ' ' . $request->input('last_name'),
@@ -370,6 +370,16 @@ class UserListController extends LogController
             $httpMethod = $request->method(); // Get the HTTP method (POST, PUT, etc.)
             $logController = new LogController();
             $logController->logActivity($user_id, $action, $details, $url, $httpMethod);
+
+            if($request->input('status') == 1){
+                DB::table('notification')->insert([
+                    'user_id' => $userId ?? null,
+                    'title' => "Verified Account" ?? null,
+                    'message' => "We are pleased to inform you that your valid id has been successfully verified.",
+                    'timestamp' => date('Y-m-d H:i:s') ?? null,
+
+                ]);
+            }
 
             // Return response
             return response()->json(['success' => true, 'message' => 'User updated successfully']);

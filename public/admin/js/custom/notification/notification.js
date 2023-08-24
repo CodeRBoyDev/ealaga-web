@@ -147,6 +147,20 @@ $(document).ready(function () {
                   }
 
                   ${
+                    data?.notification?.title == "Verified Account"
+                    ?
+                     `
+                     <a class="btn btn-sm btn-light btn-active-light-danger" 
+                     href="/profile-page"
+                     >
+                     View Account Status
+                     </a>  
+                    `
+                    :
+                    ""
+                }
+
+                  ${
                     data?.notification?.title == "Schedule Reminder"
                     ?
                      `

@@ -284,7 +284,8 @@ $(document).ready(function () {
     $("#fullname").val(fullname).prop("disabled", true);
     $("#schedule_content").hide();
     $("#indicator_search_loading").hide();
-
+    $(".menu-sub-dropdown").removeClass("show");
+    
     $.ajax({
       url: "/schedule/disable-date",
       type: "GET",
@@ -297,6 +298,7 @@ $(document).ready(function () {
       success: function (data) {
         //console.log(data)
 
+        
         $("#indicator_search_loading").hide();
         $("#schedule_content").show();
 
@@ -584,10 +586,20 @@ $("#reset_fullname").on("click", function (e) {
                   $('#schedule_submit_button').prop('disabled', true);
                   $('#schedule_back_button').prop('disabled', true);
                   Swal.fire({
-                    text: "Loading.....",
+                    html: `
+                    <div class="fv-row mb-7">
+                    <div style="margin-top: 10px;" class="loader">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    </div>
+                                      </div>
+                    `,
+                    // icon: "success",
                     showCancelButton: false,
                     showConfirmButton: false,
-                    allowOutsideClick: false, // Disable clicking outside the modal to close it
+                    allowOutsideClick: false,
                   });
                 },
                 success: function (response) {
@@ -658,10 +670,20 @@ $("#reset_fullname").on("click", function (e) {
           processData: false,
           beforeSend: function () {
             Swal.fire({
-              text: "Loading.....",
+              html: `
+              <div class="fv-row mb-7">
+              <div style="margin-top: 10px;" class="loader">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              </div>
+                                </div>
+              `,
+              // icon: "success",
               showCancelButton: false,
               showConfirmButton: false,
-              allowOutsideClick: false, // Disable clicking outside the modal to close it
+              allowOutsideClick: false,
             });
         },
           success: function (data) {
@@ -704,10 +726,20 @@ $("#reset_fullname").on("click", function (e) {
       type: "GET",
       beforeSend: function () {
         Swal.fire({
-          text: "Loading.....",
+          html: `
+          <div class="fv-row mb-7">
+          <div style="margin-top: 10px;" class="loader">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          </div>
+                            </div>
+          `,
+          // icon: "success",
           showCancelButton: false,
           showConfirmButton: false,
-          allowOutsideClick: false, // Disable clicking outside the modal to close it
+          allowOutsideClick: false,
         });
     },
       success: function (data) {

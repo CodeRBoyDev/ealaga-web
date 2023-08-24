@@ -192,7 +192,7 @@ $(document).ready(function () {
 
       // Step 2: Filter the dates with both schedule_time 0 and 1 having a total of 10
     const disabledDates = Object.entries(groupedByDate)
-    .filter(([_, scheduleTimes]) => scheduleTimes[0] === 2 && scheduleTimes[1] === 2)
+    .filter(([_, scheduleTimes]) => scheduleTimes[0] === 50 && scheduleTimes[1] === 50)
     .map(([date]) => date);
 
     // console.log("Disabled Dates:", disabledDates);
@@ -222,9 +222,9 @@ $(document).ready(function () {
     const total1 = selectedDateTotals.find(item => item.schedule_time === 1)?.total || 0;
 
     // // Check if either total0 or total1 is equal to 10
-    if (total0 === 2) {
+    if (total0 === 50) {
       $("#time_input option[value='0']").remove();
-    }else if(total1 === 2){
+    }else if(total1 === 50){
       $("#time_input option[value='1']").remove();
     }else{
       $("#time_input option[value='0']").remove();
@@ -481,10 +481,23 @@ $(document).on("change", ".service-checkbox", function() {
             $('#schedule_submit_button').prop('disabled', true);
             $('#schedule_back_button').prop('disabled', true);
             Swal.fire({
-              text: "Loading.....",
+              html: `
+              <div class="fv-row mb-7">
+              <div style="margin-top: 10px;" class="loader">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              </div>
+                                </div>
+                <div id="successMessage">
+                  <span id="redirectText">Please wait while proccessing your schedule...</span>
+                </div>
+              `,
+              // icon: "success",
               showCancelButton: false,
               showConfirmButton: false,
-              allowOutsideClick: false, // Disable clicking outside the modal to close it
+              allowOutsideClick: false,
             });
           },
           success: function (response) {
@@ -496,12 +509,6 @@ $(document).on("change", ".service-checkbox", function() {
             Swal.fire({
               html: `
                 <div id="successMessage">
-                <div style="margin-top: 10px;" class="loader">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                </div>
                   <span id="redirectText">Redirect you to homepage...</span>
                 </div>
               `,
