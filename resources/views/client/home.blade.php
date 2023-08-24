@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
-    <link href="{{ asset('/client/css/custom.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('/client/css/loader.css') }}" rel="stylesheet" type="text/css" />
+    <link href="/client/css/custom.css'" rel="stylesheet" type="text/css" />
+	<link href="/client/css/loader.css'" rel="stylesheet" type="text/css" />
 
    	<!--begin::Body-->
 	<div class="body_background header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
