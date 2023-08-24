@@ -80,6 +80,12 @@ class BotmanController extends Controller
                 $this->replyToAccompanyQuestion($botman);
             } elseif ($this->isNeedRegistrationQuestion($lowercaseMessage)) {
                 $this->replyToRegistrationQuestion($botman);
+            } elseif ($this->isAvailEveryDayQuestion($lowercaseMessage)) {
+                $this->replyAvailEveryDayInfo($botman);
+            } elseif ($this->isHowTOBookQuestion($lowercaseMessage)) {
+                $this->replyisHowTOBookInfo($botman);
+            } elseif ($this->isAttendanceQuestion($lowercaseMessage)) {
+                $this->replyAttendaneInfo($botman);
             } else {
                 $this->fallbackReply($botman); // Handle questions the bot can't answer
             }
@@ -105,8 +111,10 @@ class BotmanController extends Controller
         return strpos($lowercaseMessage, 'address') !== false ||
         strpos($lowercaseMessage, 'location') !== false ||
         strpos($lowercaseMessage, 'lugar') !== false ||
-        strpos($lowercaseMessage, 'saan') !== false ||
-        strpos($lowercaseMessage, 'pumunta') !== false;
+            (strpos($lowercaseMessage, 'saan') !== false &&
+            strpos($lowercaseMessage, 'center') !== false);
+        (strpos($lowercaseMessage, 'paano') !== false &&
+            strpos($lowercaseMessage, 'pumunta') !== false);
 
     }
 
@@ -250,7 +258,7 @@ class BotmanController extends Controller
     }
     public function isRegistrationQuestion($message)
     {
-        $registrationKeywords = ['paano', 'paano mag register ', 'how to register', 'how can I register', 'registration process'];
+        $registrationKeywords = ['paano mag register ', 'how to register', 'how can I register', 'registration process'];
 
         foreach ($registrationKeywords as $keyword) {
             if (strpos($message, $keyword) !== false) {
@@ -648,5 +656,256 @@ class BotmanController extends Controller
     {
         // Reply to the user's question
         $botman->reply("Yes, you need to register to avail our services. Registration helps us provide you with a better experience and tailored services. You can easily register on our website or contact our customer support for assistance.");
+    }
+
+    public function isAvailEveryDayQuestion($message)
+    {
+        // Define keywords to identify the question
+        $keywords = [
+            'can I use your services every day',
+            'are the center\'s services accessible on a daily basis',
+            'is it possible to utilize the center\'s services daily',
+            'can I make use of your services every day of the week',
+            'do you offer services on a daily basis',
+            'are your services open for use every day',
+            'is the center\'s assistance accessible daily',
+            'do your services operate on a daily schedule',
+            'can I avail your center\'s services daily without any restrictions',
+            'are your services available for me to use every day',
+            'can I access your services daily',
+            'do I have the option to use your services every day',
+            'is daily usage of your services allowed',
+            'is there a limit to how often I can avail your services',
+            'are your services offered daily',
+            'is it permissible to use your services every day',
+            'are there any restrictions on daily service usage',
+            'can I use your services 7 days a week',
+            'do your services have daily availability',
+            'is your service operational every day',
+            'can I get your services every day',
+            'can I utilize your services on a daily basis',
+            'do you provide services every day',
+            'is daily service utilization an option',
+            'can I take advantage of your services daily',
+            'can i avail everyday',
+            'can i book schedule everyday',
+            'pwede ba araw araw mag pa schedule',
+            'can i avail the center services everyday',
+
+            // Tagalog translations
+            'pwede ko bang gamitin ang inyong serbisyo araw araw',
+            'maa-access ba ang mga serbisyo ng sentro araw araw',
+            'maaari bang gamitin ang mga serbisyo ng sentro araw araw',
+            'pwede ko bang gamitin ang inyong serbisyo tuwing araw ng linggo',
+            'nag-aalok ba kayo ng serbisyo araw araw',
+            'bukas ba ang inyong mga serbisyo para sa araw araw na paggamit',
+            'maa-access ba ang tulong ng sentro araw araw',
+            'nag-ooperate ba ang inyong mga serbisyo sa iskedyul na araw araw',
+            'maaari bang gamitin ang mga serbisyo ng inyong sentro araw araw nang walang anumang mga limitasyon',
+            'magagamit ba ang inyong mga serbisyo para sa akin araw araw',
+            'maaari bang magamit ang inyong mga serbisyo araw araw',
+            'mayroon ba akong opsyon na gamitin ang inyong mga serbisyo araw araw',
+            'pinapahintulutan ba ang araw araw na paggamit ng inyong mga serbisyo',
+            'may limitasyon ba sa kung gaano kadalas ako makapagamit ng inyong mga serbisyo',
+            'iniaalok ba ang inyong mga serbisyo araw araw',
+            'maaari bang gamitin ang inyong mga serbisyo araw araw',
+            'may mga limitasyon ba sa araw araw na paggamit ng serbisyo',
+            'pwede ba akong gumamit ng inyong mga serbisyo ng 7 araw sa isang linggo',
+            'nagkakaroon ba ng araw araw na availability ang inyong mga serbisyo',
+            'nag-ooperate ba ang inyong serbisyo araw araw',
+            'maaari bang makuha ang inyong mga serbisyo araw araw',
+            'maaari bang gamitin ang inyong mga serbisyo araw araw',
+            'nagbibigay ba kayo ng mga serbisyo araw araw',
+            'may opsyon bang araw araw na paggamit ng serbisyo',
+            'maaari bang gamitin ang inyong mga serbisyo araw araw',
+            'pwede ba akong mag-avail araw araw',
+            'pwede ba akong mag-book ng schedule araw araw',
+            'pwede ba araw araw',
+        ];
+
+        // Convert the user's message to lowercase for case-insensitive matching
+        $lowercaseMessage = strtolower($message);
+
+        // Check if any of the keywords are present in the message
+        foreach ($keywords as $keyword) {
+            if (strpos($lowercaseMessage, $keyword) !== false) {
+                return true; // The question is found
+            }
+        }
+
+        return false; // The question is not found
+    }
+
+    public function replyAvailEveryDayInfo($botman)
+    {
+        // Reply to the user's question
+        $botman->reply("Yes, absolutely! Our services are available for you every day.");
+    }
+
+    public function isHowTOBookQuestion($message)
+    {
+        // Define keywords to identify the question
+        $keywords = [
+            // English phrases
+            'how to book a schedule',
+            'steps to schedule an appointment',
+            'procedure to make a booking',
+            'how can I reserve a time slot',
+            'process of scheduling a visit',
+            'ways to book an appointment',
+            'booking a schedule guide',
+            'what is the booking procedure',
+            'how do I schedule an appointment',
+            'can you guide me on booking a slot',
+
+            // Mixed English and Tagalog
+            'paano mag book ng schedule',
+            'steps sa pag schedule ng appointment',
+            'ano ang proseso sa paggawa ng booking',
+            'paano mag reserba ng time slot',
+            'proseso ng pag schedule ng bisita',
+            'mga paraan sa pag book ng appointment',
+            'guide sa pag book ng iskedyul',
+            'ano ang proseso ng pag book',
+            'paano ko isaschedule ang appointment',
+            'maari mo ba akong tulungan sa pag book ng slot',
+            'paano mag pa schedule',
+            'paano mag pa book',
+            'paano mag pa appointment',
+
+            // Tagalog phrases
+            'paano mag book ng oras',
+            'mga hakbang sa pag schedule ng appointment',
+            'proseso sa paggawa ng booking',
+            'paano mag reserba ng time slot',
+            'pamamaraan ng pag schedule ng pagdalaw',
+            'mga paraan sa pag book ng appointment',
+            'gabay sa pag book ng iskedyul',
+            'ano ang proseso ng pag book',
+            'paano ko isaschedule ang appointment',
+            'maari mo bang tulungan ako sa pag book ng slot',
+            'paano mag book',
+        ];
+
+        // Convert the user's message to lowercase for case-insensitive matching
+        $lowercaseMessage = strtolower($message);
+
+        // Check if any of the keywords are present in the message
+        foreach ($keywords as $keyword) {
+            if (strpos($lowercaseMessage, $keyword) !== false) {
+                return true; // The question is found
+            }
+        }
+
+        return false; // The question is not found
+    }
+
+// Function to reply to the registration question
+    public function replyisHowTOBookInfo($botman)
+    {
+        // Reply to the user's question
+        $bookingReply = "To book a schedule, follow these steps:<br><br>" .
+            "1. Register or login to our system on our website.<br>" .
+            "2. Once logged in, navigate to your Homepage.<br>" .
+            "3. Click on the 'Add Schedule' option.<br>" .
+            "4. Select the services you want to book.<br>" .
+            "5. Choose a suitable date and time.<br>" .
+            "6. Confirm your booking.<br><br>" .
+            "Additionally, we also welcome walk-in appointments. Feel free to visit us at our location for immediate assistance.";
+
+        $botman->reply($bookingReply);
+    }
+
+    public function isAttendanceQuestion($message)
+    {
+        // Define keywords to identify the question
+        $attendanceKeywords = [
+            // Full phrases
+            'do I have to attend',
+            'is attendance required',
+            'is it necessary to show up',
+            'am I obligated to come to my schedule',
+            'is attending my appointment mandatory',
+            'do I need to be present for my appointment',
+            'do I need to show up to my schedule',
+            'do I need to be there for my appointment',
+            'is it a must to attend to my schedule',
+
+            // Short keywords
+            'need to attend',
+            'attendance required',
+            'necessary to show up',
+            'obligated to come',
+            'obligated to attend',
+
+            // Slangs and mixed phrases
+            'kailangan bang pumunta',
+            'kailangan bang sumipot',
+            'dapat bang pumunta',
+            'dapat bang sumipot',
+            'need ko bang puntahan',
+            'need ko bang pumunta',
+
+            // Tagalog translations with short forms
+            'kailangan ko bang pumunta',
+            'kailangan ba sumipot',
+            'dapat ba akong pumunta',
+        ];
+        $notAttendingKeywords = [
+            // Full phrases
+            'is it fine not to attend to my schedule',
+            'is it okay if I miss my appointment',
+            'can I skip my booked schedule',
+            'is it acceptable to not show up for my appointment',
+            'what happens if I don\'t come to my schedule',
+            'pwede bang hindi ako sumipot sa aking schedule',
+            'okay lang bang hindi pumunta sa aking appointment',
+            'pwede bang hindi ko na puntahan ang aking appointment',
+
+            // Short keywords
+            'not attending schedule',
+            'missing appointment',
+            'skip booked schedule',
+            'not showing up for appointment',
+            'not attending my appointment',
+
+            // Slangs and mixed phrases
+            'okay lang ba kung hindi ako pupunta sa schedule ko',
+            'pwede bang hindi ako mag-show sa schedule ko',
+            'pwede bang hindi ko puntahan yung schedule ko',
+            'okay lang ba kung hindi ako pupunta sa appointment ko',
+            'pwede bang hindi ako mag-show sa appointment ko',
+            'pwede bang hindi ko puntahan yung appointment ko',
+
+            // Tagalog translations with short forms
+            'pwede bang hindi sumipot sa schedule',
+            'hindi pumunta sa appointment',
+            'pwede bang hindi sumipot sa appointment',
+        ];
+
+        // Combine with the previous notAttendingKeywords array
+        $keywords = array_merge($notAttendingKeywords, $attendanceKeywords);
+
+        // Convert the user's message to lowercase for case-insensitive matching
+        $lowercaseMessage = strtolower($message);
+
+        // Check if any of the keywords are present in the message
+        foreach ($keywords as $keyword) {
+            if (strpos($lowercaseMessage, $keyword) !== false) {
+                return true; // The question is found
+            }
+        }
+
+        return false; // The question is not found
+    }
+
+    // Function to reply to the registration question
+    public function replyAttendaneInfo($botman)
+    {
+        // Reply to the user's question
+        $AttendingReply = "If you choose not to attend, please be aware that it might lead to account restrictions or other consequences. It's recommended to keep your appointments to ensure a smooth experience.";
+
+        $botman->reply($AttendingReply);
+
     }
 }
